@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athina Thomas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #6a0dad;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        .navbar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .visitor-count {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        h1 {
+            margin: 10px 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        .title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            animation: changeTitle 6s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="visitor-count">Visitors: <span id="visitor-count">0</span></div>
+    <div class="navbar">
+        <a href="https://your-hashnode-blog.com" target="_blank">Blog</a>
+        <a href="https://your-mkdocs-site.com" target="_blank">Notes</a>
+    </div>
+    <div class="content">
+        <img src="profile.jpg" alt="Athina Thomas" class="profile-img">
+        <h1>Athina Thomas</h1>
+        <p class="title">Cloud Security Engineer</p>
+    </div>
+
+    <script>
+        const titles = ["Cloud Security Engineer", "Threat Researcher", "Explorer"];
+        let index = 0;
+        function changeTitle() {
+            document.querySelector(".title").textContent = titles[index];
+            index = (index + 1) % titles.length;
+        }
+        setInterval(changeTitle, 3000);
+
+        // Visitor count logic
+        function updateVisitorCount() {
+            let count = localStorage.getItem("visitorCount") || 0;
+            count++;
+            localStorage.setItem("visitorCount", count);
+            document.getElementById("visitor-count").textContent = count;
+        }
+        updateVisitorCount();
+    </script>
+</body>
+</html>
