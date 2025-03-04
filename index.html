@@ -53,10 +53,19 @@
             font-size: 2.5rem;
             font-weight: 700;
         }
-        .title {
+        .title-container {
             font-size: 1.5rem;
             font-weight: 400;
-            animation: changeTitle 6s infinite;
+        }
+        .title-container span {
+            color: black;
+        }
+        .dynamic-title {
+            color: white;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
         }
     </style>
 </head>
@@ -69,17 +78,34 @@
     <div class="content">
         <img src="profile.jpg" alt="Athina Thomas" class="profile-img">
         <h1>Athina Thomas</h1>
-        <p class="title">Cloud Security Engineer</p>
+        <p class="title-container"><span>I am </span><span class="dynamic-title"></span></p>
     </div>
 
     <script>
-        const titles = ["Cloud Security Engineer", "Threat Researcher", "Explorer"];
+        const titles = ["a Cloud Security Engineer", "an Artist", "a Threat Researcher", "an Explorer"];
         let index = 0;
-        function changeTitle() {
-            document.querySelector(".title").textContent = titles[index];
-            index = (index + 1) % titles.length;
+        const titleElement = document.querySelector(".dynamic-title");
+        function typeTitle() {
+            let title = titles[index];
+            let i = 0;
+            titleElement.textContent = "";
+            function typeCharacter() {
+                if (i < title.length) {
+                    titleElement.textContent += title[i];
+                    i++;
+                    setTimeout(typeCharacter, 100);
+                } else {
+                    setTimeout(changeTitle, 2000);
+                }
+            }
+            typeCharacter();
         }
-        setInterval(changeTitle, 3000);
+        function changeTitle() {
+            index = (index + 1) % titles.length;
+            titleElement.textContent = "";
+            typeTitle();
+        }
+        typeTitle();
 
         // Visitor count logic
         function updateVisitorCount() {
