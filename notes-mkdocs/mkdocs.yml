@@ -1,1 +1,113 @@
-site_name: My Docs
+site_name: ArtistUniverse
+# site_url: notes.artistunverse.tech
+
+theme: 
+  name: material
+# custom_dir: overrides
+  favicon: images/favicon.png
+  language: en
+  icon:
+  logo: images/favicon.png
+  features:
+    - content.code.annotate
+    - content.code.copy
+    - content.tabs.link
+    - header.autohide
+    - announce.dismiss
+    - navigation.footer
+    - navigation.indexes
+    - navigation.sections
+    - navigation.tabs
+    - navigation.top
+    - navigation.path
+    - navigation.expand
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+
+  plugins:
+    - typeset
+    - search 
+
+  palette:
+
+    # Palette toggle for dark mode
+    - scheme: default
+      primary: deep purple
+      accent: yellow
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for light mode
+    - scheme: slate
+      primary: deep purple
+      accent: yellow
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - attr_list
+
+# if you want to be able to use emojis
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji 
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# table of contents with permalink
+  - toc:
+      permalink: true
+
+# make custom admonitions
+extra_css:
+  - 
+
+extra:
+  generator: true
+  social:
+    - icon: simple/youtube
+      link: https://www.youtube.com/@ArtistUniverseUntouched
+
+nav:
+  - Home: index.md
+# - About: about.md
+  - Knowledge Base Notes:
+     - TryHackMe:
+        - Red Teaming Path:
+           - Intro to C2: TryHackMe/Red Teaming/Red Team Fundamentals/Intro to C2.md
+           - Red Team Engagements: TryHackMe/Red Teaming/Red Team Fundamentals/Red Team Engagements.md
+           - Red Team Fundamentals: TryHackMe/Red Teaming/Red Team Fundamentals/Red Team Fundamentals.md
+           - Red Team OPSEC: TryHackMe/Red Teaming/Red Team Fundamentals/Red Team OPSEC.md
+           - Red Team Threat Intel: TryHackMe/Red Teaming/Red Team Fundamentals/Red Team Threat Intel.md
+     - CloudSLAW:
+          Labs:
+            Create and Secure Your First Admin User: CloudSLAW/Create and Secure Your First Admin User.md
+            Turn on CloudTrail: CloudSLAW/Turn on CloudTrail.md
+            Timmy's First CloudFormation: CloudSLAW/Timmy's First CloudFormation.md
+            Follow the Money!: CloudSLAW/Follow the Money!.md
+            Create Your First AWS IAM Role: CloudSLAW/Create Your First AWS IAM Role.md
+            Write a Simple IAM Policy: CloudSLAW/Write a Simple IAM Policy.md
+            Enable AWS Organizations: CloudSLAW/Enable AWS Organizations.md
+            Give Your Account a Security Blanket with SCPs: CloudSLAW/Give Your Account a Security Blanket with SCPs.md
+            Assume the Role! (Centralized Logging, Part 1): CloudSLAW/Assume the Role! (Centralized Logging, Part 1).md
+            Secure that Bucket! (Centralized Logging Part 2), Resource Policies: CloudSLAW/Secure that Bucket! (Centralized Logging Part 2).md
+            Enabling the Org Trail (Centralized Logging Part 3): CloudSLAW/Enabling the Org Trail (Centralized Logging Part 3).md
+            Bring in the Fed(eration) SSO: CloudSLAW/Bring in the Fed(eration) SSO.md
+            Another Me? SSO with IAM Identity Center, Part 2: CloudSLAW/Another Me SSO with IAM Identity Center, Part 2.md
+            AWS LEGO Organizing the Org: CloudSLAW/AWS LEGO Organizing the Org.md
+            OUs, SCPs, and a Root User Account Recovery: CloudSLAW/OUs, SCPs, and a Root User Account Recovery.md
+            NotWhat?!? Lock Out Regions with a Double Negative SCP: CloudSLAW/NotWhat Lock Out Regions with a Double Negative SCP.md
+            On the Meaning of Life(cycles), Versions, and Ransomware: CloudSLAW/On the Meaning of Life(cycles), Versions, and Ransomware.md
+            Buttoning up the Org: CloudSLAW/Buttoning up the Org.md
+            Enable Delegated Administrator for Identity Center and CloudTrail: CloudSLAW/Enable Delegated Administrator for Identity Center and CloudTrail.md
+            Creating Security Team Permissions in IAM Identity Center: CloudSLAW/Creating Security Team Permissions in IAM Identity Center.md
+            Enable GuardDuty the Right Way: CloudSLAW/Enable GuardDuty the Right Way.md
+            The Best Way to Start with AWS Security Hub: CloudSLAW/The Best Way to Start with AWS Security Hub.md
+            Use EventBridge for Security Hub Alerts: CloudSLAW/Use EventBridge for Security Hub Alerts.md
+            PBAC and ABAC? Write an Intermediate AWS IAM Policy: CloudSLAW/PBAC and ABAC Write an Intermediate AWS IAM Policy.md
+
