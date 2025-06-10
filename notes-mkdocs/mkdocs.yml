@@ -29,8 +29,8 @@ theme:
   plugins:
     - typeset
     - search 
-    - pub-obsidian:
-      obsidian_dir: .obsidian
+#    - pub-obsidian:
+#      obsidian_dir: .obsidian
 
   palette:
 
