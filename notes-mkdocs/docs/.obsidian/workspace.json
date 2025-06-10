@@ -1,0 +1,194 @@
+{
+  "main": {
+    "id": "05bba93848d86326",
+    "type": "split",
+    "children": [
+      {
+        "id": "439c12d6c91a13a9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "540d271e701b6727",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "936fedb4b6d8ff68",
+    "type": "split",
+    "children": [
+      {
+        "id": "3f820e9efa119a0e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "68c156d3e6700728",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "55bb6aeeccd1dc7c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "a1e0d82fbf70d0f3",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "440520642d012ef4",
+    "type": "split",
+    "children": [
+      {
+        "id": "3048ae3bec54590a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5ad8382c933d961f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "b1d97f5b8abc5c31",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "1ee0fba46f22ec08",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "79c5cd2e3baba528",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "68c156d3e6700728",
+  "lastOpenFiles": [
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 4_Purple and blue teaming in Azure/Intro to Azure Recon with BloodHound.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 4_Purple and blue teaming in Azure/Execute Azure Credential Shuffle to Achieve Objectives.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 4_Purple and blue teaming in Azure/Bypass Azure Web App Authentication with Path Traversal.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 4_Purple and blue teaming in Azure",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 3_Attacking and Defending Azure resources/Write - Exploit SQL Injection in Azure Function App.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 3_Attacking and Defending Azure resources/Unmask Privileged Access in Azure.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 3_Attacking and Defending Azure resources/Passwordless Credentials for Access and Escalation.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 3_Attacking and Defending Azure resources",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 2_Attacking M365, abusing tokens and bypassing MFA/Loot Exchange, Teams and SharePoint with GraphRunner.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 2_Attacking M365, abusing tokens and bypassing MFA/Leverage Device Code Phishing for Initial Access.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 2_Attacking M365, abusing tokens and bypassing MFA/Finish - Bypass Azure MFA with Evilginx.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 2_Attacking M365, abusing tokens and bypassing MFA/Abuse Dynamic Groups in Entra ID for Privilege Escalation.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 2_Attacking M365, abusing tokens and bypassing MFA",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 1_Getting initial access to the Microsoft Cloud/Unlock Access with Azure Key Vault.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 1_Getting initial access to the Microsoft Cloud/Phished for Initial Access.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 1_Getting initial access to the Microsoft Cloud/Azure Recon to Foothold and Profit.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 1_Getting initial access to the Microsoft Cloud/Azure Blob Container to Initial Access.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 1_Getting initial access to the Microsoft Cloud",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Glossary.md",
+    "Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp",
+    "Cloud/Security/PWNED Labs/Azure/Abuse JWT Assertion in Azure.md",
+    "Cloud/Security/PWNED Labs/Azure/Abuse Azure Logic App Automation.md",
+    "Cloud/Security/PWNED Labs/Azure",
+    "Cloud/Security/PWNED Labs",
+    "Emerging Technology/Generative AI",
+    "Emerging Technology",
+    "Cloud/Security"
+  ]
+}
