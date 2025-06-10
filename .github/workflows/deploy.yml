@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'notes-mkdocs/**'
+#    paths:
+#      - 'notes-mkdocs/**'
   workflow_dispatch:
 permissions:
   contents: write
