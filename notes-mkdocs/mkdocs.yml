@@ -83,7 +83,7 @@ nav:
     - PWNED Labs:
       - Microsoft Cloud Attack and Defense Bootcamp:
         - Session 1 - Getting initial access to the Microsoft Cloud: 
-          - Azure Blob Container to Initial Access: docs\Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Azure Blob Container to Initial Access.md
+          - Azure Blob Container to Initial Access: Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 1_Getting initial access to the Microsoft Cloud/Azure Blob Container to Initial Access.md
 #          - Azure Recon to Foothold and Profit: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Azure Recon to Foothold and Profit.md
 #          - Phished for Initial Access: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Phished for Initial Access.md
 #          - Unlock Access with Azure Key Vault: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Unlock Access with Azure Key Vault.md
