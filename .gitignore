@@ -1,3 +1,4 @@
 settings.json
 notes-mkdocs/docs/Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 2_Attacking M365, abusing tokens and bypassing MFA/Finish - Bypass Azure MFA with Evilginx.md
 notes-mkdocs/docs/Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 3_Attacking and Defending Azure resources/Write - Exploit SQL Injection in Azure Function App.md
+*.obsidian
