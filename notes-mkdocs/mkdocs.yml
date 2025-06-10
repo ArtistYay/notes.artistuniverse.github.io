@@ -79,26 +79,27 @@ nav:
   - Home: index.md
 # - About: about.md
   - Knowledge Base Notes:
-    - PWNED Labs:
-      - Microsoft Cloud Attack and Defense Bootcamp:
-        - Session 1 - Getting initial access to the Microsoft Cloud: 
-          - Azure Blob Container to Initial Access: Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 1_Getting initial access to the Microsoft Cloud/Azure Blob Container to Initial Access.md
-          - Azure Recon to Foothold and Profit: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Azure Recon to Foothold and Profit.md
-          - Phished for Initial Access: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Phished for Initial Access.md
-          - Unlock Access with Azure Key Vault: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Unlock Access with Azure Key Vault.md
-        - Session 2 - Attacking M365, abusing tokens and bypassing MFA:
-          - Abuse Dynamic Groups in Entra ID for Privilege Escalation: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 2_Attacking M365, abusing tokens and bypassing MFA\Abuse Dynamic Groups in Entra ID for Privilege Escalation.md
-        #  - Bypass Azure MFA with Evilginx: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 2_Attacking M365, abusing tokens and bypassing MFA\Abuse Dynamic Groups in Entra ID for Privilege Escalation.md
-          - Leverage Device Code Phishing for Initial Access: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 2_Attacking M365, abusing tokens and bypassing MFA\Leverage Device Code Phishing for Initial Access.md
-          - Loot Exchange, Teams and SharePoint with GraphRunner: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 2_Attacking M365, abusing tokens and bypassing MFA\Loot Exchange, Teams and SharePoint with GraphRunner.md
-        - Session 3 - Attacking and Defending Azure resources:
-          - Passwordless Credentials for Access and Escalation: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 3_Attacking and Defending Azure resources\Passwordless Credentials for Access and Escalation.md
-          - Unmask Privileged Access in Azure: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 3_Attacking and Defending Azure resources\Unmask Privileged Access in Azure.md
-        - Session 4 - Purple and blue teaming in Azure:
-          - Bypass Azure Web App Authentication with Path Traversal: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 4_Purple and blue teaming in Azure\Bypass Azure Web App Authentication with Path Traversal.md
-          - Execute Azure Credential Shuffle to Achieve Objectives: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 4_Purple and blue teaming in Azure\Execute Azure Credential Shuffle to Achieve Objectives.md
-          - Intro to Azure Recon with BloodHound: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 4_Purple and blue teaming in Azure\Intro to Azure Recon with BloodHound.md
-      - Glossary: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Glossary.md
-      - Azure:
-        - Abuse Azure Logic App Automation: Cloud\Security\PWNED Labs\Azure\Abuse Azure Logic App Automation.md
-        - Abuse JWT Assertion in Azure: Cloud\Security\PWNED Labs\Azure\Abuse JWT Assertion in Azure.md
+    - test: test.md
+#    - PWNED Labs:
+#      - Microsoft Cloud Attack and Defense Bootcamp:
+#        - Session 1 - Getting initial access to the Microsoft Cloud: 
+#          - Azure Blob Container to Initial Access: Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 1_Getting initial access to the Microsoft Cloud/Azure Blob Container to Initial Access.md
+#          - Azure Recon to Foothold and Profit: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Azure Recon to Foothold and Profit.md
+#          - Phished for Initial Access: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Phished for Initial Access.md
+#          - Unlock Access with Azure Key Vault: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 1_Getting initial access to the Microsoft Cloud\Unlock Access with Azure Key Vault.md
+#        - Session 2 - Attacking M365, abusing tokens and bypassing MFA:
+#          - Abuse Dynamic Groups in Entra ID for Privilege Escalation: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 2_Attacking M365, abusing tokens and bypassing MFA\Abuse Dynamic Groups in Entra ID for Privilege Escalation.md
+#        #  - Bypass Azure MFA with Evilginx: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 2_Attacking M365, abusing tokens and bypassing MFA\Abuse Dynamic Groups in Entra ID for Privilege Escalation.md
+#          - Leverage Device Code Phishing for Initial Access: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 2_Attacking M365, abusing tokens and bypassing MFA\Leverage Device Code Phishing for Initial Access.md
+#          - Loot Exchange, Teams and SharePoint with GraphRunner: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 2_Attacking M365, abusing tokens and bypassing MFA\Loot Exchange, Teams and SharePoint with GraphRunner.md
+#        - Session 3 - Attacking and Defending Azure resources:
+#          - Passwordless Credentials for Access and Escalation: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 3_Attacking and Defending Azure resources\Passwordless Credentials for Access and Escalation.md
+#          - Unmask Privileged Access in Azure: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 3_Attacking and Defending Azure resources\Unmask Privileged Access in Azure.md
+#        - Session 4 - Purple and blue teaming in Azure:
+#          - Bypass Azure Web App Authentication with Path Traversal: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 4_Purple and blue teaming in Azure\Bypass Azure Web App Authentication with Path Traversal.md
+#          - Execute Azure Credential Shuffle to Achieve Objectives: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 4_Purple and blue teaming in Azure\Execute Azure Credential Shuffle to Achieve Objectives.md
+#          - Intro to Azure Recon with BloodHound: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Session 4_Purple and blue teaming in Azure\Intro to Azure Recon with BloodHound.md
+#      - Glossary: Cloud\Security\PWNED Labs\Microsoft Cloud Attack and Defense Bootcamp\Glossary.md
+#      - Azure:
+#        - Abuse Azure Logic App Automation: Cloud\Security\PWNED Labs\Azure\Abuse Azure Logic App Automation.md
+#        - Abuse JWT Assertion in Azure: Cloud\Security\PWNED Labs\Azure\Abuse JWT Assertion in Azure.md
