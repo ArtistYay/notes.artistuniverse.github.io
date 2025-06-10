@@ -27,9 +27,9 @@ jobs:
             mkdocs-material
       - run: mkdocs gh-deploy --config-file notes-mkdocs/mkdocs.yml --force
 
-      - name: Install MkDocs and plugins
-        run: |
-          pip install mkdocs-material mkdocs-obsidian
+#      - name: Install MkDocs and plugins
+#        run: |
+#          pip install mkdocs-material mkdocs-obsidian
 
       - name: Build MkDocs site
         run: |
