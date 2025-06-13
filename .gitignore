@@ -7,7 +7,7 @@
 __pycache__/
 *.pyc
 .mypy_cache/
-.mkdocs/
+
 
 # === OS-specific clutter ===
 .DS_Store
