@@ -20,7 +20,7 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.path
-    - navigation.expand
+#    - navigation.expand
     - navigation.tracking
     - search.highlight
     - search.share
