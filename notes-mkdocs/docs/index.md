@@ -1,17 +1,21 @@
-# Welcome to Artist's Notes
+# 👋 Welcome to ArtistUniverse Notes
 
-<!-- For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Welcome to my personal knowledge base — a space where I document, explore, and reflect on my journey through **cloud security**, **DevSecOps**, and **security automation**.
 
- ## Commands
+This site serves as a living archive of things I'm learning hands-on — from designing secure cloud architectures to building security automations, threat hunting with Microsoft Sentinel, and everything in between.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+## 🔭 What You’ll Find Here
 
-## Project layout
+- **PWNED Labs** – Walkthroughs of offensive and defensive cloud labs
+- **Cloud Security** – Notes on IAM, networking, compute, storage, and more
+- **DevSecOps** – Policy as Code, secure CI/CD, IaC security practices
+- **Microsoft Sentinel** – Detection engineering, KQL queries, Graph API workflows
+- **Experiments** – Homelab setups, alert triaging with GenAI, and beyond
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files. -->
+## 🚀 Mission
+
+To become a **mid-level cloud security engineer** with a deep grasp of automation, threat detection, and secure system design — while documenting and sharing as I go.
+
+> 🌱 "In learning, you will teach. In teaching, you will learn." — Phil Collins
+
+---

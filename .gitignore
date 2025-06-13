@@ -1,4 +1,43 @@
+# === Obsidian Workspace Settings ===
+.obsidian/
+.obsidian*
+**/.obsidian/
+
+# === Python + MkDocs Cache/Artifacts ===
+__pycache__/
+*.pyc
+.mypy_cache/
+.mkdocs/
+site/
+
+# === OS-specific clutter ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+desktop.ini
+
+# === Backup/Temp files ===
+*~
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# === Logs and lock files ===
+*.log
+*.lock
+
+# === Node.js (in case you ever use it for plugins/themes) ===
+node_modules/
+npm-debug.log*
+
+# === VSCode or other IDE config (optional) ===
+.vscode/
+.idea/
+*.code-workspace
 settings.json
+
+# === other files ===
 notes-mkdocs/docs/Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 2_Attacking M365, abusing tokens and bypassing MFA/Finish - Bypass Azure MFA with Evilginx.md
 notes-mkdocs/docs/Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 3_Attacking and Defending Azure resources/Write - Exploit SQL Injection in Azure Function App.md
-*.obsidian

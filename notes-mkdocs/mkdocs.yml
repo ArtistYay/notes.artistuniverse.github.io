@@ -1,5 +1,5 @@
 site_name: ArtistUniverse
-site_url: http://notes.artistuniverse.tech
+site_url: http:\\notes.artistuniverse.tech
 
 theme: 
   name: material
@@ -39,7 +39,7 @@ theme:
       primary: deep purple
       accent: yellow
       toggle:
-        icon: material/weather-night
+        icon: material\weather-night
         name: Switch to dark mode
 
     # Palette toggle for light mode
@@ -47,7 +47,7 @@ theme:
       primary: deep purple
       accent: yellow
       toggle:
-        icon: material/weather-sunny
+        icon: material\weather-sunny
         name: Switch to light mode
 
 markdown_extensions:
@@ -73,13 +73,11 @@ extra:
   generator: true
   social:
     - icon: simple/youtube
-      link: https://www.youtube.com/@ArtistUniverseUntouched
+      link: https:\\www.youtube.com/@ArtistUniverseUntouched
 
 nav:
   - Home: index.md
-# - About: about.md
   - Knowledge Base Notes:
-    - test: test.md
     - PWNED Labs:
       - Microsoft Cloud Attack and Defense Bootcamp:
         - Session 1 - Getting initial access to the Microsoft Cloud: 
