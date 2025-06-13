@@ -73,11 +73,12 @@ extra:
   generator: true
   social:
     - icon: simple/youtube
-      link: https:\\www.youtube.com/@ArtistUniverseUntouched
+      link: https://www.youtube.com/@ArtistUniverseUntouched
 
 # add images to files like so ![screenshot](../assets/GitHub_Issue.png)
 nav:
   - Home: index.md
+#  - About:
   - Knowledge Base Notes:
     - PWNED Labs:
       - Microsoft Cloud Attack and Defense Bootcamp:
