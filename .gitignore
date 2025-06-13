@@ -3,12 +3,6 @@
 .obsidian*
 **/.obsidian/
 
-# === Python + MkDocs Cache/Artifacts ===
-__pycache__/
-*.pyc
-.mypy_cache/
-
-
 # === OS-specific clutter ===
 .DS_Store
 Thumbs.db
