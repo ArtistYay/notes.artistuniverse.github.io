@@ -1,5 +1,5 @@
 site_name: ArtistUniverse
-site_url: http:\\notes.artistuniverse.tech
+site_url: http://notes.artistuniverse.tech
 
 theme: 
   name: material
@@ -101,3 +101,4 @@ nav:
       - Azure:
         - Abuse Azure Logic App Automation: Cloud/Security/PWNED Labs/Azure/Abuse Azure Logic App Automation.md
         - Abuse JWT Assertion in Azure: Cloud/Security/PWNED Labs/Azure/Abuse JWT Assertion in Azure.md
+    - CloudSLAW:
