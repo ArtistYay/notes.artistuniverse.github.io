@@ -80,6 +80,7 @@ nav:
   - Home: index.md
 #  - About:
   - Knowledge Base Notes:
+#  - test:
     - PWNED Labs:
       - Microsoft Cloud Attack and Defense Bootcamp:
         - Session 1 - Getting initial access to the Microsoft Cloud: 
