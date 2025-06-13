@@ -78,9 +78,7 @@ extra:
 # add images to files like so ![screenshot](../assets/GitHub_Issue.png)
 nav:
   - Home: index.md
-#  - About:
   - Knowledge Base Notes:
-#  - test:
     - PWNED Labs:
       - Microsoft Cloud Attack and Defense Bootcamp:
         - Session 1 - Getting initial access to the Microsoft Cloud: 
@@ -104,4 +102,4 @@ nav:
       - Azure:
         - Abuse Azure Logic App Automation: Cloud/Security/PWNED Labs/Azure/Abuse Azure Logic App Automation.md
         - Abuse JWT Assertion in Azure: Cloud/Security/PWNED Labs/Azure/Abuse JWT Assertion in Azure.md
-    - CloudSLAW:
+#    - CloudSLAW:
