@@ -103,4 +103,9 @@ nav:
         - Abuse Azure Logic App Automation: Cloud/Security/PWNED Labs/Azure/Abuse Azure Logic App Automation.md
         - Abuse JWT Assertion in Azure: Cloud/Security/PWNED Labs/Azure/Abuse JWT Assertion in Azure.md
     - CloudSLAW:
-      - Create and Secure Your First Admin User: Cloud/Security/CloudSLAW/Create and Secure Your First Admin User.md
+      - Labs:
+        - Create and Secure Your First Admin User: Cloud/Security/CloudSLAW/Create and Secure Your First Admin User.md
+        - Turn on CloudTrail: Cloud/Security/CloudSLAW/Turn on CloudTrail.md
+        - Timmy's First CloudFormation: Cloud/Security/CloudSLAW/Timmy's First CloudFormation.md
+        - Follow the Money!: Cloud/Security/CloudSLAW/Follow the Money!.md
+        - Create Your First AWS IAM Role: Cloud/Security/CloudSLAW/Create Your First AWS IAM Role.md

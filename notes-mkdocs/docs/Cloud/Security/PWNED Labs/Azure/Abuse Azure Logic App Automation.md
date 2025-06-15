@@ -1,9 +1,5 @@
 ## Notes
 
-Here’s a structured breakdown of the attack narrative, step-by-step, from both the attacker’s and defender’s perspectives, along with remediation advice and alternative tools/approaches:
-
----
-
 ### **Step 1: Open-Source Intelligence (OSINT)**
 
 - **Attacker’s Perspective:**
@@ -70,6 +66,6 @@ Here’s a structured breakdown of the attack narrative, step-by-step, from both
 
 https://learn.microsoft.com/en-us/connectors/office365users/#get-manager-(v2)
 
-https://www.netspi.com/blog/technical-blog/cloud-pentesting/illogical-apps-exploring-exploiting-azure-logic-apps/
+[Illogical Apps – Exploring and Exploiting Azure Logic Apps](https://www.netspi.com/blog/technical-blog/cloud-pentesting/illogical-apps-exploring-exploiting-azure-logic-apps/)
 
-https://learn.microsoft.com/en-us/dynamics365/fraud-protection/extensibility-with-power-automate
+[Work with Logic Apps or Power Automate](https://learn.microsoft.com/en-us/dynamics365/fraud-protection/extensibility-with-power-automate)

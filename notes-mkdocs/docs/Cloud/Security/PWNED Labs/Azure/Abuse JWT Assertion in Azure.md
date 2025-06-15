@@ -178,11 +178,12 @@ The defender should have implemented robust security measures to prevent unautho
 - **AzureHound:** Could have been used with a JWT for authentication.
 - **OAuth 2.0 Device Code Grant:** Could have been used for phishing attacks.
 - **Alternative Tools:** Metasploit, PowerZure, and Azure AD Explorer could have been used for enumeration and exploitation.
+
 ## Links
-https://goodworkaround.com/2022/02/15/digging-into-azure-ad-certificate-based-authentication/
+[Digging into Azure AD Certificate-Based Authentication](https://goodworkaround.com/2022/02/15/digging-into-azure-ad-certificate-based-authentication/)
 
-https://www.netspi.com/blog/technical-blog/cloud-pentesting/attacking-acrs-with-compromised-credentials/
+[Attacking Azure Container Registries with Compromised Credentials](https://www.netspi.com/blog/technical-blog/cloud-pentesting/attacking-acrs-with-compromised-credentials/)
 
-https://www.huntandhackett.com/blog/researching-access-tokens-for-fun-and-knowledge
+[Researching access tokens for fun and knowledge](https://www.huntandhackett.com/blog/researching-access-tokens-for-fun-and-knowledge)
 
 https://learn.microsoft.com/en-us/azure/key-vault/certificates/about-certificates#composition-of-a-certificate
