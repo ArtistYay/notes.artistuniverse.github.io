@@ -5,7 +5,8 @@
 2. Created an OU (Organizational Units) named 'Security' and moved the 'LogArchive' account under it.
 		Organizational Units (OUs) are containers for AWS accounts, allowing you to group accounts logically based on business requirements or security needs.
 		Using OUs enhances security by allowing you to apply **Service Control Policies (SCPs)**, which govern the permissions and actions allowed within each OU.
-![[Pasted image 20250309111741.png]]
+
+![screenshot](../../../images/20250309111741.png)
 
 # The Lesson
 

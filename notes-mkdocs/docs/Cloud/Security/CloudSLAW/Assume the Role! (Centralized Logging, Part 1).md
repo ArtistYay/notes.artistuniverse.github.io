@@ -8,4 +8,5 @@
 
 - _AWS does not allow you to assume roles from your root user account — you need to use an IAM user or another role._
 - AWS provides AWS Security Token Service (AWS STS) as a web service that enables you to request temporary, limited-privilege credentials for users.
-![[Pasted image 20250309124139.png]]
+
+![screenshot](../../../images/20250309124139.png)

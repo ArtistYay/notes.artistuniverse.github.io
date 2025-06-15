@@ -3,9 +3,9 @@
 - IAM roles are central to managing permissions for services and users in AWS. Using roles rather than users for permissions enhances security by using temporary credentials.
 - **Persona**, the expression of an identity, with attributes that indicate context, is a role a user can assume for a temporary set of permissions used for a session.
 
-![screenshot](notes-mkdocs/docs/images/20250309104408.png)
+![screenshot](../../../images/20250309104408.png)
 
-![[Pasted image 20250309104421.png]]
+![screenshot](../../../images/20250309104421.png)
 
 # The Lab
 

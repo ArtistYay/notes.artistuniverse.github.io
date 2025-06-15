@@ -5,7 +5,8 @@
 - **Managed policies** are central policies you write once and can attach wherever you want. If you update a managed policy, that change applies instantly to everything using it. There are two types of managed policies:
     - **AWS managed policies** are standard ones AWS writes and maintains, which customers can use.
     - **Customer managed policies** are ones you write yourself, which only exist in your AWS Account.
-![[Pasted image 20250309110124.png]]
+
+![screenshot](../../../images/20250309110124.png)
 
 # The Lab
 
