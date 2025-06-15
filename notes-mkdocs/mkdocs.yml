@@ -110,6 +110,6 @@ nav:
         - Follow the Money!: Cloud/Security/CloudSLAW/Follow the Money!.md
         - Create Your First AWS IAM Role: Cloud/Security/CloudSLAW/Create Your First AWS IAM Role.md
         - Write a Simple IAM Policy: Cloud/Security/CloudSLAW/Write a Simple IAM Policy.md
-        - Write a Simple IAM Policy: Cloud/Security/CloudSLAW/Write a Simple IAM Policy.md
+        - Enable AWS Organizations: Cloud/Security/CloudSLAW/Enable AWS Organizations.md
         - Give Your Account a Security Blanket with SCPs: Cloud/Security/CloudSLAW/Give Your Account a Security Blanket with SCPs.md
         - Assume the Role! (Centralized Logging, Part 1): Cloud/Security/CloudSLAW/Assume the Role! (Centralized Logging, Part 1).md
