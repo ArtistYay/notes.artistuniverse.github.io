@@ -97,7 +97,7 @@ nav:
         - Session 4 - Purple and blue teaming in Azure:
           - Bypass Azure Web App Authentication with Path Traversal: Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 4_Purple and blue teaming in Azure/Bypass Azure Web App Authentication with Path Traversal.md
           - Execute Azure Credential Shuffle to Achieve Objectives: Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 4_Purple and blue teaming in Azure/Execute Azure Credential Shuffle to Achieve Objectives.md
-          - Intro to Azure Recon with BloodHound: Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 4_Purple and blue teaming in Azure/Intro to Azure Recon with BloodHound.md
+        #  - Intro to Azure Recon with BloodHound: Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Session 4_Purple and blue teaming in Azure/Intro to Azure Recon with BloodHound.md
       - Glossary: Cloud/Security/PWNED Labs/Microsoft Cloud Attack and Defense Bootcamp/Glossary.md
       - Azure:
         - Abuse Azure Logic App Automation: Cloud/Security/PWNED Labs/Azure/Abuse Azure Logic App Automation.md
