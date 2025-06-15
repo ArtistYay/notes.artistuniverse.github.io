@@ -1,5 +1,4 @@
-
-This lab showcases how threat actors can achieve their objectives in Azure by performing the "credential shuffle", and working their way through the Azure kill chain. The focus of this lab is using tools as an admin would, as well as introducing offensive tooling.  
+*This lab showcases how threat actors can achieve their objectives in Azure by performing the "credential shuffle", and working their way through the Azure kill chain. The focus of this lab is using tools as an admin would, as well as introducing offensive tooling.*
   
 ## Learning outcomes  
 
@@ -210,10 +209,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Uri "http://169.254.169.254/met
 
 ## Links
 
-https://devblogs.microsoft.com/devops/demystifying-service-principals-managed-identities/
+[Demystifying Service Principals – Managed Identities](https://devblogs.microsoft.com/devops/demystifying-service-principals-managed-identities/)
 
-https://github.com/itm4n/PrivescCheck
+[PrivesecCheck](https://github.com/itm4n/PrivescCheck)
 
-https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#authentication-administrator
-
-https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/administrative-units
+[Microsoft Entra ID Roles - Authentication Adminstrator](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#authentication-administrator)

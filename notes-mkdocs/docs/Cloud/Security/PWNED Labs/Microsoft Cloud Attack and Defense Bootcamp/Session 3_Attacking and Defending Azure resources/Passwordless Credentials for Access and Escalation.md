@@ -1,4 +1,4 @@
-Passwords aren't the only credentials! In this lab we use alternate forms of credential to get access and move laterally in Azure. Get ready to leverage service principals, web app managed identities and administrative units as we go from external, to the top of the tree!
+*Passwords aren't the only credentials! In this lab we use alternate forms of credential to get access and move laterally in Azure. Get ready to leverage service principals, web app managed identities and administrative units as we go from external, to the top of the tree!*
 
 ## Learning outcomes  
 
@@ -76,6 +76,8 @@ Passwords aren't the only credentials! In this lab we use alternate forms of cre
 - KQL query that detects managed identities retrieving a Web App publish profile.
 	` // Display Activity log Administrative events // Displays Activity log for Administrative category. AzureActivity | where CategoryValue == "Administrative" and OperationNameValue contains "MICROSOFT.WEB/SITES/PUBLISHXML/ACTION" | order by TimeGenerated desc`
 
-https://www.csoonline.com/article/1296269/russia-based-group-hacked-emails-of-microsofts-senior-leadership.html
+## Links
 
-https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/administrative-units
+[Russia-based group hacked emails of Microsoft’s senior leadership](https://www.csoonline.com/article/1296269/russia-based-group-hacked-emails-of-microsofts-senior-leadership.html)
+
+[Administrative units in Microsoft Entra ID](https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/administrative-units)

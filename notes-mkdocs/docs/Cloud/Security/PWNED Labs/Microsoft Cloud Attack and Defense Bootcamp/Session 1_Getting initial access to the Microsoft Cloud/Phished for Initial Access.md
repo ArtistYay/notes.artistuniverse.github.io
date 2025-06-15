@@ -1,4 +1,5 @@
-Get hands on with phishing, token abuse and exfiltrating data from Office 365. It provides a good overview of real-world techniques that threat actors use to compromise and move laterally and vertically in Azure, and how we can protect against these attacks.
+*Get hands on with phishing, token abuse and exfiltrating data from Office 365. It provides a good overview of real-world techniques that threat actors use to compromise and move laterally and vertically in Azure, and how we can protect against these attacks.*
+
 ## Learning outcomes  
 
 - Leak Net-NTLMv2 hashes to gain user credentials
@@ -7,6 +8,7 @@ Get hands on with phishing, token abuse and exfiltrating data from Office 365. I
 - Perform token abuse using TokenTacticsV2
 - Exfiltrate data from Azure using native tools and scripts
 - Learn how this scenario can be detected and prevented
+
 ## Notes
 
 This lab simulates a real-world red team engagement where the attack chain exploits identity and access management (IAM) vulnerabilities and social engineering to breach Mega Big Tech's environment. Here's the attack story structured for clarity:
@@ -95,8 +97,10 @@ This lab simulates a real-world red team engagement where the attack chain explo
 3. **Secure Azure Key Vaults:**
     - Use Key Vault firewall rules and RBAC to prevent unauthorized access.
 
-https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-conditions#device-platforms
+## Links
 
-https://www.microsoft.com/en-us/security/blog/2022/11/16/token-tactics-how-to-prevent-detect-and-respond-to-cloud-token-theft/
+[Conditional Access: Conditions](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-conditional-access-conditions#device-platforms)
 
-https://trustedsec.com/blog/hacking-your-cloud-tokens-edition-2-0
+[Token tactics: How to prevent, detect, and respond to cloud token theft](https://www.microsoft.com/en-us/security/blog/2022/11/16/token-tactics-how-to-prevent-detect-and-respond-to-cloud-token-theft/)
+
+[Hacking Your Cloud: Tokens Edition 2.0](https://trustedsec.com/blog/hacking-your-cloud-tokens-edition-2-0)

@@ -1,4 +1,5 @@
-Get an introduction to one of the most popular Azure services - Blob Storage, and show how attackers can use it to access secrets and get a foothold in a cloud environment.
+*Get an introduction to one of the most popular Azure services - Blob Storage, and show how attackers can use it to access secrets and get a foothold in a cloud environment.*
+
 ## Learning outcomes  
 
 - Familiarity with the Azure CLI
@@ -11,13 +12,14 @@ Get an introduction to one of the most popular Azure services - Blob Storage, an
 - On Linux it's `curl -I <website>` 
 - `https://mbtwebsite.blob.core.windows.net/$web?restype=container&comp=list` returns all the blobs in a XML document
 - The `/` in the URL `https://mbtwebsite.blob.core.windows.net/$web?restype=container&comp=list&delimiter=%2F` gets the directory in the blob container.
-- The `include` in the URL `https://mbtwebsite.blob.core.windows.net/$web?restype=container&comp=list&include=versions` lists the versions but it's only supported by version `2019-12-12` and later https://learn.microsoft.com/en-us/rest/api/storageservices/list-blobs?tabs=microsoft-entra-id#uri-parameters
+- The `include` in the URL `https://mbtwebsite.blob.core.windows.net/$web?restype=container&comp=list&include=versions` lists the versions but it's only supported by version `2019-12-12` and later [URI parameters](https://learn.microsoft.com/en-us/rest/api/storageservices/list-blobs?tabs=microsoft-entra-id#uri-parameters)
 - You can read more about [previous Azure Storage versions](https://learn.microsoft.com/en-us/rest/api/storageservices/previous-azure-storage-service-versions)
 - We went ahead and used curl to list the versions of the directory `curl -H "x-ms-version: 2019-12-12" 'https://mbtwebsite.blob.core.windows.net/$web?restype=container&comp=list&include=versions' | xmllint --format - | less` we listed it in a xml format and less.
 - Went ahead and downloaded the zip file we seen using the version ID `curl -H "x-ms-version: 2019-12-12" 'https://mbtwebsite.blob.core.windows.net/$web/scripts-transfer.zip?versionId=2024-03-29T20:55:40.8265593Z'  --output scripts-transfer.zip`
-https://www.wiz.io/blog/38-terabytes-of-private-data-accidentally-exposed-by-microsoft-ai-researchers
 
-https://cybernews.com/security/circlek-leak-credit-card-exposed/
+[38TB of data accidentally exposed by Microsoft AI researchers](https://www.wiz.io/blog/38-terabytes-of-private-data-accidentally-exposed-by-microsoft-ai-researchers)
+
+[Circle K US spills partial credit card details, among other sensitive data](https://cybernews.com/security/circlek-leak-credit-card-exposed/)
 
 The attack scenario described demonstrates a realistic and multi-step security assessment of an Azure Blob Storage misconfiguration that culminates in compromising sensitive credentials and gaining access to critical cloud resources. Here’s a breakdown of the **attack story**:
 

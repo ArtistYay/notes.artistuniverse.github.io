@@ -1,4 +1,5 @@
-Device code phishing is a dangerous technique, both in seeming legitimate to end users and in evading detection. In this lab you'll get hands on with real phishing, enumerate Azure resources, exploit an active Windows user and establish command and control (C2). This lab is good for both red and blue. Strap in!
+*Device code phishing is a dangerous technique, both in seeming legitimate to end users and in evading detection. In this lab you'll get hands on with real phishing, enumerate Azure resources, exploit an active Windows user and establish command and control (C2). This lab is good for both red and blue. Strap in!*
+
 ## Learning outcomes  
 
 - Device code phishing
@@ -9,16 +10,15 @@ Device code phishing is a dangerous technique, both in seeming legitimate to end
 - Controlling target systems using a C2
 ## Links
 
-https://aadinternals.com/post/phishing/
+[Introducing a new phishing technique for compromising Office 365 accounts](https://aadinternals.com/post/phishing/)
 
-https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection
+[Microsoft Entra Conditional Access: Token protection (Preview)](https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-token-protection)
 
-https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-authentication-flows
+[Block authentication flows with Conditional Access policy](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-block-authentication-flows)
 
-https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in#application-ids-of-commonly-used-microsoft-applications
+[Verify first-party Microsoft applications in sign-in reports](https://learn.microsoft.com/en-us/troubleshoot/entra/entra-id/governance/verify-first-party-apps-sign-in#application-ids-of-commonly-used-microsoft-applications)
+
 ## Attack Story and Command Explanation
-
-This lab simulates a red team engagement against International Asset Management, targeting their cloud resources and executive accounts. The attack unfolds as follows:
 
 **Phase 1: Reconnaissance and Phishing**
 
@@ -57,8 +57,6 @@ This lab simulates a red team engagement against International Asset Management,
 2. **Privilege Escalation**: The attacker uses the Meterpreter session to navigate the file system and access sensitive data, including cloud credentials, achieving the objective of the engagement.
 
 **Defense Recommendations**
-
-The lab highlights several security weaknesses and provides recommendations for mitigating them:
 
 - **Conditional Access Policies**: Enforce logins from managed devices and enable token protection to bind refresh tokens to specific devices.
 - **Device Code Authentication Flow**: Consider disabling or restricting this authentication flow if not necessary.

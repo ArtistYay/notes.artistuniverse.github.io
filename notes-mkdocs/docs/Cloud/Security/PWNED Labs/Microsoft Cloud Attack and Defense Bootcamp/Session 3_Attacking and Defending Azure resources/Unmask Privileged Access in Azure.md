@@ -1,4 +1,5 @@
-In lab we'll explore how secrets can be leveraged to move laterally and vertically in an Azure environment. You'll get hands-on experience with ROADrecon and interact with virtual machines and automation accounts.
+*In lab we'll explore how secrets can be leveraged to move laterally and vertically in an Azure environment. You'll get hands-on experience with ROADrecon and interact with virtual machines and automation accounts.*
+
 ## Learning outcomes 
 
 - Reveal password that is masked using the iOS Markup tool
@@ -57,29 +58,23 @@ In lab we'll explore how secrets can be leveraged to move laterally and vertical
 
 ## Notes
 
-```pip install roadrecon error: externally-managed-environment × This environment is externally managed ╰─> To install Python packages system-wide, try apt install python3-xyz, where xyz is the package you are trying to install. If you wish to install a non-Kali-packaged Python package, create a virtual environment using python3 -m venv path/to/venv. Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make sure you have pypy3-venv installed. If you wish to install a non-Kali-packaged Python application, it may be easiest to use pipx install xyz, which will manage a virtual environment for you. Make sure you have pipx installed. For more information, refer to the following: * https://www.kali.org/docs/general-use/python3-external-packages/ * /usr/share/doc/python3.12/README.venv
-```
+"pip install roadrecon error: externally-managed-environment × This environment is externally managed ╰─> To install Python packages system-wide, try apt install python3-xyz, where xyz is the package you are trying to install. If you wish to install a non-Kali-packaged Python package, create a virtual environment using python3 -m venv path/to/venv. Then use path/to/venv/bin/python and path/to/venv/bin/pip. Make sure you have pypy3-venv installed. If you wish to install a non-Kali-packaged Python application, it may be easiest to use pipx install xyz, which will manage a virtual environment for you. Make sure you have pipx installed. For more information, refer to the following: * https://www.kali.org/docs/general-use/python3-external-packages/ * /usr/share/doc/python3.12/README.venv"
+
 This error occurs because your environment is configured as "externally managed," meaning direct system-wide package installations with `pip` are restricted. This is common in distributions like Kali Linux to prevent conflicts with system-managed packages.
 
 Here’s how you can proceed:
 
-### 1. **Use a Virtual Environment**
+**Use a Virtual Environment**
 
 This is the recommended approach for installing Python packages without affecting the system Python installation.
 
-bash
+Create a virtual environment: python3 -m venv roadrecon-venv  
 
-Copy code
+Activate the virtual environment: source roadrecon-venv/bin/activate  
 
-`# Create a virtual environment python3 -m venv roadrecon-venv  # Activate the virtual environment source roadrecon-venv/bin/activate  # Install roadrecon within the virtual environment pip install roadrecon`
+Install roadrecon within the virtual environment: pip install roadrecon
 
-Once installed, you can use `roadrecon` within the virtual environment. To exit the virtual environment, run:
-
-bash
-
-Copy code
-
-`deactivate`
+Once installed, you can use `roadrecon` within the virtual environment. To exit the virtual environment, run: `deactivate`
 
 ## Links
-https://learn.microsoft.com/en-us/azure/automation/automation-security-guidelines
+[Security best practices in Azure Automation](https://learn.microsoft.com/en-us/azure/automation/automation-security-guidelines)

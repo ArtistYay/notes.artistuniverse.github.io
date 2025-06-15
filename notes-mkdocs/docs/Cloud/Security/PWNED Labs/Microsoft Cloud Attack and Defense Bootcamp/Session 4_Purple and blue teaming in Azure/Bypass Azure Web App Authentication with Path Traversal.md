@@ -1,14 +1,12 @@
-This lab highlights how securely configured Azure Web App resources can be undone by a single flaw in deployed code! Get hands-on with Burp Suite to enumerate web resources and exploit a path traversal vulnerability.
+*This lab highlights how securely configured Azure Web App resources can be undone by a single flaw in deployed code! Get hands-on with Burp Suite to enumerate web resources and exploit a path traversal vulnerability.*
+
 ## Learning outcomes  
 
 - Enumerate Azure Web Apps using the Az PowerShell module
 - Identify and exploit a simple path traversal vulnerability
 - Use Burp Suite to enumerate server resources
+
 ## Notes
-
-### **Step-by-Step Cloud Penetration Testing Narrative**
-
----
 
 #### **Step 1: Establish Initial Access**
 
@@ -149,21 +147,9 @@ https://megabigtech-dev.azurewebsites.net/admin/login.aspx
     - Configure the server to return generic error messages.
     - Block access to directories through `.htaccess` or equivalent server settings.
 
----
 
-#### **Alternative Tools for the Attack**
-
-|**Tool/Command**|**Advantages**|**Disadvantages**|
-|---|---|---|
-|**Azure CLI**|Lightweight and cross-platform.|Lacks some advanced PowerShell features.|
-|**OWASP ZAP**|Free and open-source.|Requires manual setup and configuration.|
-|**Nmap with NSE Scripts**|Useful for scanning Azure services.|Limited to network-level enumeration.|
-
----
-
-This walkthrough demonstrates how a simple misconfiguration and weak code practices can lead to severe breaches. Regular security assessments and implementing best practices are essential for protecting cloud environments.
 ## Links
 
-https://portswigger.net/burp/documentation/desktop/external-browser-config
+[Configuring Burp to work with an external browser](https://portswigger.net/burp/documentation/desktop/external-browser-config)
 
 https://hackerone.com/reports/217344

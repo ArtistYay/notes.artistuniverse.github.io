@@ -1,4 +1,4 @@
-Entra ID is a potential treasure trove for threat actors looking to gain access and increase privileges across the Microsoft Cloud. In this lab you'll learn about administrative units, dynamic security group membership, and leverage the powerful User Administrator role.
+*Entra ID is a potential treasure trove for threat actors looking to gain access and increase privileges across the Microsoft Cloud. In this lab you'll learn about administrative units, dynamic security group membership, and leverage the powerful User Administrator role.*
 
 ## Learning outcomes  
 
@@ -15,7 +15,6 @@ Entra ID is a potential treasure trove for threat actors looking to gain access 
     - **Impact**: Allowed access to candidate resumes and sensitive company documents, including an onboarding guide with a default password.
 2. **Default Password Vulnerability**: The onboarding document revealed a default password for new hires, which was not enforced to be changed, providing a potential initial foothold.
     
-
 ---
 
 ### **Account Compromise: Credential Validation**
@@ -82,12 +81,13 @@ The root causes of this attack are primarily due to poor security practices and 
     - Train employees on secure coding practices and the dangers of sensitive information exposure.
 
 
-[https://www.mnemonic.io/no/resources/blog/abusing-dynamic-groups-in-azure-ad-for-privilege-escalation/](https://www.mnemonic.io/no/resources/blog/abusing-dynamic-groups-in-azure-ad-for-privilege-escalation/)
+## Links
+[Abusing dynamic groups in Azure AD for privilege escalation](https://www.mnemonic.io/no/resources/blog/abusing-dynamic-groups-in-azure-ad-for-privilege-escalation/)
 
-[https://blog.gitguardian.com/microsoft-ai-involuntarily-exposed-a-secret-giving-access-to-38tb-of-confidential-data-for-3-years/](https://blog.gitguardian.com/microsoft-ai-involuntarily-exposed-a-secret-giving-access-to-38tb-of-confidential-data-for-3-years/)
+[Microsoft AI involuntarily exposed a secret giving access to 38TB of confidential data for 3 years](https://blog.gitguardian.com/microsoft-ai-involuntarily-exposed-a-secret-giving-access-to-38tb-of-confidential-data-for-3-years/)
 
-Automate the process of identifying administrative unit scoped role members and vulnerable users (Credit Ben Tamam): [https://raw.githubusercontent.com/BenTamam/PentestPlayground/refs/heads/main/Azure/Scripts/CheckScopedRolePrivileges.ps1](https://raw.githubusercontent.com/BenTamam/PentestPlayground/refs/heads/main/Azure/Scripts/CheckScopedRolePrivileges.ps1)
+Automate the process of identifying administrative unit scoped role members and vulnerable users (Credit Ben Tamam): [CheckScopedRolePrivileges.ps1](https://raw.githubusercontent.com/BenTamam/PentestPlayground/refs/heads/main/Azure/Scripts/CheckScopedRolePrivileges.ps1)
 
-[https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview)
+[Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://learn.microsoft.com/en-us/azure/storage/common/storage-sas-overview)
 
-https://docs.github.com/v3/guides/managing-deploy-keys
+[Github Managing deploy keys](https://docs.github.com/v3/guides/managing-deploy-keys)

@@ -1,4 +1,4 @@
-Learn how to use the GraphRunner Microsoft 365 post-exploitation toolset, and how it can be used to loot data from Exchange Online, Teams, SharePoint and OneDrive. You'll also get hands-on experience with MFASweep, PowerShell and Azure SQL Database.
+*Learn how to use the GraphRunner Microsoft 365 post-exploitation toolset, and how it can be used to loot data from Exchange Online, Teams, SharePoint and OneDrive. You'll also get hands-on experience with MFASweep, PowerShell and Azure SQL Database.*
 
 ## Learning outcomes  
 
@@ -17,8 +17,6 @@ Learn how to use the GraphRunner Microsoft 365 post-exploitation toolset, and ho
 - Always start with `Get-GraphTokens`
 - Database.windows.net is a fully qualified server name for an Azure SQL Database
 - Interact with the SQL database with:
-
-This lab demonstrates a typical attack story, highlighting the risks associated with weak or incomplete security configurations in hybrid cloud environments like Azure and Microsoft 365. Here's the attack breakdown:
 
 ---
 
@@ -73,117 +71,6 @@ This lab demonstrates a typical attack story, highlighting the risks associated 
 
 ---
 
-### **Why This Scenario Matters for Cloud Security Engineers**
+## Links
 
-As a cloud security engineer, this scenario is a real-world example of how attackers pivot from compromised cloud credentials to accessing sensitive on-premise and cloud-hosted resources. It emphasizes the importance of understanding:
-
-- Security configurations for hybrid cloud environments.
-- Microsoft Graph API exploitation methods.
-- Tools like MFASweep and GraphRunner.
-- Proactive defense strategies to prevent lateral movement and sensitive data exfiltration.
----
-
-**Look up what these scripts mean**: 
-`$conn = New-Object System.Data.SqlClient.SqlConnection $password='$reporting$123' $conn.ConnectionString = "Server=mbt-finance.database.windows.net;Database=Finance;User ID=financereports;Password=$password;" $conn.Open()
-
-`$sqlcmd = $conn.CreateCommand() $sqlcmd.Connection = $conn $query = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE';" $sqlcmd.CommandText = $query $adp = New-Object System.Data.SqlClient.SqlDataAdapter $sqlcmd $data = New-Object System.Data.DataSet $adp.Fill($data) | Out-Null $data.Tables
-
-These scripts represent a sequence of **PowerShell commands** used to connect to an **Azure SQL Database**, execute a query, and fetch data. Here's a breakdown of what each part of the script does:
-### **Step-by-Step Explanation**
-
-1. **Create a SQL Connection Object:**
-    
-    powershell
-    
-    Copy code
-    
-    `$conn = New-Object System.Data.SqlClient.SqlConnection`
-    
-    - Creates a new object of type `SqlConnection` from the `System.Data.SqlClient` namespace.
-    - This object will represent a connection to the Azure SQL database.
-2. **Set the Database Connection String:**
-    
-    powershell
-    
-    Copy code
-    
-    `$password = '$reporting$123' $conn.ConnectionString = "Server=mbt-finance.database.windows.net;Database=Finance;User ID=financereports;Password=$password;"`
-    
-    - Defines the connection string with:
-        - **Server:** The database server address (`mbt-finance.database.windows.net`).
-        - **Database:** The specific database to connect to (`Finance`).
-        - **User ID:** The username for authentication (`financereports`).
-        - **Password:** The password for authentication (`$reporting$123`).
-3. **Open the SQL Connection:**
-    
-    powershell
-    
-    Copy code
-    
-    `$conn.Open()`
-    
-    - Opens the connection to the Azure SQL database, allowing the script to interact with it.
-### **Executing a Query**
-
-4. **Create a Command Object:**
-    
-    powershell
-    
-    Copy code
-    
-    `$sqlcmd = $conn.CreateCommand() $sqlcmd.Connection = $conn`
-    
-    - Creates a SQL command object that will execute queries on the open connection.
-5. **Define the Query:**
-    
-    powershell
-    
-    Copy code
-    
-    `$query = "SELECT * FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE';" $sqlcmd.CommandText = $query`
-    
-    - The `CommandText` property specifies the SQL query to execute:
-        - Retrieves a list of all **base tables** in the database schema (tables created by users, not system tables).
-        - `INFORMATION_SCHEMA.TABLES` is a metadata view that contains details about all tables in the database.
-6. **Prepare to Retrieve the Data:**
-    
-    powershell
-    
-    Copy code
-    
-    `$adp = New-Object System.Data.SqlClient.SqlDataAdapter $sqlcmd $data = New-Object System.Data.DataSet`
-    
-    - `SqlDataAdapter`: A .NET object used to fetch data from the database.
-    - `DataSet`: An in-memory representation of the data retrieved.
-7. **Fetch the Data:**
-    
-    powershell
-    
-    Copy code
-    
-    `$adp.Fill($data) | Out-Null $data.Tables`
-    
-    - Executes the query (`$adp.Fill`) and stores the results in the `$data` dataset.
-    - Outputs the retrieved tables from `$data.Tables`.
-### **Purpose of the Script**
-
-1. **Connection:** Establishes a connection to the Azure SQL database.
-2. **Query Execution:** Executes a SQL query to list all base tables in the database.
-3. **Data Retrieval:** Retrieves and stores the results for further processing.
-### **Why It's Significant in the Lab**
-
-This script demonstrates how an attacker can:
-
-- Use stolen credentials to connect to an Azure SQL database.
-- Enumerate database tables to discover sensitive information.
-- Later, execute further queries to extract data from specific tables.
-
-As a **cloud security engineer**, you should:
-
-1. Enforce **least privilege access** to databases.
-2. Ensure that sensitive data is encrypted in transit and at rest.
-3. Monitor and alert on unusual database connections or queries.
-4. Limit database access to trusted IP ranges using **firewall rules**.
---- 
-
-https://www.blackhillsinfosec.com/exploiting-mfa-inconsistencies-on-microsoft-services/
+[Exploiting MFA Inconsistencies on Microsoft Services](https://www.blackhillsinfosec.com/exploiting-mfa-inconsistencies-on-microsoft-services/)
