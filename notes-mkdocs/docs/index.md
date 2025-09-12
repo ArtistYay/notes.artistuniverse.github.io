@@ -1,6 +1,6 @@
 # 👋 Welcome to ArtistUniverse Notes
 
-### Notes site is currently going through a revamp.
+### Gotta give me some time, just let 'em cook.
 
 > 🌱 "In learning, you will teach. In teaching, you will learn." — Phil Collins
 
