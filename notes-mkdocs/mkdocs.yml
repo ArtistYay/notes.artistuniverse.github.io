@@ -79,8 +79,11 @@ extra:
 nav:
   - Home: index.md
   - Reading is Fundamental 🌈:
+    - Books I am Reading:
+      - When Things Fall Apart:
+        - Chapter 1: Reading_is_Fundamental/Books_I_am_Reading/When_Things_Fall_Apart/Chapter 1.md
     - Aye Yo Artist! What Link Piqued Your Interest!?: 
-      - Week 09/08/25 - 09/12/25: Aye-Yo-Artist-What-Link-Piqued-Your-Interest/Week_09-08-25_to_09-12-25.md
+      - Week 09/08/25 - 09/12/25: Reading_is_Fundamental/Aye-Yo-Artist-What-Link-Piqued-Your-Interest/Week_09-08-25_to_09-12-25.md
 #    - Got me hooked on Phonics (ifykyk): 
 #  - Threat Detection🕵🏾:
 #  - Security Automation🔁:
