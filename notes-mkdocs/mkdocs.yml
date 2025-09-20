@@ -28,7 +28,8 @@ theme:
 
   plugins:
     - typeset
-    - search 
+    - search
+    - mkdocs-pdf
 #    - pub-obsidian:
 #      obsidian_dir: .obsidian
 
