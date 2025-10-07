@@ -1,7 +1,8 @@
-# 👋 Welcome to ArtistUniverse Notes
+# Welcome to ArtistUniverse's Notes
 
-### Gotta give me some time, just let 'em cook.
+!!!quote 
+    🌱 "In learning, you will teach. In teaching, you will learn." — Phil Collins
 
-> 🌱 "In learning, you will teach. In teaching, you will learn." — Phil Collins
 
 ---
+
