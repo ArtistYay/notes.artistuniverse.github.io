@@ -68,7 +68,7 @@ markdown_extensions:
 
 # make custom admonitions
 extra_css:
-  - 
+  - stylesheets/extra.css
 
 extra:
   generator: true
