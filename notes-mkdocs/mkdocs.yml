@@ -90,3 +90,9 @@ nav:
       - OpenID Connect: identity_and_access_management/fundamentals/open_standards/openid_connect.md
       - SAML 2.0: identity_and_access_management/fundamentals/open_standards/saml.md
       - SCIM: identity_and_access_management/fundamentals/open_standards/scim.md
+      - JWK and Key Rotation: identity_and_access_management/fundamentals/open_standards/jwk_and_key_rotation.md
+    - Directory Services:
+      - LDAP: identity_and_access_management/fundamentals/directory_services/ldap.md
+      - Kerberos: identity_and_access_management/fundamentals/directory_services/kerberos.md
+      - Directory forests, domains, replication: identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
+      - Group membership, role models, ACLs, discretionary vs role-based systems: identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md

@@ -52,3 +52,19 @@ The real benefit of Entra isn't just the hosting, its the security of it .
 If you were to choose to stay on-premise with ADFS, you'd miss out on awesome features like CA. Entra lets you say things like "Only allow login if the user is on a compliant device, in the US, and using MFA". Building that level of granularity on prem is a friggin nightmare (or at times frankly impossible). Most **forward-thinking** orgs are only keeping on-prem AD for legacy stuff that requires Kerberos/LDAP (like file shares or printers) and Servers (which although infrastructure isn't my side of the house, my understanding is that Windows Server does not contain the MDM stack as part of the OS, making management in Intune *impossible*(?) - someone can check me on that).
 
 Also for ADFS, you'd be managing the infrastructure yourself (security - must maintain a public facing ADFS server, and overall maintenance), imagine how helpful it is taking that reliance off of your back and allowing the real experts to handle it.
+
+##### *What is the difference between kerboros, saml, and oidc?*
+
+The easiest way to distinguish them is by **"Where they live"** and **"What language they speak."**
+
+Here is the breakdown:
+
+1. Kerberos lives inside the Corporate Network (Intranet/Active Directory).  When you log into your work laptop, you get a "Ticket Granting Ticket" (TGT). Whenever you access a file share or a printer _inside_ the office network, your laptop secretly slides this ticket to the server. It hates the internet. It requires the client (laptop) to have a direct line of sight to the Domain Controller. You generally cannot use Kerberos to log into a cloud app like Salesforce from a coffee shop without a VPN. You unlock your Windows laptop (Authentication to the OS).
+
+2. SAML lives in the Web (specifically Browser-based Enterprise SaaS). It sends **XML** documents via the browser. It bridges the gap between your Internal Network (Active Directory) and External Apps (ServiceNow/Office 365). It was designed for desktop web browsers. It is technically difficult (and painful) to make it work inside a mobile app or a desktop client that isn't a browser. You open your browser to access the Corporate Portal. The Portal trusts your Windows login (via Kerberos) and generates a SAML assertion to log you into Salesforce.
+
+3. OIDC lives everywhere (Web, Mobile, Single Page Apps, APIs). It uses **JSON (JWTs)** via REST APIs. It is built for the modern internet where "The App" might be on a phone, a watch, or a smart TV. It is friendly to developers and mobile devices because JSON is native to the web (Javascript). You pull out your phone and open the Salesforce App. The app uses OIDC (e.g. Google) to log you in because mobile apps struggle with SAML XML.
+
+[Blog Article | Medium](https://medium.com/@tolulinux/i-finally-understand-kerberos-ldap-radius-tacacs-heres-my-simple-breakdown-1f9561b5c9ae)
+
+[Article | Blumira](https://www.blumira.com/blog/authentication-protocols-101)
