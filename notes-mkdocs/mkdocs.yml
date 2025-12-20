@@ -80,7 +80,7 @@ extra:
 nav:
   - Home: index.md
   - Identity & Access Management:
-    - Overview: identity_and_access_management\fundamentals\Overview.md
+    - Overview: identity_and_access_management/fundamentals/Overview.md
     - Authentication vs Authorization: identity_and_access_management\fundamentals\authentication_vs_authorization.md
     - Identity vs Account vs Principal: identity_and_access_management\fundamentals\identity_vs_account_vs_principal.md
     - Claims. Tokens. Sessions: identity_and_access_management\fundamentals\claims_tokens_sessions.md
