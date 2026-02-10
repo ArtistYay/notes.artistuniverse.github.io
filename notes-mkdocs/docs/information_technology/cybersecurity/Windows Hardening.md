@@ -1,0 +1,1 @@
+[https://github.com/HotCakeX/Harden-Windows-Security/wiki/Comparison-of-security-benchmarks](https://github.com/HotCakeX/Harden-Windows-Security/wiki/Comparison-of-security-benchmarks)

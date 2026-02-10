@@ -19,3 +19,31 @@
 .center-video{
   text-align: center;
 }
+
+/* Reduce spacing around headers */
+.md-typeset h1 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.md-typeset h2 {
+  margin-top: 0.8em;
+  margin-bottom: 0.5em;
+}
+
+.md-typeset h3 {
+  margin-top: 0.6em;
+  margin-bottom: 0.4em;
+}
+
+.md-typeset h4, 
+.md-typeset h5, 
+.md-typeset h6 {
+  margin-top: 0.5em;
+  margin-bottom: 0.3em;
+}
+
+/* Reduce spacing between paragraphs if needed */
+.md-typeset p {
+  margin-bottom: 0.8em;
+}

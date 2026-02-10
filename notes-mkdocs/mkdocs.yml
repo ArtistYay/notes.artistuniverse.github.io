@@ -1,61 +1,105 @@
 site_name: Artist's Notebook
 site_url: http://notes.artistuniverse.tech
+site_author: Artist
 
 theme: 
   name: material
-# custom_dir: overrides
-  favicon: images/favicon.png
   language: en
-  icon:
-  logo: images/favicon.png
+
+  font:
+    text: Roboto
+    code: Roboto
+
   features:
+# Content
     - content.code.annotate
     - content.code.copy
     - content.tabs.link
+
+# Other
     - header.autohide
     - announce.dismiss
+
+# Navigation
     - navigation.footer
-    - navigation.indexes
-    - navigation.sections
-    - navigation.tabs
-    - navigation.top
+    - navigation.instant # Instant loading 
+#    - navigation.indexes
+    - navigation.sections 
+    - navigation.tabs # Top-level sections as tabs
+    - navigation.top # Back to top button
     - navigation.path
 #    - navigation.expand
     - navigation.tracking
+
+# Search
     - search.highlight
     - search.share
     - search.suggest
 
   plugins:
+    - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+    - tags:
+      enabled: true
     - typeset
-    - search
-    - mkdocs-pdf
+    - mkdocs-backlinks
+    - optimize
+    - awesome-pages
 #    - pub-obsidian:
 #      obsidian_dir: .obsidian
 
   palette:
-
     # Palette toggle for dark mode
     - scheme: default
-      primary: deep purple
-      accent: yellow
+      primary: purple
+      accent: purple
       toggle:
-        icon: material/weather-night
+        icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for light mode
     - scheme: slate
-      primary: deep purple
-      accent: yellow
+      primary: purple
+      accent: purple
       toggle:
-        icon: material/weather-sunny
+        icon: material/brightness-4
         name: Switch to light mode
 
 markdown_extensions:
+# Python Markdown
+  - abbr
   - admonition
-  - pymdownx.details
-  - pymdownx.superfences
   - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+
+# Python Markdown Extensions
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight: # Adding code blocks
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Added data tables
+  - tables
 
 # if you want to be able to use emojis
   - pymdownx.emoji:
@@ -65,6 +109,7 @@ markdown_extensions:
 # table of contents with permalink
   - toc:
       permalink: true
+      toc_depth: 3
 
 # make custom admonitions
 extra_css:
@@ -79,20 +124,183 @@ extra:
 # add images to files like so ![screenshot](../assets/GitHub_Issue.png)
 nav:
   - Home: index.md
-  - Identity & Access Management:
-    - Overview: identity_and_access_management/fundamentals/Overview.md
-    - Authentication vs Authorization:  identity_and_access_management/fundamentals/authentication_vs_authorization.md
-    - Identity vs Account vs Principal: identity_and_access_management/fundamentals/identity_vs_account_vs_principal.md
-    - Claims. Tokens. Sessions: identity_and_access_management/fundamentals/claims_tokens_sessions.md
-    - Federation. Trust relationships: identity_and_access_management/fundamentals/federation_and_trust_relationships.md
-    - Open Standards:
-      - OAuth 2.0: identity_and_access_management/fundamentals/open_standards/oauth_2.0.md
-      - OpenID Connect: identity_and_access_management/fundamentals/open_standards/openid_connect.md
-      - SAML 2.0: identity_and_access_management/fundamentals/open_standards/saml.md
-      - SCIM: identity_and_access_management/fundamentals/open_standards/scim.md
-      - JWK and Key Rotation: identity_and_access_management/fundamentals/open_standards/jwk_and_key_rotation.md
-    - Directory Services:
-      - LDAP: identity_and_access_management/fundamentals/directory_services/ldap.md
-      - Kerberos: identity_and_access_management/fundamentals/directory_services/kerberos.md
-      - Directory forests, domains, replication: identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
-      - Group membership, role models, ACLs, discretionary vs role-based systems: identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
+  - Cloud Security:
+    - Cloud Architecture & Security Design: cloud_security/cloud_architecture_&_security_design.md
+    - CloudSLAW:
+      - Labs: 
+        - Create and Secure Your First Admin User: cloud_security/cloudSLAW/Create and Secure Your First Admin User.md
+        - Turn on CloudTrail: cloud_security/cloudSLAW/Turn on CloudTrail.md
+        - Timmy's First CloudFormation: cloud_security/cloudSLAW/Timmy's First CloudFormation.md
+        - Follow the Money!: cloud_security/cloudSLAW/Follow the Money!.md
+        - Create Your First AWS IAM Role: cloud_security/cloudSLAW/Create Your First AWS IAM Role.md
+        - Write a Simple IAM Policy: cloud_security/cloudSLAW/Write a Simple IAM Policy.md
+        - Enable AWS Organizations: cloud_security/cloudSLAW/Enable AWS Organizations.md
+        - Give Your Account a Security Blanket with SCPs: cloud_security/cloudSLAW/Give Your Account a Security Blanket with SCPs.md
+        - Assume the Role! (Centralized Logging, Part 1): cloud_security/cloudSLAW/Assume the Role! (Centralized Logging, Part 1).md
+        - Secure that Bucket! (Centralized Logging Part 2), Resource Policies: cloud_security/cloudSLAW/Secure that Bucket! (Centralized Logging Part 2), Resource Policies.md
+        - Enabling the Org Trail (Centralized Logging Part 3): cloud_security/cloudSLAW/Enabling the Org Trail (Centralized Logging Part 3).md
+        - Bring in the Fed(eration) SSO: cloud_security/cloudSLAW/Bring in the Fed(eration) SSO.md
+        - Another Me SSO with IAM Identity Center, Part 2: cloud_security/cloudSLAW/Another Me SSO with IAM Identity Center, Part 2.md
+        - AWS LEGO Organizing the Org: cloud_security/cloudSLAW/Bring in the Fed(eration) SSO.md
+        - OUs, SCPs, and a Root User Account Recovery: cloud_security/cloudSLAW/OUs, SCPs, and a Root User Account Recovery.md
+        - NotWhat?!? Lock Out Regions with a Double Negative SCP: cloud_security/cloudSLAW/NotWhat Lock Out Regions with a Double Negative SCP.md
+        - On the Meaning of Life(cycles), Versions, and Ransomware: cloud_security/cloudSLAW/On the Meaning of Life(cycles), Versions, and Ransomware.md
+        - Buttoning up the Org: cloud_security/cloudSLAW/Buttoning up the Org.md
+        - Enabled Delegated Administrator for Identity Center and CloudTrail: cloud_security/cloudSLAW/Enable Delegated Administrator for Identity Center and CloudTrail.md
+        - Creating Security Team Permissions in IAM Identity Center: cloud_security/cloudSLAW/Creating Security Team Permissions in IAM Identity Center.md
+        - Enable GuardDuty the Right Way: cloud_security/cloudSLAW/Enable GuardDuty the Right Way.md
+        - The Best Way to Start with AWS Security Hub: cloud_security/cloudSLAW/The Best Way to Start with AWS Security Hub.md
+        - Use EventBridge for Security Hub Alerts: cloud_security/cloudSLAW/Use EventBridge for Security Hub Alerts.md
+        - PBAC and ABAC Write an Intermediate AWS IAM Policy: cloud_security/cloudSLAW/PBAC and ABAC Write an Intermediate AWS IAM Policy.md
+        - Skills Challenge IAM Identity Center: cloud_security/cloudSLAW/Skills Challenge IAM Identity Center.md
+    - Microsoft Security:
+      - Entra ID:
+        - Overview: cloud_security/microsoft_security/entra_id/overview.md
+        - Configuring Identity and Access in Microsoft Azure: cloud_security/microsoft_security/entra_id/Configuring Identity and access in Microsoft Azure.md
+      - Managing Security Operations in Microsoft Azure: cloud_security/microsoft_security/Managing Security Operations in Microsoft Azure.md
+      - Microsoft Defender Suite: cloud_security/microsoft_security/Microsoft Defender Suite.md
+      - Microsoft Sentinel: cloud_security/microsoft_security/Microsoft Sentinel.md
+      - Securing Data and Applications in Microsoft Azure: cloud_security/microsoft_security/Securing Data and Applications in Microsoft Azure.md
+  - DevSecOps:
+    - Try Hack Me: 
+      - Secure Software Developmet:
+        - Introduction to DevSecOps: devsecops/tryhackme/Secure Software Development/Introduction to DevSecOps.md
+        - Secure Software Development Lifecycle (S-SDLC): devsecops/tryhackme/Secure Software Development/Secure Software Development Lifecycle (S-SDLC).md
+        - Software Development Lifecycle (SDLC): devsecops/tryhackme/Secure Software Development/Software Development Lifecycle (SDLC).md
+      - Security of the Pipeline:
+        - Source Code Security: devsecops/tryhackme/Security of the Pipeline/Source Code Security.md
+  - Information Technology:
+    - Troubledhooting Steps: information_technology/Troubleshooting Steps.md
+#    - Linux:
+#      - Linux OS security best practice: information_technology/linux/Linux OS security best practice.md
+    - Cloud:
+      - Azure:
+        - App Services: information_technology/cloud/azure/App Service.md
+        - Application Gateway: information_technology/cloud/azure/Application Gateway.md
+        - Compute: information_technology/cloud/azure/Compute.md
+        - Container Instances: information_technology/cloud/azure/Container Instances.md
+        - Content Delivery Network (CDN): information_technology/cloud/azure/Content Delivery Network (CDN).md
+        - Enabling Platform Protection in Microsoft Azure: information_technology/cloud/azure/Enabling Platform Protection in Microsoft Azure.md
+        - Express Route: information_technology/cloud/azure/Express Route.md
+        - Firewalls: information_technology/cloud/azure/Firewalls.md
+        - Functions: information_technology/cloud/azure/Function.md
+        - Generative AI: information_technology/cloud/azure/Generative AI.md
+        - Kubernetes Service: information_technology/cloud/azure/Kubernetes Service.md
+        - Scale Sets: information_technology/cloud/azure/Scale Sets.md
+        - Virtual Desktop: information_technology/cloud/azure/Virtual Desktop.md
+        - Virtual Machines: information_technology/cloud/azure/Virtual Machines.md
+        - Virtual Network: information_technology/cloud/azure/Virtual Network.md
+        - VPN Gateway: information_technology/cloud/azure/VPN Gateway.md
+      - IaC:
+        - Terraform: information_technology/cloud/iac/Terraform.md
+    - Computer Networking:
+      - Hub & Spoke: information_technology/computer_networking/Hub & Spoke.md
+      - IP Addressing: information_technology/computer_networking/IP Addressing.md
+      - IP Routing: information_technology/computer_networking/IP Routing.md
+      - Load Balancer: information_technology/computer_networking/Load Balancer.md
+      - OSI Model: information_technology/computer_networking/OSI Model.md
+      - Proxy Servers: information_technology/computer_networking/Proxy Servers.md
+      - Subnet-Subnetting: information_technology/computer_networking/Subnet-Subnetting.md
+    - Cybersecurity:
+      - Blue Team:
+        - Threat Detection:
+          - Learn Attackers Behaviors: information_technology/cybersecurity/blue_team/Threat-Detection/Learn_attackers_behaviors.md
+          - Understand What Telemetry and Logs Are: information_technology/cybersecurity/blue_team/Threat-Detection/Understand_what_telemetry_and_logs_are.md
+        - Try Hack Me: 
+          - Security Engineer:
+            - Introduction to Security Engineering:
+              - Security Engineer Intro: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Introduction to Security Engineering/Security Engineer Intro.md
+            - Network & System Security:
+              - Security Network Architecture: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Network & System Security/Security Network Architecture.md
+            - Threats & Risks:
+              - Risk Management: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks\Risk Management.md
+              - Threat Modeling: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks/Threat Modeling.md
+            - SOAR (Security Orchestration, Automation & Response): information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/SOAR (Security Orchestration, Automation & Response).md
+        - IR Flow Plan: information_technology/cybersecurity/blue_team/IR Flow Plan.md
+        - Windows Hardening: information_technology/cybersecurity/Windows Hardening.md
+      - Red Team:
+        - Try Hack Me: 
+          - Junior Penetration Tester:
+            - Burp Suite:
+              - Burp Suite Intruder: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Burp Suite/Burp Suite_Intruder.md
+              - Burp Suite Other Modules: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Burp Suite/Burp Suite_Other Modules.md
+              - Burp Suite Repeater: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Burp Suite/Burp Suite_Repeater.md
+              - Burp Suite The Basics: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Burp Suite/Burp Suite_The Basics.md
+            - Introduction to Web Hacking:
+              - Authentication Bypass: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Authentication Bypass.md
+              - Command Injection: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Command Injection.md
+              - Content Discovery: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Content Discovery.md
+              - File Inclusion: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/File Inclusion.md
+              - Insecure Direct Object Reference (IDOR): information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Insecure Direct Object Reference (IDOR).md
+              - Intro to Cross-site Scripting: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Intro to Cross-site Scripting.md
+              - Intro to SSRF: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Intro to SSRF.md
+              - SQL Injection: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/SQL Injection.md
+              - Subdomain Enumeration: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Subdomain Enumeration.md
+            - Metasploit:
+              - Metasploit Exploitation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Exploitation.md
+              - Metasploit Introduction: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Introduction.md
+              - Metasploit Meterpreter: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Meterpreter.md
+            - Network Security:
+               - Active Reconnaissance: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Active Reconnaissance.md
+               - Net Sec Challenge: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Net Sec Challenge.md
+               - Nmap Advanced Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Advanced Port Scans.md
+               - Nmap Basic Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Basic Port Scans.md
+               - Nmap Live Host Discovery: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Live Host Discovery.md
+               - Nmap Post Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Post Port Scans.md
+               - Passive Reconnaissance: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Passive Reconnaissance.md
+               - Protocols and Servers: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Protocols and Servers.md
+               - Protocols and Servers 2: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Protocols and Servers 2.md
+            - Privilege Escalation:
+              - Linux Privilege Escalation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/Linux Privilege Escalation.md
+              - What The Shell: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/What The Shell.md
+              - Windows Privilege Escalation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/Windows Privilege Escalation.md
+            - Vulnerability Reasearch:
+              - Exploit Vulnerabilities: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Vulnerability Reasearch/Exploit Vulnerabilities.md
+              - Vulnerabilities 101: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Vulnerability Reasearch/Vulnerabilities 101.md
+          - Red Teaming:
+            - Red Team Fundamentals:
+              - Intro to C2: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Intro to C2.md
+              - Red Team Engagements: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Engagements.md
+              - Red Team Fundamentals: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Fundamentals.md
+              - Red Team OPSEC: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team OPSEC.md
+              - Red Team Threat Intel: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Threat Intel.md
+          - Web Application Pentesting:
+            - Authentication:
+              - Enumeration & Brute Force: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Authentication/Enumeration & Brute Force.md
+              - JWT Security: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Authentication/JWT Security.md
+              - Multi - Factor Authentication: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Authentication/Multi-Factor Authentication.md
+              - OAuth Vulnerabilities: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Authentication/OAuth Vulnerabilities.md
+              - Session Management: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Authentication/Session Management.md
+            - Injection Attacks:
+              - Advanced SQL Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/Advanced SQL Injection.md
+              - NoSQL Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/NoSQL Injection.md
+              - ORM Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/ORM Injection.md
+              - Server-side Template Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/Server-side Template Injection.md
+              - XXE Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/XXE Injection.md
+        - How to hack (vague): information_technology/cybersecurity/red_team/How to hack (vague).md  
+      - Try Hack Me: 
+        - CyberSecurity 101: 
+          - Search Skills: information_technology/cybersecurity/tryhackme/CyberSecurity 101/Search Skills.md
+    - Identity & Access Management:
+       - Overview: information_technology/identity_and_access_management/fundamentals/Overview.md
+       - Authentication vs Authorization:  information_technology/identity_and_access_management/fundamentals/authentication_vs_authorization.md
+       - Identity vs Account vs Principal: information_technology/identity_and_access_management/fundamentals/identity_vs_account_vs_principal.md
+       - Claims. Tokens. Sessions: information_technology/identity_and_access_management/fundamentals/claims_tokens_sessions.md
+       - Federation. Trust relationships: information_technology/identity_and_access_management/fundamentals/federation_and_trust_relationships.md
+       - Open Standards:
+          - OAuth 2.0: information_technology/identity_and_access_management/fundamentals/open_standards/oauth_2.0.md
+          - OpenID Connect: information_technology/identity_and_access_management/fundamentals/open_standards/openid_connect.md
+          - SAML 2.0: information_technology/identity_and_access_management/fundamentals/open_standards/saml.md
+          - SCIM: information_technology/identity_and_access_management/fundamentals/open_standards/scim.md
+          - JWK and Key Rotation: information_technology/identity_and_access_management/fundamentals/open_standards/jwk_and_key_rotation.md
+       - Directory Services:
+          - LDAP: information_technology/identity_and_access_management/fundamentals/directory_services/ldap.md
+          - Kerberos: information_technology/identity_and_access_management/fundamentals/directory_services/kerberos.md
+          - Directory forests, domains, replication: information_technology/identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
+          - Group membership, role models, ACLs, discretionary vs role-based systems: information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
+#  - Security Automation:
+  - Software Development:
+    - Software Design Principles:
+      - Overview: software_development/software_design_principles/overview.md
+      - Dry Don't Repeat Yourself: software_development/software_design_principles/dry_dont_repeat_yourself.md
+      - Single Responsibility: software_development/software_design_principles/single_responsibility.md
