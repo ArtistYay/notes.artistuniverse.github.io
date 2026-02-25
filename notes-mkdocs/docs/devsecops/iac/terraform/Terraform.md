@@ -72,7 +72,7 @@ Keyword: IaC
 
 - timeouts are nested block arguments that allow for customization of how long certain operations are allowed to take before they are deemed failed.
 
-![[Screenshot_2022-10-26_163854.png]]
+![screenshot](../../../images/Screenshot_2022-10-26_163854.png)
 
 - Terraform keeps track of all the resources and their details in a “state” file.
 

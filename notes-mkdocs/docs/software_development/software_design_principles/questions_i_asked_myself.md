@@ -1,0 +1,7 @@
+### What is Loose Coupling and High Cohesion?
+
+I am all in into the cloud, when I think of loose coupling I think of resources that aren't relaint on each other so if one goes down the rest of the architecture can keep going (horses don't stop they keep going, iykyk).
+
+Coupling describes how tightly one part of a program (like a class or routine) is tied to another. The goal of loose coupling is to keep these interconnections as small, direct, and flexible as possible. When parts are loosely coupled, you can change one module without needing to worry about the rest of the system.
+
+Cohesion refers to how focused a single part of your program is on one specific task. A highly cohesive class or routine has one well-defined responsibility and does it well. For example, imagine a toolbox. A highly cohesive tool is a hammer, it has one clear job. A low-cohesion tool would be a "hodgepodge" device that tries to be a hammer, a screwdriver, a stapler, and a flashlight all at once; it becomes confusing to use and harder to fix if one part breaks. Code with high cohesion is more reliable and easier to understand. It allows a programmer to "safely ignore" most of a program while focusing on one specific part, which is essential for managing the mental load of programming.

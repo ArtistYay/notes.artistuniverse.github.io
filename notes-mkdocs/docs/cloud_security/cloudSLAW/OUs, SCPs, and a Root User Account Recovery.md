@@ -15,5 +15,5 @@
 		If we left it on then it would still protect the `Exceptions`.
 3. Moved the `SecurityAudit` account to the `Exceptions` OU to change the root email and change the name to `LogArchive`.
 		"Securely" recovered the Root User Account for `SecurityAudit`
-		![[Pasted image 20250312145912.png]]
+		![screenshot](../../../images/Pasted image 20250312145912.png)
 4. Put `LogArchive` account back to `Security` OU and created a `SecurityAudit` account in the same OU.

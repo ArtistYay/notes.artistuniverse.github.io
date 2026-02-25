@@ -6,7 +6,8 @@
 - **Relying Party:** This is where you do things. The relying party… relies… on the IdP for authentication, so it can focus on authorization.
 - Users are created in the Identity Provider and assigned _attributes_ such as group, role, and email address.
 - Administrators create a _trust relationship_ between the identity provider and the relying party. This is usually an exchange of metadata to define the relationship and cryptographic signing certificate(s), and includes the URLs for communications.
-![[Pasted image 20250309195059.png]]
+
+![screenshot](../../../images/Pasted image 20250309195059.png)
 
 - A user logs into the IdP. When they go to log into a relying party, they provide the address of the IdP or some other identifier so the relying party knows who they are (this is usually hidden from the user).
 - The IdP then makes an _assertion_: a digitally signed statement that the user is who they say they are, including whatever _attributes_ they send over (like a group or whether they used MFA).
