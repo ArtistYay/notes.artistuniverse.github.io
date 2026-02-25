@@ -141,7 +141,7 @@ nav:
         - Enabling the Org Trail (Centralized Logging Part 3): cloud_security/cloudSLAW/Enabling the Org Trail (Centralized Logging Part 3).md
         - Bring in the Fed(eration) SSO: cloud_security/cloudSLAW/Bring in the Fed(eration) SSO.md
         - Another Me SSO with IAM Identity Center, Part 2: cloud_security/cloudSLAW/Another Me SSO with IAM Identity Center, Part 2.md
-        - AWS LEGO Organizing the Org: cloud_security/cloudSLAW/Bring in the Fed(eration) SSO.md
+        - AWS LEGO Organizing the Org: cloud_security/cloudSLAW/AWS LEGO Organizing the Org.md
         - OUs, SCPs, and a Root User Account Recovery: cloud_security/cloudSLAW/OUs, SCPs, and a Root User Account Recovery.md
         - NotWhat?!? Lock Out Regions with a Double Negative SCP: cloud_security/cloudSLAW/NotWhat Lock Out Regions with a Double Negative SCP.md
         - On the Meaning of Life(cycles), Versions, and Ransomware: cloud_security/cloudSLAW/On the Meaning of Life(cycles), Versions, and Ransomware.md
@@ -169,6 +169,9 @@ nav:
         - Software Development Lifecycle (SDLC): devsecops/tryhackme/Secure Software Development/Software Development Lifecycle (SDLC).md
       - Security of the Pipeline:
         - Source Code Security: devsecops/tryhackme/Security of the Pipeline/Source Code Security.md
+    - IaC:
+      - Terraform: 
+        - Overview: devsecops/iac/terraform/Terraform.md
   - Information Technology:
     - Troubledhooting Steps: information_technology/Troubleshooting Steps.md
 #    - Linux:
@@ -183,7 +186,7 @@ nav:
         - Enabling Platform Protection in Microsoft Azure: information_technology/cloud/azure/Enabling Platform Protection in Microsoft Azure.md
         - Express Route: information_technology/cloud/azure/Express Route.md
         - Firewalls: information_technology/cloud/azure/Firewalls.md
-        - Functions: information_technology/cloud/azure/Function.md
+        - Functions: information_technology/cloud/azure/Functions.md
         - Generative AI: information_technology/cloud/azure/Generative AI.md
         - Kubernetes Service: information_technology/cloud/azure/Kubernetes Service.md
         - Scale Sets: information_technology/cloud/azure/Scale Sets.md
@@ -191,8 +194,6 @@ nav:
         - Virtual Machines: information_technology/cloud/azure/Virtual Machines.md
         - Virtual Network: information_technology/cloud/azure/Virtual Network.md
         - VPN Gateway: information_technology/cloud/azure/VPN Gateway.md
-      - IaC:
-        - Terraform: information_technology/cloud/iac/Terraform.md
     - Computer Networking:
       - Hub & Spoke: information_technology/computer_networking/Hub & Spoke.md
       - IP Addressing: information_technology/computer_networking/IP Addressing.md
@@ -298,9 +299,15 @@ nav:
           - Kerberos: information_technology/identity_and_access_management/fundamentals/directory_services/kerberos.md
           - Directory forests, domains, replication: information_technology/identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
           - Group membership, role models, ACLs, discretionary vs role-based systems: information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
-#  - Security Automation:
+  - Security Automation:
+      - Python:
+        - The Four-Step Problem-Solving Process: security_automation/python/problem_solving.md
+        - Questions I Ask Myself: security_automation/python/questions_i_asked_myself.md
   - Software Development:
     - Software Design Principles:
       - Overview: software_development/software_design_principles/overview.md
       - Dry Don't Repeat Yourself: software_development/software_design_principles/dry_dont_repeat_yourself.md
       - Single Responsibility: software_development/software_design_principles/single_responsibility.md
+      - KISS (Keep It Simple, Stupid): software_development/software_design_principles/keep_it_simple_stupid.md
+      - YAGNI (You Aren’t Gonna Need It): software_development/software_design_principles/you_arent_gonna_need_it.md
+      - Questions I Ask Myself: software_development/software_design_principles/questions_i_asked_myself.md
