@@ -1,8 +1,11 @@
-### **I. What is an IDOR?**
+# Insecure Direct Object Reference (IDOR)
+
+## What is an IDOR?
 
 - Vulnerability where an attacker can access objects directly by manipulating a reference.
 - _Example:_ Changing `user_id=1000` to `user_id=100` in `http://online-service.thm/profile?user_id=1000`.
-### **II. Finding IDORs in Different ID Formats:**
+
+## Finding IDORs in Different ID Formats
 
 - **Encoded IDs (e.g., Base64):**
     1. Decode the ID (Base64).
@@ -18,12 +21,14 @@
     1. Create two accounts.
     2. Swap IDs between the accounts.
     3. If you can view the other user's content, it's an IDOR.
-### **III. IDOR Locations:**
+
+## IDOR Locations
 
 - **Not just in the address bar:** Check AJAX requests, JavaScript files.
 - **Unreferenced Parameters (Parameter Mining):** Discover hidden parameters that might be vulnerable. _Example:_ `/user/details` vs. `/user/details?user_id=123`.
 - **API Endpoints:** Look for IDs in API calls. _Example:_ `/api/v1/customer?id=`.
-### **IV. General IDOR Testing Strategy:**
+
+## General IDOR Testing Strategy
 
 1. **Identify potential endpoints:** Look for URLs or API calls that take IDs as parameters.
 2. **Understand ID format:** Decode, analyze hashes, or test with multiple accounts.

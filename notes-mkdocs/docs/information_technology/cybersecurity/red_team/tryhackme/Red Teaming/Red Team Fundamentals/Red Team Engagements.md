@@ -1,3 +1,5 @@
+# Red Team Engagements
+
 ## Understanding the Importance of Client Objectives
 
 Engagements can be complex and bureaucratic, making clear objectives essential for success.
@@ -5,17 +7,17 @@ Engagements can be complex and bureaucratic, making clear objectives essential f
 ### Key Takeaways:
 
 - **Why set objectives?**
-    
+
     - They create a mutual understanding between the client and the red team.
     - Serve as the foundation for documentation and planning.
     - Help determine the focus and scope of the assessment.
     - Ensure structured execution rather than an unplanned approach.
 - **Types of Engagements:**
-    
+
     - **General Internal/Network Penetration Test:** Broad assessment using standard TTPs.
     - **Focused Adversary Emulation:** Targets a specific APT group relevant to the industry.
 - **5 Whys Analysis:**
-    
+
     - **Why do we define objectives first?** To align expectations between client and red team.
     - **Why do expectations need alignment?** So both parties know what will be tested and measured.
     - **Why is testing scope crucial?** It prevents unauthorized actions that could disrupt business.
@@ -29,18 +31,18 @@ Scope determines what is and isn't allowed during the engagement.
 ### Scope Components:
 
 - **Client-defined limitations:**
-    
+
     - No exfiltration of real data.
     - Production servers may be off-limits.
     - Specific IP ranges may be in or out of scope.
     - Downtime is prohibited.
 - **Why should the client define the scope?**
-    
+
     - They best understand their network and business impact.
     - Protects critical infrastructure from unintended harm.
     - Ensures compliance with legal and operational constraints.
 - **Challenges in Scope Definition:**
-    
+
     - Scope may be too restrictive, limiting engagement effectiveness.
     - Red team may need to negotiate exceptions to accurately assess risks.
 
@@ -70,22 +72,22 @@ Using client objectives and RoE, red teams develop structured campaign plans.
 ### Types of Plans:
 
 1. **Engagement Plan (High-level strategy)**
-    
+
     - Concept of Operations (CONOPS)
     - Resource & personnel requirements
     - Timeline considerations
 2. **Operations Plan (Detailed execution strategy)**
-    
+
     - Roles and responsibilities
     - Known information & reconnaissance data
     - Stopping conditions
 3. **Mission Plan (Tactical execution)**
-    
+
     - Exact commands & tools to be used
     - Execution timeline
     - Specific operator responsibilities
 4. **Remediation Plan (Post-engagement actions)**
-    
+
     - Report summarizing findings
     - Consultation on fixing vulnerabilities
 
@@ -101,7 +103,7 @@ A high-level document summarizing engagement plans for both business and technic
 - **Common tools & techniques**
 - **Threat group to emulate (if applicable)**
 - **Why is CONOPS important?**
-    
+
     - Helps non-technical stakeholders understand the engagement.
     - Ensures alignment before deep technical planning.
     - Acts as a reference point for refining tactical plans.

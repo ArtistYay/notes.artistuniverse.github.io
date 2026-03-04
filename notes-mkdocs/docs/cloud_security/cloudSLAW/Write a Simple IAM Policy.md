@@ -1,4 +1,6 @@
-# The Lesson
+# Write a Simple IAM Policy
+
+## The Lesson
 
 - The ARN uniquely identifies AWS resources, allowing precise specification in IAM policies. In cloud security, knowing the exact resource is vital to restrict or grant access properly. Properly defining the resource scope ensures that access is given only to specific entities (like logs in this case), preventing unnecessary exposure to other resources.
 - **Inline** **policies** attach directly to the user/group/role and only work for the thing they are attached to. You write them for that user and cannot reuse them anyplace else.
@@ -8,7 +10,7 @@
 
 ![screenshot](../../../images/Pasted image 20250309110124.png)
 
-# The Lab
+## The Lab
 
 1. Created a Custom Policy for read (s3:GetObject) and write (s3:PutObject) to our CloudTrail bucket
 		IAM policies define what actions users, roles, and services can perform. Writing policies allows for granular control. The Visual Policy Editor simplifies policy creation by providing an easy-to-understand interface.

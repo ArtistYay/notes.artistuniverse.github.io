@@ -3,6 +3,9 @@ tags:
   - Azure
 Keyword: Networking
 ---
+
+# Virtual Network
+
 - _Azure virtual networks_ enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers.
 
 - Azure ExpressRoute are for environments where you need greater bandwidth and even higher levels of security. ExpressRoute provides a dedicated private connectivity to Azure that doesn't travel over the internet.

@@ -3,6 +3,9 @@ tags:
   - Azure
 Keyword: Networking
 ---
+
+# Express Route
+
 - ExpressRoute does provide private connectivity, but isn’t encrypted.
 
 - Data that needs to be on-premises and on Azure, highly available, and periodically migrated.

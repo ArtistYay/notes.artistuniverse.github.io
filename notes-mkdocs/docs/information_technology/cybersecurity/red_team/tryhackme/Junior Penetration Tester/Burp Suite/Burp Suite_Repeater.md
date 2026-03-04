@@ -1,8 +1,11 @@
-### What is Repeater?
+# Burp Suite_Repeater
+
+## What is Repeater?
 
 - Allows modifying and resending intercepted requests to a target.
 - Manipulates captured requests (from Proxy) or creates new ones from scratch (like cURL).
-### Inspector
+
+## Inspector
 
 - Used in both Proxy and Repeater modules.
 - Provides a more intuitive way to analyze and modify requests compared to the raw editor.

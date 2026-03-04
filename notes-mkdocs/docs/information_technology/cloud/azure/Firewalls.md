@@ -1,3 +1,5 @@
+# Firewalls
+
 - A device that historically sits at the border between different networks and monitors traffic flowing between them.
 
 - It’s capable of reading packet data and either allowing or denying traffic based on that data.

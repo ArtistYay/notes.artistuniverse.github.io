@@ -1,4 +1,6 @@
-### **I. NIST SP 800-30**
+# Risk Management
+
+## NIST SP 800-30
 
 - **Developed by:** National Institute of Standards and Technology (NIST).
 - **Focus:** Provides a systematic approach to risk assessment, focusing on information systems and security.
@@ -16,7 +18,8 @@
     - Comprehensive and widely recognized.
     - Provides a structured approach.
     - Aligns with other NIST security standards.
-### **II. Facilitated Risk Analysis Process (FRAP)**
+
+## Facilitated Risk Analysis Process (FRAP)
 
 - **Focus:** A collaborative and inclusive approach to risk assessment, involving a group of stakeholders.
 - **Key Elements:**
@@ -27,7 +30,8 @@
     - Leverages diverse perspectives.
     - Encourages buy-in and ownership of the risk assessment.
     - Can lead to more comprehensive and accurate results.
-### **III. Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE)**
+
+## Operationally Critical Threat, Asset, and Vulnerability Evaluation (OCTAVE)
 
 - **Focus:** Identifying and prioritizing assets based on their criticality to the organization's mission and assessing the threats and vulnerabilities that could impact those assets.
 - **Key Features:**
@@ -38,7 +42,8 @@
     - Prioritizes risks based on business impact.
     - Encourages organizational ownership of the risk management process.
     - Suitable for organizations with limited resources.
-### **IV. Failure Modes and Effect Analysis (FMEA)**
+
+## Failure Modes and Effect Analysis (FMEA)
 
 - **Focus:** Identifying potential failure modes for a system or process and analyzing their effects and likelihood of occurrence.
 - **Steps:**

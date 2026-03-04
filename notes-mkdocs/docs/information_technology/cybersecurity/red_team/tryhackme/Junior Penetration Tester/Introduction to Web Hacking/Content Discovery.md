@@ -1,4 +1,6 @@
-### **I. Manual Discovery:**
+# Content Discovery
+
+## Manual Discovery
 
 - **Favicon:**
     - Website icon.
@@ -28,7 +30,8 @@
     - Historical archive of websites.
     - Uncover old pages that might still be active.
     - [https://archive.org/web/](https://archive.org/web/)
-### **II. Automated Discovery:**
+
+## Automated Discovery
 
 - **Purpose:** Quickly identify commonly named directories and files.
 - **Wordlists:** SecLists ([https://github.com/danielmiessler/SecLists](https://github.com/danielmiessler/SecLists))

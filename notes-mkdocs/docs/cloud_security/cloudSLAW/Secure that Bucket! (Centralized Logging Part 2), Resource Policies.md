@@ -1,9 +1,12 @@
-# The Lesson
+# Secure that Bucket! (Centralized Logging Part 2), Resource Policies
 
-- Resource-Based Policies (bucket polices) are used when you need to control access to resources that can be directly accessed from outside your AWS account (e.g., the public internet). This is a key aspect of securing resources that might otherwise be vulnerable to unauthorized access.
+## The Lesson
+
+- Resource-Based Policies (bucket policies) are used when you need to control access to resources that can be directly accessed from outside your AWS account (e.g., the public internet). This is a key aspect of securing resources that might otherwise be vulnerable to unauthorized access.
 - By adding conditionals like `aws:SourceArn` and `s3:x-amz-acl`, you reduce the risk of unauthorized access or misuse. This practice of adding conditions ensures that only the intended service or user can interact with your resources, effectively preventing malicious actions (e.g., data exfiltration).
 - Using the **deny** override behavior effectively prevents unwanted actions from taking place, even if other policies allow them.
-# The Lab
+
+## The Lab
 
 1. Customized Given Bucket Policy and Applied it to the Logging Bucket
 ```

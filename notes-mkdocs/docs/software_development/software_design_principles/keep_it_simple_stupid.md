@@ -1,4 +1,4 @@
-# KISS (Keep It Simple, Stupid)
+# Keep It Simple, Stupid (KISS)
 
 ## Overview
 

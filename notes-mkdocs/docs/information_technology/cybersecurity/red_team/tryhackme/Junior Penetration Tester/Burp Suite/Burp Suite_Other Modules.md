@@ -1,4 +1,6 @@
-### Decoder
+# Burp Suite_Other Modules
+
+## Decoder
 
 - **Purpose:** Data manipulation.
 - Encodes and decodes data.
@@ -15,13 +17,15 @@
 - **Stacking:** Encoding methods can be combined (e.g., ASCII Hex then Octal).
 - **Hex View:** Allows byte-by-byte input editing.
 - **Hashing:** Algorithm output is typically converted to a hexadecimal string ("hash").
-### Comparer
+
+## Comparer
 
 - **Purpose:** Compares two pieces of data (ASCII or bytes).
 - Displays compared data in text or hex format.
 - **Comparison Key:** Shows modified, deleted, and added data.
 - **Sync Views:** Keeps both data sets in the same format (text or hex).
-### Sequencer
+
+## Sequencer
 
 - **Purpose:** Evaluates the randomness (entropy) of tokens (e.g., session cookies, CSRF tokens).
 - **Methods:**
@@ -33,7 +37,8 @@
     - **Effective Entropy:** Measures token randomness (higher is better).
     - **Reliability:** Confidence level in the results.
     - **Sample:** Details about the analyzed tokens.
-### Organizer
+
+## Organizer
 
 - **Purpose:** Stores and annotates HTTP requests for later review.
 - Creates read-only copies of requests.

@@ -1,4 +1,4 @@
-# YAGNI (You Aren’t Gonna Need It)
+# You Aren't Gonna Need It (YAGNI)
 
 ## Overview
 

@@ -1,3 +1,5 @@
+# index
+
 Strong software development skills are essential for advancing in the role of a Cloud Security Engineer. This section outlines the path from mastering programming basics to applying engineering practices critical for secure, automated cloud operations.
 
 Why This Matters for Cloud Security

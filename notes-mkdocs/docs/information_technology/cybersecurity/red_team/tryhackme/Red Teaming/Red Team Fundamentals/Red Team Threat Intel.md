@@ -1,11 +1,14 @@
+# Red Team Threat Intel
 
 Threat Intelligence (TI) provides defenders with insight into adversary behaviors, tactics, techniques, and procedures (TTPs). However, the **red team** can also leverage CTI to emulate adversaries more accurately and assess blue team defenses.
+
 # Key Takeaways:
 
 - CTI is not just a defensive tool—it enables **adversary emulation**, helping red teams refine attack scenarios and improve realism.
 - TTPs provide a deeper understanding of how an adversary **operates**, moving beyond simple Indicators of Compromise (IOCs).
 - CTI platforms such as **MITRE ATT&CK, TIBER-EU, and OST Map** aid in mapping TTPs and planning engagements.
-### Why is this important?  
+
+### Why is this important?
 
 1. Why use CTI in red teaming? → To simulate real-world attacks based on known adversary behaviors.
 2. Why simulate real-world attacks? → To test and improve defensive capabilities effectively.
@@ -15,21 +18,24 @@ Threat Intelligence (TI) provides defenders with insight into adversary behavior
 
 ---
 CTI is actionable intelligence that can be **consumed** in various ways, such as tracking adversary **IOCs** (e.g., domains, IPs, malware hashes) and **TTPs** (e.g., attack methodologies).
+
 # Methods of CTI Consumption:
 
 - **ISACs (Information Sharing and Analysis Centers):** Shared intelligence repositories.
 - **Threat Intelligence Platforms:** Automated aggregation and categorization of threat data.
 - **Public Frameworks (e.g., MITRE ATT&CK):** Organizing adversary TTPs into structured models.
+
 ## Why focus on TTPs instead of just IOCs?
 
 - **IOCs change frequently** (e.g., an IP address can be abandoned).
 - **TTPs remain consistent**—adversaries tend to follow similar operational patterns.
 
-📌 **Reflection:**  
+📌 **Reflection:**
 💡 A red team can assess a blue team’s effectiveness by **determining how well they leverage CTI** for detections. If a blue team only focuses on IOCs, they may **miss detecting novel threats** using the same TTPs.
 
 ---
 Once an adversary is selected, their TTPs should be mapped to a **cyber kill chain** to model attack progression.
+
 # Steps for TTP Mapping:
 
 1. **Select an adversary** based on industry, attack vectors, or geopolitical motivation.
@@ -56,6 +62,7 @@ Once an adversary is selected, their TTPs should be mapped to a **cyber kill cha
 
 ---
 During execution, the red team **modifies behavior and tooling** based on collected intelligence.
+
 # Practical Use Cases:
 
 - **Malleable C2 Profiles:** Adjusting C2 traffic (e.g., using collected Host Headers, URIs, etc.) to mimic adversary behavior.
@@ -74,6 +81,7 @@ During execution, the red team **modifies behavior and tooling** based on collec
 
 ---
 A **threat-intel-driven campaign** takes all of these components and integrates them into a **structured** engagement plan.
+
 # Campaign Planning Steps:
 
 1. **Identify the Framework & Kill Chain** (e.g., MITRE ATT&CK, Lockheed Martin Cyber Kill Chain).

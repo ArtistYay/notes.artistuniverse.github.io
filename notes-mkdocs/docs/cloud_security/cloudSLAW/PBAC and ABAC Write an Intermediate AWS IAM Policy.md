@@ -1,4 +1,6 @@
-# The Lesson
+# PBAC and ABAC Write an Intermediate AWS IAM Policy
+
+## The Lesson
 
 - _Access controls map to objects (like files or systems), authorizations map to actions (like AWS API calls), and entitlements are when you assign either to an identity._
 - Role-Based Access Control (RBAC): Assigns roles to identities, which define permissions.
@@ -16,6 +18,7 @@
 			a. https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html?utm_source=slaw.securosis.com&utm_medium=referral&utm_campaign=pbac-and-abac-write-an-intermediate-aws-iam-policy
 		2. Condition operators are logical conditions like StringEquals, IpAddress, Booleans.
 			a. https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html?utm_source=slaw.securosis.com&utm_medium=referral&utm_campaign=pbac-and-abac-write-an-intermediate-aws-iam-policy
-# The Lab
 
-1. Wrote and deleted an IAM policy were you can stop or start an instance based on the IP address that's making the API call.
+## The Lab
+
+1. Wrote and deleted an IAM policy where you can stop or start an instance based on the IP address that's making the API call.

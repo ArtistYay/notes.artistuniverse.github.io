@@ -1,10 +1,13 @@
-# The Lesson
+# Enable GuardDuty the Right Way
+
+## The Lesson
 
 - GuardDuty acts as an IDS (Intrusion Detection System) for AWS, analyzing multiple telemetry sources to identify potential threats.
 - GuardDuty charges based on activity, making it affordable to enable across all regions, even unused ones.
 - GuardDuty monitors CloudTrail, VPC Flow Logs, and DNS Logs automatically.
 - Many security frameworks require continuous threat monitoring, and GuardDuty provides an AWS-native way to meet those requirements.
-# The Lab
+
+## The Lab
 
 1. Enable GuardDuty in a Primary Region (us-east-1).
 		GuardDuty is a regional service and must be activated separately in each required region.

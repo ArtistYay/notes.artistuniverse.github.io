@@ -1,4 +1,6 @@
-1. Organized and Created OUs 
+# AWS LEGO Organizing the Org
+
+1. Organized and Created OUs
 	- **Infrastructure** (Shared services and network resources)
 	- **Workloads** (Application environments)
 	- **Exceptions** (Temporary policy exemptions)
@@ -20,4 +22,3 @@
 		Why?
 		- IAM account separation prevents privilege escalation risks by isolating identity management.
 		- The Security Operations account ensures security tools have a controlled environment.
-    

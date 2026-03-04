@@ -1,43 +1,42 @@
+# Overview
+
 - You can have one tenant for multiple Azure subscriptions. A tenant is an organization which stores all the users in that organization. The one who makes the tenant has billing and admin rights to that account.
 
 - What is Azure AD?
-    
-    - Is a cloud based identity service. It uses authentication to much sure you are who you say you are and authorization to know what do you have access to.
-    
+
+    - Is a cloud based identity service. It uses authentication to make sure you are who you say you are and authorization to know what you have access to.
 
 - Which features work in Azure AD?
-    
+
     - Application management - manage your cloud and on prem apps
-    
+
     - Authentication - manage Azure AD self service password reset
-    
+
     - Conditional Access - manage access to your cloud apps
-    
+
     - Device management - manage how your cloud or on prem devices access your corporate data
-    
 
 - Terminology
-    
+
     - Azure AD account - An identity created in Azure AD, or in services like Microsoft 365. These identities are stored in Azure AD. For example, internal staff members might use Azure AD accounts daily at work.
-    
+
     - Owner - manage all Azure resources
-    
+
     - Global administrator - global administrator can perform all admin functions
-    
+
     - Azure tenant - An instance of an Azure AD. This tenant is automatically created for you when you first sign up for Azure or other services like Microsoft 365. A tenant (which represents an organization) holds your users, user groups, and applications. Represents your organization.
-    
+
     - Azure AD directory - An Azure resource that's created for you automatically when you subscribe to Azure. Includes all objects to perform IAM functions. The security desks list that holds all the information about the people in your organization office space.
-    
+
     - Identity - Something that has to be identified and authenticated. An identity is typically a user with a username and password credentials, but the term can also apply to applications or services.
-    
+
     - Account - An identity and its associated data. An account can't exist without an identity.
-    
+
     - Azure subscription - Your level of access to use Azure and its services. For pay-as-you-go access, use your credit card to set up an Azure subscription. There are several types of subscriptions. For example, enterprise-level customers can use Azure Enterprise Agreement subscriptions. Each account can use many subscriptions.
-    
+
     - Multi-tenant - Multiple-tenant access to the same applications and services in a shared environment. These tenants represent multiple organizations.
-    
+
     - Custom domain - A domain you customize for your Azure AD directory. When you create an Azure AD directory, Azure automatically assigns it a default domain like `<your-organization>.onmicrosoft.com`. However, you can customize domain names. Your users could then have accounts like `joesmith@contoso.com` instead of `joesmith@contoso.onmicrosoft.com`.
-    
 
 Users
 
@@ -113,7 +112,7 @@ Device Management
 
 ![screenshot](../../../images/conditional-access-signal-decision-enforcement.png)
 
-- Conditional Access is a Azure AD Premium P1 license.
+- Conditional Access is an Azure AD Premium P1 license.
 
 - Membership, location, device compliance, application being accessed, and risky sign-in behavior are all common conditions or signals used in Conditional Access.
 

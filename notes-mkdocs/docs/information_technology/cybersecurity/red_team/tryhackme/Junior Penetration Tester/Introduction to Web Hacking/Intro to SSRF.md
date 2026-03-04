@@ -1,10 +1,13 @@
-### **I. What is SSRF?**
+# Intro to SSRF
+
+## What is SSRF?
 
 - Allows an attacker to make the web server send HTTP requests to arbitrary resources.
 - Two Types:
     - **Returning Data:** Response data is visible to the attacker.
     - **Blind:** No direct response. Requires external HTTP logging (RequestBin, custom HTTP server, Burp Collaborator).
-### **II. Finding SSRF:**
+
+## Finding SSRF
 
 - Look for functionality that takes a URL as input (e.g., fetching external resources, webhooks, import/export features).
 - Try modifying the URL to target internal resources (e.g., `127.0.0.1`, `localhost`, internal IP ranges).
@@ -12,7 +15,7 @@
 
 ![screenshot](../../../images/Pasted image 20241109160732.png)
 
-### **III. Defeating SSRF Defenses:**
+## Defeating SSRF Defenses
 
 - **Deny List:** Blocks specific URLs or IP addresses.
     - **Bypass Methods:**
@@ -25,7 +28,8 @@
         - Similar-looking URLs: `https://website.thm.attackers-domain.thm`.
 - **Open Redirect:** The application redirects users to a URL provided in a parameter.
     - **Exploitation:** Use the open redirect to target internal resources. _Example:_ `https://website.thm/redirect?url=http://127.0.0.1/admin`.
-### **IV. General SSRF Testing Strategy:**
+
+## General SSRF Testing Strategy
 
 1. **Identify potential endpoints:** Look for URL parameters or functionality that fetches external data.
 2. **Test with internal IPs:** Try `127.0.0.1`, `localhost`, and internal IP ranges.

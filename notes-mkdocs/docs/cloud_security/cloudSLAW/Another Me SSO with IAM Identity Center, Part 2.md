@@ -1,4 +1,6 @@
-# The Lesson
+# Another Me SSO with IAM Identity Center, Part 2
+
+## The Lesson
 
 - Permissions are granted using something called a _Permission Set_. A permission set is a collection of up to 10 IAM policies.
 - To provide access to an account, you assign a user/group a permission set and accounts. It’s a 3 part equation: group + permission set + account = what you can do.
@@ -6,7 +8,8 @@
 - When you assign a permission set, that creates an IAM role in the account with the IAM policies you defined. It then sets the role trust policy to allow the identity provider (IAM Identity Center) to assume the role.
 
 ![screenshot](../../../images/another_me_p2.png)
-# The Lab
+
+## The Lab
 
 1. Created an AdminstratorAccess permission set.
 		**Relay state,** is just a fancy way of saying “when the user logs in with this permission set, put them into this part of the console”.

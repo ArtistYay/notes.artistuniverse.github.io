@@ -1,4 +1,6 @@
-### **I. What is Privilege Escalation?**
+# Windows Privilege Escalation
+
+## What is Privilege Escalation?
 
 - **Definition:** Exploiting weaknesses in a system to gain access to accounts with higher privileges.
 - **Goal:** Typically, to gain administrative rights, but may involve escalating to other user accounts first.
@@ -7,7 +9,8 @@
     - Excessive user privileges.
     - Vulnerable software.
     - Missing security patches.
-### **II. Windows User Account Types:**
+
+## Windows User Account Types
 
 - **Administrators:** Highest privileges, can change system settings and access all files.
 - **Standard Users:** Limited privileges, can only perform basic tasks and access their own files.
@@ -15,14 +18,16 @@
     - **SYSTEM/LocalSystem:** Used by the OS, has the highest level of access.
     - **Local Service:** Runs services with minimal privileges, uses anonymous network connections.
     - **Network Service:** Runs services with minimal privileges, uses computer account for network authentication.
-### **III. Finding Credentials:**
+
+## Finding Credentials
 
 - **Unattended Installations:** Check for unattended installation files that may contain administrator credentials (e.g., `C:\Unattend.xml`, `C:\Windows\Panther\Unattend.xml`).
 - **PowerShell History:** `type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt`
 - **Saved Credentials:** `cmdkey /list`, `runas /savecred /user:admin cmd.exe`
 - **IIS Configuration:** Check `web.config` files for database connection strings or authentication credentials.
 - **Software:** Many applications store credentials (e.g., PuTTY stores proxy credentials in the registry).
-### **IV. Exploiting Misconfigurations:**
+
+## Exploiting Misconfigurations
 
 - **Scheduled Tasks:**
     - Check scheduled tasks for insecure permissions or the ability to modify the executed command.
@@ -41,7 +46,8 @@
     - If the service's DACL allows modification, reconfigure the service to execute a malicious payload with higher privileges (e.g., SYSTEM).
     - Use `accesschk64.exe` to check service DACLs.
     - Use `sc config` to modify service configurations.
-### **V. Exploiting Windows Privileges:**
+
+## Exploiting Windows Privileges
 
 - **`whoami /priv`:** Lists user privileges.
 - **Priv2Admin:** A resource for identifying exploitable privileges.
@@ -59,12 +65,14 @@
     - Allows impersonating other user accounts.
     - Can be exploited to gain access to privileged accounts (e.g., SYSTEM).
     - RogueWinRM is a tool that can exploit this privilege.
-### **VI. Unpatched Software:**
+
+## Unpatched Software
 
 - **`wmic product get name,version,vendor`:** Lists installed software and versions.
 - **Research:** Search for exploits for known vulnerabilities in installed software.
 - **Example (Druva inSync):** A vulnerable RPC server allows executing arbitrary commands with SYSTEM privileges.
-### **VII. Automated Tools:**
+
+## Automated Tools
 
 - **WinPEAS:** A script for enumerating Windows systems and identifying privilege escalation vectors.
 - **PrivescCheck:** A PowerShell script that checks for common privilege escalation vulnerabilities.

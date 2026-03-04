@@ -3,6 +3,9 @@ tags:
   - Azure
 Keyword: Compute
 ---
+
+# Virtual Machines
+
 - You can create and use VMs in the cloud.
 
 - It provides IaaS.

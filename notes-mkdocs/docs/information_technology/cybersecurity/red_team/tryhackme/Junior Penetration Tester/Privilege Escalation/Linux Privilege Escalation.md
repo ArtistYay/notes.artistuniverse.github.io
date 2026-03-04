@@ -1,10 +1,13 @@
-### **I. What is Privilege Escalation?**
+# Linux Privilege Escalation
+
+## What is Privilege Escalation?
 
 - **Definition:** Exploiting vulnerabilities or misconfigurations to gain higher-level permissions than initially granted.
 - **Importance:**
     - Initial access rarely provides administrative rights.
     - Allows actions like resetting passwords, accessing protected data, modifying configurations, establishing persistence.
-### **II. Enumeration:**
+
+## Enumeration
 
 - **Purpose:** Gathering information about the system to identify potential privilege escalation vectors.
 - **Commands and Techniques:**
@@ -38,7 +41,8 @@
         - LES (Linux Exploit Suggester)
         - Linux Smart Enumeration
         - Linux Priv Checker
-### **III. Kernel Exploits:**
+
+## Kernel Exploits
 
 - **Process:**
     1. Identify the kernel version.
@@ -48,12 +52,14 @@
     - Kernel exploits can be risky and lead to system instability.
     - Carefully analyze the exploit code before execution.
     - Ensure proper setup and execution (may require additional steps).
-### **IV. Exploiting Sudo Rights:**
+
+## Exploiting Sudo Rights
 
 - **`sudo -l`:** Check for commands the user can run with `sudo`.
 - **GTFOBins:** A valuable resource for identifying ways to exploit sudo permissions for various binaries.
 - **Example (Apache2):** `sudo apache2 -f /etc/shadow` (leaks the first line of `/etc/shadow`).
-### **V. Exploiting LD_PRELOAD:**
+
+## Exploiting LD_PRELOAD
 
 - **LD_PRELOAD:** An environment variable that allows preloading shared libraries.
 - **Conditions:** Requires the `env_keep` option to be enabled and the real user ID to match the effective user ID.
@@ -62,14 +68,16 @@
     2. Write a C program that spawns a shell.
     3. Compile the program as a shared object (`.so`).
     4. Run a `sudo` command with `LD_PRELOAD` pointing to the shared object.
-### **VI. Exploiting SUID/SGID Bits:**
+
+## Exploiting SUID/SGID Bits
 
 - **SUID (Set-user ID):** Allows a file to be executed with the owner's permissions.
 - **SGID (Set-group ID):** Allows a file to be executed with the group's permissions.
 - **Finding SUID/SGID Files:** `find / -type f -perm -04000 -ls 2>/dev/null`
 - **GTFOBins:** Provides information on exploiting SUID/SGID binaries.
 - **Example (nano):** If `nano` has the SUID bit set, it can be used to read sensitive files (e.g., `/etc/shadow`) or modify system files (e.g., `/etc/passwd`).
-### **VII. Exploiting Cron Jobs:**
+
+## Exploiting Cron Jobs
 
 - **Cron Jobs:** Scheduled tasks that run with the owner's privileges.
 - **Crontab:** Stores cron job configurations.
@@ -77,7 +85,8 @@
     1. Identify cron jobs running with root privileges.
     2. Modify the script or command executed by the cron job to gain root access.
 - **Example:** Replace a script executed by a root cron job with a reverse shell payload.
-### **VIII. Exploiting PATH:**
+
+## Exploiting PATH
 
 - **PATH:** An environment variable that specifies directories where the system searches for executables.
 - **Exploitation:**
@@ -85,7 +94,8 @@
     2. Create a malicious executable with the same name as a privileged program.
     3. Place the malicious executable in the writable directory.
     4. When the privileged program is executed, the malicious version will be run instead.
-### **IX. Exploiting NFS:**
+
+## Exploiting NFS
 
 - **NFS (Network File System):** Allows sharing files and directories over a network.
 - **`/etc/exports`:** NFS configuration file.
@@ -95,7 +105,8 @@
     2. Mount the share on the attacking machine.
     3. Create a malicious executable with the SUID bit set.
     4. Execute the file on the target system through the NFS share.
-### **X. Key Takeaways:**
+
+## Key Takeaways
 
 - Privilege escalation is a crucial step in penetration testing.
 - Thorough enumeration is essential for identifying potential vulnerabilities and misconfigurations.

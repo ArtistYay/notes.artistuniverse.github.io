@@ -1,4 +1,6 @@
-### Asset Management/Inventory
+# Security Engineer Intro
+
+## Asset Management/Inventory
 
 - **Purpose:** Maintaining a centralized repository of information about an organization's digital assets.
 - **Information Stored:**
@@ -14,7 +16,7 @@
     - Facilitates risk assessment and vulnerability management.
     - Supports incident response and recovery.
 
-### Security Policy Exceptions
+## Security Policy Exceptions
 
 - **Purpose:** Allowing deviations from a security policy under specific circumstances.
 - **When to Grant Exceptions:**
@@ -26,7 +28,7 @@
     - Regularly review and reassess exceptions.
     - Ensure compensating controls are in place to mitigate risks.
 
-### Secure-by-Design
+## Secure-by-Design
 
 - **Definition:** Integrating security considerations into the design and development of systems and applications from the outset.
 - **Benefits:**
@@ -35,7 +37,7 @@
     - Minimizes the need for costly security fixes later.
     - Maximizes return on investment (ROI) in security.
 
-### Change Management
+## Change Management
 
 - **Purpose:** Managing and controlling changes to systems and configurations to minimize disruptions and security risks.
 - **Key Aspects:**
@@ -49,7 +51,7 @@
     - Maintains system stability and security.
     - Supports compliance and auditing.
 
-### Tabletop Exercises
+## Tabletop Exercises
 
 - **Definition:** Simulated scenarios used to test incident response plans and procedures.
 - **Benefits:**
@@ -57,7 +59,7 @@
     - Improves decision-making and communication during incidents.
     - Provides training and awareness for incident response teams.
 
-### Business Continuity
+## Business Continuity
 
 - **Definition:** The ability of an organization to maintain essential functions during and after a disruption.
 - **Key Elements:**
@@ -70,7 +72,7 @@
     - Protects reputation and customer trust.
     - Ensures business resilience.
 
-### Security Decision-Making
+## Security Decision-Making
 
 - **Key Factors:**
     - Ease of use

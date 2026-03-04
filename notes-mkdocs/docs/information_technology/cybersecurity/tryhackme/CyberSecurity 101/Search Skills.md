@@ -1,3 +1,5 @@
+# Search Skills
+
 - **"exact phrase"**
     - Use double quotes.
     - Finds pages with the _exact_ wording.

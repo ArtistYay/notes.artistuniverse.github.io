@@ -1,4 +1,6 @@
-# The Lab
+# Buttoning up the Org
+
+## The Lab
 
 1. Changed contact information (billing, security, operational) for the management (root) account.
 2. Created a Prod and Non Prod account under the `Workload` OU.

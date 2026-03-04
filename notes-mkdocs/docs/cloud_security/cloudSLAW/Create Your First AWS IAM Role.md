@@ -3,7 +3,9 @@ tags:
   - Amazon Web Services
 ---
 
-# The Lesson
+# Create Your First AWS IAM Role
+
+## The Lesson
 
 - IAM roles are central to managing permissions for services and users in AWS. Using roles rather than users for permissions enhances security by using temporary credentials.
 - **Persona**, the expression of an identity, with attributes that indicate context, is a role a user can assume for a temporary set of permissions used for a session.
@@ -11,7 +13,7 @@ tags:
 ![screenshot](../../../images/Pasted image 20250309104408.png)
 ![screenshot](../../../images/Pasted image 20250309104421.png)
 
-# The Lab
+## The Lab
 
 1. Created a new IAM Role for EC2 instances to assume to interact with SSM.
 		Trusted Entity is who are allowed to assume the role.

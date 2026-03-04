@@ -1,4 +1,6 @@
-### The Big Picture - Open Standards
+# Overview
+
+## The Big Picture - Open Standards
 
 Federation is a concept to have trust between an IdP (Entra ID) and SPs (Slack) for authentication and authorization. You can achieve this with standards like OAuth 2.0, SAML, and OpenID Connect.
 
@@ -8,40 +10,41 @@ SAML is another federation method used more at the enterprise level, whereas Ope
 
 JWK is the public key used to verify the signature of a JWT. The server must rotate these keys often for security.
 
-#### Questions I've asked myself
-##### *Where does the signature takes place in a JWT?*
+### Questions I've asked myself
+
+#### *Where does the signature takes place in a JWT?*
 
 The signature is in the third part of the JWT. The first part is the header which describes the algorithm used and the second part is the payload or data itself.
 
 ![screenshot](../../../images/parts_of_jwt_token.png)
 
-##### *Does the payload get encrypted? If so, with what? what is the security behind this? Especially if someone can capture the JWT and misuse it for malicious purposes.*
+#### *Does the payload get encrypted? If so, with what? what is the security behind this? Especially if someone can capture the JWT and misuse it for malicious purposes.*
 
 The payload isn't encrypted but encoded with Base64. Threat attackers can capture the JWT but it won't be easy if it's traveling through the internet. A malicious attacker can launch a phishing attack and capture it that way. The security is the integrity, if a threat attacker gets a chance to capture the JWT and let's say change the role in the payload that whole signature would be different from the original payload. Never put sensitive information like passwords into the JWT payload.
 
-##### *How will the API know it's different since the RSA algorithm isn't a hashing algorithm?*
+#### *How will the API know it's different since the RSA algorithm isn't a hashing algorithm?*
 
-When an IdP is to create a signature for the JWT, it takes that payload and get's it's hash. It then encrypts it with an encryption algorithm. 
+When an IdP is to create a signature for the JWT, it takes that payload and get's it's hash. It then encrypts it with an encryption algorithm.
 
 [Article | Auth0](https://auth0.com/docs/get-started/applications/signing-algorithms)
 
 [Article](https://datatracker.ietf.org/doc/html/rfc7518#section-3.3)
 
-#### Questions I've asked strangers on the internet
+### Questions I've asked strangers on the internet
 
-##### *Hello everyone, I was thinking of integrating a SAML 2.0, OAuth2/OIDC, and a SCIM-enabled application to Entra ID. This is for homelab purposes and I’m trying to wrap my head around the process. Is it better to run them in Active Directory and then integrate them with Entra ID or am I confusing myself?*
+#### *Hello everyone, I was thinking of integrating a SAML 2.0, OAuth2/OIDC, and a SCIM-enabled application to Entra ID. This is for homelab purposes and I’m trying to wrap my head around the process. Is it better to run them in Active Directory and then integrate them with Entra ID or am I confusing myself?*
 
 You may be confusing yourself.
 
-SAML 2.0 and OAuth/OIDC are both standards for single sign on (SAML performs both AuthZ and AuthN whereas OAuth is an AuthZ standard and OIDC is an extension of that standard that enables AuthN) which pass attributes to their 3rd party application, SCIM is just a way to automatically handle the identity in systems external from your base IdP (handles the identity lifecycle which makes integrations for systems that require it much less hands on after initial deployment) - technical term for the operation SCIM supports is called CRUD (create, read, update, and delete). 
+SAML 2.0 and OAuth/OIDC are both standards for single sign on (SAML performs both AuthZ and AuthN whereas OAuth is an AuthZ standard and OIDC is an extension of that standard that enables AuthN) which pass attributes to their 3rd party application, SCIM is just a way to automatically handle the identity in systems external from your base IdP (handles the identity lifecycle which makes integrations for systems that require it much less hands on after initial deployment) - technical term for the operation SCIM supports is called CRUD (create, read, update, and delete).
 
-A comparable solution in on premise active directory would be ADFS (which is on its way out, or really already should be). 
+A comparable solution in on premise active directory would be ADFS (which is on its way out, or really already should be).
 
-Technically (without some extra work) you'll only be doing this integration directly with Entra. 
+Technically (without some extra work) you'll only be doing this integration directly with Entra.
 
 You'll usually be provisioning identities to On-Premise AD and they'll flow to Entra (via Entra Connect) for usage of large scale single sign on integrations.
 
-##### *Another question that stems up from this answer. Why not keep all of this on prem? What is the benefit for leveraging all of this in Entra ID? Trying to understand the why behind the two IdPs. I understand SAML is used mostly in enterprise environments and OAuth/OpenID connect is more modern browser based.*
+#### *Another question that stems up from this answer. Why not keep all of this on prem? What is the benefit for leveraging all of this in Entra ID? Trying to understand the why behind the two IdPs. I understand SAML is used mostly in enterprise environments and OAuth/OpenID connect is more modern browser based.*
 
 Cuz you'd then have to manage ADFS infrastructure (and I'm sure of a multitude of other reasons) which is big and clunky.
 
@@ -53,7 +56,7 @@ If you were to choose to stay on-premise with ADFS, you'd miss out on awesome fe
 
 Also for ADFS, you'd be managing the infrastructure yourself (security - must maintain a public facing ADFS server, and overall maintenance), imagine how helpful it is taking that reliance off of your back and allowing the real experts to handle it.
 
-##### *What is the difference between kerboros, saml, and oidc?*
+#### *What is the difference between kerboros, saml, and oidc?*
 
 The easiest way to distinguish them is by **"Where they live"** and **"What language they speak."**
 

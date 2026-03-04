@@ -1,4 +1,6 @@
-### LDAP
+# LDAP
+
+## LDAP
 
 LDAP is just a query to get data about the user. When you search for a coworker in Outlook or when an app needs to look up which group you are in, it speaks LDAP. You can authenticate with LDAP (called an "LDAP Bind"), but its main superpower is querying the database.
 

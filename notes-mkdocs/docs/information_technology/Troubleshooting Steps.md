@@ -8,9 +8,9 @@ When you've identified the problem or symptoms, the next step is to collect data
 
 Gather diagnostic data, log files, trace data, and data from your observability and monitoring tools, if you have them configured before the incident started. Can you reproduce the issue? Try to get as much information as you can at this stage to help guide you in the best direction to begin investigating.
 
-[SkillBuilder](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/q5Hxdbxh1firSd3j_b8wFXT1sFermzptD.jpg)](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/q5Hxdbxh1firSd3j_b8wFXT1sFermzptD.jpg)
+[SkillBuilder](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/q5Hxdbxh1firSd3j_b8wFXT1sFermzptD.jpg)
 
-[SkillBuilder](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/mgg1BvN4BC9F7HKZ_5PEZxjlCPUdBWRQ6.jpg)](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/mgg1BvN4BC9F7HKZ_5PEZxjlCPUdBWRQ6.jpg)
+[SkillBuilder](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/mgg1BvN4BC9F7HKZ_5PEZxjlCPUdBWRQ6.jpg)
 
 # **Step 3: Analyze**
 
@@ -24,15 +24,15 @@ When the issue is identified, you must develop a remediation strategy to make ne
 
 For larger issues, testing your solution might require a separate development environment to test the solution. Other times, you might have to test your solution in a production environment to expedite getting the system back online. After the solution is implemented, always test and retest to verify that the issue was successfully resolved.
 
-[SkillBuilder](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/fBs64M80b1t2Cjxx_PcCJT03H4ImHtg7C.jpg)](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/fBs64M80b1t2Cjxx_PcCJT03H4ImHtg7C.jpg)
+[SkillBuilder](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/fBs64M80b1t2Cjxx_PcCJT03H4ImHtg7C.jpg)
 
-[SkillBuilder](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/5SiZbLDxrsyDPCNq_6QfRu223PvLVgghj.jpg)](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/5SiZbLDxrsyDPCNq_6QfRu223PvLVgghj.jpg)
+[SkillBuilder](https://explore.skillbuilder.aws/files/a/w/aws_prod1_docebosaas_com/1686938400/y24IvGy6wTq2MbXF4e3RfQ/tincan/914789_1675985891_p1gos8kkf41c1h1tb11mkv1v4b1te34_zip/assets/5SiZbLDxrsyDPCNq_6QfRu223PvLVgghj.jpg)
 
 **Step 5:**
 
 After the situation is resolved and the environment is operational again, meet with the team to review the incident. Determining the cause of the problem helps teams understand what happened, what was involved in the resolution, and what to do during any future incident.
 
-Performing a [root cause analysis(opens in a new tab)](https://wa.aws.amazon.com/wat.concept.rca.en.html) (RCA) helps in identifying what, how, and why an event or failure happened. Was a change made? Was the change control process followed? Was it specific to the workload or environment? Are the instances running and sized appropriately for the workload? Asking questions, such as the [_five whys_](https://wa.aws.amazon.com/wat.concept.fivewhys.en.html)[(opens in a new tab)](https://wa.aws.amazon.com/wat.concept.fivewhys.en.html), helps identify improvements to your process or your environment. Determining the RCA is part of the AWS Well-Architected Framework.
+Performing a [root cause analysis](https://wa.aws.amazon.com/wat.concept.rca.en.html) (RCA) helps in identifying what, how, and why an event or failure happened. Was a change made? Was the change control process followed? Was it specific to the workload or environment? Are the instances running and sized appropriately for the workload? Asking questions, such as the [_five whys_](https://wa.aws.amazon.com/wat.concept.fivewhys.en.html), helps identify improvements to your process or your environment. Determining the RCA is part of the AWS Well-Architected Framework.
 
 The post-incident review can also address and discuss improvements to the observability strategy. For example, how could a similar issue be detected and isolated in the future? Is there any additional data that could be gathered or used for proactive alarms or notifications? In this step you ask yourself how you can improve your processes and observability solution to avoid similar future incidents.
 

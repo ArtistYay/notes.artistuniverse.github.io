@@ -1,3 +1,5 @@
+# Single Responsibility Principle
+
 ## Overview
 
 The reason for single responsibility is having a centralized place to change code. Your class or module must not contain multiple tasks or jobs. It's a way to have clean code.
@@ -16,6 +18,7 @@ The reason for single responsibility is having a centralized place to change cod
 Got this example from [Geeks for Geeks](https://www.geeksforgeeks.org/system-design/solid-principle-in-programming-understand-with-real-life-examples/#:~:text=1%2E%20Single%20Responsibility%20Principle)
 
 ``` py linenums="1"
+
 # Class for baking bread
 class BreadBaker:
     def bakeBread(self):

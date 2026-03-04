@@ -1,4 +1,6 @@
-### What is Intruder?
+# Burp Suite_Intruder
+
+## What is Intruder?
 
 - Burp Suite's built-in fuzzing tool.
 - Automates request modification and repetitive testing with varied inputs.
@@ -9,7 +11,8 @@
     - Fuzzing attacks (subdirectories, endpoints, virtual hosts).
 - **Similar Tools:** Wfuzz, ffuf (command-line).
 - **Burp Community Edition Limitation:** Rate-limited, significantly slower than Burp Professional. Often leads users to other fuzzing tools.
-### Intruder Sub-tabs:
+
+## Intruder Sub-tabs:
 
 - **Positions:**
     - Selects the attack type.
@@ -26,13 +29,15 @@
     - Handles results and the attack itself.
     - Flags requests with specific text.
     - Defines response to redirects (3xx).
-### Key Concepts:
 
-- **Fuzzing:** Testing functionality/existence by applying various data to a parameter. _Example:_ Fuzzing endpoints by appending words from a wordlist to a URL. (e.g., http://10.10.71.26/WORD_GOES_HERE) 
+## Key Concepts:
+
+- **Fuzzing:** Testing functionality/existence by applying various data to a parameter. _Example:_ Fuzzing endpoints by appending words from a wordlist to a URL. (e.g., http://10.10.71.26/WORD_GOES_HERE)
 - **Add §:** Manually define positions by highlighting them in the request editor.
 - **Clear §:** Remove all defined positions.
 - **Auto §:** Automatically identify likely positions (helpful to restore default positions).
-### Attack Types:
+
+## Attack Types:
 
 - **Sniper:**
     - Default and most common.
@@ -42,7 +47,7 @@
 - **Battering Ram:**
     - Sends all payloads simultaneously, one into each position.
     - Useful for race conditions or concurrent payload testing.
-    
+
     ![screenshot](../../../images/Pasted image 20250103135951.png)
 
 - **Pitchfork:**
@@ -50,7 +55,7 @@
     - Multiple payload sets (one per position).
     - Iterates through all sets simultaneously.
     - Stops when the _shortest_ payload list is exhausted. Payload lists ideally should be the same length.
-    
+
     ![screenshot](../../../images/Pasted image 20250103140300.png)
 
 - **Cluster Bomb:**
@@ -61,5 +66,5 @@
     - Generates a large amount of traffic.
     - Useful for credential brute-forcing (unknown username/password mapping).
     - Can be very slow in Burp Community Edition.
-    
+
     ![screenshot](../../../images/Pasted image 20250103140658.png)

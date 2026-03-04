@@ -1,3 +1,5 @@
+# IP Addressing
+
 - IPv4 addresses are how two devices can communicate at layer 4 and above of OSI seven layer model.
 
 - They are 32-bit binary values but are represented in dotted decimal notation to make them easier for humans to read and understand.
@@ -21,16 +23,15 @@
 - Class C (/24) is 192.0.0.0 to 223.255.255.255. It has 2,097,150 networks and 254 hosts (nodes) in each. 2 IPs are reserved.
 
 - Private networking IPs
-    
-    - IP classes have a number of ranges within them used for private networking only.
-    
-    - Class A has range 10.0.0.0 to 10.255.255.255
-    
-    - Class B has range 172.16.0.0 to 172.32.255.255
-    
-    - Class C has range 192.168.0.0 to 192.168.255.255
-    
 
-- [CIDR](https://cidr.xyz/) (Classless Inter-Domain Routing) is used for IPv4 IP networking rather then the class system. It allows more effective allocation and subnetworking.
+    - IP classes have a number of ranges within them used for private networking only.
+
+    - Class A has range 10.0.0.0 to 10.255.255.255
+
+    - Class B has range 172.16.0.0 to 172.32.255.255
+
+    - Class C has range 192.168.0.0 to 192.168.255.255
+
+- [CIDR](https://cidr.xyz/) (Classless Inter-Domain Routing) is used for IPv4 IP networking rather than the class system. It allows more effective allocation and subnetworking.
 
 - The network address is your starting point. The prefix is the number of bits the network uses, the remaining bits, and the node part is yours to use. The node (host) part is yours from all 0’s to all 1’s.

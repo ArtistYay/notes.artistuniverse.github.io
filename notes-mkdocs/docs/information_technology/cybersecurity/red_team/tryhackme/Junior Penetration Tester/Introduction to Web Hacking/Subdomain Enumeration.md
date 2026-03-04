@@ -1,8 +1,11 @@
-### **I. What is a Subdomain?**
+# Subdomain Enumeration
+
+## What is a Subdomain?
 
 - Used to organize content on a website.
 - _Example:_ `blog.yourdomainname.com`
-### **II. Subdomain Discovery Methods:**
+
+## Subdomain Discovery Methods
 
 - **OSINT - SSL/TLS Certificates:**
     - Certificate Authorities (CAs) keep logs of certificates.

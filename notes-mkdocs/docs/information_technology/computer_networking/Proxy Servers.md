@@ -1,3 +1,5 @@
+# Proxy Servers
+
 - A type of gateway that sits between a private and public network. It generally needs application support and is configured in OS, a web browser, or another application.
 
 - It’s outbound base.

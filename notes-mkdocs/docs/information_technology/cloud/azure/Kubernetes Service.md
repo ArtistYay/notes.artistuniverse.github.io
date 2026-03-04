@@ -3,6 +3,9 @@ tags:
   - Azure
 Keyword: Compute
 ---
+
+# Kubernetes Service
+
 - Azure Kubernetes Service let’s you organize containers, replicate container architectures, and have global reach.
 
 - Automating, managing, and interacting with a large number of containers is known as orchestration.

@@ -2,7 +2,7 @@
 
  In this site you will find notes I've taken over the years via Obsidian. I've been trying to keep myself accountable in putting more actions in instead of planning so I hope my notes help someone understand a topic, what I'm capable or just nothing honestly. Enjoy!
 
-!!!quote 
+!!!quote
     🌱 "In learning, you will teach. In teaching, you will learn." — Phil Collins
 
 ---

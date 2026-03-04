@@ -1,14 +1,16 @@
+# Red Team OPSEC
+
 Operations Security (OPSEC) is a systematic approach designed to prevent adversaries from gathering intelligence on an organization's sensitive activities. Originally a military concept, it has been adapted to cybersecurity, particularly in **red teaming**, where attackers (red team) simulate real-world threats to help defenders (blue team) strengthen their security posture.
 
 - **Definition (NIST):** OPSEC is the process of identifying, controlling, and protecting unclassified information that could reveal sensitive plans or operations.
-    
+
 - **Red Team Perspective:**
     - The **blue team** (defenders) and **third parties** (e.g., independent attackers) are considered adversaries.
     - Red teamers aim to **evade detection** while assessing security gaps.
     - The **goal** is to improve organizational security by simulating realistic attack scenarios.
-        
+
 - **Frameworks in Use:**
-    
+
     - **MITRE ATT&CK**: A knowledge base of adversary tactics, techniques, and procedures (TTPs).
     - **Lockheed Martin Cyber Kill Chain**: A model outlining an attacker’s methodology.
 ---
@@ -16,7 +18,7 @@ Each step in OPSEC is designed to systematically reduce an adversary’s ability
 
 # Identifying Critical Information
 
-🔍 _What information would help an adversary detect and stop an operation?_ 
+🔍 _What information would help an adversary detect and stop an operation?_
 Red teamers must think like an adversary to identify what information could jeopardize their mission.
 
 - **Examples of Critical Information:**
@@ -65,7 +67,6 @@ Red teamers must think like an adversary to identify what information could jeop
 1. **Preemptive countermeasures** can prevent detection (e.g., using multiple IPs).
 2. Knowing adversary capabilities allows **better evasion strategies**.
 3. Understanding **blue team detection methods** helps craft **stealthier attacks**.
-    
 
 ---
 
@@ -92,10 +93,10 @@ An OPSEC vulnerability exists when an adversary can:
 - **Scenario:** A database storing credentials from phishing victims lacks proper security controls.
 - **Risk:** A **third-party attacker** could compromise the database and use stolen credentials for unauthorized access.
 
-Why was the attack detected? → Blue team correlated multiple attack events to a single IP.  
-Why was the same IP used? → Lack of proper OPSEC planning.  
-Why wasn’t the risk assessed earlier? → No segmentation between different attack stages.  
-Why wasn’t IP rotation implemented? → Lack of automated infrastructure setup.  
+Why was the attack detected? → Blue team correlated multiple attack events to a single IP.
+Why was the same IP used? → Lack of proper OPSEC planning.
+Why wasn’t the risk assessed earlier? → No segmentation between different attack stages.
+Why wasn’t IP rotation implemented? → Lack of automated infrastructure setup.
 Why didn’t the red team simulate detection scenarios? → Incomplete OPSEC evaluation during planning.
 
 ✔ **Lesson:** Red teams must segment attack infrastructure and **rotate identifiers (IPs, domains, etc.)** to avoid easy attribution.
@@ -108,10 +109,10 @@ Risk assessment evaluates:
 - **Likelihood**: How probable is it that an adversary will detect and act on the vulnerability?
 - **Impact**: If the vulnerability is exploited, how much will it disrupt operations?
 
-**Factors to consider:**  
+**Factors to consider:**
 
-✅ _Effectiveness of mitigation:_ Does a countermeasure truly reduce risk?  
-✅ _Cost vs. benefit:_ Is mitigation worth the effort?  
+✅ _Effectiveness of mitigation:_ Does a countermeasure truly reduce risk?
+✅ _Cost vs. benefit:_ Is mitigation worth the effort?
 ✅ _Potential OPSEC exposure:_ Does the countermeasure itself leak information?
 
 **Risk Assessment Example: IP Reuse**

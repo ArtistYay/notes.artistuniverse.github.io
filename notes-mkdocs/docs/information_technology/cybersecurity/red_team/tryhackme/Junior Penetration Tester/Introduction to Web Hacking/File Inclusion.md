@@ -1,4 +1,6 @@
-### **I. What is File Inclusion?**
+# File Inclusion
+
+## What is File Inclusion?
 
 - Vulnerability where attackers can include unexpected files into a web application.
 - Often due to poor input validation.
@@ -8,7 +10,8 @@
 - **Risks:**
     - Data leakage (code, credentials).
     - Remote Code Execution (RCE).
-### **II. Path Traversal:**
+
+## Path Traversal
 
 - Also known as Directory Traversal.
 - Reading files outside the web application's root directory.
@@ -20,7 +23,7 @@
 - **Common OS Files to Target:** `/etc/passwd`, `/etc/shadow`, `/proc/version`, etc. (Linux), `C:\boot.ini` (Windows)
 ![screenshot](../../../images/Pasted image 20250211204400.png)
 
-### **III. Local File Inclusion (LFI):**
+## Local File Inclusion (LFI)
 
 - Often occurs with PHP functions like `include`, `require`, `include_once`, `require_once`.
 - **Exploitation:** Similar to path traversal, but the included file's code is executed.
@@ -29,7 +32,8 @@
     - **Current Directory Trick:** Using `/..` to move up directories.
     - **Double Encoding:** Encoding `../` twice to bypass filters.
 - **Error Messages:** Can reveal the include function's structure and the web application's directory path.
-### **IV. Remote File Inclusion (RFI):**
+
+## Remote File Inclusion (RFI)
 
 - Includes files from a remote server.
 - Requires `allow_url_fopen` to be enabled in PHP.
@@ -41,7 +45,7 @@
     3. Web server fetches and executes the remote file.
      ![screenshot](../../../images/Pasted image 20250211204253.png)
 
-### **V. Preventing File Inclusion Vulnerabilities:**
+## Preventing File Inclusion Vulnerabilities
 
 - Keep systems and frameworks updated.
 - Disable PHP errors in production.

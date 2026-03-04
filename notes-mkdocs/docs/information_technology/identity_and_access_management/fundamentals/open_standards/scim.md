@@ -1,10 +1,12 @@
-### SCIM
+# SCIM
 
-Let's pivot for a moment into user provisioning. Imma kept it a buck with you, this lifecycle management for different users is draining if you deal with it manually especially if you have hundreds or thousands of users. Imagine you have to even access to 20 people a day for a certain app or server.
+## SCIM
 
-This is where SCIM comes in, it automates the process of exchanging user identity (attributes) information or gives the admin the chance to automate the user lifecycle management.. For example, if a new employee is onboarding HR can create a new user in ServiceNow and put them in the sales group based on these attributes SCIM picks it up and sends it to salesforce. 
+Let's pivot for a moment into user provisioning. Imma kept it a buck with you, this lifecycle management for different users is draining if you deal with it manually especially if you have hundreds or thousands of users. Imagine you have to give access to 20 people a day for a certain app or server.
 
-###### The process
+This is where SCIM comes in, it automates the process of exchanging user identity (attributes) information or gives the admin the chance to automate the user lifecycle management.. For example, if a new employee is onboarding HR can create a new user in ServiceNow and put them in the sales group based on these attributes SCIM picks it up and sends it to salesforce.
+
+##### The process
 
 1. You create the user "Tim" and tag him as "Department: Sales."
 2. ServiceNow sends a SCIM message to Entra ID saying, "Create Tim, he is in Sales."

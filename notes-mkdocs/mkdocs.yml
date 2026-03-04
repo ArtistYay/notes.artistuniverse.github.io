@@ -36,19 +36,6 @@ theme:
     - search.share
     - search.suggest
 
-  plugins:
-    - search:
-      lang: en
-      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-    - tags:
-      enabled: true
-    - typeset
-    - mkdocs-backlinks
-    - optimize
-    - awesome-pages
-#    - pub-obsidian:
-#      obsidian_dir: .obsidian
-
   palette:
     # Palette toggle for dark mode
     - scheme: default
@@ -111,6 +98,18 @@ markdown_extensions:
       permalink: true
       toc_depth: 3
 
+plugins:
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - tags
+# - typeset        # Insiders only
+  - mkdocs-backlinks
+# - optimize       # Insiders only
+  - awesome-pages
+#  - pub-obsidian:
+#    obsidian_dir: .obsidian
+
 # make custom admonitions
 extra_css:
   - stylesheets/extra.css
@@ -124,6 +123,7 @@ extra:
 # add images to files like so ![screenshot](../assets/GitHub_Issue.png)
 nav:
   - Home: index.md
+  - Tags: tags.md
   - Cloud Security:
     - Cloud Architecture & Security Design: cloud_security/cloud_architecture_&_security_design.md
     - CloudSLAW:
@@ -173,7 +173,7 @@ nav:
       - Terraform: 
         - Overview: devsecops/iac/terraform/Terraform.md
   - Information Technology:
-    - Troubledhooting Steps: information_technology/Troubleshooting Steps.md
+    - Troubleshooting Steps: information_technology/Troubleshooting Steps.md
 #    - Linux:
 #      - Linux OS security best practice: information_technology/linux/Linux OS security best practice.md
     - Cloud:

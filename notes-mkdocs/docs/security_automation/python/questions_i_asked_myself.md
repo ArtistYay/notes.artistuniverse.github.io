@@ -1,6 +1,8 @@
-### What is the difference between functions, methods, and modules?
+# Questions I Asked Myself
 
-Functions are blocks of code which is designed to do one job or have one responsibility. The can be created with the `def` keyword. For example:
+## What is the difference between functions, methods, and modules?
+
+Functions are blocks of code that are designed to do one job or have one responsibility. They can be created with the `def` keyword. For example:
 
 ```python
 def square(number):
@@ -19,17 +21,17 @@ A key difference between a method and a standalone function is that a method def
 
 A module is a file containing Python code, such as functions, classes, and variables. Modules are used to organize code into manageable files and reuse code across different programs, To use the code within a module, you must import it using the `import` statement. Once imported, you access the functions or variables inside a module using the dot operator (e.g., `module_name.function_name()`).
 
-### What is a Python function signature?
+## What is a Python function signature?
 
 Function signature is the part of a function definition that specifies its name, its parameters (input arguments), and its expected return value.
 
-### How do I read the Python documentation or know what it's telling me?
+## How do I read the Python documentation or know what it's telling me?
 
 Function Signatures (e.g., def name(param1, param2):) acts as a usage contract. It tells you the name of the function, the arguments it requires, and any optional parameters that have default values
 
-### Is there a built in tool that lists out built in methods and functions?
+## Is there a built in tool that lists out built in methods and functions?
 
-This question insipred me because I have an exam coming up and I can't really Google to get the answers I want. For this question it lead me to `dir(__builtins__)`. 
+This question inspired me because I have an exam coming up and I can't really Google to get the answers I want. For this question it lead me to `dir(__builtins__)`.
 
 ```python
 pprint.pprint(dir(__builtins__), compact=True)
@@ -64,11 +66,11 @@ pprint.pprint(dir(__builtins__), compact=True)
   'vars', 'zip']
 ```
 
-### What is the difference between Python's OOP and the Software Development Principles?
+## What is the difference between Python's OOP and the Software Development Principles?
 
 If I'm understanding this properly, OOP is a programming paradigm (a way to organize code and data). While the Software Development Principles is a global set of rules devs all around the world follow.
 
-### What is 'return' and how can I use it properly?
+## What is 'return' and how can I use it properly?
 
 `return` is a keyword used inside a function to send a result back to the part of the program that called it. It is not like the `print()` function, `return` gives any output back to the program itself so it can be stored in a variable or used in an expression.
 

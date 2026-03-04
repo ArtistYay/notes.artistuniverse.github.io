@@ -1,6 +1,8 @@
-### What is Loose Coupling and High Cohesion?
+# Questions I Asked Myself
 
-I am all in into the cloud, when I think of loose coupling I think of resources that aren't relaint on each other so if one goes down the rest of the architecture can keep going (horses don't stop they keep going, iykyk).
+## What is Loose Coupling and High Cohesion?
+
+I am all in into the cloud, when I think of loose coupling I think of resources that aren't reliant on each other so if one goes down the rest of the architecture can keep going (horses don't stop they keep going, iykyk).
 
 Coupling describes how tightly one part of a program (like a class or routine) is tied to another. The goal of loose coupling is to keep these interconnections as small, direct, and flexible as possible. When parts are loosely coupled, you can change one module without needing to worry about the rest of the system.
 

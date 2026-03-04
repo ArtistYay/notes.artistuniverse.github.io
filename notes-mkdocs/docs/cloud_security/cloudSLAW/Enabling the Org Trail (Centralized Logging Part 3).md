@@ -1,4 +1,6 @@
-# The Lab
+# Enabling the Org Trail (Centralized Logging Part 3)
+
+## The Lab
 
 1. Enable Access for CloudTrail under Organizations
 2. Enabled logging for all accounts in Organizations

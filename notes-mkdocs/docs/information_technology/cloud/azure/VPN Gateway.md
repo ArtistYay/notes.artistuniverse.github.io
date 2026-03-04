@@ -3,11 +3,14 @@ tags:
   - Azure
 Keyword: Networking
 ---
+
+# VPN Gateway
+
 - An Azure VPN gateway is a specific type of virtual network gateway that is used to send and receive encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
 
-- You can only deploy only one VPN gateway in each VNet but can use one gateway to connect to multiple locations.
+- You can deploy only one VPN gateway in each VNet but can use one gateway to connect to multiple locations.
 
-- They are two types of VPN types. policy based and route based.
+- There are two types of VPN gateways. policy based and route based.
 
 - Policy-based VPN gateways specify statically the IP address of packets that should be encrypted through each tunnel. This type of device evaluates every data packet against those sets of IP addresses to choose the tunnel where that packet is going to be sent through.
 
@@ -17,4 +20,4 @@ Keyword: Networking
 
 - A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet you create which is called the gateway subnet.
 
-- A VPN Gateway is a specific to of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
+- A VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet.

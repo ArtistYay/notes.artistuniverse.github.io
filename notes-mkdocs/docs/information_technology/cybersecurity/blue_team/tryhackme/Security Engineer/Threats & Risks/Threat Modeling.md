@@ -1,4 +1,6 @@
-### I. What is Threat Modeling?
+# Threat Modeling
+
+## What is Threat Modeling?
 
 - **Definition:** A systematic approach to identifying, analyzing, and mitigating potential security threats.
 - **Purpose:** Proactively identify and address security risks before they can be exploited.
@@ -7,7 +9,8 @@
     - Reduced vulnerabilities.
     - Informed decision-making for resource allocation.
     - Enhanced communication and collaboration among stakeholders.
-### II. High-Level Threat Model
+
+## High-Level Threat Model
 
 20. **Define the Scope:** Clearly define the boundaries of the system or application being analyzed.
 21. **Asset Identification:** Identify and prioritize the critical assets that need protection (e.g., sensitive data, financial systems, customer information).
@@ -18,7 +21,7 @@
 
 ![screenshot](../../../images/Pasted image 20240916185919.png)
 
-### III. Attack Trees
+## Attack Trees
 
 - **Purpose:** A graphical representation of potential attack paths and scenarios.
 - **Structure:**
@@ -29,7 +32,8 @@
     - Provides a visual representation of attack paths.
     - Helps identify potential weaknesses and vulnerabilities.
     - Facilitates risk assessment and prioritization.
-### IV. DREAD Framework
+
+## DREAD Framework
 
 - **Purpose:** A risk assessment model for evaluating and prioritizing security threats.
 - **Categories:**
@@ -46,7 +50,7 @@
 
 ![screenshot](../../../images/Pasted image 20240918112651.png)
 
-### V. STRIDE Framework
+## STRIDE Framework
 
 - **Purpose:** A threat modeling methodology for identifying and categorizing security threats.
 - **Categories:**
@@ -68,8 +72,8 @@
     6. Continuous Improvement: Regularly review and update the threat model.
 
 ![screenshot](../../../images/Pasted image 20240918113410.png)
-   
-### VI. PASTA Framework
+
+## PASTA Framework
 
 - **Purpose:** A risk-centric threat modeling framework that aligns security with business objectives.
 - **Steps:**

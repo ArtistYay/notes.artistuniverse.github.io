@@ -2,7 +2,10 @@
 tags:
   - Azure
 ---
-Gen AI applications are powered by large language models (LLMs), which are a specialized type of machine learning model that can use to perform natural language processing (NLP) tasks, including:
+
+# Generative AI
+
+Gen AI applications are powered by large language models (LLMs), which are a specialized type of machine learning model that can be used to perform natural language processing (NLP) tasks, including:
 
 - Determining sentiment or otherwise classifying natural language text.
 

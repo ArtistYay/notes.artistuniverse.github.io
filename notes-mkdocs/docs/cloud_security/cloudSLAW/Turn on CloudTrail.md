@@ -1,4 +1,6 @@
-# The Lesson
+# Turn on CloudTrail
+
+## The Lesson
 
 - CloudTrail provides a centralized record of nearly all administrative actions within an AWS account.
 - Enable **multi-region trails** to ensure comprehensive logging.
