@@ -103,12 +103,6 @@ plugins:
       lang: en
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - tags
-# - typeset        # Insiders only
-  - mkdocs-backlinks
-# - optimize       # Insiders only
-  - awesome-pages
-#  - pub-obsidian:
-#    obsidian_dir: .obsidian
 
 # make custom admonitions
 extra_css:
@@ -123,7 +117,6 @@ extra:
 # add images to files like so ![screenshot](../assets/GitHub_Issue.png)
 nav:
   - Home: index.md
-  - Tags: tags.md
   - Cloud Security:
     - Cloud Architecture & Security Design: cloud_security/cloud_architecture_&_security_design.md
     - CloudSLAW:
