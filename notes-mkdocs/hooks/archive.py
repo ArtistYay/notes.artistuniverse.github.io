@@ -4,11 +4,14 @@ ARCHIVE_THRESHOLD_DAYS ago into an "Archive" nav section at build time.
 
 Pages are still fully searchable and appear on the Tags page.
 The last-modified date is taken from git log (falls back to file mtime).
+
+Compatible with Python 3.9+.
 """
 
 import os
 import subprocess
 from datetime import datetime, timedelta
+from typing import List, Optional, Tuple
 
 # Pages not edited within this many days get archived
 ARCHIVE_THRESHOLD_DAYS = 365
@@ -17,7 +20,8 @@ ARCHIVE_THRESHOLD_DAYS = 365
 NEVER_ARCHIVE = {"index.md", "tags.md"}
 
 
-def _git_last_modified(filepath: str) -> datetime | None:
+def _git_last_modified(filepath):
+    # type: (str) -> Optional[datetime]
     """Return the date of the last git commit that touched this file."""
     try:
         result = subprocess.run(
@@ -35,7 +39,8 @@ def _git_last_modified(filepath: str) -> datetime | None:
     return None
 
 
-def _file_last_modified(filepath: str) -> datetime | None:
+def _file_last_modified(filepath):
+    # type: (str) -> Optional[datetime]
     """Fallback: return the OS file modification time."""
     try:
         return datetime.fromtimestamp(os.path.getmtime(filepath))
@@ -43,7 +48,8 @@ def _file_last_modified(filepath: str) -> datetime | None:
         return None
 
 
-def _is_stale(rel_path: str, docs_dir: str) -> bool:
+def _is_stale(rel_path, docs_dir):
+    # type: (str, str) -> bool
     """Return True if the file hasn't been touched in ARCHIVE_THRESHOLD_DAYS."""
     if rel_path in NEVER_ARCHIVE:
         return False
@@ -55,7 +61,8 @@ def _is_stale(rel_path: str, docs_dir: str) -> bool:
     return last_modified < cutoff
 
 
-def _collect_pages(nav_item) -> list[tuple[str, str]]:
+def _collect_pages(nav_item):
+    # type: (object) -> List[Tuple[str, str]]
     """
     Recursively walk a nav structure and return a flat list of
     (rel_path, title) for every leaf page entry.
@@ -74,10 +81,11 @@ def _collect_pages(nav_item) -> list[tuple[str, str]]:
     return pages
 
 
-def _remove_page(nav, rel_path: str) -> tuple[list, str | None]:
+def _remove_page(nav, rel_path):
+    # type: (list, str) -> Tuple[list, Optional[str]]
     """
     Remove a leaf page from the nav tree.
-    Returns (updated_nav, title_of_removed_page | None).
+    Returns (updated_nav, title_of_removed_page or None).
     Empty section lists are pruned automatically.
     """
     if not isinstance(nav, list):
@@ -102,7 +110,7 @@ def _remove_page(nav, rel_path: str) -> tuple[list, str | None]:
                 updated_list, ft = _remove_page(value, rel_path)
                 if ft:
                     found_title = ft
-                if updated_list:          # only keep section if it still has children
+                if updated_list:  # only keep section if it still has children
                     new_item[key] = updated_list
             else:
                 new_item[key] = value
@@ -123,7 +131,7 @@ def on_config(config):
     # Find every page in the nav
     all_pages = _collect_pages(nav)
 
-    archive_entries: list[dict] = []
+    archive_entries = []
     current_nav = list(nav)
 
     for rel_path, title in all_pages:
