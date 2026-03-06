@@ -98,6 +98,9 @@ markdown_extensions:
       permalink: true
       toc_depth: 3
 
+hooks:
+  - hooks/archive.py
+
 plugins:
   - search:
       lang: en

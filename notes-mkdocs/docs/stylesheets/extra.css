@@ -16,8 +16,10 @@
           mask-image: var(--md-admonition-icon--youtube);
 }
 
-.center-video{
-  text-align: center;
+.md-typeset .admonition.youtube iframe,
+.md-typeset details.youtube iframe {
+  display: block;
+  margin: 0 auto;
 }
 
 /* Reduce spacing around headers */
