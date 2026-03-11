@@ -7,5 +7,5 @@
 
 ---
 
-!!! youtube "What am I listening to?"
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/FMbnI4IYngQ?si=RpSG7t9suhsuG2X-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+!!! youtube "What is on Artist's Playlist?"
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eBVAJnzGoFk?si=1aiTfIjLBYeHcqbA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
