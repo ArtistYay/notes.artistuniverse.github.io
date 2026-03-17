@@ -1,4 +1,8 @@
-# Authentication vs Authorization
+---
+tags:
+  - Cybersecurity
+  - Identity & Access Management
+---
 
 ## Authentication
 

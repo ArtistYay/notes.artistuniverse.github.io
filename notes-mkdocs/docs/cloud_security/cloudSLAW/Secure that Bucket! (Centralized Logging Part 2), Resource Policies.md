@@ -1,4 +1,8 @@
-# Secure that Bucket! (Centralized Logging Part 2), Resource Policies
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 
@@ -9,7 +13,8 @@
 ## The Lab
 
 1. Customized Given Bucket Policy and Applied it to the Logging Bucket
-```
+
+```json
 {
     "Version": "2012-10-17",
     "Statement": [

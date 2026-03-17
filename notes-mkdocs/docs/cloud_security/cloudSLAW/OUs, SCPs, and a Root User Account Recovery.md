@@ -1,4 +1,8 @@
-# OUs, SCPs, and a Root User Account Recovery
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

@@ -1,4 +1,8 @@
-# Red Team Engagements
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## Understanding the Importance of Client Objectives
 

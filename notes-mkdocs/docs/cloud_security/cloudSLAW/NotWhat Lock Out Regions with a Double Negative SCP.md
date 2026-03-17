@@ -1,4 +1,8 @@
-# NotWhat Lock Out Regions with a Double Negative SCP
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 
@@ -11,7 +15,8 @@
 ## The Lab
 
 1. Attaching the `RegionLockout` SCP to the root level
-```
+
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -72,6 +77,8 @@
         }
 ```
 
-- The `NotAction` denies everything except these actions in the list, these actions are Global services and if it's blocked then everything breaks. https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html?utm_source=slaw.securosis.com&utm_medium=referral&utm_campaign=notwhat-lock-out-regions-with-a-double-negative-scp. Why? Instead of explicitly denying thousands of actions, we specify a small list of actions to allow.
+- The `NotAction` denies everything except these actions in the list, these actions are Global services and if it's blocked then everything breaks. [AWS Documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_examples_general.html?utm_source=slaw.securosis.com&utm_medium=referral&utm_campaign=notwhat-lock-out-regions-with-a-double-negative-scp). _But why?_ Instead of explicitly denying thousands of actions, we specify a small list of actions to allow.
+
 - The condition translates to if an API call does NOT come from these two regions, then a block kicks in.
+
 - Before deploying the SCP, audit active regions using AWS Billing Console & Access Advisor. Apply the SCP to a test OU before deploying widely.

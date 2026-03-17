@@ -1,4 +1,8 @@
-# Follow the Money!
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

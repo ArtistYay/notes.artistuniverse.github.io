@@ -1,4 +1,8 @@
-# Content Discovery
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## Manual Discovery
 

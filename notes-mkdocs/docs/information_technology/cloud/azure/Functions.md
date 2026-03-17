@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Compute
+  - Microsoft Azure
 ---
-
-# Functions
 
 - Functions are something like AWS Lambda, it’s code running on your service.
 

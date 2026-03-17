@@ -1,4 +1,7 @@
-# Search Skills
+---
+tags:
+  - Cybersecurity
+---
 
 - **"exact phrase"**
     - Use double quotes.

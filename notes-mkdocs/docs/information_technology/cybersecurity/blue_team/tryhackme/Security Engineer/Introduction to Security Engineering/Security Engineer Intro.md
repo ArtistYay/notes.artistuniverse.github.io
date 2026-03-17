@@ -1,4 +1,8 @@
-# Security Engineer Intro
+---
+tags:
+  - Cybersecurity
+  - Defensive Security
+---
 
 ## Asset Management/Inventory
 

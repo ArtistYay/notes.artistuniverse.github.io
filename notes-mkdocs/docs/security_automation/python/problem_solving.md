@@ -1,9 +1,10 @@
 ---
 tags:
   - Python
+  - Computer Programming
 ---
 
-# Problem Solving
+## Problem Solving
 
 A problem-solving methodology in Python programming provides a structured approach to understand, analyze, and solve problems. It ensures efficiency, accuracy, and maintainability of code while reducing errors and enhancing the debugging process. It is essential for developing robust and reliable software solutions.
 

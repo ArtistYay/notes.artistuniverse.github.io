@@ -1,4 +1,8 @@
-# Windows Privilege Escalation
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is Privilege Escalation?
 

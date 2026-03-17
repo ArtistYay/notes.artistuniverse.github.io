@@ -1,4 +1,8 @@
-# SQL Injection
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is SQLi?
 

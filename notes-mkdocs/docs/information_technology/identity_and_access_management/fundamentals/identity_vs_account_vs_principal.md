@@ -1,4 +1,8 @@
-# Identity vs Account vs Principal
+---
+tags:
+  - Cybersecurity
+  - Identity & Access Management
+---
 
 ## Identity
 

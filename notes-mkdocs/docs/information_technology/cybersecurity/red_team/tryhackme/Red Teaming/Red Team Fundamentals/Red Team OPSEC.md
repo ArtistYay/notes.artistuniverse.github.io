@@ -1,4 +1,8 @@
-# Red Team OPSEC
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 Operations Security (OPSEC) is a systematic approach designed to prevent adversaries from gathering intelligence on an organization's sensitive activities. Originally a military concept, it has been adapted to cybersecurity, particularly in **red teaming**, where attackers (red team) simulate real-world threats to help defenders (blue team) strengthen their security posture.
 

@@ -1,4 +1,8 @@
-# On the Meaning of Life(cycles), Versions, and Ransomware
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

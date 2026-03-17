@@ -1,4 +1,8 @@
-# Assume the Role! (Centralized Logging, Part 1)
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lab
 
@@ -9,7 +13,7 @@
 
 ## The Lesson
 
-- _AWS does not allow you to assume roles from your root user account — you need to use an IAM user or another role._
+- _AWS does not allow you to assume roles from your root user account, you need to use an IAM user or another role._
 - AWS provides AWS Security Token Service (AWS STS) as a web service that enables you to request temporary, limited-privilege credentials for users.
 
 ![screenshot](../../../images/Pasted image 20250309124139.png)

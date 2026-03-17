@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Compute
+  - Microsoft Azure
 ---
-
-# Virtual Machines
 
 - You can create and use VMs in the cloud.
 

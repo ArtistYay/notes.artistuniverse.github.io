@@ -1,4 +1,8 @@
-# Enable GuardDuty the Right Way
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

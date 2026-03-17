@@ -1,11 +1,8 @@
 ---
 tags:
-  - Azure
-  - Questions
-Date: 2023-08-10
+  - Microsot Azure
+  - Cybersecurity
 ---
-
-# Securing Data and Applications in Microsoft Azure
 
 1. In an Azure SQL Database, when writing audit logs to a storage account, what Azure Blob type are the logs written to?
 

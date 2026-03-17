@@ -49,3 +49,15 @@
 .md-typeset p {
   margin-bottom: 0.8em;
 }
+
+/* Center images */
+.md-typeset img {
+  display: block;
+  margin: 0 auto;
+}
+
+/* Center code blocks */
+.md-typeset pre {
+  margin-left: auto;
+  margin-right: auto;
+}

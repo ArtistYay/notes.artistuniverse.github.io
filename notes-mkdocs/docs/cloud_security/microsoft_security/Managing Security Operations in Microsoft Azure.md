@@ -1,10 +1,8 @@
 ---
 tags:
-  - Azure
-# Date: 2023-08-10
+  - Microsot Azure
+  - Cybersecurity
 ---
-
-# Managing Security Operations in Microsoft Azure
 
 1. What does the Azure Security Center investigation graph encompass?
 

@@ -1,11 +1,8 @@
 ---
 tags:
-  - AWS
-  - Azure
-Keyword: IaC
+  - Infrastructure as Code
+  - DevOps
 ---
-
-# Terraform
 
 - The terraform command accepts a variety of subcommands.
 

@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Compute
+  - Microsoft Azure
 ---
-
-# Container Instances
 
 - Container Instances let’s you run containers without managing servers.
 

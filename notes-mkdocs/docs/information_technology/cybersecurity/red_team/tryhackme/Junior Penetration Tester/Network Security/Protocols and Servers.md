@@ -1,4 +1,9 @@
-# Protocols and Servers
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+  - Computer Networking
+---
 
 ## Telnet
 

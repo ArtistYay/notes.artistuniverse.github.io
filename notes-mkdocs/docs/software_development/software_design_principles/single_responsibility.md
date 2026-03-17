@@ -1,4 +1,7 @@
-# Single Responsibility Principle
+---
+tags:
+  - Computer Programming
+---
 
 ## Overview
 

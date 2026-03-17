@@ -1,4 +1,8 @@
-# Buttoning up the Org
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lab
 

@@ -1,4 +1,8 @@
-# Intro to SSRF
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is SSRF?
 

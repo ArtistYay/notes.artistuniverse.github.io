@@ -1,4 +1,8 @@
-# Questions I Asked Myself
+---
+tags:
+  - Python
+  - Computer Programming
+---
 
 ## What is the difference between functions, methods, and modules?
 

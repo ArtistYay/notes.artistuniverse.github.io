@@ -1,4 +1,8 @@
-# Write a Simple IAM Policy
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 
@@ -12,10 +16,10 @@
 
 ## The Lab
 
-1. Created a Custom Policy for read (s3:GetObject) and write (s3:PutObject) to our CloudTrail bucket
+1. Created a Custom Policy for read (`s3:GetObject`) and write (`s3:PutObject`) to our CloudTrail bucket
 		IAM policies define what actions users, roles, and services can perform. Writing policies allows for granular control. The Visual Policy Editor simplifies policy creation by providing an easy-to-understand interface.
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -30,12 +34,17 @@
     ]
 }
 ```
- - **Version:** This defines the policy language version. "2012-10-17" is the current version; this is required.
+
+- **Version:** This defines the policy language version. `"2012-10-17"` is the current version; this is required.
+
 - **Statement:** This is the main element of the policy. It’s an array of multiple policy statements. (Anything in [] is an array). Each statement must have an effect, action, and resource.
+
 - **Effect:** Whether the statement results in an allow or a deny.
+
 - **Action:** Lists the specific actions (API calls) allowed or denied. In this policy:
-    - "s3:GetObject": Grants permission to retrieve objects from the specified bucket.
-    - "s3:PutObject": Allows the user to upload or modify objects in the bucket.
+    - `"s3:GetObject"`: Grants permission to retrieve objects from the specified bucket.
+    - `"s3:PutObject"`: Allows the user to upload or modify objects in the bucket.
+
 - **Resource:** Specifies the resources the statement covers.
-    - Here, "arn:aws:s3:::rmogull-slaw/<asterisk>" means the policy applies to all objects (/*) in the rmogull-slaw bucket.
+    - Here, `"arn:aws:s3:::rmogull-slaw/<asterisk>"` means the policy applies to all objects (`/*`) in the rmogull-slaw bucket.
     - An ARN (Amazon Resource Name) uniquely identifies AWS resources. In this case it specifies my S3 bucket.

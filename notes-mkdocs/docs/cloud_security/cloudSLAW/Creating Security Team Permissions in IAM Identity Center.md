@@ -1,4 +1,8 @@
-# Creating Security Team Permissions in IAM Identity Center
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

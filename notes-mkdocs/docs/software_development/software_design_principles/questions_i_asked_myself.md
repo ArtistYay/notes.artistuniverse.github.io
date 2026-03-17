@@ -1,4 +1,7 @@
-# Questions I Asked Myself
+---
+tags:
+  - Computer Programming
+---
 
 ## What is Loose Coupling and High Cohesion?
 

@@ -1,4 +1,8 @@
-# Timmy's First CloudFormation
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 
@@ -10,7 +14,7 @@
 		Deploying SNS topics through IaC ensures that your notifications (e.g., alerts for security events) are set up consistently, allowing for quick responses to security incidents.
 		Always verify the source and content of IaC templates to ensure they are secure before deployment. Implementing processes for regular reviews and automated security checks (e.g., scanning for hardcoded credentials) is critical.
 
-```
+```json
 AWSTemplateFormatVersion: '2010-09-09'
 Description: Template to create a SNS topic named SecurityAlerts
 Resources:

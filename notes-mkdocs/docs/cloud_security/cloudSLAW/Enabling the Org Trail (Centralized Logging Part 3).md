@@ -1,4 +1,8 @@
-# Enabling the Org Trail (Centralized Logging Part 3)
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lab
 

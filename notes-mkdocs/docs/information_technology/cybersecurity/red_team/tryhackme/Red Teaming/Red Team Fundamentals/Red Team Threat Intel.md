@@ -1,4 +1,8 @@
-# Red Team Threat Intel
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 Threat Intelligence (TI) provides defenders with insight into adversary behaviors, tactics, techniques, and procedures (TTPs). However, the **red team** can also leverage CTI to emulate adversaries more accurately and assess blue team defenses.
 

@@ -1,4 +1,9 @@
-# Passive Reconnaissance
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+  - Computer Networking
+---
 
 ## Publicly Available Records
 

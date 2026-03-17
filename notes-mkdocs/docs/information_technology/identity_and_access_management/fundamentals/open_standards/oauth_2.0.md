@@ -1,8 +1,10 @@
-# OAuth 2.0
+---
+tags:
+  - Cybersecurity
+  - Identity & Access Management
+---
 
 Remember how I explained federation is a trust relationship between two IdPs and SPs? That is the what, the how is where OAuth 2.0 comes in.
-
-## OAuth 2.0
 
 Before OAuth 2.0 there was OAuth (OAuth 1), it is an open standard that establishes or implements that trust so users can use eg. a Google account to sign into an application. The user can deny or approve what that application has access to but the user had to sign in with their username and password which would be stored in plaintext in the server side.
 

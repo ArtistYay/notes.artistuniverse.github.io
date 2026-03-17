@@ -1,4 +1,8 @@
-# Use EventBridge for Security Hub Alerts
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

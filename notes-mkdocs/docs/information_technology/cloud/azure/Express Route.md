@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Networking
+  - Microsoft Azure
 ---
-
-# Express Route
 
 - ExpressRoute does provide private connectivity, but isn’t encrypted.
 

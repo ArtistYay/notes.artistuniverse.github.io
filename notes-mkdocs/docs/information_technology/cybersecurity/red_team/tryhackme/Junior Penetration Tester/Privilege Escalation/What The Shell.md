@@ -1,4 +1,8 @@
-# What The Shell
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is a Shell?
 

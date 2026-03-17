@@ -1,4 +1,8 @@
-# Introduction to DevSecOps
+---
+tags:
+  - DevOps
+  - Cybersecurity
+---
 
 ## The Problem with Waterfall & Rise of Agile
 

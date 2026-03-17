@@ -1,4 +1,8 @@
-# Authentication Bypass
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## Username Enumeration
 

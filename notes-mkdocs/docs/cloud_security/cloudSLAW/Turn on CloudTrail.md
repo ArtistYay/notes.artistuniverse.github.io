@@ -1,4 +1,8 @@
-# Turn on CloudTrail
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

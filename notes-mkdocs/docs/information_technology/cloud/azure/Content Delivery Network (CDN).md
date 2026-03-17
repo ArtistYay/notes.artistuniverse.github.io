@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Networking
+  - Microsoft Azure
 ---
-
-# Content Delivery Network (CDN)
 
 - It is a distributed network of servers that can deliver web content close to users.
 

@@ -1,4 +1,8 @@
-# Enable Delegated Administrator for Identity Center and CloudTrail
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

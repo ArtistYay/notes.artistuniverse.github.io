@@ -1,4 +1,9 @@
-# Net Sec Challenge
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+  - Computer Networking
+---
 
 1. What is the highest port number being open less than 10,000?
 		8080; I used `nmap -sS -Pn <IP Address>`

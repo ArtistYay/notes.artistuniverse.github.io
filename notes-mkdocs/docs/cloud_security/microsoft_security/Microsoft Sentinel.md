@@ -1,12 +1,10 @@
 ---
 tags:
-  - Azure
-Keyword: Security
+  - Microsot Azure
+  - Cybersecurity
 ---
 
-# Microsoft Sentinel
-
-- Azure Sentinel is a SIEM (Security information and event management; a tool that an organization uses to collect, analyze, and perform security operations on its computer systems.) and a SOAR (Security orchestration automation and response; helps coordinate, execute and automate tasks between various people and tools all within a single platform.). A centralized management interface that leverages other Azure services as well.
+- Microsoft Sentinel is a SIEM (Security information and event management; a tool that an organization uses to collect, analyze, and perform security operations on its computer systems.) and a SOAR (Security orchestration automation and response; helps coordinate, execute and automate tasks between various people and tools all within a single platform.). A centralized management interface that leverages other Azure services as well.
 
 - It can collect security data across your enterprise, detect threats with intelligence, investigate incidents using the help of AI, and respond rapidly with automation.
 
@@ -26,7 +24,7 @@ Keyword: Security
 
     - It is built on top of a Log Analytics workspace to house all monitoring data. Data connecters parse data into the workspace first.
 
-- When configuring alerts for Azure Sentinel you have to do so through the analytics component. You can use Microsoft Analytics rule templates.
+- When configuring alerts for Microsoft Sentinel you have to do so through the analytics component. You can use Microsoft Analytics rule templates.
 
 - Rule Types
 
@@ -40,7 +38,7 @@ Keyword: Security
 
     - Scheduled - Leverages built-in queries written by Microsoft security experts. The rules query data on a scheduled basis.
 
-- Azure Sentinel playbooks are based on Azure Logic Apps.
+- Microsoft Sentinel playbooks are based on Azure Logic Apps.
 
 - Analytics rules are used to detect threats and analyze data.
 

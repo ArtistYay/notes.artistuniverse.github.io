@@ -1,6 +1,8 @@
-# OpenID Connect
-
-## OpenID Connect
+---
+tags:
+  - Cybersecurity
+  - Identity & Access Management
+---
 
 This standard is built on top of OAuth 2.0. OAuth deals with the permissions aspect (what the app can view or do) while OpenID Connect deals with the authentication (identity) of who you are.
 

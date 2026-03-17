@@ -1,4 +1,7 @@
-# IP Addressing
+---
+tags:
+  - Computer Networking
+---
 
 - IPv4 addresses are how two devices can communicate at layer 4 and above of OSI seven layer model.
 

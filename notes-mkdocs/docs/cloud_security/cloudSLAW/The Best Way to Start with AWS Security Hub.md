@@ -1,4 +1,8 @@
-# The Best Way to Start with AWS Security Hub
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 
@@ -21,6 +25,6 @@
 		Selected **"Customize my Security Hub configuration"** to prevent AWS from automatically enabling additional security features.
 		**Disabled AWS Foundational Best Practices security standard** to keep costs low.
 
-# Question
+## Questions I ask Myself
 1. Why do we always have to enable security solutions in the management account. For example, in this lab, we SSO into our management account, enabled Security Hub, and delegated it to our SecurityAudit account. Why couldn't we just turn it on in our SecurityAudit account?
 		If you enable a security service in the SecurityAudit account, it only protects that single account. By enabling it in the management account (or delegating from there), you set it up to protect all accounts in the organization.

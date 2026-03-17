@@ -1,4 +1,8 @@
-# Secure Software Development Lifecycle (S-SDLC)
+---
+tags:
+  - DevOps
+  - Cybersecurity
+---
 
 ## Introduction to S-SDLC
 

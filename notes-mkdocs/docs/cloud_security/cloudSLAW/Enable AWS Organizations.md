@@ -1,4 +1,8 @@
-# Enable AWS Organizations
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lab
 

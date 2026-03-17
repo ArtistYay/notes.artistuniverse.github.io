@@ -1,4 +1,8 @@
-# Bring in the Fed(eration) SSO
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 

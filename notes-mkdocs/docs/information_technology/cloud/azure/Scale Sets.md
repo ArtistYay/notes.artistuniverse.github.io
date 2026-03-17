@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Compute
+  - Microsoft Azure
 ---
-
-# Scale Sets
 
 - Let you create and manage a group of identical load balanced VMs.
 

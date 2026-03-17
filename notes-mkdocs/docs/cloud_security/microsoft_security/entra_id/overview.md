@@ -1,4 +1,8 @@
-# Overview
+---
+tags:
+  - Microsot Azure
+  - Identity & Access Management
+---
 
 - You can have one tenant for multiple Azure subscriptions. A tenant is an organization which stores all the users in that organization. The one who makes the tenant has billing and admin rights to that account.
 

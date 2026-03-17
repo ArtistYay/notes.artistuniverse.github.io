@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Compute
+  - Microsoft Azure
 ---
-
-# Kubernetes Service
 
 - Azure Kubernetes Service let’s you organize containers, replicate container architectures, and have global reach.
 

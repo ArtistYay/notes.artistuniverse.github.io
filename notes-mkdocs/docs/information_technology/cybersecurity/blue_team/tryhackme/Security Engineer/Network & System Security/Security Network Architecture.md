@@ -1,4 +1,8 @@
-# Security Network Architecture
+---
+tags:
+  - Cybersecurity
+  - Defensive Security
+---
 
 ## Network Segmentation
 

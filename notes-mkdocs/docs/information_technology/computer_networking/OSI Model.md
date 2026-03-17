@@ -1,4 +1,7 @@
-# OSI Model
+---
+tags:
+  - Computer Networking
+---
 
 ![screenshot](../../../images/2B868F66-0305-4372-8AA2-FD1757D55D30.jpeg)
 

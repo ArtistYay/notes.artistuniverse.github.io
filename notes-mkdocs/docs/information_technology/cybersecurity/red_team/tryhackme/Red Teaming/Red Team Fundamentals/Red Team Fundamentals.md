@@ -1,4 +1,8 @@
-# Red Team Fundamentals
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 Cybersecurity is an ongoing battle between security professionals ("white hat" hackers) and malicious actors ("black hat" hackers). As cyber threats become more sophisticated, organizations need specialized services to prepare for real-world attacks. Traditional security assessments like vulnerability assessments and penetration tests offer valuable insights but may not fully address all aspects of a real attack scenario.
 

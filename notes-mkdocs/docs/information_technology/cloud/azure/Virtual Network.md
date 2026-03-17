@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Networking
+  - Microsoft Azure
 ---
-
-# Virtual Network
 
 - _Azure virtual networks_ enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers.
 

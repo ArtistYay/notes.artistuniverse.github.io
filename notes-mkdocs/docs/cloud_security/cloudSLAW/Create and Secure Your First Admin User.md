@@ -1,4 +1,8 @@
-# Create and Secure Your First Admin User
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lab
 
@@ -13,7 +17,7 @@
 
 ## The Lesson
 
-## Why is IAM Important?
+### Why is IAM Important?
 
 - IAM **controls access** to all cloud resources. Every request, whether from a human or a machine, must pass through IAM.
 - Since **AWS is accessible via the internet**, IAM is the first and most important security layer in protecting cloud environments.

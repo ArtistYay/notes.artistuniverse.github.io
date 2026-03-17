@@ -1,4 +1,8 @@
-# Software Development Lifecycle (SDLC)
+---
+tags:
+  - DevOps
+  - Cybersecurity
+---
 
 ## What is the SDLC?
 

@@ -1,4 +1,7 @@
-# Intro to C2
+---
+tags:
+  - Cybersecurity
+---
 
 A C2 framework is a system used by threat actors (and security professionals in red team exercises) to maintain control over compromised devices. At its core, a C2 framework enables:
 

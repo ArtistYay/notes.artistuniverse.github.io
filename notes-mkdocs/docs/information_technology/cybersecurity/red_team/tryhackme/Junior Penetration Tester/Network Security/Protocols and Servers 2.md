@@ -1,4 +1,9 @@
-# Protocols and Servers 2
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+  - Computer Networking
+---
 
 ## Network Security & Mitigation - Detailed Notes
 

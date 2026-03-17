@@ -1,4 +1,8 @@
-# Risk Management
+---
+tags:
+  - Cybersecurity
+  - Defensive Security
+---
 
 ## NIST SP 800-30
 

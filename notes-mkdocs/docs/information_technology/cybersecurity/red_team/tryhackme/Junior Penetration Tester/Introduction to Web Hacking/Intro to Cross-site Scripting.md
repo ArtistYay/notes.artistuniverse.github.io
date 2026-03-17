@@ -1,4 +1,8 @@
-# Intro to Cross-site Scripting
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is XSS?
 

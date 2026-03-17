@@ -1,4 +1,8 @@
-# Give Your Account a Security Blanket with SCPs
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lab
 
@@ -7,7 +11,8 @@
 		Even though the `FullAWSAccess` Service Control Policy (SCP) exists, users still need to be granted **IAM permissions** in order to actually use the services and perform actions within those services.
 2. Made a Custom SCP to Protect Root Account and Prevent Leaving AWS Organization
 		`ProtectRootAndOrg` applied a `Deny` effect to the `organizations:LeaveOrganization` action and restricted root user actions.
-```
+
+```json
 {
   "Version": "2012-10-17",
   "Statement": [

@@ -1,4 +1,8 @@
-# Burp Suite_The Basics
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is Burp Suite?
 

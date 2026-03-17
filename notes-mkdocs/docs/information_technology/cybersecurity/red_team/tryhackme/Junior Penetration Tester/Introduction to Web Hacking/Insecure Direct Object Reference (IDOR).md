@@ -1,4 +1,8 @@
-# Insecure Direct Object Reference (IDOR)
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is an IDOR?
 

@@ -1,10 +1,12 @@
-# SAML
-
-## SAML
+---
+tags:
+  - Cybersecurity
+  - Identity & Access Management
+---
 
 Ever wondered whenever you log into your work laptop and launch Slack or even Zoom you are automatically signed? Well that's SAML, it's mostly used for enterprise environments for single sign on (SSL). It uses XML as it's format.
 
-##### The process:
+## The process:
 
 1. Request: You try to access Salesforce. Salesforce sees you aren't logged in.
 2. Redirect: Salesforce generates a SAML Request (an XML file) and redirects your browser to your Company's Login Page (the IdP, eg. Active Directory).

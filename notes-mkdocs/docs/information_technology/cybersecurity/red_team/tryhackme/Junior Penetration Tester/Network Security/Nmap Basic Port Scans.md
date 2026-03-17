@@ -1,4 +1,9 @@
-# Nmap Basic Port Scans
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+  - Computer Networking
+---
 
 ## TCP and UDP Ports
 

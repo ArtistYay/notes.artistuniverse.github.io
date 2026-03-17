@@ -1,4 +1,8 @@
-# Another Me SSO with IAM Identity Center, Part 2
+---
+tags:
+  - Amazon Web Services
+  - Cybersecurity
+---
 
 ## The Lesson
 
@@ -16,7 +20,9 @@
 2. Assigned the Group to have AdminstratorAccess to the SecurityAudit and management account.
 		Must select the accounts then click on 'assign users and groups'
 3.  Reviewed the 'AWSReservedSSO_AdministratorAccess' role
-![[Pasted image 20250309200237.png]]
+
+![screenshot](../../../images/Pasted image 20250309200237.png)
+
 4. This is the ARN of the _Identity provider_ which Identity Center/Organizations created in the account. You can see it if you look under **Identity providers**. An AWS Organization can have more than one of these.
 5. This gives the role permission to use the [**AssumeRolewithSAML**](https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithSAML.html) API call, which is a bit different than **AssumeRole** but very similar.
 6. This lets the IdP tag the session when you assume the role. This is very valuable for tracking, because it adds a session name which aligns with the user assuming the role.

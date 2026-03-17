@@ -1,4 +1,8 @@
-# Understand_what_telemetry_and_logs_are
+---
+tags:
+  - Cybersecurity
+  - Defensive Security
+---
 
 *What can I see?* Depending on the operating system (OS) I can see who logs in to the computer, who started a process, who ran a command, what command was ran, etc. For example, in Windows OS you can view logs in the '*Event Viewer*'
 

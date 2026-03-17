@@ -1,4 +1,9 @@
-# Nmap Live Host Discovery
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+  - Computer Networking
+---
 
 ## Nmap Host Discovery
 

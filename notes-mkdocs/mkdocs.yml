@@ -120,6 +120,7 @@ extra:
 # add images to files like so ![screenshot](../assets/GitHub_Issue.png)
 nav:
   - Home: index.md
+  - Tags: tags.md
   - Cloud Security:
     - Cloud Architecture & Security Design: cloud_security/cloud_architecture_&_security_design.md
     - CloudSLAW:
@@ -183,7 +184,6 @@ nav:
         - Express Route: information_technology/cloud/azure/Express Route.md
         - Firewalls: information_technology/cloud/azure/Firewalls.md
         - Functions: information_technology/cloud/azure/Functions.md
-        - Generative AI: information_technology/cloud/azure/Generative AI.md
         - Kubernetes Service: information_technology/cloud/azure/Kubernetes Service.md
         - Scale Sets: information_technology/cloud/azure/Scale Sets.md
         - Virtual Desktop: information_technology/cloud/azure/Virtual Desktop.md
@@ -197,7 +197,7 @@ nav:
       - Load Balancer: information_technology/computer_networking/Load Balancer.md
       - OSI Model: information_technology/computer_networking/OSI Model.md
       - Proxy Servers: information_technology/computer_networking/Proxy Servers.md
-      - Subnet-Subnetting: information_technology/computer_networking/Subnet-Subnetting.md
+      - Subnetting: information_technology/computer_networking/Subnet-Subnetting.md
     - Cybersecurity:
       - Blue Team:
         - Threat Detection:
@@ -273,8 +273,7 @@ nav:
               - NoSQL Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/NoSQL Injection.md
               - ORM Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/ORM Injection.md
               - Server-side Template Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/Server-side Template Injection.md
-              - XXE Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/XXE Injection.md
-        - How to hack (vague): information_technology/cybersecurity/red_team/How to hack (vague).md  
+              - XXE Injection: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Injection Attacks/XXE Injection.md 
       - Try Hack Me: 
         - CyberSecurity 101: 
           - Search Skills: information_technology/cybersecurity/tryhackme/CyberSecurity 101/Search Skills.md
@@ -297,8 +296,22 @@ nav:
           - Group membership, role models, ACLs, discretionary vs role-based systems: information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
   - Security Automation:
       - Python:
+        - Overview: security_automation/python/overview.md
         - The Four-Step Problem-Solving Process: security_automation/python/problem_solving.md
         - Questions I Ask Myself: security_automation/python/questions_i_asked_myself.md
+        - Applying Python: security_automation/python/applying_python.md
+        - Data Types: security_automation/python/data_types.md
+        - Dictionaries & Sets: security_automation/python/dictionaries_sets.md
+        - Error Handling & Debugging: security_automation/python/error_handling_and_debugging.md
+        - File Management: security_automation/python/file_management.md
+        - Functions: security_automation/python/functions.md
+        - If/Else Statements: security_automation/python/if_else_statements.md
+        - Lists & Tuples: security_automation/python/lists_and_tuples.md
+        - Loops: security_automation/python/loops.md
+        - Modules, Libraries, & Packages: security_automation/python/modules_libraries_and_packages.md
+        - Operators: security_automation/python/operators.md
+        - Variables: security_automation/python/variables.md
+        - Questions I Asked Myself: security_automation/python/questions_i_asked_myself.md
   - Software Development:
     - Software Design Principles:
       - Overview: software_development/software_design_principles/overview.md

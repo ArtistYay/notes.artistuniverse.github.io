@@ -1,4 +1,9 @@
-# Nmap Post Port Scans
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+  - Computer Networking
+---
 
 ## Service and Version Detection (-sV)
 

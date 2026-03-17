@@ -40,3 +40,4 @@ settings.json
 
 # === other files ===
 CLAUDE.md
+.claude/settings.local.json

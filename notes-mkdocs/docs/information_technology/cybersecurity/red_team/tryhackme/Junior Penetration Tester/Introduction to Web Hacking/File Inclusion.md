@@ -1,4 +1,8 @@
-# File Inclusion
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is File Inclusion?
 

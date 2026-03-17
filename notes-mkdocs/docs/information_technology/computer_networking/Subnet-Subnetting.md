@@ -1,4 +1,7 @@
-# Subnet-Subnetting
+---
+tags:
+  - Computer Networking
+---
 
 1. What is the network address, broadcast address, valid host addresses, and subnet mask in dotted decimal notation for the IP address 198.22.45.173/26?
 

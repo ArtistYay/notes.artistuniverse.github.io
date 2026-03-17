@@ -1,4 +1,7 @@
-# DRY: Don't Repeat Yourself
+---
+tags:
+  - Computer Programming
+---
 
 ## Overview
 

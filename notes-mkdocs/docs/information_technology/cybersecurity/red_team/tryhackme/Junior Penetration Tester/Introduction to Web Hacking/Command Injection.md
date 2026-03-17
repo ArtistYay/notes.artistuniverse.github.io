@@ -1,4 +1,8 @@
-# Command Injection
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## What is Command Injection?
 

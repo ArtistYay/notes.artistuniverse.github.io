@@ -1,4 +1,8 @@
-# Burp Suite_Other Modules
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+---
 
 ## Decoder
 

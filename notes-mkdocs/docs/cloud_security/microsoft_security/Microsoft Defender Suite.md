@@ -1,10 +1,8 @@
 ---
 tags:
-  - Azure
-Keyword: Security
+  - Microsot Azure
+  - Cybersecurity
 ---
-
-# Microsoft Defender Suite
 
 - Microsoft Defender for Cloud
 

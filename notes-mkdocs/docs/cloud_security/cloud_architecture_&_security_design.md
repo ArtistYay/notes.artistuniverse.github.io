@@ -1,11 +1,10 @@
 ---
 tags:
   - Microsot Azure
+  - Cybersecurity
 ---
 
-# Cloud Architecture & Security Design
-
-## Describe how you would design a secure, multi-account AWS and Azure environment for a SaaS company handling sensitive enterprise data.
+## 1. Describe how you would design a secure, multi-account AWS and Azure environment for a SaaS company handling sensitive enterprise data.
 
 1. Limit the blast radius and implement a hierarchy. In AWS, they have organizations which let you create [`Organizational Units (OUs)`](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_ous.html) which you can create based on the environment (eg, Security OU), and under that OU you can create a specific account for distinct functions (eg, Log Archive account, Security Tooling account, Network account, etc.)
 

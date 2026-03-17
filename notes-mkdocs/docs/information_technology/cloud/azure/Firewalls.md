@@ -1,4 +1,7 @@
-# Firewalls
+---
+tags:
+  - Microsoft Azure
+---
 
 - A device that historically sits at the border between different networks and monitors traffic flowing between them.
 

@@ -1,4 +1,7 @@
-# Overview
+---
+tags:
+  - Computer Programming
+---
 
 ## What are Software Design Principles?
 
@@ -8,7 +11,7 @@ You can’t build something without a blueprint, so it’s nice to plan out the 
 
 ## Subcategories
 
-- [Single Responsibility](single_responsibility.md)
-- [DRY (Don’t Repeat Yourself)](dry_dont_repeat_yourself.md)
-- [KISS (Keep It Simple, Stupid)](keep_it_simple_stupid.md)
-- [YAGNI (You Aren’t Gonna Need It)](you_arent_gonna_need_it.md)
+1. [Single Responsibility](single_responsibility.md)
+2. [DRY (Don’t Repeat Yourself)](dry_dont_repeat_yourself.md)
+3. [KISS (Keep It Simple, Stupid)](keep_it_simple_stupid.md)
+4. [YAGNI (You Aren’t Gonna Need It)](you_arent_gonna_need_it.md)

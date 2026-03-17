@@ -1,10 +1,7 @@
 ---
 tags:
-  - Azure
-Keyword: Networking
+  - Microsoft Azure
 ---
-
-# Application Gateway
 
 - Manages the request that client applications send to web apps that are hosted on a pool of web servers. For example, if your client sends videos it will go to a server that deals with videos. It’s an advanced load balancer.
 

@@ -1,11 +1,8 @@
 ---
 tags:
-  - Azure
-  - Questions
-Date: 2023-08-10
+  - Microsot Azure
+  - Identity & Access Management
 ---
-
-# Configuring Identity and access in Microsoft Azure
 
 1. A security principal with a custom RBAC definition is able to regenerate the keys of a Service Bus namespace , but cannot read the connection string. None of the security principal's other actions are affected. What might be causing this?
 

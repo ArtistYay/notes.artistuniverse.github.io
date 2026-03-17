@@ -1,4 +1,9 @@
-# Nmap Advanced Port Scans
+---
+tags:
+  - Cybersecurity
+  - Offensive Security
+  - Computer Networking
+---
 
 ## Advanced Scan Types
 

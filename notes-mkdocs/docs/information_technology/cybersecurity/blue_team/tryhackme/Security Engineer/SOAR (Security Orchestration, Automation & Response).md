@@ -1,4 +1,8 @@
-# SOAR (Security Orchestration, Automation & Response)
+---
+tags:
+  - Cybersecurity
+  - Defensive Security
+---
 
 ## What is SOAR?
 

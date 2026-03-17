@@ -1,6 +1,8 @@
-# JWK and Key Rotation
-
-## JWK
+---
+tags:
+  - Cybersecurity
+  - Identity & Access Management
+---
 
 JSON Web Keys are a set of public keys used to digitally sign JSON Web Tokens (JWTs) that have been dispatched from the Identity Provider (IdP).
 
