@@ -1,6 +1,6 @@
 ---
 tags:
-  - Microsot Azure
+  - Microsoft Azure
   - Cybersecurity
 ---
 
