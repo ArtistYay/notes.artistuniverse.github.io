@@ -7,5 +7,5 @@
 
 ---
 
-!!! youtube "What is on Artist's Playlist?"
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/eBVAJnzGoFk?si=1aiTfIjLBYeHcqbA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+!!! youtube "What's on Artist's Playlist?"
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/UahiaHPVYDs?si=CPTkUH0md8EDIR50" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

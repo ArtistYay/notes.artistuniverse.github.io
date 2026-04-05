@@ -158,6 +158,9 @@ nav:
       - Microsoft Defender Suite: cloud_security/microsoft_security/Microsoft Defender Suite.md
       - Microsoft Sentinel: cloud_security/microsoft_security/Microsoft Sentinel.md
       - Securing Data and Applications in Microsoft Azure: cloud_security/microsoft_security/Securing Data and Applications in Microsoft Azure.md
+      - Compute:
+        - Logic Apps:
+          - Preventing IDOR Vulnerabilities: cloud_security/microsoft_security/compute/logic_apps/preventing_IDOR_vulnerabilities_in_azure_logic_apps.md
   - DevSecOps:
     - Try Hack Me: 
       - Secure Software Developmet:
