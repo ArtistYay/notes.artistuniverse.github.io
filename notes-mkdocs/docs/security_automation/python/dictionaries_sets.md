@@ -10,7 +10,7 @@ A dictionary stores data as **key-value pairs** using curly braces `{}` with col
 
 - Keys must be unique
 - Values can be any data type, including other dictionaries or lists
-- Dictionaries are mutable — you can add, update, or remove pairs
+- Dictionaries are mutable. you can add, update, or remove pairs
 
 ```python
 network_devices = {

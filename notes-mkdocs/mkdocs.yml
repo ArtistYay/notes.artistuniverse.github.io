@@ -171,7 +171,11 @@ nav:
         - Source Code Security: devsecops/tryhackme/Security of the Pipeline/Source Code Security.md
     - IaC:
       - Terraform: 
-        - Overview: devsecops/iac/terraform/Terraform.md
+        - Overview: devsecops/iac/terraform/overview.md
+        - Writing DRY Code with Modules and `for_each`: devsecops/iac/terraform/dry_modules.md
+    - Source Control:
+      - Git:
+        - Git Config Notes: devsecops/source_control/git/git_config_notes.md    
   - Information Technology:
     - Troubleshooting Steps: information_technology/Troubleshooting Steps.md
 #    - Linux:
