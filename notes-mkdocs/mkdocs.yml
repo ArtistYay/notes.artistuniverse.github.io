@@ -161,6 +161,8 @@ nav:
       - Compute:
         - Logic Apps:
           - Preventing IDOR Vulnerabilities: cloud_security/microsoft_security/compute/logic_apps/preventing_IDOR_vulnerabilities_in_azure_logic_apps.md
+    - Tools:
+      - Wiz: cloud_security/tools/wiz.md
   - DevSecOps:
     - Try Hack Me: 
       - Secure Software Developmet:

@@ -179,6 +179,5 @@ Variables make your configurations reusable and avoid hardcoding values.
 - [Azure Terraform Docs](https://learn.microsoft.com/en-us/azure/developer/terraform/)
 - [Azure AVD Log Analytics Workspace Example](https://docs.microsoft.com/en-us/azure/developer/terraform/create-avd-log-analytics-workspace)
 - [Terraform Registry (Providers & Modules)](https://registry.terraform.io/)
-- [https://docs.microsoft.com/en-us/azure/developer/terraform/create-avd-log-analytics-workspace](https://docs.microsoft.com/en-us/azure/developer/terraform/create-avd-log-analytics-workspace)
 
 ![screenshot](../../../images/Screenshot_2022-10-26_163854.png)
