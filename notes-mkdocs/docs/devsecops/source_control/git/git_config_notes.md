@@ -4,13 +4,13 @@ tags:
   - DevOps
 ---
 
-# `git config --global --add safe.directory`
+## `git config --global --add safe.directory`
 
 This command tells Git to **trust a specific directory** that it might otherwise consider unsafe.
 
 ---
 
-## Breaking It Down
+### Breaking It Down
 
 | Part | What it does |
 |------|--------------|
@@ -20,7 +20,7 @@ This command tells Git to **trust a specific directory** that it might otherwise
 
 ---
 
-## Why Is This Needed?
+### Why Is This Needed?
 
 Git introduced [**ownership checks** (in v2.35.2+)](https://support.atlassian.com/bitbucket-cloud/kb/git-command-returns-fatal-error-detected-dubious-ownership/) as a security measure. If Git detects that the directory is owned by a *different* user than the one running the command, it refuses to operate and throws an error like:
 
@@ -36,7 +36,7 @@ This commonly happens when:
 
 ---
 
-## What It Does in Practice
+### What It Does in Practice
 
 It adds this line to your `~/.gitconfig`:
 
@@ -47,7 +47,7 @@ It adds this line to your `~/.gitconfig`:
 
 After running it, Git will stop complaining about ownership for that specific repo and let you run commands like `git status`, `git pull`, etc. normally.
 
-# `git config --global core.autocrlf input`
+## `git config --global core.autocrlf input`
 
 This sets Git's line ending conversion behavior. With `input`:
 
@@ -58,7 +58,7 @@ Recommended for Mac/Linux developers, or cross-platform teams using a Unix-style
 
 ---
 
-# `git config --global core.safecrlf true`
+## `git config --global core.safecrlf true`
 
 This is a safety check. With `true`:
 
@@ -73,7 +73,7 @@ fatal: CRLF would be replaced by LF in somefile.txt
 
 ---
 
-## Together
+### Together
 
 These two settings work well as a pair:
 

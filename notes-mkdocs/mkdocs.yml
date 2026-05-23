@@ -177,7 +177,8 @@ nav:
         - Writing DRY Code with Modules and `for_each`: devsecops/iac/terraform/dry_modules.md
     - Source Control:
       - Git:
-        - Git Config Notes: devsecops/source_control/git/git_config_notes.md    
+        - Git Config Notes: devsecops/source_control/git/git_config_notes.md 
+        - Overview: devsecops/source_control/git/overview.md   
   - Information Technology:
     - Troubleshooting Steps: information_technology/Troubleshooting Steps.md
 #    - Linux:
