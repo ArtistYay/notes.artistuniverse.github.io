@@ -8,4 +8,4 @@
 ---
 
 !!! youtube "What is Artist listening to?☺️"
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/wxlsIXmElRk?si=dLprfwFBmdzn8o_P" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Sdhq92nJ8ic?si=Jq_cp_WptOnJZe5k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
