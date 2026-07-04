@@ -310,9 +310,9 @@ nav:
           - Kerberos: information_technology/identity_and_access_management/fundamentals/directory_services/kerberos.md
           - Directory forests, domains, replication: information_technology/identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
           - Group membership, role models, ACLs, discretionary vs role-based systems: information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
-  - Projects:
-    - Test:
-      - CodeCrafter's Build your own Git: personal_projects/azure_appsec_pipeline.md
+  - My Work:
+    - Personal Projects:
+      - CodeCrafter's Build your own Git: personal_projects/build_your_own_git.md
       - Azure Appsec Pipeline: personal_projects/azure_appsec_pipeline.md
   - Security Automation:
       - Python:

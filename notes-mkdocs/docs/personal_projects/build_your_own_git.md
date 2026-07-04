@@ -9,9 +9,9 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 ---
 
-# Stage 1: Read a Blob Object (`git cat-file`)
+## Stage 1: Read a Blob Object (`git cat-file`)
 
-## Errors Made
+### Errors Made
 
 **Jumping ahead mentally** — Before writing any code, assumed this stage was about commits and who committed code. It was only about reading blobs. Lesson: read the stage carefully and solve only what's in front of you.
 
@@ -23,7 +23,7 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 **Indentation issues** — Python uses indentation instead of curly braces `{}`. Copy-pasting into chat mangled the indentation, but the underlying logic was correct.
 
-## What I Learned
+### What I Learned
 
 - `sys.argv` is a list of everything typed on the command line. Index `[0]` is always the script name, so real arguments start at `[1]`.
 - Git splits object hashes into a 2-character folder and 38-character filename to prevent inode exhaustion (too many files in one directory).
@@ -31,13 +31,13 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 - After decompressing a blob, the format is `blob <size>\0<content>`. The null byte `\x00` separates the header from the content.
 - Binary data must be decoded with `.decode()` before printing as text.
 
-## Troubleshooting Steps
+### Troubleshooting Steps
 
 1. Wrote out `sys.argv` as a full list to find the correct index for the hash.
 2. Confirmed the null byte separator by re-reading the blob format in the instructions.
 3. Switched from `print()` to `sys.stdout.write()` after reading the notes section warning about newlines.
 
-## Resources Used
+### Resources Used
 
 - CodeCrafters stage instructions
 - Python `zlib` documentation (for `wbits` parameter, determined default was sufficient)
@@ -45,9 +45,9 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 ---
 
-# Stage 2: Create a Blob Object (`git hash-object`)
+## Stage 2: Create a Blob Object (`git hash-object`)
 
-## Errors Made
+### Errors Made
 
 **`sys.arg` typo** — Wrote `sys.arg[3]` instead of `sys.argv[3]`. Python threw an `AttributeError`.
 
@@ -61,7 +61,7 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 **`sys.stdout.write` inside the `with open` block** — Wrote the output inside the file-writing block instead of after it. Moved it outside.
 
-## What I Learned
+### What I Learned
 
 - This stage is the reverse of `cat-file` — instead of reading and decompressing, you build, compress and write.
 - The SHA-1 hash must be computed over the header + content combined, not just the content alone. Two files with the same content but different headers must produce different hashes.
@@ -70,13 +70,13 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 - The SHA-1 hash is computed on uncompressed data. Compression happens after hashing.
 - `hashlib.sha1(data).hexdigest()` gives a readable 40-character hex string.
 
-## Troubleshooting Steps
+### Troubleshooting Steps
 
 1. Wrote out the full `sys.argv` list to confirm the filename was at index `[3]`.
 2. Traced through the variable names to find where `data` was used incorrectly instead of `combining`.
 3. Tested `os.makedirs` with `exist_ok=True` to prevent crash on duplicate folder creation.
 
-## Resources Used
+### Resources Used
 
 - CodeCrafters stage instructions
 - Python `hashlib` documentation
@@ -84,9 +84,9 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 ---
 
-# Stage 3: Read a Tree Object (`git ls-tree`)
+## Stage 3: Read a Tree Object (`git ls-tree`)
 
-## Errors Made
+### Errors Made
 
 **Misidentifying the stage** — Initially thought this was about "creating blob storage." Re-reading confirmed it was about reading/listing tree contents.
 
@@ -102,7 +102,7 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 **`position =+ 20` outside the loop** — This only ran once and was outside the while loop. Needed to be `position = positionOfnull + 1 + 20` inside the loop.
 
-## What I Learned
+### What I Learned
 
 - Tree objects have multiple entries, each with a mode, name, null byte, and raw 20-byte SHA.
 - The SHA in tree objects is raw bytes (not hex), so you cannot read the file as text.
@@ -111,23 +111,23 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 - After the null byte, you skip exactly 20 bytes for the SHA before the next entry starts.
 - `split(" ", 1)` splits on the first space only, giving `["100644", "filename"]`. Index `[1]` is the name.
 
-## Troubleshooting Steps
+### Troubleshooting Steps
 
 1. Wrote out the full `sys.argv` list to confirm the correct index.
 2. Traced through the binary format manually to understand why `split()` alone wasn't enough.
 3. Added `position = positionOfnull + 1 + 20` to correctly advance through entries.
 4. Replaced `return` with `print()` to stop the function from exiting after the first entry.
 
-## Resources Used
+### Resources Used
 
 - CodeCrafters stage instructions
 - Git tree object format documentation
 
 ---
 
-# Stage 4: Write a Tree Object (`git write-tree`)
+## Stage 4: Write a Tree Object (`git write-tree`)
 
-## Errors Made
+### Errors Made
 
 **Iterating over `.git/objects` instead of the working directory** — The working directory `"."` is where actual files live. `.git/objects` is internal Git storage.
 
@@ -147,7 +147,7 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 **`elif command == "write-tree"` had wrong body** — Was trying to read `sys.argv[3]` but `write-tree` takes no arguments. Should just call `writeTree(".")`.
 
-## What I Learned
+### What I Learned
 
 - Recursion means calling a function inside itself. `writeTree` calls itself when it encounters a subdirectory.
 - `os.path.isfile(path)` and `os.path.isdir(path)` return `True` or `False` use them directly in `if` statements.
@@ -158,7 +158,7 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 - The `write-tree` command takes no arguments, it writes the current working directory as a tree.
 - Refactoring `hash-object` logic into a `createBlob()` function made it reusable across stages.
 
-## Troubleshooting Steps
+### Troubleshooting Steps
 
 1. Confirmed the working directory `"."` is the correct starting point, not `.git/objects`.
 2. Fixed `os.listdir.sort()` by separating into two lines: store the list, then sort it.
@@ -166,7 +166,7 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 4. Moved `treeContent = b""` before the loop so it doesn't reset each iteration.
 5. Removed accidental `from unicodedata import combining` import.
 
-## Resources Used
+### Resources Used
 
 - CodeCrafters stage instructions
 - Ben Hoyt's pygit article: https://benhoyt.com/writings/pygit/#committing
@@ -174,7 +174,7 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 ---
 
-# Running Themes & Lessons
+## Running Themes & Lessons
 
 **Read the stage carefully before coding.** The first instinct was always to jump ahead. Each stage is one specific thing.
 

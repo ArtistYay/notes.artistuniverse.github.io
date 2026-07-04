@@ -5,7 +5,7 @@ tags:
   - DevOps
 ---
 
-# Why I Built This
+## Why I Built This
 
 Most companies have CI/CD pipelines and a SIEM, but those two things don't talk to each other. The pipeline knows what got deployed and whether it passed a scan. The SIEM knows something weird happened at runtime. Neither one has the other's context. That gap is what this project tries to close.
 
@@ -13,7 +13,7 @@ The Flask app generates structured JSON logs when endpoints are hit. Docker capt
 
 I built this because I wanted to prove I understand how these pieces fit together, not just that I can click buttons in a portal. Anyone can enable Defender for Cloud. Not everyone can architect the pipeline that feeds it.
 
-## Project mental model
+### Project mental model
 ```
 Flask app    = the thing being protected
 Docker       = the package it ships in
@@ -24,15 +24,15 @@ Sentinel     = the system watching it at runtime
 
 ---
 
-# Phase 1: Flask App
+## Phase 1: Flask App
 
-## What I built
+### What I built
 A minimal Flask API with one endpoint (`/health`) that returns structured JSON and writes logs to stdout.
 
-## Why structured JSON logging?
+### Why structured JSON logging?
 Plain text logs are stored but not easily queryable. Structured JSON means every field (event, endpoint, status) becomes a named column in Sentinel, enabling detection rules without regex parsing.
 
-## Key decisions
+### Key decisions
 
 **Why Flask over FastAPI or Django?**
 Tool selection framework to match complexity to the problem:
@@ -51,7 +51,7 @@ Flask debug mode turns on an interactive Python console in the browser. If an at
 **Why Gunicorn instead of `flask run`?**
 Flask's built-in server handles one request at a time. Gunicorn is a WSGI (Web Server Gateway Interface) server that runs multiple worker processes so the app can handle concurrent requests. You can't use `flask run` inside a container anyway, the container needs a direct command to start the app on its own.
 
-## How logs flow to Sentinel
+### How logs flow to Sentinel
 ```
 Flask app → writes JSON to stdout → Docker captures stdout →
 Azure Monitor Agent collects it → Sentinel ingests it
@@ -60,12 +60,12 @@ The app never talks to Sentinel directly.
 
 ---
 
-# Phase 2: Docker
+## Phase 2: Docker
 
-## What I built
+### What I built
 A Dockerfile that packages the Flask app into a production-ready container image.
 
-## Key decisions
+### Key decisions
 
 **Why Alpine as the base image?**
 `python:3.12-alpine` is under 50MB vs 900MB+ for the standard Python image. Smaller image = smaller attack surface = fewer CVEs for Trivy to find.
@@ -76,18 +76,18 @@ Docker layer caching. Dependencies change rarely, app code changes constantly. C
 **Why Gunicorn in the CMD?**
 Production-grade WSGI server. `flask run` is not appropriate inside a container. Gunicorn binds to `0.0.0.0:5000` with 4 workers and starts the Flask instance named `app` inside `app.py`.
 
-## How Docker feeds the rest of the pipeline
+### How Docker feeds the rest of the pipeline
 - Trivy scans the **image**, not raw Python files
 - Azure Container Registry stores the **image**
 - Azure Container Apps runs the **image**
 - Defender for Containers monitors the running **container**
 
-## Errors hit
+### Errors hit
 - `permission denied` on Docker socket — fixed with `sudo usermod -aG docker $USER`
 
 ---
 
-# Phase 3: Terraform
+## Phase 3: Terraform
 
 You can create nested subfolders in one command using brace expansion:
 `mkdir -p terraform/modules/{network,compute,storage,identity,policy}`
@@ -100,7 +100,7 @@ The shell expands the braces before `mkdir` ever runs.
 
 Modules talk to each other through outputs. The network module doesn't know anything about compute internals, and compute doesn't know about network internals. Clean interfaces.
 
-## Network Module
+### Network Module
 
 - Used [validation](https://developer.hashicorp.com/terraform/language/validate) on variables so wrong region deployments and naming issues get caught at `terraform plan` time, before anything touches Azure.
 
@@ -110,11 +110,11 @@ Modules talk to each other through outputs. The network module doesn't know anyt
 
 - Used multi-variable validation to keep the code compact.
 
-## Storage Module
+### Storage Module
 
 - Need to host the container image somewhere, went with [Basic SKU](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-skus) for ACR because this is a side project.
 
-# Errors hit
+## Errors hit
 
 1. Committed the Terraform scaffold on main locally and tried to push but GitHub rejected it because of branch protection.
 
@@ -132,7 +132,7 @@ Modules talk to each other through outputs. The network module doesn't know anyt
 
 8. GitHub blocked the push because my commits had my real email in them. Fixed with `git config`.
 
-# References:
+## References:
 - https://www.howtogeek.com/devops/how-to-move-changes-to-another-branch-in-git/
 - https://stackoverflow.com/questions/7217894/moving-changed-files-to-another-branch-for-check-in
 - https://stackoverflow.com/questions/38200616/git-stash-throws-error-no-local-changes-to-save
