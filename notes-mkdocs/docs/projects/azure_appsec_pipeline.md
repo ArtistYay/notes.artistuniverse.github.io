@@ -100,8 +100,6 @@ The shell expands the braces before `mkdir` ever runs.
 
 Modules talk to each other through outputs. The network module doesn't know anything about compute internals, and compute doesn't know about network internals. Clean interfaces.
 
-
-
 ## Network Module
 
 - Used [validation](https://developer.hashicorp.com/terraform/language/validate) on variables so wrong region deployments and naming issues get caught at `terraform plan` time, before anything touches Azure.
