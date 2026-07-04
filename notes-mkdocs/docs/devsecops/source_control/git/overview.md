@@ -4,7 +4,7 @@ tags:
   - DevOps
 ---
 
-# Core Vocabulary (Know These Cold)
+## Core Vocabulary (Know These Cold)
 
 | Term | What It Actually Means |
 |---|---|
@@ -26,24 +26,24 @@ tags:
 
 ---
 
-# The Two Branching Strategies
+## The Two Branching Strategies
 
-## Trunk-Based Development ✅ (Preferred)
+### Trunk-Based Development ✅ (Preferred)
 - One protected branch: `main`
 - Everyone cuts short-lived feature branches off `main`
 - Merge back into `main` frequently via PR
 - Enables flow, fast feedback, and continuous learning, the three fundamentals of DevOps
 
-## Git Flow ❌ (Avoid when possible)
+### Git Flow ❌ (Avoid when possible)
 - Multiple protected branches (`main`, `develop`, `release`, `hotfix`, etc.)
 - Every change requires a PR at multiple layers
 - Slows down delivery, delays feedback, increases merge conflict risk
 
 ---
 
-# Workflows
+## Workflows
 
-## Workflow A: Starting From Scratch (Local)
+### Workflow A: Starting From Scratch (Local)
 ```
 git init          = Initialize a new repo in your current folder (rare, usually you clone instead).
 git add .         = Stage all files
@@ -51,7 +51,7 @@ git commit -m ""  = Commit staged files with a message
 git push          = Push to remote
 ```
 
-## Workflow B: Standard Team Workflow (Clone-Based)
+### Workflow B: Standard Team Workflow (Clone-Based)
 ```
 git clone <url>           = Pull down the remote repo
 git checkout -b <name>    = Create and switch to a new branch (never work directly on main)
@@ -68,7 +68,7 @@ Open a Pull Request for review in GitHub / Azure DevOps
 
 ---
 
-# Key Git Commands Reference
+## Key Git Commands Reference
 
 | Command | What It Does |
 |---|---|
@@ -96,7 +96,7 @@ Open a Pull Request for review in GitHub / Azure DevOps
 
 ---
 
-# Fetch vs. Pull vs. Prune
+## Fetch vs. Pull vs. Prune
 
 **Fetch**
 - Downloads the *index* (metadata) of all remote activity, branches created, commits made
@@ -115,7 +115,7 @@ Open a Pull Request for review in GitHub / Azure DevOps
 
 ---
 
-# Reset vs. Revert
+## Reset vs. Revert
 
 | | `git reset` | `git revert` |
 |---|---|---|
@@ -128,7 +128,7 @@ Open a Pull Request for review in GitHub / Azure DevOps
 
 ---
 
-# Pull Requests, How to Do Them Right
+## Pull Requests, How to Do Them Right
 
 1. **Write a commit message that describes what changed and why**, not just "fix" or "update"
 2. Your reviewer is checking: Did you solve the right problem? Does it meet the story requirements? Is the code sound?
@@ -138,7 +138,7 @@ Open a Pull Request for review in GitHub / Azure DevOps
 
 ---
 
-# Merge Conflicts, Prevention First
+## Merge Conflicts, Prevention First
 
 **How conflicts happen:** Two people edit the same lines of the same file on different branches.
 
@@ -154,7 +154,7 @@ Open a Pull Request for review in GitHub / Azure DevOps
 
 ---
 
-# Security Practices in Git
+## Security Practices in Git
 
 - **Never commit credentials, passwords, or API keys**, not even temporarily
 - **Never commit a email to a public repo**, use your GitHub no-reply address: `username@users.noreply.github.com`
@@ -164,7 +164,7 @@ Open a Pull Request for review in GitHub / Azure DevOps
 
 ---
 
-# VS Code Git Integration, Quick Reference
+## VS Code Git Integration, Quick Reference
 
 | UI Element | What It Does |
 |---|---|
@@ -178,7 +178,7 @@ Open a Pull Request for review in GitHub / Azure DevOps
 
 ---
 
-# Mental Models
+## Mental Models
 
 **Branch = a shoebox of commits.** The branch doesn't hold files, it holds a chain of commits. You can move that shoebox (checkout a different branch) and your uncommitted work follows you.
 

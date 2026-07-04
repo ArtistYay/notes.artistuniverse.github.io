@@ -225,7 +225,7 @@ nav:
             - Network & System Security:
               - Security Network Architecture: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Network & System Security/Security Network Architecture.md
             - Threats & Risks:
-              - Risk Management: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks\Risk Management.md
+              - Risk Management: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks/Risk Management.md
               - Threat Modeling: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks/Threat Modeling.md
             - SOAR (Security Orchestration, Automation & Response): information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/SOAR (Security Orchestration, Automation & Response).md
 #        - IR Flow Plan: information_technology/cybersecurity/blue_team/IR Flow Plan.md
@@ -311,8 +311,8 @@ nav:
           - Directory forests, domains, replication: information_technology/identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
           - Group membership, role models, ACLs, discretionary vs role-based systems: information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
   - Projects:
-    - CodeCrafter's Build your own Git: projects\azure_appsec_pipeline.md
-    - Azure Appsec Pipeline: projects\azure_appsec_pipeline.md
+      - CodeCrafter's Build your own Git: projects\azure_appsec_pipeline.md
+      - Azure Appsec Pipeline: projects\azure_appsec_pipeline.md
   - Security Automation:
       - Python:
         - Overview: security_automation/python/overview.md

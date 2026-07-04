@@ -15,8 +15,6 @@ Ever wondered whenever you log into your work laptop and launch Slack or even Zo
 5. The Hand-off: Your browser POSTs (uploads) this XML document back to Salesforce.
 6. Login: Salesforce reads the XML, checks the digital signature, and logs you in.
 
-![screenshot](saml.png)
-
 [Article | Thales Group](https://cpl.thalesgroup.com/access-management/saml-authentication)
 
 [Article | Onelogin](https://www.onelogin.com/learn/saml)

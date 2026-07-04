@@ -18,8 +18,6 @@ This is where SCIM comes in, it automates the process of exchanging user identit
 
 This is where Entra ID Lifecycle Management comes in 😉
 
-![screenshot](scim.png)
-
 [Blog Article | Okta](https://www.okta.com/blog/identity-security/what-is-scim/)
 
 [Article | Microsoft](https://www.microsoft.com/en-us/security/business/security-101/what-is-scim)

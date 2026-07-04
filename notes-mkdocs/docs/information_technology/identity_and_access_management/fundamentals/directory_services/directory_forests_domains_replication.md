@@ -8,8 +8,6 @@ tags:
 
 Before we understand what a domain is, we have to understand what an object is. An object can range from a user, organizational unit (OU), or a computer. You can think of a domain as a boxes to hold all these objects. To give you a visual:
 
-![screenshot](ad_structure.png)
-
 A common structure of an Active Directory environment is the forest at the top level (not shown in the picture), then we have the domain (e.g. artistuniverse.tech), thirdly we have organizational units (OUs) that holds 'objects' like computers and users.
 
 [Article | Tech Target](https://www.techtarget.com/searchwindowsserver/definition/Active-Directory-domain-AD-domain)

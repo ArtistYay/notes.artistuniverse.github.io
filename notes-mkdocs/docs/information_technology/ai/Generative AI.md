@@ -3,7 +3,7 @@ tags:
   - Generative AI
 ---
 
-# The Big Picture: AI vs ML vs Deep Learning
+## The Big Picture: AI vs ML vs Deep Learning
 
 People use these three terms like they mean the same thing. They don't.
 
@@ -15,7 +15,7 @@ Why does this matter? Because when someone says "AI" they could mean a simple ru
 
 ---
 
-# How Neural Networks Learn
+## How Neural Networks Learn
 
 A neural network is a system of connected nodes (neurons) organized in layers. When you give it an input, information flows through those layers to produce an output. What makes it learn is two things: **weights** and **biases**.
 
@@ -25,7 +25,7 @@ The network learns by adjusting these through **forward and backward propagation
 
 ---
 
-# The Transformer: Why 2017 Changed Everything
+## The Transformer: Why 2017 Changed Everything
 
 Before 2017, most neural networks processed sequences one step at a time, reading a sentence word by word. That's slow, and it struggles to connect things that are far apart in a sentence.
 
@@ -37,7 +37,7 @@ GPT, BERT, Claude. Every major language model running today is built on transfor
 
 ---
 
-# Tokens and Embeddings: How AI Actually Reads
+## Tokens and Embeddings: How AI Actually Reads
 
 AI doesn't read words. It reads numbers.
 
@@ -51,7 +51,7 @@ For anyone building security tooling on top of AI: tokens are what you pay for. 
 
 ---
 
-# Building a Model: Pre-training to Fine-tuning
+## Building a Model: Pre-training to Fine-tuning
 
 Getting a model like Claude from nothing to useful is a multi-stage process.
 
@@ -63,7 +63,7 @@ Then there's **reinforcement learning from human feedback (RLHF)**, where the mo
 
 ---
 
-# Large Language Models
+## Large Language Models
 
 A **large language model (LLM)** is a specific type of deep learning model built on the transformer architecture, trained on massive text datasets, and designed for natural language tasks.
 
@@ -75,7 +75,7 @@ For Azure/Microsoft specifically: Copilot Studio, Azure OpenAI, and Microsoft Se
 
 ---
 
-# Context Windows: The Working Memory Problem
+## Context Windows: The Working Memory Problem
 
 Every time you interact with an LLM, it can only see a limited amount of text. That limit is the **context window**, measured in tokens.
 
@@ -91,7 +91,7 @@ The discipline of deciding what goes in the context window, when, and how much o
 
 ---
 
-# From Chatbots to Agents
+## From Chatbots to Agents
 
 The difference between a chatbot and an agent is autonomy.
 
@@ -107,7 +107,7 @@ This is directly relevant to Claude Code, Microsoft Security Copilot, and any au
 
 ---
 
-# RAG, CAG, and Memory
+## RAG, CAG, and Memory
 
 Out of the box, an LLM knows only what it was trained on, which has a cutoff date and doesn't include your private data. There are two main patterns for fixing this.
 
@@ -121,7 +121,7 @@ Out of the box, an LLM knows only what it was trained on, which has a cutoff dat
 
 ---
 
-# AI Flaws: Hallucinations and Prompt Injection
+## AI Flaws: Hallucinations and Prompt Injection
 
 No knowledge base about AI is complete without the failure modes.
 
@@ -137,7 +137,7 @@ Defenses include guardrails (rules that constrain input and output), human overs
 
 ---
 
-# Image Generation: How Diffusion Models Work
+## Image Generation: How Diffusion Models Work
 
 AI can generate images through a completely different mechanism than text generation. **Diffusion models** work like this:
 
@@ -147,7 +147,7 @@ At generation time, it starts with pure random noise and removes noise step by s
 
 ---
 
-# Reasoning Models: The New Frontier
+## Reasoning Models: The New Frontier
 
 Standard LLMs generate responses immediately, they don't stop to think. **Reasoning models** work differently. They allocate extra compute at inference time to generate an internal chain of thought before producing a final answer.
 
@@ -157,7 +157,7 @@ The trade-off is cost and latency. Reasoning takes more tokens and more time. Fo
 
 ---
 
-# ANI vs AGI
+## ANI vs AGI
 
 Everything discussed here, Claude, GPT, Copilot, every commercial AI tool, is **Artificial Narrow Intelligence (ANI)**. These systems are extraordinarily good at specific tasks they were trained for. They cannot transfer that skill to arbitrary new domains without retraining.
 
@@ -167,7 +167,7 @@ What matters practically: don't let the AGI discussion distract from what these 
 
 ---
 
-# How It All Connects
+## How It All Connects
 
 The chain from bottom to top:
 
