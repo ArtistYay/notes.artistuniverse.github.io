@@ -269,7 +269,7 @@ nav:
 #            - Vulnerability Reasearch:
 #              - Exploit Vulnerabilities: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Vulnerability Reasearch/Exploit Vulnerabilities.md
 #              - Vulnerabilities 101: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Vulnerability Reasearch/Vulnerabilities 101.md
-          - Red Teaming:
+#          - Red Teaming:
 #            - Red Team Fundamentals:
 #              - Intro to C2: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Intro to C2.md
 #              - Red Team Engagements: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Engagements.md
