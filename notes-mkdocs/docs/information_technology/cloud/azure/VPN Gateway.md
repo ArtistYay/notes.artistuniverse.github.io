@@ -1,6 +1,7 @@
 ---
 tags:
   - Microsoft Azure
+  - Computer Networking
 ---
 
 - An Azure VPN gateway is a specific type of virtual network gateway that is used to send and receive encrypted traffic between an Azure virtual network and an on-premises location over the public Internet.
@@ -18,3 +19,11 @@ tags:
 - A virtual network gateway is composed of two or more virtual machines that are deployed to a specific subnet you create which is called the gateway subnet.
 
 - A VPN Gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public internet.
+
+**Tips from the community:**
+ 
+- Aidan Finn again, his blog has a good hub design showing a VPN Gateway and Azure Firewall together, routing all office traffic through the firewall before it reaches spoke VNets.
+  [How to Architect an Azure Firewall with a VPN Gateway – Petri](https://petri.com/how-to-architect-an-azure-firewall-with-a-vpn-gateway/)
+  
+- Same point as above worth repeating here: the VPN-vs-ExpressRoute decision usually comes down to whether you need an SLA or very low latency, not company size.
+  [Introduction to Azure ExpressRoute | Aidan Finn, IT Pro](https://aidanfinn.com/?p=22267)

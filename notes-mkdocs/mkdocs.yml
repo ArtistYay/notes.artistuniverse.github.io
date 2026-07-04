@@ -171,14 +171,19 @@ nav:
         - Software Development Lifecycle (SDLC): devsecops/tryhackme/Secure Software Development/Software Development Lifecycle (SDLC).md
       - Security of the Pipeline:
         - Source Code Security: devsecops/tryhackme/Security of the Pipeline/Source Code Security.md
-    - IaC:
+    - IaC: 
+      - Overview: devsecops/iac/overview.md
       - Terraform: 
         - Overview: devsecops/iac/terraform/overview.md
         - Writing DRY Code with Modules and `for_each`: devsecops/iac/terraform/dry_modules.md
+        - HCP Terraform: devsecops/iac/terraform/hcp_terraform.md
+        - Mutable VS Immutable: devsecops/iac/terraform/mutable_vs_immutable.md
+        - State Management: devsecops/iac/terraform/state_management.md
+        - Terraform Workflow: devsecops/iac/terraform/terraform_workflow.md
     - Source Control:
       - Git:
-        - Git Config Notes: devsecops/source_control/git/git_config_notes.md 
-        - Overview: devsecops/source_control/git/overview.md   
+        - Overview: devsecops/source_control/git/overview.md
+        - Git Config Notes: devsecops/source_control/git/git_config_notes.md    
   - Information Technology:
     - Troubleshooting Steps: information_technology/Troubleshooting Steps.md
 #    - Linux:
@@ -223,8 +228,8 @@ nav:
               - Risk Management: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks\Risk Management.md
               - Threat Modeling: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks/Threat Modeling.md
             - SOAR (Security Orchestration, Automation & Response): information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/SOAR (Security Orchestration, Automation & Response).md
-        - IR Flow Plan: information_technology/cybersecurity/blue_team/IR Flow Plan.md
-        - Windows Hardening: information_technology/cybersecurity/Windows Hardening.md
+#        - IR Flow Plan: information_technology/cybersecurity/blue_team/IR Flow Plan.md
+#        - Windows Hardening: information_technology/cybersecurity/Windows Hardening.md
       - Red Team:
         - Try Hack Me: 
           - Junior Penetration Tester:
@@ -243,10 +248,10 @@ nav:
               - Intro to SSRF: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Intro to SSRF.md
               - SQL Injection: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/SQL Injection.md
               - Subdomain Enumeration: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Introduction to Web Hacking/Subdomain Enumeration.md
-            - Metasploit:
-              - Metasploit Exploitation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Exploitation.md
-              - Metasploit Introduction: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Introduction.md
-              - Metasploit Meterpreter: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Meterpreter.md
+#            - Metasploit:
+#              - Metasploit Exploitation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Exploitation.md
+#              - Metasploit Introduction: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Introduction.md
+#              - Metasploit Meterpreter: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Meterpreter.md
             - Network Security:
                - Active Reconnaissance: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Active Reconnaissance.md
                - Net Sec Challenge: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Net Sec Challenge.md
@@ -257,20 +262,20 @@ nav:
                - Passive Reconnaissance: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Passive Reconnaissance.md
                - Protocols and Servers: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Protocols and Servers.md
                - Protocols and Servers 2: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Protocols and Servers 2.md
-            - Privilege Escalation:
-              - Linux Privilege Escalation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/Linux Privilege Escalation.md
-              - What The Shell: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/What The Shell.md
-              - Windows Privilege Escalation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/Windows Privilege Escalation.md
-            - Vulnerability Reasearch:
-              - Exploit Vulnerabilities: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Vulnerability Reasearch/Exploit Vulnerabilities.md
-              - Vulnerabilities 101: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Vulnerability Reasearch/Vulnerabilities 101.md
+#            - Privilege Escalation:
+#              - Linux Privilege Escalation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/Linux Privilege Escalation.md
+#              - What The Shell: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/What The Shell.md
+#              - Windows Privilege Escalation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/Windows Privilege Escalation.md
+#            - Vulnerability Reasearch:
+#              - Exploit Vulnerabilities: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Vulnerability Reasearch/Exploit Vulnerabilities.md
+#              - Vulnerabilities 101: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Vulnerability Reasearch/Vulnerabilities 101.md
           - Red Teaming:
-            - Red Team Fundamentals:
-              - Intro to C2: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Intro to C2.md
-              - Red Team Engagements: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Engagements.md
-              - Red Team Fundamentals: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Fundamentals.md
-              - Red Team OPSEC: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team OPSEC.md
-              - Red Team Threat Intel: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Threat Intel.md
+#            - Red Team Fundamentals:
+#              - Intro to C2: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Intro to C2.md
+#              - Red Team Engagements: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Engagements.md
+#              - Red Team Fundamentals: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Fundamentals.md
+#              - Red Team OPSEC: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team OPSEC.md
+#              - Red Team Threat Intel: information_technology/cybersecurity/red_team/tryhackme/Red Teaming/Red Team Fundamentals/Red Team Threat Intel.md
           - Web Application Pentesting:
             - Authentication:
               - Enumeration & Brute Force: information_technology/cybersecurity/red_team/tryhackme/Web Application Pentesting/Authentication/Enumeration & Brute Force.md
@@ -287,6 +292,7 @@ nav:
       - Try Hack Me: 
         - CyberSecurity 101: 
           - Search Skills: information_technology/cybersecurity/tryhackme/CyberSecurity 101/Search Skills.md
+    - Generative AI: information_technology/ai/Generative AI.md
     - Identity & Access Management:
        - Overview: information_technology/identity_and_access_management/fundamentals/Overview.md
        - Authentication vs Authorization:  information_technology/identity_and_access_management/fundamentals/authentication_vs_authorization.md
@@ -304,6 +310,9 @@ nav:
           - Kerberos: information_technology/identity_and_access_management/fundamentals/directory_services/kerberos.md
           - Directory forests, domains, replication: information_technology/identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
           - Group membership, role models, ACLs, discretionary vs role-based systems: information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
+  - Projects:
+    - CodeCrafter's Build your own Git: projects\azure_appsec_pipeline.md
+    - Azure Appsec Pipeline: projects\azure_appsec_pipeline.md
   - Security Automation:
       - Python:
         - Overview: security_automation/python/overview.md
@@ -321,7 +330,6 @@ nav:
         - Modules, Libraries, & Packages: security_automation/python/modules_libraries_and_packages.md
         - Operators: security_automation/python/operators.md
         - Variables: security_automation/python/variables.md
-        - Questions I Asked Myself: security_automation/python/questions_i_asked_myself.md
   - Software Development:
     - Software Design Principles:
       - Overview: software_development/software_design_principles/overview.md

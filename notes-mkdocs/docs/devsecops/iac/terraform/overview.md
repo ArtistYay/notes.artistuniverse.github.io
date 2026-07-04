@@ -10,27 +10,27 @@ Terraform is driven entirely from the command line. Here's a reference of the mo
 
 ### Core Workflow
 
-| Command | Description |
-|---|---|
-| `terraform init` | Initializes the working directory. Downloads providers and modules. **Always run this first** or after adding new providers/modules. |
-| `terraform plan` | Previews what Terraform *will* do without making any changes. Get in the habit of always reading this carefully. |
-| `terraform apply` | Applies the changes described in the plan. Will prompt for confirmation unless you pass `-auto-approve` (use that flag carefully). |
-| `terraform destroy` | Destroys all managed infrastructure. Essentially runs a plan in reverse. |
+| Command | Description | When to Use |
+|---|---|---|
+| `terraform init` | Initializes the working directory. Downloads providers and modules. **Always run this first** or after adding new providers/modules. | First thing you run in a new or freshly-cloned project, and again any time you add or change a provider or module. |
+| `terraform plan` | Previews what Terraform *will* do without making any changes. Get in the habit of always reading this carefully. | Before every apply, to sanity-check what's about to change. Also useful on its own just to check for drift. |
+| `terraform apply` | Applies the changes described in the plan. Will prompt for confirmation unless you pass `-auto-approve` (use that flag carefully). | Once you've reviewed the plan and you're ready to actually create, update, or remove infrastructure. |
+| `terraform destroy` | Destroys all managed infrastructure. Essentially runs a plan in reverse. | Tearing down a temporary environment (a demo, a test stack) or fully decommissioning something for good. |
 
 > **Tip:** Never run `apply` or `destroy` in production without first reviewing `plan` output. Terraform will tell you exactly how many resources will be added, changed, or destroyed. Treat that number as a sanity check.
 
 ### Useful Flags
 
-| Command | Description |
-|---|---|
-| `terraform version` | Prints the installed Terraform version. Useful when debugging environment issues. |
-| `terraform -chdir=<path>` | Runs a subcommand as if you were in `<path>`. Useful for scripting or running Terraform outside the working directory. |
-| `terraform plan -out <plan_name>` | Saves the plan to a file. Use with `terraform apply <plan_name>` to guarantee exactly what was reviewed gets applied, no surprises between plan and apply. |
-| `terraform plan -destroy` | Generates a preview of what `destroy` would do, without destroying anything. |
-| `terraform apply <plan_name>` | Applies a previously saved plan file. |
-| `terraform apply -target=<resource>` | Only applies changes to a specific resource. Useful for surgical fixes, but **avoid making it a habit** it can leave your state out of sync with your config. |
-| `terraform apply -var my_variable=<value>` | Passes a variable at runtime via the command line. |
-| `terraform providers` | Lists all providers used in the current configuration. |
+| Command | Description | When to Use |
+|---|---|---|
+| `terraform version` | Prints the installed Terraform version. Useful when debugging environment issues. | Something behaves unexpectedly and you want to rule out a version mismatch between your machine and CI, or against a module's required version. |
+| `terraform -chdir=<path>` | Runs a subcommand as if you were in `<path>`. Useful for scripting or running Terraform outside the working directory. | Writing a script or wrapper that runs Terraform against a directory you're not currently sitting in. |
+| `terraform plan -out <plan_name>` | Saves the plan to a file. Use with `terraform apply <plan_name>` to guarantee exactly what was reviewed gets applied, no surprises between plan and apply. | Any CI/CD pipeline or team workflow where a human (or a gate) reviews the plan before it's applied. |
+| `terraform plan -destroy` | Generates a preview of what `destroy` would do, without destroying anything. | You want to double-check exactly what would be torn down before actually running `destroy`. |
+| `terraform apply <plan_name>` | Applies a previously saved plan file. | Right after `terraform plan -out`, to apply exactly what was reviewed. |
+| `terraform apply -target=<resource>` | Only applies changes to a specific resource. Useful for surgical fixes, but **avoid making it a habit** it can leave your state out of sync with your config. | A one-off emergency fix to a single resource, not as a regular part of your workflow. |
+| `terraform apply -var my_variable=<value>` | Passes a variable at runtime via the command line. | Quick, one-off overrides, testing a different value without editing a `.tfvars` file. |
+| `terraform providers` | Lists all providers used in the current configuration. | Auditing what a configuration depends on, especially in an unfamiliar or inherited codebase. |
 
 ---
 
@@ -145,6 +145,8 @@ Terraform tracks all managed resources and their current real-world values in a 
 
 > **Tip:** Add `terraform.tfstate` and `terraform.tfstate.backup` to your `.gitignore`. State files can contain sensitive values like passwords and keys in plaintext.
 
+See [State Management](state_management.md) for a deeper dive into remote backends, locking, and recovering from drift.
+
 ---
 
 ## Variables
@@ -172,6 +174,14 @@ Variables make your configurations reusable and avoid hardcoding values.
 > **Tip:** For most cases, `string`, `number`, `bool`, `list`, and `map` will cover you. Reach for `object` and `tuple` when you need structured, mixed-type inputs — common when designing reusable modules.
 
 ---
+
+## Related Notes
+
+- [DRY Modules with `for_each`](dry_modules.md)
+- [Mutable vs. Immutable Infrastructure](mutable_vs_immutable.md)
+- [Terraform Workflow & Lifecycle](terraform_workflow.md)
+- [State Management](state_management.md)
+- [HCP Terraform](hcp_terraform.md)
 
 ## Reference
 

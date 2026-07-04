@@ -1,6 +1,7 @@
 ---
 tags:
   - Microsoft Azure
+  - Compute
 ---
 
 - Azure App Service let’s you build, deploy, and scale enterprise-grade web, mobile, and API apps. Enables you to build and host web apps, background jobs, mobile back-ends, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers automatic scaling and high availability.
@@ -26,3 +27,8 @@ tags:
         - Premium v3 (P1v3, P2v3, P3v3)
 
     - Isolated - dedicated environment that is exclusive to a single customer. Also called App Service Environment (ASE). Apps can connect over VPN to on-premises resources.
+
+**Tips from the community:**
+ 
+- Robert Smit, a Hybrid Cloud & Azure MVP, has a governance point worth pairing with any migration notes: lift-and-shift looks cheap at first, but without a governance framework it tends to produce unmanaged resources, inconsistent naming, and security that's reactive instead of planned.
+  [Robert Smit MVP Blog](https://robertsmit.wordpress.com/)

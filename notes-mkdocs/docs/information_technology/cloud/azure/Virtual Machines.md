@@ -1,6 +1,7 @@
 ---
 tags:
   - Microsoft Azure
+  - Compute
 ---
 
 - You can create and use VMs in the cloud.

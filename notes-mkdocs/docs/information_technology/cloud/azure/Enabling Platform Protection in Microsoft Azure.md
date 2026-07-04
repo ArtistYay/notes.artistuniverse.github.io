@@ -1,6 +1,7 @@
 ---
 tags:
   - Microsoft Azure
+  - Cybersecurity
 ---
 
 1. In Azure Policy, how would you apply several audit policies to multiple subscriptions in the same tenant?

@@ -1,6 +1,7 @@
 ---
 tags:
   - Microsoft Azure
+  - Computer Networking
 ---
 
 - _Azure virtual networks_ enable Azure resources, such as VMs, web apps, and databases, to communicate with each other, with users on the internet, and with your on-premises client computers.
@@ -22,3 +23,14 @@ tags:
 - Site-to-site VPN isn’t a ExpressRoute model.
 
 - A virtual network gateway is composed of two or more special VMs that are deployed to a specific subnet.
+
+**Tips from the community:**
+ 
+- Wesley Haakman, a Principal Azure Architect and Azure MVP, makes a point worth keeping in mind: people tend to just start deploying resources in Azure or AWS, but before anything goes to production you need to think about security and isolation. That's when networking actually starts to matter.
+  [Azure Networking Guide: VNets, Security & more](https://intercept.cloud/en-gb/blogs/azure-networking)
+
+- A subnetting detail: Azure reserves five IP addresses per subnet, not one. For a subnet like 172.16.0.0/16, the first four addresses and the last one are reserved, one for the virtual router/default gateway, the rest for Azure's own SDN platform services.
+  [Azure Networking Guide: VNets, Security & more](https://intercept.cloud/en-gb/blogs/azure-networking)
+  
+- Aidan Finn's take on Virtual WAN hubs: unlike a VNet-based hub, the vWAN hub VNet lives in a Microsoft-managed tenant you can't get into. You lose the ability to drop in a diagnostic VM or troubleshoot directly, and you're dependent on Azure support instead.
+  [Aidan Finn, IT Pro](https://aidanfinn.com/)
