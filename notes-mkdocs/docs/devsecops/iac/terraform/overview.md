@@ -177,10 +177,14 @@ Variables make your configurations reusable and avoid hardcoding values.
 
 ## Related Notes
 
+- [HCL Syntax & Block Types](hcl_syntax.md)
+- [Variables, Outputs & Locals](variables_outputs_locals.md)
+- [Functions & Expressions](functions_and_expressions.md)
 - [DRY Modules with `for_each`](dry_modules.md)
 - [Mutable vs. Immutable Infrastructure](mutable_vs_immutable.md)
 - [Terraform Workflow & Lifecycle](terraform_workflow.md)
 - [State Management](state_management.md)
+- [State Blocks & Backend Migration](state_blocks_and_backends.md)
 - [HCP Terraform](hcp_terraform.md)
 
 ## Reference

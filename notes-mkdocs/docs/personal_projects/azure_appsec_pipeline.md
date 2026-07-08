@@ -132,8 +132,8 @@ Modules talk to each other through outputs. The network module doesn't know anyt
 
 8. GitHub blocked the push because my commits had my real email in them. Fixed with `git config`.
 
-## References:
-- https://www.howtogeek.com/devops/how-to-move-changes-to-another-branch-in-git/
-- https://stackoverflow.com/questions/7217894/moving-changed-files-to-another-branch-for-check-in
-- https://stackoverflow.com/questions/38200616/git-stash-throws-error-no-local-changes-to-save
-- https://medium.com/@python-javascript-php-html-css/resolving-githubs-push-declined-due-to-email-privacy-restrictions-issue-c346a9cf1da0
+## References
+- [How to Move Changes to Another Branch in Git](https://www.howtogeek.com/devops/how-to-move-changes-to-another-branch-in-git/)
+- [moving changed files to another branch for check-in](https://stackoverflow.com/questions/7217894/moving-changed-files-to-another-branch-for-check-in)
+- [git stash throws error No local changes to save](https://stackoverflow.com/questions/38200616/git-stash-throws-error-no-local-changes-to-save)
+- [resolving github push decline due to email privacy restrictions](https://medium.com/@python-javascript-php-html-css/resolving-githubs-push-declined-due-to-email-privacy-restrictions-issue-c346a9cf1da0)
