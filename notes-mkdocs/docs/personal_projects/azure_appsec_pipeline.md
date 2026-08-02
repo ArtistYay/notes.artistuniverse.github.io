@@ -83,7 +83,7 @@ Production-grade WSGI server. `flask run` is not appropriate inside a container.
 - Defender for Containers monitors the running **container**
 
 ### Errors hit
-- `permission denied` on Docker socket — fixed with `sudo usermod -aG docker $USER`
+- `permission denied` on Docker socket, fixed with `sudo usermod -aG docker $USER`
 
 ---
 
@@ -93,7 +93,7 @@ You can create nested subfolders in one command using brace expansion:
 `mkdir -p terraform/modules/{network,compute,storage,identity,policy}`
 The shell expands the braces before `mkdir` ever runs.
 
-**Module structure — every module has three files:**
+**Module structure: every module has three files:**
 - `main.tf` — what gets built
 - `variables.tf` — what the module accepts as inputs (how you make it reusable)
 - `outputs.tf` — what the module exposes after it runs, so other modules can reference it
@@ -106,7 +106,7 @@ Modules talk to each other through outputs. The network module doesn't know anyt
 
 - Azure accepts a list of address spaces so used [`list(string)`](https://oneuptime.com/blog/post/2026-02-23-how-to-use-the-tolist-function-in-terraform/view) for `vnet_address_space` so others can pass multiple ranges if needed.
 
-- Kept the subnet inline inside the VNet resource to reduce lines of code. Had to use `tolist()` to grab the first subnet's ID for the NSG association — the inline block exports a set, not a single value.
+- Kept the subnet inline inside the VNet resource to reduce lines of code. Had to use `tolist()` to grab the first subnet's ID for the NSG association, the inline block exports a set, not a single value.
 
 - Used multi-variable validation to keep the code compact.
 
@@ -185,6 +185,62 @@ Went with **user-assigned identity** instead. It exists as its own resource inde
 **Scoped the role assignment to the ACR specifically, not the resource group.** `scope = var.acr_id`, not the resource group id. The identity can pull from this one registry and nothing else in the resource group. Also caught myself putting the ACR id into `principal_id` instead of the identity's own principal id `principal_id` answers "who is receiving this permission," not "what resource are they getting access to."
  
 **Locked `role_definition_name` down to `AcrPull` only** with a `contains()` validation, so the module can't accidentally be called with something overly permissive like `Owner`. Kept it as a variable instead of hardcoding so the module stays technically reusable, just constrained to the one role it's meant for.
+
+## GitHub Actions OIDC Bootstrap (chicken-and-egg problem)
+ 
+Hit a real ordering problem setting up authentication for GitHub Actions to run Terraform. The pipeline needs a resource group to deploy into. But the identity that lets the pipeline authenticate to Azure in the first place needs to live somewhere too, and it can't live in a resource group that Terraform itself is supposed to create, because then destroying that resource group would delete the very identity the pipeline needs to keep running.
+ 
+This isn't a design flaw, it's just an unavoidable seam in any pipeline that manages its own infrastructure. Something always has to be bootstrapped manually before automation can take over.
+ 
+**Decision:** create the resource group manually once via CLI, along with the GitHub Actions identity, its federated credential, and its role assignment, all outside of Terraform. Then switch the root `azurerm_resource_group.rg` resource block to a `data "azurerm_resource_group"` block instead. A data source only reads a resource, it never creates or destroys one. That means the resource group Terraform reports on is stable across every `plan`/`apply`/`destroy` cycle, and testing destroy no longer risks wiping out the GitHub Actions identity along with everything else.
+ 
+**Known tradeoff:** whoever runs this project has to remember that the resource group is not managed by Terraform. Creating and destroying it is now a manual step, done once at setup, not something `terraform destroy` will ever touch. Documenting this clearly in the README so it isn't a silent gap.
+ 
+**The actual sequence for setting this up:**
+1. Create the resource group manually via CLI
+2. Create the GitHub Actions identity inside it via CLI
+3. Create the federated identity credential linking that identity to this specific repo and branch, this is what actually makes OIDC work instead of a stored secret
+4. Grant that identity a role on the resource group so it can run Terraform
+
+On step 3, the `--subject` argument in the federated credential command isn't saying "this repo owns the identity," it's a trust condition. Azure will only accept a token as proof of this identity if the token's claim matches exactly, same repo, same branch. Tested this logic out loud: if someone forked the repo and tried running the same workflow, would Azure trust it? No, a fork has a different owner/repo path in its claim, so it fails the match even with identical workflow code. Azure isn't trusting the code, it's trusting the specific repo and branch path.
+ 
+On step 4, Contributor scoped to the resource group is broader than strictly necessary (a fully custom role scoped to exactly the resource types this project creates would be tighter), but building that custom role means enumerating every resource type and action Terraform touches, Container Apps, ACR, VNets, NSGs, Managed Identities, Policy Definitions, Log Analytics, Role Assignments, and getting all of it right up front, or `terraform apply` fails partway through with a permission error instead of failing cleanly upfront. Went with Contributor scoped tightly to just this one resource group as a defensible middle ground for a portfolio project, documenting the custom-role version as a known next step rather than pretending Contributor is the final answer.
+ 
+Official reference for the whole OIDC setup: [Authenticate to Azure from GitHub Actions by OpenID Connect (Microsoft Learn)](https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect)
+
+**Testing the data source switch.** First `plan` after the change failed with "Resource Group was not found," even though it had definitely been created via `az group create` earlier. Turned out to be a subscription mismatch, my Azure CLI session was pointed at a different subscription than the one Terraform's provider was authenticated against. `az account show` confirmed it, `az account set` fixed it. Worth remembering for anyone with more than one subscription on their account, Terraform will happily fail with a confusing "not found" error instead of a clear "wrong subscription" one.
+
+## OIDC subject claim risk (found after the fact)
+ 
+Came across a GitHub changelog post about immutable subject claims for OIDC tokens, and it applies directly to the federated credential set up earlier today. GitHub now embeds permanent numeric owner/repo IDs into the subject claim for new repos, old format is `repo:owner/repo:ref:refs/heads/main`, new format is `repo:owner@123456/repo@456789:ref:refs/heads/main`. The reason it exists: if a repo or org name is ever deleted and recycled by someone else, the old name-only format could let a completely unrelated party mint a token that still matches your trust policy.
+ 
+Source: [Immutable subject claims for GitHub Actions OIDC tokens (GitHub Changelog)](https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/)
+ 
+Since this repo was created before the July 15, 2026 enforcement date, it's still on the classic format, and the federated credential set up earlier works fine right now. But found a real gotcha reading a related writeup about the same change breaking AWS deployments: AWS trust policies support wildcard patterns, so when the format changes you can just add a second pattern alongside the old one. Azure federated credentials don't have that option, the subject is matched as one exact string, no wildcards, no list of alternates. That means if this credential is ever rotated, or if I opt into the immutable format later, or if GitHub eventually migrates existing repos automatically, there's no graceful fallback, it just breaks outright with no clear error pointing at the cause.
+ 
+**Practical note for next time this credential gets touched:** check the actual current subject format before assuming anything, `gh api /repos/<owner>/<repo>/actions/oidc/customization/sub` shows it directly. If it ever needs to move to the immutable format, that means deleting and recreating the federated credential with the new exact string, not just adding a second one.
+ 
+Source for the AWS-breakage comparison: [GitHub changed its OIDC subject claims and broke my AWS deploys for new repos (dev.to)](https://dev.to/aws-builders/github-changed-its-oidc-subject-claims-and-broke-my-aws-deploys-for-new-repos-2cfp)
+
+## Scanner stack decisions
+ 
+Landed on: Bandit for Python SAST, Checkov for Terraform/IaC misconfiguration scanning, Gitleaks for secrets (on top of GHAS, not instead of it), Dependabot for dependency SCA, and Grype for container image vulnerability scanning.
+ 
+**Dropped Trivy.** It was the original plan for both container scanning and IaC scanning, but in March 2026 its GitHub Action and Docker Hub images got compromised twice in three weeks, an attacker force-pushed 75 of 76 version tags on the action, turning trusted version references into a distribution channel for an infostealer that pulled cloud credentials, SSH keys, and Kubernetes tokens straight out of CI runners. That's not a hypothetical risk, that's exactly the kind of supply-chain attack a security-focused pipeline is supposed to be designed to avoid. Checkov picks up the IaC scanning half of what Trivy used to do, Grype picks up the container image half.
+ 
+**Why Grype over other alternatives.** It's built by Anchore, scoped narrowly to just container image vulnerability scanning, no cluster scanning, no IaC scanning, nothing extra. That narrower footprint is a feature here, not a limitation, fewer moving parts means smaller attack surface, which is the direct lesson from what happened to Trivy. It also doesn't share any infrastructure or release pipeline with Trivy, so it's a genuinely independent second opinion, not just a rebrand of the same risk.
+ 
+**Why Gitleaks even though GHAS has free secret scanning.** GHAS secret scanning is free for public repos and does scan history, but it only checks against roughly 230 partner patterns and push protection isn't on by default. Gitleaks lets custom rules get written for anything GHAS's partner list wouldn't catch, and running it explicitly in the pipeline is a stronger signal that the tooling was actually built and understood, not just quietly inherited from a platform default.
+ 
+Semgrep, if added later, would fall in the same category as Bandit, not a separate layer, multi-language SAST versus Bandit's Python-only scope. Redundant to run both against a single small Flask app right now, would become worth it once the codebase spans more than one language, like if the FastAPI compliance service from the backlog gets built.
+ 
+**Considered OSV-Scanner for SCA**, decided against it for now since Dependabot already covers the same ground and running both would be redundant without a strong enough reason yet.
+
+## Pipeline structure decision
+ 
+Two separate GitHub Actions workflows, `terraform.yml` and `app-deploy.yml`, triggered independently on path-based filters (`terraform/**` for one, `app/**` and `Dockerfile` for the other), not chained automatically. Reasoning: Terraform has to succeed first since ACR, the Container App, and the identity's role assignment all need to exist before anything can be pushed or deployed, but forcing every code change to also trigger an infrastructure run (or vice versa) doesn't match how most teams actually want this to behave. Documenting in the README that a fresh environment needs `terraform.yml` run before `app-deploy.yml` will succeed.
+ 
+Once on the right subscription, `plan` ran clean: 15 resources to add, 0 errors. The `data` block correctly read the manually-created resource group, and `resource_group_id` resolved properly into every module and output that referenced it, including all three policy assignments. This confirms the OIDC bootstrap pattern actually works end to end, Terraform can read a resource group it doesn't own and wire everything downstream off of it without ever threatening to create or destroy that resource group itself.
  
 ## Wiring the Root Module
  
@@ -195,6 +251,16 @@ This is where all five modules actually get connected. Root `main.tf` creates th
 **Root outputs mirror the same honesty pattern.** Every output that isn't actually consumed by another module (`vnet_id`, `subnet_id`, `nsg_id`, all three policy ids) says so directly in its description "not currently consumed by compute" or "not consumed by other modules, exposed for visibility via terraform output" instead of looking like unfinished wiring.
  
 Built out `environments/dev/terraform.tfvars` with real values across all five modules, this is the first point where every validation block written today (location, ACR name regex, ACR sku/environment pairing, AcrPull-only role, PerGB2018-only workspace sku, single revision mode, cpu/memory ratio) actually gets tested against real input instead of just existing in isolation.
+
+## First terraform plan
+ 
+Ran `terraform plan -var-file=environments/dev/terraform.tfvars` for the first time. First attempt just prompted for `acr_name` interactively instead of reading the tfvars file, turned out I'd forgotten to actually save the file, so Terraform had nothing to read and fell back to asking one variable at a time.
+ 
+Once the file had real content in it, plan surfaced a bug:
+ 
+**Subnet output bug.** `network/outputs.tf` was trying to call `.id` directly on `azurerm_virtual_network.azappsec-vnet.subnet`, but that's a set, not a single object, so `.id` doesn't work on it. This is the exact thing I'd flagged earlier when writing the network module and decided to test live instead of switching to a separate `azurerm_subnet` resource since I couldn't find registry docs confirming the inline syntax. Terraform confirmed it directly at plan time: wrapped it in `tolist(...)[0].id`, same fix already used correctly for the NSG association, just hadn't been applied to this output yet.
+ 
+**Worth noting from the plan output:** `public_network_access_enabled = true` on the ACR confirms the VNet decision documented earlier, this is expected, not a surprise. Container App shows `min_replicas = 0`, meaning it can scale to zero when idle, that's the Container Apps default and works fine for a project like this.
 
 ## Errors hit
 
