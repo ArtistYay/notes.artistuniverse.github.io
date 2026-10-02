@@ -1,0 +1,8694 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Artist">
+      
+      
+        <link rel="canonical" href="http://notes.artistuniverse.tech/personal_projects/azure_appsec_pipeline/">
+      
+      
+        <link rel="prev" href="../build_your_own_git/">
+      
+      
+        <link rel="next" href="../../security_automation/python/overview/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Azure Appsec Pipeline - Artist's Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#why-i-built-this" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Artist&#39;s Notebook" class="md-header__button md-logo" aria-label="Artist's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Artist's Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Azure Appsec Pipeline
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="purple"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="purple" data-md-color-accent="purple"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tags/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Tags
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../cloud_security/cloud_architecture_%26_security_design/" class="md-tabs__link">
+          
+  
+  
+  Cloud Security
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../devsecops/tryhackme/Secure%20Software%20Development/Introduction%20to%20DevSecOps/" class="md-tabs__link">
+          
+  
+  
+  DevSecOps
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../information_technology/Troubleshooting%20Steps/" class="md-tabs__link">
+          
+  
+  
+  Information Technology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../build_your_own_git/" class="md-tabs__link">
+          
+  
+  
+  My Work
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../security_automation/python/overview/" class="md-tabs__link">
+          
+  
+  
+  Security Automation
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../software_development/software_design_principles/overview/" class="md-tabs__link">
+          
+  
+  
+  Software Development
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Artist&#39;s Notebook" class="md-nav__button md-logo" aria-label="Artist's Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Artist's Notebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tags/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tags
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloud_architecture_%26_security_design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Architecture & Security Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudSLAW
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CloudSLAW
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2_1" id="__nav_3_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Create%20and%20Secure%20Your%20First%20Admin%20User/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create and Secure Your First Admin User
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Turn%20on%20CloudTrail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Turn on CloudTrail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Timmy%27s%20First%20CloudFormation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Timmy's First CloudFormation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Follow%20the%20Money%21/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Follow the Money!
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Create%20Your%20First%20AWS%20IAM%20Role/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Create Your First AWS IAM Role
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Write%20a%20Simple%20IAM%20Policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Write a Simple IAM Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Enable%20AWS%20Organizations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enable AWS Organizations
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Give%20Your%20Account%20a%20Security%20Blanket%20with%20SCPs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Give Your Account a Security Blanket with SCPs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Assume%20the%20Role%21%20%28Centralized%20Logging%2C%20Part%201%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Assume the Role! (Centralized Logging, Part 1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Secure%20that%20Bucket%21%20%28Centralized%20Logging%20Part%202%29%2C%20Resource%20Policies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure that Bucket! (Centralized Logging Part 2), Resource Policies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Enabling%20the%20Org%20Trail%20%28Centralized%20Logging%20Part%203%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enabling the Org Trail (Centralized Logging Part 3)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Bring%20in%20the%20Fed%28eration%29%20SSO/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bring in the Fed(eration) SSO
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Another%20Me%20SSO%20with%20IAM%20Identity%20Center%2C%20Part%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Another Me SSO with IAM Identity Center, Part 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/AWS%20LEGO%20Organizing%20the%20Org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS LEGO Organizing the Org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/OUs%2C%20SCPs%2C%20and%20a%20Root%20User%20Account%20Recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OUs, SCPs, and a Root User Account Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/NotWhat%20Lock%20Out%20Regions%20with%20a%20Double%20Negative%20SCP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NotWhat?!? Lock Out Regions with a Double Negative SCP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/On%20the%20Meaning%20of%20Life%28cycles%29%2C%20Versions%2C%20and%20Ransomware/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    On the Meaning of Life(cycles), Versions, and Ransomware
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Buttoning%20up%20the%20Org/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buttoning up the Org
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Enable%20Delegated%20Administrator%20for%20Identity%20Center%20and%20CloudTrail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enabled Delegated Administrator for Identity Center and CloudTrail
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Creating%20Security%20Team%20Permissions%20in%20IAM%20Identity%20Center/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Creating Security Team Permissions in IAM Identity Center
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Enable%20GuardDuty%20the%20Right%20Way/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enable GuardDuty the Right Way
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/The%20Best%20Way%20to%20Start%20with%20AWS%20Security%20Hub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Best Way to Start with AWS Security Hub
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Use%20EventBridge%20for%20Security%20Hub%20Alerts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Use EventBridge for Security Hub Alerts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/PBAC%20and%20ABAC%20Write%20an%20Intermediate%20AWS%20IAM%20Policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    PBAC and ABAC Write an Intermediate AWS IAM Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/cloudSLAW/Skills%20Challenge%20IAM%20Identity%20Center/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills Challenge IAM Identity Center
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Microsoft Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_1" id="__nav_3_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Entra ID
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Entra ID
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/microsoft_security/entra_id/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/microsoft_security/entra_id/Configuring%20Identity%20and%20access%20in%20Microsoft%20Azure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuring Identity and Access in Microsoft Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/microsoft_security/Managing%20Security%20Operations%20in%20Microsoft%20Azure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Managing Security Operations in Microsoft Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/microsoft_security/Microsoft%20Defender%20Suite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Defender Suite
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/microsoft_security/Microsoft%20Sentinel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Microsoft Sentinel
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/microsoft_security/Securing%20Data%20and%20Applications%20in%20Microsoft%20Azure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Securing Data and Applications in Microsoft Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_6" id="__nav_3_3_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_3_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Compute
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3_6_1" id="__nav_3_3_6_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logic Apps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_3_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Logic Apps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/microsoft_security/compute/logic_apps/preventing_IDOR_vulnerabilities_in_azure_logic_apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Preventing IDOR Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tools
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cloud_security/tools/wiz/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wiz
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DevSecOps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DevSecOps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Hack Me
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Try Hack Me
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_1" id="__nav_4_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Software Developmet
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Secure Software Developmet
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/tryhackme/Secure%20Software%20Development/Introduction%20to%20DevSecOps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to DevSecOps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/tryhackme/Secure%20Software%20Development/Secure%20Software%20Development%20Lifecycle%20%28S-SDLC%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Software Development Lifecycle (S-SDLC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/tryhackme/Secure%20Software%20Development/Software%20Development%20Lifecycle%20%28SDLC%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Development Lifecycle (SDLC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1_2" id="__nav_4_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security of the Pipeline
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security of the Pipeline
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/tryhackme/Security%20of%20the%20Pipeline/Source%20Code%20Security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source Code Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IaC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    IaC
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/iac/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2_2" id="__nav_4_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraform
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Terraform
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/iac/terraform/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/iac/terraform/dry_modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing DRY Code with Modules and `for_each`
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/iac/terraform/hcp_terraform/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HCP Terraform
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/iac/terraform/mutable_vs_immutable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mutable VS Immutable
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/iac/terraform/state_management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    State Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/iac/terraform/terraform_workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Terraform Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Source Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Source Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_3_1" id="__nav_4_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/source_control/git/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../devsecops/source_control/git/git_config_notes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git Config Notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Information Technology
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Information Technology
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/Troubleshooting%20Steps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting Steps
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_1" id="__nav_5_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Azure
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/App%20Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    App Services
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Application%20Gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Compute/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Compute
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Container%20Instances/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Instances
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Content%20Delivery%20Network%20%28CDN%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Delivery Network (CDN)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Enabling%20Platform%20Protection%20in%20Microsoft%20Azure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enabling Platform Protection in Microsoft Azure
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Express%20Route/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Express Route
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Firewalls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firewalls
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Kubernetes%20Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kubernetes Service
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Scale%20Sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scale Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Virtual%20Desktop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Desktop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Virtual%20Machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Machines
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/Virtual%20Network/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Network
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cloud/azure/VPN%20Gateway/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VPN Gateway
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Computer Networking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Networking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/computer_networking/Hub%20%26%20Spoke/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hub & Spoke
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/computer_networking/IP%20Addressing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IP Addressing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/computer_networking/IP%20Routing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IP Routing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/computer_networking/Load%20Balancer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Load Balancer
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/computer_networking/OSI%20Model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OSI Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/computer_networking/Proxy%20Servers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proxy Servers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/computer_networking/Subnet-Subnetting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subnetting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cybersecurity
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cybersecurity
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1" id="__nav_5_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blue Team
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Blue Team
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1_1" id="__nav_5_4_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Detection
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Threat Detection
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/blue_team/Threat-Detection/Learn_attackers_behaviors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Learn Attackers Behaviors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/blue_team/Threat-Detection/Understand_what_telemetry_and_logs_are/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Understand What Telemetry and Logs Are
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1_2" id="__nav_5_4_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Hack Me
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Try Hack Me
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1_2_1" id="__nav_5_4_1_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Engineer
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_4_1_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security Engineer
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1_2_1_1" id="__nav_5_4_1_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Security Engineering
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_5_4_1_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction to Security Engineering
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/blue_team/tryhackme/Security%20Engineer/Introduction%20to%20Security%20Engineering/Security%20Engineer%20Intro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Engineer Intro
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1_2_1_2" id="__nav_5_4_1_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network & System Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_5_4_1_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Network & System Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/blue_team/tryhackme/Security%20Engineer/Network%20%26%20System%20Security/Security%20Network%20Architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Network Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_1_2_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_1_2_1_3" id="__nav_5_4_1_2_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threats & Risks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_5_4_1_2_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_1_2_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Threats & Risks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/blue_team/tryhackme/Security%20Engineer/Threats%20%26%20Risks/Risk%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/blue_team/tryhackme/Security%20Engineer/Threats%20%26%20Risks/Threat%20Modeling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Threat Modeling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/blue_team/tryhackme/Security%20Engineer/SOAR%20%28Security%20Orchestration%2C%20Automation%20%26%20Response%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SOAR (Security Orchestration, Automation & Response)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2" id="__nav_5_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Red Team
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Red Team
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2_1" id="__nav_5_4_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Hack Me
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Try Hack Me
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2_1_1" id="__nav_5_4_2_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Junior Penetration Tester
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_4_2_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Junior Penetration Tester
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2_1_1_1" id="__nav_5_4_2_1_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Burp Suite
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_5_4_2_1_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2_1_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Burp Suite
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Burp%20Suite/Burp%20Suite_Intruder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Burp Suite Intruder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Burp%20Suite/Burp%20Suite_Other%20Modules/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Burp Suite Other Modules
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Burp%20Suite/Burp%20Suite_Repeater/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Burp Suite Repeater
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Burp%20Suite/Burp%20Suite_The%20Basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Burp Suite The Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2_1_1_2" id="__nav_5_4_2_1_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Introduction to Web Hacking
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_5_4_2_1_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2_1_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Introduction to Web Hacking
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/Authentication%20Bypass/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication Bypass
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/Command%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/Content%20Discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Content Discovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/File%20Inclusion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Inclusion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/Insecure%20Direct%20Object%20Reference%20%28IDOR%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Insecure Direct Object Reference (IDOR)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/Intro%20to%20Cross-site%20Scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro to Cross-site Scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/Intro%20to%20SSRF/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Intro to SSRF
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/SQL%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SQL Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Introduction%20to%20Web%20Hacking/Subdomain%20Enumeration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Subdomain Enumeration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2_1_1_3" id="__nav_5_4_2_1_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Network Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_5_4_2_1_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2_1_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Network Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Active%20Reconnaissance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Active Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Net%20Sec%20Challenge/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Net Sec Challenge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Nmap%20Advanced%20Port%20Scans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nmap Advanced Port Scans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Nmap%20Basic%20Port%20Scans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nmap Basic Port Scans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Nmap%20Live%20Host%20Discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nmap Live Host Discovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Nmap%20Post%20Port%20Scans/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Nmap Post Port Scans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Passive%20Reconnaissance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Passive Reconnaissance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Protocols%20and%20Servers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocols and Servers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Junior%20Penetration%20Tester/Network%20Security/Protocols%20and%20Servers%202/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocols and Servers 2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2_1_2" id="__nav_5_4_2_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web Application Pentesting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="5" aria-labelledby="__nav_5_4_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Web Application Pentesting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2_1_2_1" id="__nav_5_4_2_1_2_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_5_4_2_1_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2_1_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Authentication
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Authentication/Enumeration%20%26%20Brute%20Force/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enumeration & Brute Force
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Authentication/JWT%20Security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JWT Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Authentication/Multi-Factor%20Authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Multi - Factor Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Authentication/OAuth%20Vulnerabilities/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OAuth Vulnerabilities
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Authentication/Session%20Management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Session Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_2_1_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_2_1_2_2" id="__nav_5_4_2_1_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Injection Attacks
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="6" aria-labelledby="__nav_5_4_2_1_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_2_1_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Injection Attacks
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Injection%20Attacks/Advanced%20SQL%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced SQL Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Injection%20Attacks/NoSQL%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NoSQL Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Injection%20Attacks/ORM%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ORM Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Injection%20Attacks/Server-side%20Template%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Server-side Template Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/red_team/tryhackme/Web%20Application%20Pentesting/Injection%20Attacks/XXE%20Injection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    XXE Injection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_3" id="__nav_5_4_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Try Hack Me
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Try Hack Me
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4_3_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_4_3_1" id="__nav_5_4_3_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CyberSecurity 101
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_5_4_3_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_4_3_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CyberSecurity 101
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/cybersecurity/tryhackme/CyberSecurity%20101/Search%20Skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Search Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/ai/Generative%20AI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Generative AI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identity & Access Management
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Identity & Access Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/authentication_vs_authorization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication vs Authorization
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/identity_vs_account_vs_principal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identity vs Account vs Principal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/claims_tokens_sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Claims. Tokens. Sessions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/federation_and_trust_relationships/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Federation. Trust relationships
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6_6" id="__nav_5_6_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open Standards
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Open Standards
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/open_standards/oauth_2.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OAuth 2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/open_standards/openid_connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenID Connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/open_standards/saml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SAML 2.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/open_standards/scim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SCIM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/open_standards/jwk_and_key_rotation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    JWK and Key Rotation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_6_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6_7" id="__nav_5_6_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directory Services
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Directory Services
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/directory_services/ldap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LDAP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/directory_services/kerberos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Kerberos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directory forests, domains, replication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Group membership, role models, ACLs, discretionary vs role-based systems
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    My Work
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    My Work
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Personal Projects
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Personal Projects
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../build_your_own_git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CodeCrafter's Build your own Git
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure Appsec Pipeline
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Azure Appsec Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-i-built-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why I Built This
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why I Built This">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project mental model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-flask-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Flask App
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Flask App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What I built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-structured-json-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why structured JSON logging?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-logs-flow-to-sentinel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How logs flow to Sentinel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-built_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What I built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-decisions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-docker-feeds-the-rest-of-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Docker feeds the rest of the pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors-hit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors hit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Terraform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Terraform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Module
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compute-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identity-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-actions-oidc-bootstrap-chicken-and-egg-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions OIDC Bootstrap (chicken-and-egg problem)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oidc-subject-claim-risk-found-after-the-fact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OIDC subject claim risk (found after the fact)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanner-stack-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanner stack decisions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-structure-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline structure decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-the-root-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring the Root Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-terraform-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First terraform plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors-hit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors hit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Automation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security Automation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/problem_solving/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Four-Step Problem-Solving Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/questions_i_asked_myself/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Questions I Ask Myself
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/applying_python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Applying Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/data_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/dictionaries_sets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dictionaries & Sets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/error_handling_and_debugging/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Error Handling & Debugging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/file_management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/if_else_statements/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    If/Else Statements
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/lists_and_tuples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lists & Tuples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/loops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Loops
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/modules_libraries_and_packages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modules, Libraries, & Packages
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/operators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operators
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security_automation/python/variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Variables
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_8_1" id="__nav_8_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Software Design Principles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_8_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Software Design Principles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/software_design_principles/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/software_design_principles/dry_dont_repeat_yourself/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dry Don't Repeat Yourself
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/software_design_principles/single_responsibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Single Responsibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/software_design_principles/keep_it_simple_stupid/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    KISS (Keep It Simple, Stupid)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/software_design_principles/you_arent_gonna_need_it/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    YAGNI (You Aren’t Gonna Need It)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../software_development/software_design_principles/questions_i_asked_myself/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Questions I Ask Myself
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#why-i-built-this" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why I Built This
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why I Built This">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-mental-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project mental model
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-1-flask-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 1: Flask App
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 1: Flask App">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-built" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What I built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-structured-json-logging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why structured JSON logging?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-logs-flow-to-sentinel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How logs flow to Sentinel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-2-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 2: Docker
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 2: Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-i-built_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What I built
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-decisions_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key decisions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-docker-feeds-the-rest-of-the-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Docker feeds the rest of the pipeline
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors-hit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors hit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-3-terraform" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase 3: Terraform
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Phase 3: Terraform">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Network Module
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Storage Module
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#environments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compute-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compute Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#policy-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Policy Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#identity-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Identity Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-actions-oidc-bootstrap-chicken-and-egg-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Actions OIDC Bootstrap (chicken-and-egg problem)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oidc-subject-claim-risk-found-after-the-fact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OIDC subject claim risk (found after the fact)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scanner-stack-decisions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scanner stack decisions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pipeline-structure-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pipeline structure decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wiring-the-root-module" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Wiring the Root Module
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-terraform-plan" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First terraform plan
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors-hit_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors hit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../build_your_own_git/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    My Work
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../build_your_own_git/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Personal Projects
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <nav class="md-tags" >
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:cybersecurity" class="md-tag">Cybersecurity</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:devops" class="md-tag">DevOps</a>
+      
+    
+      
+      
+      
+      
+        <a href="../../tags/#tag:microsoft-azure" class="md-tag">Microsoft Azure</a>
+      
+    
+  </nav>
+
+
+
+  <h1>Azure Appsec Pipeline</h1>
+
+<h2 id="why-i-built-this">Why I Built This<a class="headerlink" href="#why-i-built-this" title="Permanent link">&para;</a></h2>
+<p>Most companies have CI/CD pipelines and a SIEM, but those two things don't talk to each other. The pipeline knows what got deployed and whether it passed a scan. The SIEM knows something weird happened at runtime. Neither one has the other's context. That gap is what this project tries to close.</p>
+<p>The Flask app generates structured JSON logs when endpoints are hit. Docker captures those logs, Azure Monitor ships them to Sentinel. GitHub Actions runs security gates (Trivy, Checkov, Bandit, Gitleaks) and generates its own pipeline events, scan results, deployment status, that also land in Sentinel. The Terraform modules are reusable templates with security baked in so devs don't have to figure out encryption, network rules, or identity from scratch. Azure Policy sits on top as a hard enforcement layer, even if someone edits a module and removes a control, the policy blocks the deployment before it reaches production.</p>
+<p>I built this because I wanted to prove I understand how these pieces fit together, not just that I can click buttons in a portal. Anyone can enable Defender for Cloud. Not everyone can architect the pipeline that feeds it.</p>
+<h3 id="project-mental-model">Project mental model<a class="headerlink" href="#project-mental-model" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Flask app    = the thing being protected
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Docker       = the package it ships in
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>Pipeline     = the security checkpoint that package goes through
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Azure        = where it runs in production
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>Sentinel     = the system watching it at runtime
+</span></code></pre></div>
+<hr />
+<h2 id="phase-1-flask-app">Phase 1: Flask App<a class="headerlink" href="#phase-1-flask-app" title="Permanent link">&para;</a></h2>
+<h3 id="what-i-built">What I built<a class="headerlink" href="#what-i-built" title="Permanent link">&para;</a></h3>
+<p>A minimal Flask API with one endpoint (<code>/health</code>) that returns structured JSON and writes logs to stdout.</p>
+<h3 id="why-structured-json-logging">Why structured JSON logging?<a class="headerlink" href="#why-structured-json-logging" title="Permanent link">&para;</a></h3>
+<p>Plain text logs are stored but not easily queryable. Structured JSON means every field (event, endpoint, status) becomes a named column in Sentinel, enabling detection rules without regex parsing.</p>
+<h3 id="key-decisions">Key decisions<a class="headerlink" href="#key-decisions" title="Permanent link">&para;</a></h3>
+<p><strong>Why Flask over FastAPI or Django?</strong>
+Tool selection framework to match complexity to the problem:
+1. What does the app need to do?
+2. What's the simplest tool that solves it?
+3. Does the tool's complexity match the problem's complexity?</p>
+<p>Flask was the answer. One endpoint, no concurrency requirements, FastAPI would be over-engineered; Django would be absurd.</p>
+<p><strong>Why <code>host='0.0.0.0'</code>?</strong>
+<code>127.0.0.1</code> only listens on the local machine. <code>0.0.0.0</code> binds to every network interface. Without it, Docker's port mapping doesn't work even if the port is exposed.</p>
+<p><strong>Why <code>debug=False</code> in production?</strong>
+Flask debug mode turns on an interactive Python console in the browser. If an attacker triggers an error, they get live code execution on the server. That's RCE.</p>
+<p><strong>Why Gunicorn instead of <code>flask run</code>?</strong>
+Flask's built-in server handles one request at a time. Gunicorn is a WSGI (Web Server Gateway Interface) server that runs multiple worker processes so the app can handle concurrent requests. You can't use <code>flask run</code> inside a container anyway, the container needs a direct command to start the app on its own.</p>
+<h3 id="how-logs-flow-to-sentinel">How logs flow to Sentinel<a class="headerlink" href="#how-logs-flow-to-sentinel" title="Permanent link">&para;</a></h3>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Flask app → writes JSON to stdout → Docker captures stdout →
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Azure Monitor Agent collects it → Sentinel ingests it
+</span></code></pre></div>
+The app never talks to Sentinel directly.</p>
+<hr />
+<h2 id="phase-2-docker">Phase 2: Docker<a class="headerlink" href="#phase-2-docker" title="Permanent link">&para;</a></h2>
+<h3 id="what-i-built_1">What I built<a class="headerlink" href="#what-i-built_1" title="Permanent link">&para;</a></h3>
+<p>A Dockerfile that packages the Flask app into a production-ready container image.</p>
+<h3 id="key-decisions_1">Key decisions<a class="headerlink" href="#key-decisions_1" title="Permanent link">&para;</a></h3>
+<p><strong>Why Alpine as the base image?</strong>
+<code>python:3.12-alpine</code> is under 50MB vs 900MB+ for the standard Python image. Smaller image = smaller attack surface = fewer CVEs for Trivy to find.</p>
+<p><strong>Why copy <code>requirements.txt</code> before the app code?</strong>
+Docker layer caching. Dependencies change rarely, app code changes constantly. Copy requirements first, install them, then copy the app, rebuilds skip straight to the app copy step instead of reinstalling everything from scratch every time.</p>
+<p><strong>Why Gunicorn in the CMD?</strong>
+Production-grade WSGI server. <code>flask run</code> is not appropriate inside a container. Gunicorn binds to <code>0.0.0.0:5000</code> with 4 workers and starts the Flask instance named <code>app</code> inside <code>app.py</code>.</p>
+<h3 id="how-docker-feeds-the-rest-of-the-pipeline">How Docker feeds the rest of the pipeline<a class="headerlink" href="#how-docker-feeds-the-rest-of-the-pipeline" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Trivy scans the <strong>image</strong>, not raw Python files</li>
+<li>Azure Container Registry stores the <strong>image</strong></li>
+<li>Azure Container Apps runs the <strong>image</strong></li>
+<li>Defender for Containers monitors the running <strong>container</strong></li>
+</ul>
+<h3 id="errors-hit">Errors hit<a class="headerlink" href="#errors-hit" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>permission denied</code> on Docker socket, fixed with <code>sudo usermod -aG docker $USER</code></li>
+</ul>
+<hr />
+<h2 id="phase-3-terraform">Phase 3: Terraform<a class="headerlink" href="#phase-3-terraform" title="Permanent link">&para;</a></h2>
+<p>You can create nested subfolders in one command using brace expansion:
+<code>mkdir -p terraform/modules/{network,compute,storage,identity,policy}</code>
+The shell expands the braces before <code>mkdir</code> ever runs.</p>
+<p><strong>Module structure: every module has three files:</strong>
+- <code>main.tf</code> — what gets built
+- <code>variables.tf</code> — what the module accepts as inputs (how you make it reusable)
+- <code>outputs.tf</code> — what the module exposes after it runs, so other modules can reference it</p>
+<p>Modules talk to each other through outputs. The network module doesn't know anything about compute internals, and compute doesn't know about network internals. Clean interfaces.</p>
+<h3 id="network-module">Network Module<a class="headerlink" href="#network-module" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Used <a href="https://developer.hashicorp.com/terraform/language/validate">validation</a> on variables so wrong region deployments and naming issues get caught at <code>terraform plan</code> time, before anything touches Azure.</p>
+</li>
+<li>
+<p>Azure accepts a list of address spaces so used <a href="https://oneuptime.com/blog/post/2026-02-23-how-to-use-the-tolist-function-in-terraform/view"><code>list(string)</code></a> for <code>vnet_address_space</code> so others can pass multiple ranges if needed.</p>
+</li>
+<li>
+<p>Kept the subnet inline inside the VNet resource to reduce lines of code. Had to use <code>tolist()</code> to grab the first subnet's ID for the NSG association, the inline block exports a set, not a single value.</p>
+</li>
+<li>
+<p>Used multi-variable validation to keep the code compact.</p>
+</li>
+</ul>
+<h3 id="storage-module">Storage Module<a class="headerlink" href="#storage-module" title="Permanent link">&para;</a></h3>
+<p>Need to host the container image somewhere, went with <a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-skus">Basic SKU</a> for ACR because this is a side project. Worth noting for later: Basic doesn't support private endpoints, so a real production setup would use Premium to keep ACR inside the VNet with no public exposure.</p>
+<p>Added an <code>environment</code> variable and tied <code>acr_sku</code> to it with a validation block. If <code>environment == "production"</code>, <code>acr_sku</code> has to be <code>Premium</code>, no exceptions. That way the SKU choice isn't just a suggestion, it's enforced at <code>terraform plan</code> time. Same defense-in-depth idea as the network module's location validation.</p>
+<p>Regex validation on <code>acr_name</code> took a second to get right. <code>regex()</code> needs two arguments, the pattern to match and the value to check it against. First attempt only had the pattern with no value, so it wasn't actually testing anything. <code>can()</code> wraps around it so a failed match returns <code>false</code> instead of throwing a hard error.</p>
+<p>Tying <code>acr_sku</code> to <code>environment</code> meant using a ternary operator for the first time in this project:</p>
+<div class="language-hcl highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="na">condition</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">var.environment</span><span class="w"> </span><span class="p">==</span><span class="w"> </span><span class="s2">"production" ? var.acr_sku == "Premium"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="no">true</span>
+</span></code></pre></div>
+<p>Ternary = compact if/else in one line: <code>condition ? value_if_true : value_if_false</code>. Terraform's <code>validation</code> blocks only take a single expression, not a full if/else, so this shorthand is basically required once you're doing conditional validation. Reads as: if environment is production, sku has to be Premium, otherwise skip the check.</p>
+<h2 id="environments">Environments<a class="headerlink" href="#environments" title="Permanent link">&para;</a></h2>
+<p>Saw a LinkedIn post about a pattern I hadn't considered: one codebase, reusable modules, and separate <code>tfvars</code> files per environment instead of duplicating code for dev/qa/prod. <code>variables.tf</code> is the contract (what inputs a module accepts), <code>tfvars</code> is what fulfills it (the actual values). Same module, different inputs per environment.</p>
+<p>Added an <code>environments/dev</code> and <code>environments/prod</code> folder at the root, each with its own <code>terraform.tfvars</code>. Not strictly needed for a project this size, but it's the pattern enterprises actually use and it's worth showing I understand it.</p>
+<h2 id="compute-module">Compute Module<a class="headerlink" href="#compute-module" title="Permanent link">&para;</a></h2>
+<p>Storage holds the image, but nothing runs it yet, that's what this module is for. Azure Container Apps was the target from day one instead of AKS, since Kubernetes is a whole learning curve on its own and this project is about the security pipeline, not container orchestration depth.</p>
+<p>Went looking for a <code>azurerm_container_app</code> example on the registry and it required a <code>template</code> block I hadn't seen before, that's the actual runtime spec: what image, how much CPU, how much memory. Think of <code>azurerm_container_app_environment</code> as the neighborhood and the Container App as the house, <code>template</code> is the blueprint of what's actually living inside.</p>
+<p>Learned the hard way that Terraform doesn't create a "container from an image". Docker already built and will eventually push that image. Terraform's job is standing up the Azure resource that knows how to pull and run whatever ends up in ACR. Also learned Container Apps requires a Log Analytics Workspace before it'll even accept an Environment, because the Environment needs a <code>log_analytics_workspace_id</code>. Turns out that's the same workspace Sentinel will eventually sit on top of.</p>
+<p><strong>On <code>image</code> needing the full ACR path.</strong> Just passing the image name wasn't enough. Azure needs <code>&lt;login_server&gt;/&lt;image_name&gt;:&lt;tag&gt;</code> or it assumes Docker Hub by default. Had to go back and add a <code>login_server</code> output to the storage module's <code>outputs.tf</code> that I'd missed the first time around.</p>
+<p><strong>Almost made everything a variable with no guardrails.</strong> First instinct was "let the dev pass anything in a tfvars file" but <code>cpu</code> and <code>memory</code> aren't like a name string, someone could set <code>cpu = 32</code> and rack up real cost, or set memory too low and the app just breaks. Landed on: everything's a variable, but the ones with real consequences (cpu, memory, sku, revision mode) get validated. Also learned Terraform validation happens at <code>plan</code> time, before anything touches Azure, Azure Policy is a second, slower layer that catches whatever bypasses Terraform. Not either/or, both.</p>
+<p><strong>Reached for <code>range()</code> before realizing it was the wrong function.</strong> Wanted to check if <code>cpu</code> fell inside a range and thought <code>range()</code> was the tool. it's actually for generating a list of discrete numbers to loop over, not for boundary checking, and doesn't handle decimals well anyway. <code>&gt;=</code> and <code>&lt;=</code> comparisons are what you want for "does this number fall between two bounds."</p>
+<p><strong>Tied <code>container_memory</code> to <code>container_cpu</code></strong> instead of validating memory on its own, Azure Container Apps enforces roughly a 1:2 CPU-to-memory ratio (0.25 CPU → 0.5Gi, 0.5 → 1Gi, 1.0 → 2Gi, etc). Had to convert a string like <code>"1Gi"</code> into an actual number to compare it, which meant learning two new functions: <code>trimsuffix()</code> to strip the "Gi" off, <code>tonumber()</code> to convert what's left into a number Terraform can do math on. First pass didn't check that "Gi" was even present in the string, someone could pass <code>container_memory = "1"</code> with no unit and the check would silently pass. Added <code>endswith()</code> as a second condition to close that gap. Also had a typo (<code>containter_memory</code>) that would've thrown an undefined variable error, worth remembering to read variable names character by character, not just skim them.</p>
+<p><strong>Container App needs an <code>identity</code> block to actually use the identity at runtime.</strong> Wiring the identity module's output into <code>identity_ids</code> on the Container App isn't just for the role assignment, without this block the app has no way to authenticate to ACR at all when it tries to pull the image. Also needed a <code>registry</code> block with <code>server</code> (the ACR login server) and <code>identity</code> (the specific identity resource id, taking <code>[0]</code> out of the list since <code>identity_ids</code> wants the full list but <code>registry.identity</code> wants a single value). Learned identity_ids and registry.identity have different shapes even though they reference the same underlying value.</p>
+<p>Decided not to add <code>custom_domain_verification_id</code> to the outputs not relevant to this project's current scope, no custom domain plans. Noting it here so it reads as a decision, not a gap I missed.</p>
+<h2 id="policy-module">Policy Module<a class="headerlink" href="#policy-module" title="Permanent link">&para;</a></h2>
+<p>This is the enforcement layer that sits on top of everything else, even if a developer edits a module and removes a control, Azure Policy blocks the deployment at the Azure control-plane level before it ever reaches production. Same defense-in-depth logic as every validation block written today: Terraform validation catches mistakes fast and cheap at <code>plan</code> time, Policy catches whatever bypasses Terraform entirely (manual portal changes, a different tool, a compromised pipeline).</p>
+<p>First draft was one giant policy definition trying to enforce location, ACR SKU, and the CPU/memory ratio all in one <code>anyOf</code> block. It worked, but it broke the Single Responsibility Principle I'd learned about back when, one resource doing three unrelated jobs meant changing the CPU/memory rule would mean editing a huge nested JSON blob that also controlled location and SKU. Split it into three separate <code>azurerm_policy_definition</code> / <code>azurerm_policy_assignment</code> pairs instead, one per concern. Might seperate it into files if I add anymore.</p>
+<p><strong>Used <code>jsonencode()</code> for the first time</strong> to inject Terraform variables (<code>var.allowed_locations</code>, <code>var.allowed_acr_skus</code>) into the JSON heredoc blocks instead of hardcoding the same array three times across definitions and assignments. One source of truth instead of three copies that could drift out of sync.</p>
+<p><strong>Scoped policy assignments to the resource group, not the subscription.</strong> Same least-privilege reasoning as scoping the identity's role assignment to just the ACR instead of the whole resource group earlier. A subscription-wide policy would govern resources completely unrelated to this project. Resource-group scope keeps the blast radius limited to exactly what <code>azure-appsec-pipeline</code> deploys.</p>
+<p>Outputs (the three policy definition ids) aren't consumed by any other module, added them purely for visibility via <code>terraform output</code>, and said so directly in each output's description rather than pretending they serve a wiring purpose they don't.</p>
+<h2 id="identity-module">Identity Module<a class="headerlink" href="#identity-module" title="Permanent link">&para;</a></h2>
+<p>First instinct was to look for a "managed identity" resource in the Terraform registry, turns out that's not a resource type on its own. Azure has two flavors: system-assigned (tied to the lifecycle of whatever resource it's attached to, created and destroyed automatically) and user-assigned (<code>azurerm_user_assigned_identity</code>, a standalone resource you create independently and attach to one or more things).</p>
+<p>Almost went with system-assigned since it felt cleaner from a least-privilege angle, if the Container App gets torn down, the identity and its permissions go with it, no orphaned access sitting around.</p>
+<p>But ran into a real ordering problem. With system-assigned, the identity doesn't exist until the Container App resource is actually applied, Azure generates it as a byproduct. That means the identity module can't create the identity itself, and a role assignment written ahead of time has nothing to point to yet. Worse, if I kept a separate <code>azurerm_user_assigned_identity</code> in the identity module anyway, I'd end up with two disconnected identities: one Azure auto-creates for the Container App, and one sitting unused in my module. No clean way to grant <code>AcrPull</code> to the one that's actually attached to the app.</p>
+<p>Went with <strong>user-assigned identity</strong> instead. It exists as its own resource independent of Container Apps, so there's no chicken-and-egg problem, identity gets created first, compute references it, role assignment points to something that already exists. Trade-off is it doesn't get torn down automatically with the app, so if this were a real production setup I'd need a process for reviewing and cleaning up unused identities periodically. Noting that as a known gap rather than pretending it isn't one.</p>
+<p><strong>Learned data sources are read-only.</strong> A <code>data</code> block doesn't create anything in Azure, it looks up something that already exists and makes it available to reference. Different from a <code>resource</code> block, which builds something.</p>
+<p><strong>Almost wrote a custom role for AcrPull.</strong> Assumed I needed one since I was granting "certain permissions" to the identity. Wrong instinct checked Azure's built-in roles first and <code>AcrPull</code> already exists as a built-in role with exactly one permission: <code>registries/pull/read</code>. Nothing more. Least privilege doesn't mean write a custom role, it means grant the smallest permission that does the job. Used the built-in role instead of building a <code>azurerm_role_definition</code> from scratch.</p>
+<p><strong>Two separate resources for identity and role assignment, not one.</strong> Same single-responsibility pattern as the NSG/NSG-association split in the network module. One resource maps to one Azure API object. An identity can have multiple role assignments (ACR pull, storage write, key vault read, all at once) so identity creation and permission granting have to be separate resources, combining them would mean one identity could only ever hold one permission. This is also why Terraform modules end up composable: you can attach the same identity to different role assignments across different modules without recreating the identity each time.</p>
+<p><strong>Why does Terraform splits things this way instead of bundling related actions into one resource?</strong>. It turns out there's an actual name for it, Single Responsibility Principle (SRP). SRP is specifically about not combining multiple responsibilities into one unit. Makes sense of a pattern I keep running into without naming it one route per Flask endpoint, one concern per Terraform module, one job per Dockerfile layer.</p>
+<p><strong>Scoped the role assignment to the ACR specifically, not the resource group.</strong> <code>scope = var.acr_id</code>, not the resource group id. The identity can pull from this one registry and nothing else in the resource group. Also caught myself putting the ACR id into <code>principal_id</code> instead of the identity's own principal id <code>principal_id</code> answers "who is receiving this permission," not "what resource are they getting access to."</p>
+<p><strong>Locked <code>role_definition_name</code> down to <code>AcrPull</code> only</strong> with a <code>contains()</code> validation, so the module can't accidentally be called with something overly permissive like <code>Owner</code>. Kept it as a variable instead of hardcoding so the module stays technically reusable, just constrained to the one role it's meant for.</p>
+<h2 id="github-actions-oidc-bootstrap-chicken-and-egg-problem">GitHub Actions OIDC Bootstrap (chicken-and-egg problem)<a class="headerlink" href="#github-actions-oidc-bootstrap-chicken-and-egg-problem" title="Permanent link">&para;</a></h2>
+<p>Hit a real ordering problem setting up authentication for GitHub Actions to run Terraform. The pipeline needs a resource group to deploy into. But the identity that lets the pipeline authenticate to Azure in the first place needs to live somewhere too, and it can't live in a resource group that Terraform itself is supposed to create, because then destroying that resource group would delete the very identity the pipeline needs to keep running.</p>
+<p>This isn't a design flaw, it's just an unavoidable seam in any pipeline that manages its own infrastructure. Something always has to be bootstrapped manually before automation can take over.</p>
+<p><strong>Decision:</strong> create the resource group manually once via CLI, along with the GitHub Actions identity, its federated credential, and its role assignment, all outside of Terraform. Then switch the root <code>azurerm_resource_group.rg</code> resource block to a <code>data "azurerm_resource_group"</code> block instead. A data source only reads a resource, it never creates or destroys one. That means the resource group Terraform reports on is stable across every <code>plan</code>/<code>apply</code>/<code>destroy</code> cycle, and testing destroy no longer risks wiping out the GitHub Actions identity along with everything else.</p>
+<p><strong>Known tradeoff:</strong> whoever runs this project has to remember that the resource group is not managed by Terraform. Creating and destroying it is now a manual step, done once at setup, not something <code>terraform destroy</code> will ever touch. Documenting this clearly in the README so it isn't a silent gap.</p>
+<p><strong>The actual sequence for setting this up:</strong>
+1. Create the resource group manually via CLI
+2. Create the GitHub Actions identity inside it via CLI
+3. Create the federated identity credential linking that identity to this specific repo and branch, this is what actually makes OIDC work instead of a stored secret
+4. Grant that identity a role on the resource group so it can run Terraform</p>
+<p>On step 3, the <code>--subject</code> argument in the federated credential command isn't saying "this repo owns the identity," it's a trust condition. Azure will only accept a token as proof of this identity if the token's claim matches exactly, same repo, same branch. Tested this logic out loud: if someone forked the repo and tried running the same workflow, would Azure trust it? No, a fork has a different owner/repo path in its claim, so it fails the match even with identical workflow code. Azure isn't trusting the code, it's trusting the specific repo and branch path.</p>
+<p>On step 4, Contributor scoped to the resource group is broader than strictly necessary (a fully custom role scoped to exactly the resource types this project creates would be tighter), but building that custom role means enumerating every resource type and action Terraform touches, Container Apps, ACR, VNets, NSGs, Managed Identities, Policy Definitions, Log Analytics, Role Assignments, and getting all of it right up front, or <code>terraform apply</code> fails partway through with a permission error instead of failing cleanly upfront. Went with Contributor scoped tightly to just this one resource group as a defensible middle ground for a portfolio project, documenting the custom-role version as a known next step rather than pretending Contributor is the final answer.</p>
+<p>Official reference for the whole OIDC setup: <a href="https://learn.microsoft.com/en-us/azure/developer/github/connect-from-azure-openid-connect">Authenticate to Azure from GitHub Actions by OpenID Connect (Microsoft Learn)</a></p>
+<p><strong>Testing the data source switch.</strong> First <code>plan</code> after the change failed with "Resource Group was not found," even though it had definitely been created via <code>az group create</code> earlier. Turned out to be a subscription mismatch, my Azure CLI session was pointed at a different subscription than the one Terraform's provider was authenticated against. <code>az account show</code> confirmed it, <code>az account set</code> fixed it. Worth remembering for anyone with more than one subscription on their account, Terraform will happily fail with a confusing "not found" error instead of a clear "wrong subscription" one.</p>
+<h2 id="oidc-subject-claim-risk-found-after-the-fact">OIDC subject claim risk (found after the fact)<a class="headerlink" href="#oidc-subject-claim-risk-found-after-the-fact" title="Permanent link">&para;</a></h2>
+<p>Came across a GitHub changelog post about immutable subject claims for OIDC tokens, and it applies directly to the federated credential set up earlier today. GitHub now embeds permanent numeric owner/repo IDs into the subject claim for new repos, old format is <code>repo:owner/repo:ref:refs/heads/main</code>, new format is <code>repo:owner@123456/repo@456789:ref:refs/heads/main</code>. The reason it exists: if a repo or org name is ever deleted and recycled by someone else, the old name-only format could let a completely unrelated party mint a token that still matches your trust policy.</p>
+<p>Source: <a href="https://github.blog/changelog/2026-04-23-immutable-subject-claims-for-github-actions-oidc-tokens/">Immutable subject claims for GitHub Actions OIDC tokens (GitHub Changelog)</a></p>
+<p>Since this repo was created before the July 15, 2026 enforcement date, it's still on the classic format, and the federated credential set up earlier works fine right now. But found a real gotcha reading a related writeup about the same change breaking AWS deployments: AWS trust policies support wildcard patterns, so when the format changes you can just add a second pattern alongside the old one. Azure federated credentials don't have that option, the subject is matched as one exact string, no wildcards, no list of alternates. That means if this credential is ever rotated, or if I opt into the immutable format later, or if GitHub eventually migrates existing repos automatically, there's no graceful fallback, it just breaks outright with no clear error pointing at the cause.</p>
+<p><strong>Practical note for next time this credential gets touched:</strong> check the actual current subject format before assuming anything, <code>gh api /repos/&lt;owner&gt;/&lt;repo&gt;/actions/oidc/customization/sub</code> shows it directly. If it ever needs to move to the immutable format, that means deleting and recreating the federated credential with the new exact string, not just adding a second one.</p>
+<p>Source for the AWS-breakage comparison: <a href="https://dev.to/aws-builders/github-changed-its-oidc-subject-claims-and-broke-my-aws-deploys-for-new-repos-2cfp">GitHub changed its OIDC subject claims and broke my AWS deploys for new repos (dev.to)</a></p>
+<h2 id="scanner-stack-decisions">Scanner stack decisions<a class="headerlink" href="#scanner-stack-decisions" title="Permanent link">&para;</a></h2>
+<p>Landed on: Bandit for Python SAST, Checkov for Terraform/IaC misconfiguration scanning, Gitleaks for secrets (on top of GHAS, not instead of it), Dependabot for dependency SCA, and Grype for container image vulnerability scanning.</p>
+<p><strong>Dropped Trivy.</strong> It was the original plan for both container scanning and IaC scanning, but in March 2026 its GitHub Action and Docker Hub images got compromised twice in three weeks, an attacker force-pushed 75 of 76 version tags on the action, turning trusted version references into a distribution channel for an infostealer that pulled cloud credentials, SSH keys, and Kubernetes tokens straight out of CI runners. That's not a hypothetical risk, that's exactly the kind of supply-chain attack a security-focused pipeline is supposed to be designed to avoid. Checkov picks up the IaC scanning half of what Trivy used to do, Grype picks up the container image half.</p>
+<p><strong>Why Grype over other alternatives.</strong> It's built by Anchore, scoped narrowly to just container image vulnerability scanning, no cluster scanning, no IaC scanning, nothing extra. That narrower footprint is a feature here, not a limitation, fewer moving parts means smaller attack surface, which is the direct lesson from what happened to Trivy. It also doesn't share any infrastructure or release pipeline with Trivy, so it's a genuinely independent second opinion, not just a rebrand of the same risk.</p>
+<p><strong>Why Gitleaks even though GHAS has free secret scanning.</strong> GHAS secret scanning is free for public repos and does scan history, but it only checks against roughly 230 partner patterns and push protection isn't on by default. Gitleaks lets custom rules get written for anything GHAS's partner list wouldn't catch, and running it explicitly in the pipeline is a stronger signal that the tooling was actually built and understood, not just quietly inherited from a platform default.</p>
+<p>Semgrep, if added later, would fall in the same category as Bandit, not a separate layer, multi-language SAST versus Bandit's Python-only scope. Redundant to run both against a single small Flask app right now, would become worth it once the codebase spans more than one language, like if the FastAPI compliance service from the backlog gets built.</p>
+<p><strong>Considered OSV-Scanner for SCA</strong>, decided against it for now since Dependabot already covers the same ground and running both would be redundant without a strong enough reason yet.</p>
+<h2 id="pipeline-structure-decision">Pipeline structure decision<a class="headerlink" href="#pipeline-structure-decision" title="Permanent link">&para;</a></h2>
+<p>Two separate GitHub Actions workflows, <code>terraform.yml</code> and <code>app-deploy.yml</code>, triggered independently on path-based filters (<code>terraform/**</code> for one, <code>app/**</code> and <code>Dockerfile</code> for the other), not chained automatically. Reasoning: Terraform has to succeed first since ACR, the Container App, and the identity's role assignment all need to exist before anything can be pushed or deployed, but forcing every code change to also trigger an infrastructure run (or vice versa) doesn't match how most teams actually want this to behave. Documenting in the README that a fresh environment needs <code>terraform.yml</code> run before <code>app-deploy.yml</code> will succeed.</p>
+<p>Once on the right subscription, <code>plan</code> ran clean: 15 resources to add, 0 errors. The <code>data</code> block correctly read the manually-created resource group, and <code>resource_group_id</code> resolved properly into every module and output that referenced it, including all three policy assignments. This confirms the OIDC bootstrap pattern actually works end to end, Terraform can read a resource group it doesn't own and wire everything downstream off of it without ever threatening to create or destroy that resource group itself.</p>
+<h2 id="wiring-the-root-module">Wiring the Root Module<a class="headerlink" href="#wiring-the-root-module" title="Permanent link">&para;</a></h2>
+<p>This is where all five modules actually get connected. Root <code>main.tf</code> creates the resource group first, nothing else can exist without it, then calls each module in dependency order: storage first (no dependencies), identity next (needs storage's <code>acr_output</code> for the role assignment scope), compute last (needs both storage's ACR outputs and identity's identity id), with network and policy running independently since nothing downstream currently consumes their outputs.</p>
+<p><strong>The VNet decision.</strong> Network module exists and works, but Container Apps isn't actually deployed inside it, no <code>infrastructure_subnet_id</code> wiring into the Container App Environment. That means the app currently has public ingress by default. This was a deliberate call, not an oversight. Flagged it directly in a <code>main.tf</code> comment and in every network-related output's description so it reads as a documented tradeoff instead of a hole nobody noticed. Real reasoning: finishing the full pipeline end-to-end mattered more right now than gold-plating the network layer. If this were going to production, or if I wanted to defend it in an interview, the honest answer is "this is a known gap, here's what I'd do to close it" rather than pretending it's not there.</p>
+<p><strong>Root outputs mirror the same honesty pattern.</strong> Every output that isn't actually consumed by another module (<code>vnet_id</code>, <code>subnet_id</code>, <code>nsg_id</code>, all three policy ids) says so directly in its description "not currently consumed by compute" or "not consumed by other modules, exposed for visibility via terraform output" instead of looking like unfinished wiring.</p>
+<p>Built out <code>environments/dev/terraform.tfvars</code> with real values across all five modules, this is the first point where every validation block written today (location, ACR name regex, ACR sku/environment pairing, AcrPull-only role, PerGB2018-only workspace sku, single revision mode, cpu/memory ratio) actually gets tested against real input instead of just existing in isolation.</p>
+<h2 id="first-terraform-plan">First terraform plan<a class="headerlink" href="#first-terraform-plan" title="Permanent link">&para;</a></h2>
+<p>Ran <code>terraform plan -var-file=environments/dev/terraform.tfvars</code> for the first time. First attempt just prompted for <code>acr_name</code> interactively instead of reading the tfvars file, turned out I'd forgotten to actually save the file, so Terraform had nothing to read and fell back to asking one variable at a time.</p>
+<p>Once the file had real content in it, plan surfaced a bug:</p>
+<p><strong>Subnet output bug.</strong> <code>network/outputs.tf</code> was trying to call <code>.id</code> directly on <code>azurerm_virtual_network.azappsec-vnet.subnet</code>, but that's a set, not a single object, so <code>.id</code> doesn't work on it. This is the exact thing I'd flagged earlier when writing the network module and decided to test live instead of switching to a separate <code>azurerm_subnet</code> resource since I couldn't find registry docs confirming the inline syntax. Terraform confirmed it directly at plan time: wrapped it in <code>tolist(...)[0].id</code>, same fix already used correctly for the NSG association, just hadn't been applied to this output yet.</p>
+<p><strong>Worth noting from the plan output:</strong> <code>public_network_access_enabled = true</code> on the ACR confirms the VNet decision documented earlier, this is expected, not a surprise. Container App shows <code>min_replicas = 0</code>, meaning it can scale to zero when idle, that's the Container Apps default and works fine for a project like this.</p>
+<h2 id="errors-hit_1">Errors hit<a class="headerlink" href="#errors-hit_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>
+<p>Committed the Terraform scaffold on main locally and tried to push but GitHub rejected it because of branch protection.</p>
+</li>
+<li>
+<p>Created a GitHub Issue to track the Terraform work. Issues are how teams track what needs to be done. Attaching a branch to an issue links the work to the task. <strong>MAKE SURE WHEN CHECKING OUT A BRANCH YOU INCLUDE THE <code>-b</code> FLAG!!</strong></p>
+</li>
+<li>
+<p>Created a terraform branch but couldn't switch to it because I had uncommitted local changes that would've been overwritten. Git protects me from losing work.</p>
+</li>
+<li>
+<p>Ran <code>git reset HEAD~1</code> which undid my last commit but kept the file changes locally. This put me back to a clean state to switch branches.</p>
+</li>
+<li>
+<p>Tried <code>git stash</code> to temporarily save my changes and it threw an error because after the reset there was nothing staged to stash.</p>
+</li>
+<li>
+<p>Switched to the terraform branch, made my changes there, and committed.</p>
+</li>
+<li>
+<p>Git rejected the push because the local branch wasn't linked to a remote branch yet, that's the <code>--set-upstream</code> error. Running <code>git push --set-upstream origin terraform</code> tells Git "this local branch lives at origin/terraform."</p>
+</li>
+<li>
+<p>GitHub blocked the push because my commits had my real email in them. Fixed with <code>git config</code>.</p>
+</li>
+<li>
+<p>Terraform uses <code>/</code> as a seperator.</p>
+</li>
+</ol>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://www.howtogeek.com/devops/how-to-move-changes-to-another-branch-in-git/">How to Move Changes to Another Branch in Git</a></li>
+<li><a href="https://stackoverflow.com/questions/7217894/moving-changed-files-to-another-branch-for-check-in">moving changed files to another branch for check-in</a></li>
+<li><a href="https://stackoverflow.com/questions/38200616/git-stash-throws-error-no-local-changes-to-save">git stash throws error No local changes to save</a></li>
+<li><a href="https://medium.com/@python-javascript-php-html-css/resolving-githubs-push-declined-due-to-email-privacy-restrictions-issue-c346a9cf1da0">resolving github push decline due to email privacy restrictions</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-registry/container-registry-rbac-built-in-roles-overview?tabs=registries-configured-with-rbac-registry-abac-repository-permissions">Azure Container Registry Microsoft Entra permissions and role assignments overview</a></li>
+<li><a href="https://learn.microsoft.com/en-us/azure/container-apps/workload-profiles-overview#consumption-profile-details">Workload profiles in Azure Container Apps</a></li>
+<li><a href="https://nulldog.com/terraform-how-to-concatenate-variables-with-examples">Terraform: How to Concatenate Variables (With Examples)</a></li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../build_your_own_git/" class="md-footer__link md-footer__link--prev" aria-label="Previous: CodeCrafter&#39;s Build your own Git">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                CodeCrafter's Build your own Git
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../security_automation/python/overview/" class="md-footer__link md-footer__link--next" aria-label="Next: Overview">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Overview
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/@ArtistUniverseUntouched" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.annotate", "content.code.copy", "content.tabs.link", "header.autohide", "announce.dismiss", "navigation.footer", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.path", "navigation.tracking", "search.highlight", "search.share", "search.suggest"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
