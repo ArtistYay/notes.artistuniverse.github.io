@@ -4,7 +4,7 @@ tags:
   - Computer Programming
 ---
 
-## Lists — Ordered and Changeable
+## Lists: Ordered and Changeable
 
 A list is an ordered collection of items enclosed in square brackets `[]`. Lists can hold items of different data types, and their contents can be changed after creation (this is called **mutable**).
 
@@ -13,7 +13,7 @@ my_list = [1, 2, 3, "four", 5.0]
 devices  = ["Switch1", "Router2", "Firewall3"]
 ```
 
-## Accessing Items — Indexing
+## Accessing Items: Indexing
 Every item in a list has a position number called an **index**. Indexing starts at `0` (not 1):
 ```python
 devices = ["Switch1", "Router2", "Firewall3"]
@@ -24,7 +24,7 @@ print(devices[-1])   # Firewall3 — last item (negative counts from end)
 print(devices[-2])   # Router2   — second to last
 ```
 
-## Slicing — Accessing a Range of Items
+## Slicing: Accessing a Range of Items
 Slicing extracts a portion of a list. The syntax is `list[start:stop]`. The `stop` index is **not** included:
 ```python
 devices = ["A", "B", "C", "D", "E"]
@@ -74,9 +74,9 @@ ip_list = list(("192.168.1.1", "192.168.1.2", "192.168.1.3"))
 
 ---
 
-## Tuples — Ordered but Unchangeable
+## Tuples: Ordered but Unchangeable
 
-A tuple looks like a list but uses parentheses `()`. The key difference: tuples are **immutable** — once created, their contents cannot be modified. This makes them useful for storing data that should stay fixed (like device credentials or fixed configuration values).
+A tuple looks like a list but uses parentheses `()`. The key difference: tuples are **immutable**, once created, their contents cannot be modified. This makes them useful for storing data that should stay fixed (like device credentials or fixed configuration values).
 
 ```python
 # Create a tuple
@@ -91,5 +91,5 @@ print(device_info[-1])   # Cisco
 ```
 
 **When to use a Tuple vs. a List:**
-- Use a **list** when data needs to be updated — adding devices, changing statuses, tracking errors
-- Use a **tuple** when data should stay constant — IP/credential pairs, fixed config templates
+- Use a **list** when data needs to be updated: adding devices, changing statuses, tracking errors
+- Use a **tuple** when data should stay constant: IP/credential pairs, fixed config templates

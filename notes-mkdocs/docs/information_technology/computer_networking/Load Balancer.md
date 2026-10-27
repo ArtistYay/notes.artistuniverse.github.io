@@ -3,6 +3,6 @@ tags:
   - Computer Networking
 ---
 
-- Load Balancer distributes new inbound flows that arrive on the Load Balancer’s frontend to backend pool instances, according to rules and health probes.
+- Azure Load Balancer takes new inbound flows that hit its frontend and spreads them across the backend pool instances, based on load balancing rules and health probes. It works at layer 4 (TCP/UDP).
 
-- Elastic Load Balancing offers three types of load balancers: Application, Network, and classic.
+- AWS Elastic Load Balancing has four types of load balancers: Application (layer 7, HTTP/HTTPS), Network (layer 4, TCP/UDP), Gateway (for putting third party appliances like firewalls inline), and Classic (the old previous-generation one).

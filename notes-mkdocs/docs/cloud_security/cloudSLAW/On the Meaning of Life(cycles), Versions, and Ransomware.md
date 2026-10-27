@@ -6,15 +6,16 @@ tags:
 
 ## The Lesson
 
-- Keeping all logs indefinitely can create large bills, even if the cost starts small.
-- Security logs should be managed efficiently.  Retention should balance compliance needs with storage costs.
-- A lifecycle policy helps determine what to retain and what to discard.
-- S3 versioning is a data protection mechanism, keeps previous versions of objects, making it harder for attackers to delete data permanently. Attackers delete or modify logs to cover their tracks.
-- You can block delete operations on critical logs via IAM or SCP.
-- Why isn’t versioning used in this lab? versioning increases storage costs. In a real-world ransomware protection strategy, versioning + SCPs are highly recommended.
-- AWS Glacier is also used for immutable storage but Glacier retrieval is slow and may not fit operational needs. Quick access is needed for investigations; waiting 12+ hours for Glacier retrieval may not be practical.
+- Keeping every log forever can turn into a big bill, even if it starts small.
+- Security logs should be managed on purpose. Retention should balance what compliance needs with what storage costs.
+- A lifecycle policy decides what to keep, what to move to cheaper storage, and what to delete.
+- S3 versioning keeps previous versions of objects, which makes it a lot harder for an attacker to permanently delete data. Attackers delete or change logs to cover their tracks.
+- You can block delete operations on critical logs with IAM policies or an SCP.
+- Why didn't we use versioning in this lab? It increases storage costs. For real ransomware protection though, versioning + SCPs are highly recommended. S3 Object Lock is the feature that actually makes objects immutable (write once, read many).
+- S3 Glacier storage classes are cheap for long-term storage, but some of them are slow to get data back from. Glacier Flexible Retrieval can take minutes to hours, and Glacier Deep Archive can take 12 hours or more. During an investigation you need logs fast, so that wait might not work. (Glacier Instant Retrieval is the exception, it's milliseconds.)
 
 ## The Lab
 
-1. Signed into the `LogArchive` with the `AdministratorAccess` role via SSO and turned on S3 Lifecycle policy for the CloudTrail bucket for 90 days
-		90-day retention ensures logs are available for incident response and auditing.
+1. Signed into `LogArchive` with the `AdministratorAccess` role through SSO and turned on an S3 lifecycle policy for the CloudTrail bucket for 90 days.
+
+    90 days of retention keeps logs around for incident response and audits.

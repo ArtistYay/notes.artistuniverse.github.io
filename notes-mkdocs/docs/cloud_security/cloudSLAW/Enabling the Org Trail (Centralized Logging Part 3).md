@@ -6,8 +6,9 @@ tags:
 
 ## The Lab
 
-1. Enable Access for CloudTrail under Organizations
-2. Enabled logging for all accounts in Organizations
-		Assumed role to switched into the SecurityAudit account. Went into the already made trail and specified the bucket we made earlier as the centralized logging place.
+1. Turned on trusted access for CloudTrail in Organizations.
+2. Turned on logging for all accounts in the organization.
+
+    Switched roles into the SecurityAudit account, went into the trail we already made, and pointed it at the bucket we made earlier as the central logging location.
 
 ![screenshot](../../../images/Pasted image 20250309194503.png)

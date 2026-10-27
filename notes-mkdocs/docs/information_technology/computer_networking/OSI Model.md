@@ -11,21 +11,21 @@ tags:
 
     - Layer 1 networks use a shared medium. Hardware can transmit and listen.
 
-    - Layer 1 standard agrees how to transmit and receive the medium, the voltages, and the RF details
+    - The layer 1 standard defines how to transmit and receive on the medium: the voltages, the RF details, and so on.
 
 - Layer 2 ~ Data link
 
-    - Add MAC Addresses which can be used for named communication between two devices on a local network.
+    - Adds MAC addresses, so two devices on a local network can talk to each other directly.
 
-    - Also adds controls over the media, avoiding cross-talk, this allows a back-off time and retransmissions
+    - Also adds control over the media to avoid cross-talk (devices talking over each other), with back-off times and retransmissions.
 
-    - It uses frames
+    - It uses frames.
 
 - Layer 3 ~ Network
 
     - It allows for unique device-to-device communication over interconnected networks.
 
-    - L3 devices can pass packets over tens or even hundreds of L2 networks. The packets remain largely unchanged during this journey - traveling within different L2 frames as they pass over various networks.
+    - L3 devices can pass packets over tens or even hundreds of L2 networks. The packets stay mostly unchanged during the trip, they just get wrapped in different L2 frames as they pass over each network.
 
     - It uses IP addresses to communicate over the internet.
 
@@ -35,9 +35,9 @@ tags:
 
     - L4 adds TCP and UDP.
 
-    - TCP is designed for reliable transport, it uses segments to ensure data is received in the correct order and adds error checking and ports allowing different streams of communications to the same host.
+    - TCP is built for reliable transport. It uses segments to make sure data arrives in the right order, adds error checking, and uses ports so a host can have different streams of communication going at once.
 
-    - UDP is aimed at speed.
+    - UDP is all about speed. No handshake and no guaranteed delivery.
 
     - This layer is how you have multiple conversations to the same IP.
 
@@ -53,10 +53,10 @@ tags:
 
     - Adds data conversion, encryption, compression, and standards that L7 can use.
 
-    - Application data is formatted for delivery. Translated into a common network language.
+    - Formats the application data for delivery and translates it into a common format the network understands.
 
 - Layer 7 ~ Application
 
-    - Is where protocols such as HTTP, SSH, and FTP are added.
+    - Where protocols like HTTP, SSH, DNS, and FTP live.
 
-- You can read how It relates to cybersecurity [here](https://douglasbellonrocha.medium.com/defend-from-hackers-using-computer-networking-fundamentals-d80275f37af3).
+- You can read how it relates to cybersecurity [here](https://douglasbellonrocha.medium.com/defend-from-hackers-using-computer-networking-fundamentals-d80275f37af3).

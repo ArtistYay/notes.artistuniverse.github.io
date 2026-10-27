@@ -4,8 +4,8 @@ tags:
   - Compute
 ---
 
-- Container Instances let’s you run containers without managing servers.
+- Azure Container Instances (ACI) lets you run containers without managing any servers.
 
-- It’s a PaaS
+- It's a PaaS
 
-- Manage application dependencies, less overhead, increased portability, efficiency, consistency.
+- Containers package an app with its dependencies, so you get less overhead and an app that runs the same way everywhere.

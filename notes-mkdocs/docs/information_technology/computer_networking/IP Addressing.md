@@ -3,38 +3,38 @@ tags:
   - Computer Networking
 ---
 
-- IPv4 addresses are how two devices can communicate at layer 4 and above of OSI seven layer model.
+- IPv4 addresses are how devices find each other across networks. IP lives at layer 3 (network) of the OSI seven layer model.
 
-- They are 32-bit binary values but are represented in dotted decimal notation to make them easier for humans to read and understand.
+- They're 32-bit binary values, but we write them in dotted decimal notation so humans can actually read them.
 
-- Each octet is made up of 1 byte and 8 bits.
+- Each octet is 8 bits (1 byte), and there are 4 octets.
 
-- IPs are split into a network part and a node or host part. The netmask (255.255.255.0) or prefix (/24) shows where this split occurs.
+- IPs are split into a network part and a node (host) part. The netmask (255.255.255.0) or prefix (/24) shows where that split happens.
 
-- 0.0.0.0 and 0.0.0.0/0 represents all IP addresses.
+- 0.0.0.0/0 means all IP addresses (you'll see it in route tables and firewall rules a lot).
 
-- 255.255.255.255 is the IP address used to broadcast to all addresses everywhere but was later filtered so it can not be passed between networks.
+- 255.255.255.255 is the limited broadcast address. It goes to every device on your local network, but routers don't forward it, so it never leaves the network.
 
-- 127.0.0.1 is a [localhost](http://localhost) or loopback address. Whatever the IP address of the device you are using, it can be referenced by itself as 127.0.0.1. So a web server on your laptop will be 127.0.0.1:80.
+- 127.0.0.1 is the [localhost](http://localhost) or loopback address (the whole 127.0.0.0/8 range is loopback). No matter what IP your device has, it can always reach itself at 127.0.0.1. So a web server on your laptop is at 127.0.0.1:80.
 
-- 169.254.0.1 to 169.254.255.254 is a range of IP addresses that a device can auto configure with if it’s using DHCP and fails to automatically get an IP from a DHCP server.
+- 169.254.0.0/16 is the link-local (APIPA) range. If a device is set to use DHCP and can't get an address from a DHCP server, it gives itself one in this range. Seeing a 169.254.x.x address is usually your first clue DHCP is broken.
 
-- Class A (/8) is 1.0.0.0 to 126.255.255.255. It has 126 networks and 16,777,214 hosts (nodes) in each. 2 IPs are reserved.
+- Class A (/8) is 1.0.0.0 to 126.255.255.255. It has 126 usable networks and 16,777,214 hosts in each (2 IPs per network are reserved for the network and broadcast addresses).
 
-- Class B (/16) is 128.0.0.0 to 191.255.255.255. It has 16,382 networks and 65,534 hosts (nodes) in each. 2 IPs are reserved.
+- Class B (/16) is 128.0.0.0 to 191.255.255.255. It has 16,384 networks and 65,534 hosts in each.
 
-- Class C (/24) is 192.0.0.0 to 223.255.255.255. It has 2,097,150 networks and 254 hosts (nodes) in each. 2 IPs are reserved.
+- Class C (/24) is 192.0.0.0 to 223.255.255.255. It has 2,097,152 networks and 254 hosts in each.
 
-- Private networking IPs
+- Private networking IPs (RFC 1918)
 
-    - IP classes have a number of ranges within them used for private networking only.
+    - Each class has a range set aside for private networks only. These aren't routed on the public internet.
 
-    - Class A has range 10.0.0.0 to 10.255.255.255
+    - Class A range: 10.0.0.0 to 10.255.255.255 (10.0.0.0/8)
 
-    - Class B has range 172.16.0.0 to 172.32.255.255
+    - Class B range: 172.16.0.0 to 172.31.255.255 (172.16.0.0/12)
 
-    - Class C has range 192.168.0.0 to 192.168.255.255
+    - Class C range: 192.168.0.0 to 192.168.255.255 (192.168.0.0/16)
 
-- [CIDR](https://cidr.xyz/) (Classless Inter-Domain Routing) is used for IPv4 IP networking rather than the class system. It allows more effective allocation and subnetworking.
+- [CIDR](https://cidr.xyz/) (Classless Inter-Domain Routing) is what IPv4 networking actually uses now instead of the class system. It lets you allocate and subnet networks way more efficiently.
 
-- The network address is your starting point. The prefix is the number of bits the network uses, the remaining bits, and the node part is yours to use. The node (host) part is yours from all 0’s to all 1’s.
+- The network address is your starting point. The prefix is the number of bits the network uses, and the remaining bits are the node part, which is yours to use, from all 0's to all 1's.

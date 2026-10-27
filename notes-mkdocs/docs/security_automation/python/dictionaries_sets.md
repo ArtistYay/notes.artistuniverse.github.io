@@ -4,7 +4,7 @@ tags:
   - Computer Programming
 ---
 
-## Dictionaries — Key-Value Pairs
+## Dictionaries: Key-Value Pairs
 
 A dictionary stores data as **key-value pairs** using curly braces `{}` with colons `:` separating keys from values. Dictionaries are ideal when you need to quickly look up a value by a label rather than by position.
 
@@ -88,9 +88,9 @@ mixed = {
 
 ---
 
-## Sets — Unordered and Unique
+## Sets: Unordered and Unique
 
-A set also uses curly braces `{}`, but has **no key-value pairs** — it's just a collection of individual values. The defining feature of a set is that it **automatically removes duplicates** and has **no guaranteed order**.
+A set also uses curly braces `{}`, but has **no key-value pairs**, it's just a collection of individual values. The defining feature of a set is that it **automatically removes duplicates** and has **no guaranteed order**.
 
 Sets are perfect when you need to store unique items or quickly check membership.
 
@@ -100,7 +100,7 @@ network_devices = {"Switch", "Router", "Firewall"}
 ```
 
 ### Creating a Set from a List (Removing Duplicates)
-This is one of the most common uses of sets — instantly deduplicate a list:
+This is one of the most common uses of sets, instantly deduplicate a list:
 ```python
 access_log = ["alice", "bob", "alice", "charlie", "bob", "alice"]
 unique_users = set(access_log)

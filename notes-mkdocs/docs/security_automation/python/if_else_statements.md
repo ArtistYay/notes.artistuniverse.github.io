@@ -4,7 +4,7 @@ tags:
   - Computer Programming
 ---
 
-`if/else` statements let your code make decisions. Python evaluates a condition — if it is `True`, one block of code runs; if it is `False`, a different block runs.
+`if/else` statements let your code make decisions. Python evaluates a condition, if it is `True`, one block of code runs; if it is `False`, a different block runs.
 
 ## Basic `if` / `else`
 ```python
@@ -29,10 +29,10 @@ else:
     print("x is 30 or more")
 ```
 - You can have as many `elif` blocks as you need.
-- The `else` at the end is a "catch-all" — it runs only if none of the conditions above were `True`.
+- The `else` at the end is a "catch-all": it runs only if none of the conditions above were `True`.
 - Both `elif` and `else` are optional. A lone `if` is valid on its own.
 
-## Real-World Example — Classify an IP Address
+## Real-World Example: Classify an IP Address
 ```python
 ip_address = "192.168.1.1"
 
@@ -46,8 +46,8 @@ else:
     print(f"{ip_address} is not a private IP address")
 ```
 
-## Indentation — How Python Defines Code Blocks
-Python does not use curly braces `{}` like many other languages. Instead, it uses **indentation** (4 spaces per level) to define which lines belong to which block. This is strict — incorrect indentation is a syntax error:
+## Indentation: How Python Defines Code Blocks
+Python does not use curly braces `{}` like many other languages. Instead, it uses **indentation** (4 spaces per level) to define which lines belong to which block. This is strict, incorrect indentation is a syntax error:
 ```python
 x = 10
 

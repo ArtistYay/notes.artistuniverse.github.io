@@ -6,14 +6,17 @@ tags:
 
 ## The Lab
 
-1. Assumed the `OrganizationAccountAccessRole`
-		Have to input the account ID # of the account you wish to sign into with the role (SecurityAudit) and the role name (OrganizationAccountAccessRole)
-2.  Deployed an S3 bucket in the SecurityAudit account for centralized logging.
-		Centralizing logs is a crucial part of any cloud security strategy. By keeping logs in a centralized location, security teams can more easily perform investigations and monitor for suspicious activities across all accounts.
+1. Assumed the `OrganizationAccountAccessRole`.
+
+    You have to put in the account ID of the account you want to switch into (SecurityAudit) and the role name (OrganizationAccountAccessRole).
+
+2. Deployed an S3 bucket in the SecurityAudit account for centralized logging.
+
+    Centralizing logs is a big part of any cloud security strategy. With all the logs in one place, the security team can investigate and watch for suspicious activity across every account without hopping around.
 
 ## The Lesson
 
-- _AWS does not allow you to assume roles from your root user account, you need to use an IAM user or another role._
-- AWS provides AWS Security Token Service (AWS STS) as a web service that enables you to request temporary, limited-privilege credentials for users.
+- _AWS doesn't let you assume roles with the root user. You have to use an IAM user or another role._
+- AWS Security Token Service (STS) is the service that hands out temporary, limited-privilege credentials when you assume a role.
 
 ![screenshot](../../../images/Pasted image 20250309124139.png)

@@ -50,7 +50,7 @@ A C2 framework is a system used by threat actors (and security professionals in 
 ## Jitter
 
 - Introduces randomness to beaconing intervals to evade detection.
-- Example: Instead of always calling back every 60 seconds, an agent calls back within a randomized range (e.g., 45–75 seconds).
+- Example: Instead of always calling back every 60 seconds, an agent calls back within a randomized range (e.g., 45-75 seconds).
 ```python
 import random
 
@@ -61,7 +61,7 @@ sleep = sleep + jitter
 
 1. **Why do C2 agents beacon?** To maintain persistent communication with the C2 server.
 2. **Why is persistence important?** Attackers need long-term access for data exfiltration or lateral movement.
-3. **Why can’t they maintain a permanent connection?** Continuous traffic is easily detected.
+3. **Why can't they maintain a permanent connection?** Continuous traffic is easily detected.
 4. **Why is detection a risk?** Security tools analyze network traffic patterns to flag irregular activity.
 5. **Why do attackers use beaconing with jitter?** To blend in with normal user traffic and evade detection.
 

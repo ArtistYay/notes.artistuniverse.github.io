@@ -16,7 +16,7 @@ tags:
 
 3. What configuration changes must you make to monitor the real time attack metrics and diagnostic logs of distributed denial of service (DDoS) attacks on a public IP of your Azure Virtual Network (VNet)?
 
-    Configure DDoS protection standard service for Azure VNET to monitor real time metrics and diagnostic logs.
+    Turn on Azure DDoS Protection for the VNet to get real-time attack metrics and diagnostic logs. (DDoS Protection Standard is called DDoS Network Protection now, and there's also a per-IP option called DDoS IP Protection.)
 
 4. You need four /24 subnets in your Azure Virtual Network. Which address space should you select?
 
@@ -24,7 +24,7 @@ tags:
 
 5. When can Azure subnets have overlapping IP address spaces?
 
-    When they are in two different Azure Virtual Networks with different subscriptions.
+    When they're in different virtual networks that aren't connected to each other. The subscription doesn't matter. Once you try to peer them or connect them with a VPN, the address spaces can't overlap.
 
 6. You have deployed a firewall network virtual appliance in a dedicated subnet in an Azure VNet. How do you ensure that traffic from VMs use the NVA for outbound traffic?
 
@@ -40,7 +40,7 @@ tags:
 
 9. How do you configure drive encryption for Linux in Microsoft Azure?
 
-    Linux drives are encrypted with the dm-crypt feature and keys will be stored in Azure Key Vault.
+    Azure Disk Encryption (ADE) encrypts Linux drives with the dm-crypt feature and stores the keys in Azure Key Vault. Heads up though: ADE retires on September 15, 2028. Microsoft says to use encryption at host for new VMs instead.
 
 10. What is the practice of sending all internet bound traffic back through your on-premises location via a site-to-site VPN?
 
@@ -48,8 +48,8 @@ tags:
 
 11. You are configuring a network security group to manage traffic between two subnets in an Azure VNet. What rule do you need to add to allow outbound communication to the internet for each subnet?
 
-    Outbound traffic to the internet is allowed by default.
+    Outbound traffic to the internet is allowed by default by the NSG (the `AllowInternetOutBound` default rule).
 
 12. How do you enable resources to communicate with the internet from the Azure Virtual Network?
 
-    Communication is enabled by default.
+    It used to be enabled by default (called default outbound access). That's changing: new virtual networks created with API versions after March 31, 2026 get private subnets by default, so VMs need an explicit outbound method like a NAT Gateway, a public IP, or load balancer outbound rules. Existing VNets aren't affected.

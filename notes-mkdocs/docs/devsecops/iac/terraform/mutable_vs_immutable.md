@@ -8,10 +8,10 @@ tags:
 
 ## The Core Idea
 
-- **Mutable** — you take an existing server and change it in place. Patch it, install a new package, restart a service.
-- **Immutable** — you never change a running resource. You build a brand new one from an updated definition, validate it, cut traffic over, and destroy the old one.
+- Mutable: you take an existing server and change it in place. Patch it, install a new package, restart a service.
+- Immutable: you never change a running resource. You build a brand new one from an updated definition, validate it, cut traffic over, and destroy the old one.
 
-**Mental model:** mutable is renovating your house while you're still living in it. Immutable is building a new house next door and moving in once it's finished, then tearing down the old one.
+Mental model: mutable is renovating your house while you're still living in it. Immutable is building a new house next door and moving in once it's finished, then tearing down the old one.
 
 ## Why Mutable Gets Risky at Scale
 
@@ -50,7 +50,7 @@ Because `ami` is an attribute that forces replacement on `aws_instance`, changin
 
 A few practical notes:
 
-- **`create_before_destroy`** is the setting that makes this safe. Without it, Terraform destroys the old resource first, which usually means downtime. With it, the new resource is created and validated before the old one is torn down.
+- `create_before_destroy` is the setting that makes this safe. Without it, Terraform destroys the old resource first, which usually means downtime. With it, the new resource is created and validated before the old one is torn down.
 - Not every attribute forces replacement. Whether a change updates a resource in place or replaces it entirely depends on the resource type and provider, check the provider docs.
 - If your instance sits behind a load balancer or in an Auto Scaling Group, the ASG's rolling update behavior handles shifting traffic to new instances before removing old ones.
 - Config management tools (Ansible, Chef, Puppet) aren't wrong, they're just the mutable approach, with the partial-failure and drift risks described above. Some teams use them deliberately, especially for things that change rarely, like the base image build itself.
@@ -66,17 +66,17 @@ A few practical notes:
 
 ## Tips from the Community
 
-- **Immutability pairs naturally with Terraform's declarative model.** Your `.tf` files describe the exact desired state, not the steps to reach it. If you enforce immutability, that description stays the one source of truth: any manual edit or hotfix gets overwritten on the next `apply` instead of quietly drifting the fleet apart.
-  Source: [Immutability in Terraform: Preventing Drift and Ensuring Infrastructure Reliability – Hoop.dev](https://hoop.dev/blog/immutability-in-terraform-preventing-drift-and-ensuring-infrastructure-reliability)
+- Immutability pairs naturally with Terraform's declarative model. Your `.tf` files describe the exact desired state, not the steps to reach it. If you enforce immutability, that description stays the one source of truth: any manual edit or hotfix gets overwritten on the next `apply` instead of quietly drifting the fleet apart.
+  Source: [Immutability in Terraform: Preventing Drift and Ensuring Infrastructure Reliability | Hoop.dev](https://hoop.dev/blog/immutability-in-terraform-preventing-drift-and-ensuring-infrastructure-reliability)
 
-- **`name_prefix` instead of `name` matters for `create_before_destroy`.** If a security group (or similar named resource) uses a fixed `name`, Terraform can't create the replacement while the original still exists, the name collision fails the create step. Using `name_prefix` lets AWS generate a unique suffix so both copies can exist briefly during the cutover.
-  Source: [How to Use Lifecycle Rules with create_before_destroy – OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-use-lifecycle-rules-with-create-before-destroy/view)
+- `name_prefix` instead of `name` matters for `create_before_destroy`. If a security group (or similar named resource) uses a fixed `name`, Terraform can't create the replacement while the original still exists, the name collision fails the create step. Using `name_prefix` lets AWS generate a unique suffix so both copies can exist briefly during the cutover.
+  Source: [How to Use Lifecycle Rules with create_before_destroy | OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-use-lifecycle-rules-with-create-before-destroy/view)
 
-- **A layered image pipeline keeps rebuilds cheap.** Rather than baking one monolithic AMI, build a base image (OS-level config), a middleware image (runtime dependencies), and an application image (your code) as separate layers. When only the app changes, you only rebuild the top layer instead of the whole stack.
-  Source: [How to Create AMIs with Packer and Deploy with Terraform – OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-create-amis-with-packer-and-deploy-with-terraform/view)
+- A layered image pipeline keeps rebuilds cheap. Rather than baking one monolithic AMI, build a base image (OS-level config), a middleware image (runtime dependencies), and an application image (your code) as separate layers. When only the app changes, you only rebuild the top layer instead of the whole stack.
+  Source: [How to Create AMIs with Packer and Deploy with Terraform | OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-create-amis-with-packer-and-deploy-with-terraform/view)
 
-- **`replace_triggered_by` closes a gap `create_before_destroy` doesn't cover.** Sometimes a dependency changing should force a resource to be replaced even though the resource's own configuration hasn't changed, for example, forcing an EC2 instance to rebuild whenever the security group it references changes. `replace_triggered_by` links that dependency explicitly, which is useful for enforcing immutability end-to-end rather than just at the resource you edited directly.
-  Source: [Mastering Terraform's Lifecycle Meta-arguments – DEV Community](https://dev.to/ekefan/level-up-your-infrastructure-mastering-terraforms-lifecycle-meta-arguments-4d8g)
+- `replace_triggered_by` closes a gap `create_before_destroy` doesn't cover. Sometimes a dependency changing should force a resource to be replaced even though the resource's own configuration hasn't changed, for example, forcing an EC2 instance to rebuild whenever the security group it references changes. `replace_triggered_by` links that dependency explicitly, which is useful for enforcing immutability end-to-end rather than just at the resource you edited directly.
+  Source: [Mastering Terraform's Lifecycle Meta-arguments | DEV Community](https://dev.to/ekefan/level-up-your-infrastructure-mastering-terraforms-lifecycle-meta-arguments-4d8g)
 
-- **Never SSH into a production box to debug.** If you need to see what's going wrong, deploy a new instance with debug tooling attached, or lean on centralized logging, rather than reaching into a running instance. The moment you SSH in and fix something by hand, you've quietly gone mutable and the image no longer matches what's actually running.
-  Source: [How to Configure Immutable Infrastructure – OneUptime](https://oneuptime.com/blog/post/2026-01-24-configure-immutable-infrastructure/view)
+- Never SSH into a production box to debug. If you need to see what's going wrong, deploy a new instance with debug tooling attached, or lean on centralized logging, rather than reaching into a running instance. The moment you SSH in and fix something by hand, you've quietly gone mutable and the image no longer matches what's actually running.
+  Source: [How to Configure Immutable Infrastructure | OneUptime](https://oneuptime.com/blog/post/2026-01-24-configure-immutable-infrastructure/view)

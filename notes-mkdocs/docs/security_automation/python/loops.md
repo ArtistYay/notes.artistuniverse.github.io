@@ -6,7 +6,7 @@ tags:
 
 Loops let you repeat a block of code multiple times without rewriting it. Python has two types: `for` and `while`.
 
-## `for` Loop — Iterate Over a Collection
+## `for` Loop: Iterate Over a Collection
 A `for` loop goes through each item in a sequence one at a time. Think of it as "for each item in this collection, do something":
 ```python
 devices = ["router", "switch", "firewall"]
@@ -29,7 +29,7 @@ for i in range(0, 10, 2): # 0, 2, 4, 6, 8  (start, stop, step)
     print(i)
 ```
 
-## `for` Loop — Network Example
+## `for` Loop: Network Example
 ```python
 # Generate all IP addresses in the 192.168.1.0/24 subnet
 subnet = "192.168.1."
@@ -39,7 +39,7 @@ for ip in ip_addresses:
     print(ip)
 ```
 
-## `while` Loop — Repeat While a Condition is True
+## `while` Loop: Repeat While a Condition is True
 A `while` loop keeps running as long as its condition evaluates to `True`. It is useful when you don't know in advance how many times you need to loop:
 ```python
 i = 0
@@ -49,7 +49,7 @@ while i < 5:
 ```
 > ⚠️ Always make sure something inside the loop will eventually make the condition `False`. If the condition never becomes `False`, you get an **infinite loop** that hangs your program.
 
-## `while` Loop — Network Example
+## `while` Loop: Network Example
 ```python
 subnet = "192.168.1."
 ip_addresses = []
@@ -60,7 +60,7 @@ while i < 256:
     i += 1   # increment keeps the loop from running forever
 ```
 
-## `break` — Exit the Loop Early
+## `break`: Exit the Loop Early
 `break` immediately stops the loop and jumps past it, even if the condition is still `True`:
 ```python
 i = 1
@@ -71,7 +71,7 @@ while True:             # infinite loop — runs forever on its own
     i += 1
 ```
 
-## `continue` — Skip the Current Iteration
+## `continue`: Skip the Current Iteration
 `continue` skips the rest of the current iteration and jumps directly to the next one:
 ```python
 for i in range(1, 256):

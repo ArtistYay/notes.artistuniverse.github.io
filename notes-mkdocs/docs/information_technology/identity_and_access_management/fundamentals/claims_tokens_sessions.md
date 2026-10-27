@@ -6,7 +6,7 @@ tags:
 
 ## Claims
 
-Users attributes or data about the user like email address, full name etc. The asserting party (IdP) tells the API (eg. Microsoft Graph, Intune) about your (subject) claims (attributes) and what you're authorized to do.
+User attributes, or data about the user, like email address, full name, etc. The asserting party (IdP) tells the API (eg. Microsoft Graph, Intune) about your (subject) claims (attributes) and what you're authorized to do.
 
 They are embedded in tokens and only accepted if the asserting party is trusted.
 
@@ -14,13 +14,13 @@ They are embedded in tokens and only accepted if the asserting party is trusted.
 
 ## Tokens
 
-They are basically a pass to enter club so you don't hate outside of it (a little joke) you can use that same token for different types of clubs as well. In technical terms it is a secure device that allows access to protected resources.
+They're basically a pass to get into the club so you don't hate outside of it (a little joke), and you can use that same pass for different types of clubs too. In technical terms, it's a piece of data that proves you're allowed to access protected resources.
 
 There are different types of authentication tokens:
 
 ### Session
 
-This token is a authenticate one and done. The server sends you a unique ID that is stored in your browser cookies and stores it in it's memory to remember that it is your token, every time you do something that same token is used to prove (non-repudiation) is you.
+This one is authenticate once and done. The server sends you a unique session ID that gets stored in your browser cookies, and the server keeps it on its side too so it remembers the ID is yours. Every time you do something, that same ID is used to prove it's you.
 
 ![screenshot](../../../images/session_token.png)
 
@@ -28,9 +28,9 @@ This token is a authenticate one and done. The server sends you a unique ID that
 
 ### JWT
 
-This is a common token used in IT but it's basically a session token but the only difference is that instead of the server giving it a unique identifier and storing the unique identifier, the token is digitally signed (integrity) so if show this JWT token to any resource or server in your environment it's automatically trusted and that server doesn't need to hit up another server to see if you are legit.
+This is a really common token in IT. It's kind of like a session token, but the difference is that instead of the server handing you an ID and storing it, the token is digitally signed (integrity). So if you show the JWT to any resource or server in your environment, it can check the signature itself and trust it, without having to hit up another server to see if you're legit.
 
-It also holds you claims (attributes).
+It also holds your claims (attributes).
 
 ![screenshot](../../../images/jwt_token.png)
 
@@ -40,7 +40,7 @@ It also holds you claims (attributes).
 
 ##### Access
 
-It's a temporary key that gives you access for certain applications, so for example in that token you may have an hour of access to that service. It also proves what you can do, so the token carries the permissions you have in that application. It answers the question '_what is the user allowed to do?_'
+It's a temporary key that gives you access to certain applications. For example, the token might give you an hour of access to that service. It also proves what you can do, since the token carries the permissions (scopes or roles) you have in that application. It answers the question '_what is the user allowed to do?_'
 
 ![screenshot](../../../images/access_token.png)
 
@@ -50,7 +50,7 @@ It's a temporary key that gives you access for certain applications, so for exam
 
 ##### ID
 
-A badge you walk around with that answers the question '_who is this person?_'. An application can read this token and greets you by your name.
+A badge you walk around with that answers the question '_who is this person?_'. An application can read this token and greet you by name.
 
 ![screenshot](../../../images/id_token.png)
 
@@ -58,7 +58,7 @@ A badge you walk around with that answers the question '_who is this person?_'. 
 
 ##### Refresh
 
-Lastly we have refresh tokens which is pretty straight forward. When an access token expires the refresh token is your renewal voucher that says 'hey, this guy is trusted please send them another access token' it's there to make sure you don't have to go through the whole authentication process again.
+Lastly we have refresh tokens, which are pretty straightforward. When an access token expires, the refresh token is your renewal voucher that says 'hey, this person is trusted, please send them another access token.' It's there so you don't have to go through the whole authentication process again. Since they last a lot longer, refresh tokens are a juicy target for attackers, so protect them.
 
 [Documentation | Auth0](https://auth0.com/docs/secure/tokens/refresh-tokens)
 

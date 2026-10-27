@@ -6,7 +6,7 @@ tags:
 
 ## `git config --global --add safe.directory`
 
-This command tells Git to **trust a specific directory** that it might otherwise consider unsafe.
+This command tells Git to trust a specific directory that it might otherwise consider unsafe.
 
 ---
 
@@ -15,18 +15,20 @@ This command tells Git to **trust a specific directory** that it might otherwise
 | Part | What it does |
 |------|--------------|
 | `git config --global` | Writes the setting to your global Git config (`~/.gitconfig`), applying it to your entire user account |
-| `--add safe.directory` | Adds an entry to Git's whitelist of directories it's allowed to operate in |
-| `C:/Users/example` | The specific folder being whitelisted |
+| `--add safe.directory` | Adds an entry to Git's allowlist of directories it's allowed to operate in |
+| `C:/Users/example` | The specific folder being allowed |
 
 ---
 
 ### Why Is This Needed?
 
-Git introduced [**ownership checks** (in v2.35.2+)](https://support.atlassian.com/bitbucket-cloud/kb/git-command-returns-fatal-error-detected-dubious-ownership/) as a security measure. If Git detects that the directory is owned by a *different* user than the one running the command, it refuses to operate and throws an error like:
+Git introduced [ownership checks (in v2.35.2+)](https://support.atlassian.com/bitbucket-cloud/kb/git-command-returns-fatal-error-detected-dubious-ownership/) as a security fix for CVE-2022-24765. On a shared machine, another user could plant a malicious `.git` folder (with a config that runs commands) in a parent directory, and your Git would happily use it. So now, if Git sees the repo is owned by a *different* user than the one running the command, it refuses to work and throws an error like:
 
 ```
-fatal: unsafe repository ... is owned by someone else
+fatal: detected dubious ownership in repository at 'C:/Users/example'
 ```
+
+(Older Git versions said `fatal: unsafe repository ... is owned by someone else`.)
 
 This commonly happens when:
 - You're on Windows and there's a mismatch between the file owner and the current user
@@ -45,14 +47,17 @@ It adds this line to your `~/.gitconfig`:
     directory = C:/Users/example
 ```
 
-After running it, Git will stop complaining about ownership for that specific repo and let you run commands like `git status`, `git pull`, etc. normally.
+After running it, Git stops complaining about ownership for that specific repo and lets you run `git status`, `git pull`, etc. normally.
+
+!!! warning
+    You'll see people online suggest `git config --global --add safe.directory '*'` to make the error go away everywhere. Don't. That turns the protection off for every directory on your machine. Only allow the specific repos you trust.
 
 ## `git config --global core.autocrlf input`
 
 This sets Git's line ending conversion behavior. With `input`:
 
-- **On commit**: Git converts `CRLF` → `LF` (Windows-style line endings are normalized to Unix-style)
-- **On checkout**: Git does nothing — files are checked out with whatever line endings are stored in the repo (no conversion back to CRLF)
+- On commit: Git converts `CRLF` → `LF` (Windows-style line endings are normalized to Unix-style)
+- On checkout: Git does nothing. Files are checked out with whatever line endings are stored in the repo (no conversion back to CRLF)
 
 Recommended for Mac/Linux developers, or cross-platform teams using a Unix-style repo. Ensures you never accidentally commit Windows `CRLF` line endings, but doesn't force-convert files on your working copy.
 
@@ -62,11 +67,11 @@ Recommended for Mac/Linux developers, or cross-platform teams using a Unix-style
 
 This is a safety check. With `true`:
 
-- Before converting line endings, Git verifies the conversion is **reversible**
-- If a file would be corrupted or changed irreversibly by the CRLF conversion, Git **rejects the commit** with an error
+- Before converting line endings, Git verifies the conversion is reversible
+- If a file would be corrupted or changed irreversibly by the CRLF conversion, Git rejects the commit with an error
 - Protects binary files or files with mixed line endings from being silently mangled
 
-**Example error:**
+Example error:
 ```
 fatal: CRLF would be replaced by LF in somefile.txt
 ```

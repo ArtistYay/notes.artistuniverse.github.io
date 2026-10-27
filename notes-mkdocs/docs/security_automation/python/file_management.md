@@ -18,12 +18,12 @@ file = open("config.txt", "r")   # open for reading
 |------|---------|-------------|
 | `"r"` | Read | Opens existing file for reading. Error if file doesn't exist. |
 | `"w"` | Write | Creates file if needed. **Overwrites all existing content.** |
-| `"a"` | Append | Creates file if needed. Adds to the **end** — does not erase existing content. |
+| `"a"` | Append | Creates file if needed. Adds to the **end**, does not erase existing content. |
 | `"x"` | Create | Creates a new file. Error if the file already exists. |
 | `"rb"` | Read binary | Opens file in binary mode for reading (images, firmware, etc.) |
 | `"wb"` | Write binary | Opens file in binary mode for writing |
 
-> ⚠️ The difference between `"w"` and `"a"` is critical — `"w"` **destroys** all existing content. Use `"a"` when you want to add to a file (like a log) without losing what's already there.
+> ⚠️ The difference between `"w"` and `"a"` is critical, `"w"` **destroys** all existing content. Use `"a"` when you want to add to a file (like a log) without losing what's already there.
 
 ## The `with` Statement Is The Right Way to Open Files
 Always use the `with` statement when working with files. It **automatically closes the file** when the indented block ends, even if an error occurs inside. Without it, forgetting `.close()` wastes system resources and can cause data not to be saved:
@@ -48,21 +48,21 @@ Why closing matters:
 ## Reading Files
 There are three methods to read content from a file:
 
-**`.read()`** — Reads the entire file as a single string:
+**`.read()`**: Reads the entire file as a single string:
 ```python
 with open("config.txt", "r") as file:
     content = file.read()
     print(content)    # one big string with all the content
 ```
 
-**`.readline()`** — Reads one line at a time. Each call reads the next line. Useful when you only need the first line, or want to process a file line by line without loading it all at once:
+**`.readline()`**: Reads one line at a time. Each call reads the next line. Useful when you only need the first line, or want to process a file line by line without loading it all at once:
 ```python
 with open("config.txt", "r") as file:
     first_line  = file.readline()   # reads line 1
     second_line = file.readline()   # reads line 2 on the next call
 ```
 
-**`.readlines()`** — Reads all lines and returns them as a **list**, one string per line. Each string includes the `\n` newline character at the end:
+**`.readlines()`**: Reads all lines and returns them as a **list**, one string per line. Each string includes the `\n` newline character at the end:
 ```python
 with open("config.txt", "r") as file:
     lines = file.readlines()
@@ -101,7 +101,7 @@ with open("log.txt", "a") as file:
 ## Text Files vs. Binary Files
 **Text files** are human-readable. Examples: `.txt`, `.cfg`, `.log`, `.py`. When Python reads a text file, it automatically handles character encoding (converting bytes to readable characters like UTF-8).
 
-**Binary files** are not human-readable — they contain raw bytes that represent images, audio, executables, firmware, etc. Python does NOT perform encoding/decoding on binary files — it reads and writes the exact bytes. You must open them with `"rb"` or `"wb"`:
+**Binary files** are not human-readable, they contain raw bytes that represent images, audio, executables, firmware, etc. Python does NOT perform encoding/decoding on binary files, it reads and writes the exact bytes. You must open them with `"rb"` or `"wb"`:
 ```python
 # Reading a firmware image (binary file)
 def read_firmware_image(firmware_file):
@@ -112,8 +112,8 @@ def read_firmware_image(firmware_file):
 
 In network automation: use text mode for config files and logs; use binary mode for firmware images and packet captures.
 
-## CSV Files — Comma Separated Values
-CSV (Comma Separated Values) files store tabular data — like a spreadsheet where each row is a line and values are separated by commas. Python's built-in `csv` module handles them properly, including edge cases like commas inside quoted fields.
+## CSV Files: Comma Separated Values
+CSV (Comma Separated Values) files store tabular data, like a spreadsheet where each row is a line and values are separated by commas. Python's built-in `csv` module handles them properly, including edge cases like commas inside quoted fields.
 
 **Reading a CSV file:**
 ```python
@@ -147,7 +147,7 @@ with open("devices.csv", "w", newline="") as file:
         writer.writerow(device)                            # write each data row
 ```
 
-## The `os` Module — File System Operations
+## The `os` Module: File System Operations
 The `os` module lets you interact with the operating system to work with files and directories:
 
 ```python
@@ -195,7 +195,7 @@ else:
 ```
 
 ## Comparing Files with `filecmp`
-The `filecmp` module checks whether two files are identical. In network automation, this is useful for detecting configuration drift — checking whether a device's running config has changed from the known-good backup:
+The `filecmp` module checks whether two files are identical. In network automation, this is useful for detecting configuration drift, checking whether a device's running config has changed from the known-good backup:
 ```python
 import filecmp
 

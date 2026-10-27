@@ -6,9 +6,9 @@ tags:
 
 ## What is an API?
 
-An API (Application Programming Interface) is a set of rules that allows different software systems to communicate. In network automation, APIs let you read/modify device configurations, pull monitoring data, or control cloud resources — all programmatically from Python. Most modern network equipment and platforms expose REST APIs.
+An API (Application Programming Interface) is a set of rules that allows different software systems to communicate. In network automation, APIs let you read/modify device configurations, pull monitoring data, or control cloud resources, all programmatically from Python. Most modern network equipment and platforms expose REST APIs.
 
-## The `requests` Library — Making HTTP API Calls
+## The `requests` Library: Making HTTP API Calls
 The `requests` library is how Python communicates with web-based APIs over HTTP:
 ```python
 import requests
@@ -27,12 +27,12 @@ else:
 ```
 
 Common HTTP status codes:
-- `200` — OK, request succeeded
-- `201` — Created successfully
-- `400` — Bad request (something wrong with what you sent)
-- `401` — Unauthorized (bad credentials)
-- `404` — Not found
-- `500` — Server error
+- `200`: OK, request succeeded
+- `201`: Created successfully
+- `400`: Bad request (something wrong with what you sent)
+- `401`: Unauthorized (bad credentials)
+- `404`: Not found
+- `500`: Server error
 
 ## Full API Read → Modify → Push Workflow
 ```python
@@ -62,7 +62,7 @@ print(f"Update status: {response.status_code}")
 ```
 
 ## Log Analysis with `pandas`
-The `pandas` library makes analyzing structured data like CSV logs straightforward. A DataFrame works like a spreadsheet in Python — you can filter rows, group data, count occurrences, and much more:
+The `pandas` library makes analyzing structured data like CSV logs straightforward. A DataFrame works like a spreadsheet in Python, you can filter rows, group data, count occurrences, and much more:
 ```python
 import pandas as pd
 

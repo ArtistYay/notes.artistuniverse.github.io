@@ -6,17 +6,23 @@ tags:
 
 ## The Lesson
 
-- GuardDuty acts as an IDS (Intrusion Detection System) for AWS, analyzing multiple telemetry sources to identify potential threats.
-- GuardDuty charges based on activity, making it affordable to enable across all regions, even unused ones.
-- GuardDuty monitors CloudTrail, VPC Flow Logs, and DNS Logs automatically.
-- Many security frameworks require continuous threat monitoring, and GuardDuty provides an AWS-native way to meet those requirements.
+- GuardDuty is basically an IDS (intrusion detection system) for AWS. It looks at a bunch of telemetry sources to find possible threats.
+- GuardDuty charges based on how much data it analyzes, so it's cheap to turn on in every region, even ones you don't use.
+- Out of the box it watches CloudTrail management events, VPC Flow Logs, and DNS query logs. You don't have to turn those logs on yourself. There are also extra protection plans (S3, EKS, Runtime Monitoring, Malware Protection, RDS, Lambda) you can add.
+- A lot of security frameworks require continuous threat monitoring, and GuardDuty is the AWS-native way to check that box.
 
 ## The Lab
 
-1. Enable GuardDuty in a Primary Region (us-east-1).
-		GuardDuty is a regional service and must be activated separately in each required region.
-2. Repeat for a Secondary Region (us-west-2).
-		Security best practices recommend enabling GuardDuty in multiple regions, even if they are not actively used. GuardDuty costs nothing in inactive regions unless activity is detected (SCP blocks resources from being deployed).
-		We also delegated administration to the `SecurityAudit` account.
-3. Auto-Enable GuardDuty for All Future Accounts.
-		This ensures that any newly created AWS accounts within the organization automatically have GuardDuty enabled. Auto-enable only applies to _new_ accounts, not existing ones.
+1. Turned on GuardDuty in the primary region (us-east-1).
+
+    GuardDuty is a regional service, so you have to turn it on separately in every region you care about.
+
+2. Did the same in the secondary region (us-west-2).
+
+    Best practice is to turn GuardDuty on in every region, even ones you don't use. It costs almost nothing in a region with no activity (and our SCP blocks people from deploying there anyway).
+
+    We also delegated GuardDuty administration to the `SecurityAudit` account.
+
+3. Set GuardDuty to auto-enable for accounts in the organization.
+
+    In the delegated admin account you choose `New` (only accounts that join from now on), `All` (every account, including the ones already in the org), or `None`. If you pick `New`, you still have to add your existing accounts as members yourself.

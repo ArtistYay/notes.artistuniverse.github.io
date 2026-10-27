@@ -6,7 +6,7 @@ tags:
 
 ## Authentication
 
-This method is to confirm you are who you say you are. You can confirm by using a username and for more security purposes give a password to really say I am not an imposter. You can also use MFA which is another step to confirm your identity.
+This is how you confirm you are who you say you are. You give a username, and then a password to really say "I'm not an imposter." You can also use MFA, which is another step to prove your identity.
 
 ## Authorization
 

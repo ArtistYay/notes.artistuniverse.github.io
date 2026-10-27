@@ -10,7 +10,7 @@ The reason for single responsibility is having a centralized place to change cod
 ## Best Practices
 
 * Segregate the software into concentric layers, with clear, unyielding dependency rules.
-* Identify responsibilities, ask “What is this class supposed to do?”
+* Identify responsibilities, ask "What is this class supposed to do?"
 * Use descriptive names for classes and methods to reflect their single purpose (e.g., EmailService instead of NotificationManager).
 
 !!! youtube "Single Responsibility Principle (SRP)"

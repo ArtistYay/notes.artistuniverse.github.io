@@ -6,28 +6,31 @@ tags:
 
 ## The Lab
 
-1. Organized and Created OUs
-	- **Infrastructure** (Shared services and network resources)
-	- **Workloads** (Application environments)
-	- **Exceptions** (Temporary policy exemptions)
-	- **Sandbox** (Developer experimentation)
-    - **Onboarding** (Mergers/acquisitions)
-    - **Nursery** (New accounts before deployment)
-    - **Suspended** (Accounts marked for deprovisioning)
-    - **IncidentResponse** (Accounts for active security incidents)
+1. Organized and created OUs:
+    - Infrastructure (shared services and network resources)
+    - Workloads (application environments)
+    - Exceptions (temporary policy exemptions)
+    - Sandbox (developer experimentation)
+    - Onboarding (mergers and acquisitions)
+    - Nursery (new accounts before they get deployed)
+    - Suspended (accounts marked for deprovisioning)
+    - IncidentResponse (accounts with an active security incident)
 
-	[Chris Farris Github Repo that deploys OUs via Terraform](https://github.com/primeharbor/org-kickstart/blob/main/ous.tf?utm_source=slaw.securosis.com&utm_medium=referral&utm_campaign=aws-lego-organizing-the-org)
+    [Chris Farris GitHub repo that deploys OUs with Terraform](https://github.com/primeharbor/org-kickstart/blob/main/ous.tf?utm_source=slaw.securosis.com&utm_medium=referral&utm_campaign=aws-lego-organizing-the-org)
 
-2. Created two new AWS Accounts and moved them to the Security OU
-	- **IAM** (Dedicated for Identity and Access Management operations)
-	- **SecurityOperations** (Houses security tools with modification capabilities)
-		Why?
-		- IAM account separation prevents privilege escalation risks by isolating identity management.
-		- The Security Operations account ensures security tools have a controlled environment.
+2. Created two new AWS accounts and moved them to the Security OU:
+    - IAM (just for identity and access management)
+    - SecurityOperations (holds security tools that can make changes)
 
-	## But Why?
-	1. **Why separate OUs?** To organize accounts based on security and operational needs.
-	2. **Why does organization matter?** It helps enforce access control and security policies effectively.
-	3. **Why enforce strict access control?** To limit the blast radius of potential security breaches.
-	4. **Why minimize the blast radius?** To reduce impact from compromised accounts or misconfigurations.
-	5. **Why mitigate misconfigurations?** Misconfigurations are a leading cause of cloud security incidents.
+    Why?
+
+    - Keeping IAM in its own account isolates identity management, which cuts down on privilege escalation risk.
+    - The SecurityOperations account gives security tools a controlled place to live.
+
+## But Why?
+
+1. Why separate OUs? To organize accounts by their security and operational needs.
+2. Why does organization matter? It makes it a lot easier to enforce access control and security policies.
+3. Why enforce strict access control? To limit the blast radius of a breach.
+4. Why minimize the blast radius? So a compromised account or a misconfiguration does less damage.
+5. Why care about misconfigurations? They're one of the top causes of cloud security incidents.

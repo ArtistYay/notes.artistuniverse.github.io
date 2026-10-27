@@ -13,13 +13,13 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 ### Errors Made
 
-**Jumping ahead mentally** — Before writing any code, assumed this stage was about commits and who committed code. It was only about reading blobs. Lesson: read the stage carefully and solve only what's in front of you.
+**Jumping ahead mentally**: Before writing any code, assumed this stage was about commits and who committed code. It was only about reading blobs. Lesson: read the stage carefully and solve only what's in front of you.
 
-**Wrong index for the hash** — Initially assumed `sys.argv` worked differently. Had to write out the full list to figure out the hash was at index `[3]`, not somewhere else.
+**Wrong index for the hash**: Initially assumed `sys.argv` worked differently. Had to write out the full list to figure out the hash was at index `[3]`, not somewhere else.
 
-**Splitting on the wrong character** — Tried to split on `\` instead of `\0`. The null byte is `\x00` in Python binary mode, not just a backslash.
+**Splitting on the wrong character**: Tried to split on `\` instead of `\0`. The null byte is `\x00` in Python binary mode, not just a backslash.
 
-**Using `print()` instead of `sys.stdout.write()`** — `print()` appends a newline which broke the tester output. Had to switch to `sys.stdout.write()`.
+**Using `print()` instead of `sys.stdout.write()`**: `print()` appends a newline which broke the tester output. Had to switch to `sys.stdout.write()`.
 
 ### What I Learned
 
@@ -65,17 +65,17 @@ This journal documents errors made, lessons learned, troubleshooting steps taken
 
 ### Errors Made
 
-**`sys.arg` typo** — Wrote `sys.arg[3]` instead of `sys.argv[3]`. Python threw an `AttributeError`.
+**`sys.arg` typo**: Wrote `sys.arg[3]` instead of `sys.argv[3]`. Python threw an `AttributeError`.
 
-**Wrong slice index for filename** — Used `hash[3:]` instead of `hash[2:]` when splitting the hash into folder and filename.
+**Wrong slice index for filename**: Used `hash[3:]` instead of `hash[2:]` when splitting the hash into folder and filename.
 
-**Using f-string to combine bytes** — Tried `f"{encodingHeader}{content}"` which creates a string, not bytes. You cannot mix strings and bytes in Python, it throws a `TypeError`.
+**Using f-string to combine bytes**: Tried `f"{encodingHeader}{content}"` which creates a string, not bytes. You cannot mix strings and bytes in Python, it throws a `TypeError`.
 
-**Using wrong variable name** — Used `data` instead of `combining` when hashing and compressing. Variable names must be consistent.
+**Using wrong variable name**: Used `data` instead of `combining` when hashing and compressing. Variable names must be consistent.
 
-**`os.mkdir` crashing on existing folders** — If the folder already exists, `os.mkdir` throws a `FileExistsError`. Fixed by switching to `os.makedirs(path, exist_ok=True)`.
+**`os.mkdir` crashing on existing folders**: If the folder already exists, `os.mkdir` throws a `FileExistsError`. Fixed by switching to `os.makedirs(path, exist_ok=True)`.
 
-**`sys.stdout.write` inside the `with open` block** — Wrote the output inside the file-writing block instead of after it. Moved it outside.
+**`sys.stdout.write` inside the `with open` block**: Wrote the output inside the file-writing block instead of after it. Moved it outside.
 
 ### What I Learned
 
@@ -126,17 +126,17 @@ def createBlob(fileName): # putting the creating blob from elif command == "hash
 
 ### Errors Made
 
-**Opening `.git/objects` directly** — Tried to open the directory itself instead of building the full file path from the hash.
+**Opening `.git/objects` directly**: Tried to open the directory itself instead of building the full file path from the hash.
 
-**Using wrong `sys.argv` index** — Assumed the hash was at `sys.argv[4]`. Writing out the full list confirmed it was at `sys.argv[3]`.
+**Using wrong `sys.argv` index**: Assumed the hash was at `sys.argv[4]`. Writing out the full list confirmed it was at `sys.argv[3]`.
 
-**Splitting on wrong type** — Used `'\0'` (a string) instead of `b'\x00'` (bytes) when splitting binary data. Python throws a `TypeError` when mixing types.
+**Splitting on wrong type**: Used `'\0'` (a string) instead of `b'\x00'` (bytes) when splitting binary data. Python throws a `TypeError` when mixing types.
 
-**Using `splitBinary[7:]`** — Misunderstood list indexing. Splitting on `\x00` gives only 2 parts: index `[0]` is the header, index `[1]` is the content.
+**Using `splitBinary[7:]`**: Misunderstood list indexing. Splitting on `\x00` gives only 2 parts: index `[0]` is the header, index `[1]` is the content.
 
-**Using `return` inside the while loop** — `return name` exits the function after the first entry. Should use `print(name)` to output each name and continue looping.
+**Using `return` inside the while loop**: `return name` exits the function after the first entry. Should use `print(name)` to output each name and continue looping.
 
-**`position =+ 20` outside the loop** — This only ran once and was outside the while loop. Needed to be `position = positionOfnull + 1 + 20` inside the loop.
+**`position =+ 20` outside the loop**: This only ran once and was outside the while loop. Needed to be `position = positionOfnull + 1 + 20` inside the loop.
 
 ### What I Learned
 
@@ -190,23 +190,23 @@ def createBlob(fileName): # putting the creating blob from elif command == "hash
 
 ### Errors Made
 
-**Iterating over `.git/objects` instead of the working directory** — The working directory `"."` is where actual files live. `.git/objects` is internal Git storage.
+**Iterating over `.git/objects` instead of the working directory**: The working directory `"."` is where actual files live. `.git/objects` is internal Git storage.
 
-**`os.listdir.sort(directory)` — invalid syntax** — `sort()` is a method on a list, not on `os.listdir`. Had to store the list first, then call `.sort()` on it.
+**`os.listdir.sort(directory)`, invalid syntax**: `sort()` is a method on a list, not on `os.listdir`. Had to store the list first, then call `.sort()` on it.
 
-**`entries.append(sha1Hash)` — appending only the hash** — Each entry needs three things: mode, name, and hash. Should append a tuple `("100644", x, sha1Hash)`.
+**`entries.append(sha1Hash)`, appending only the hash**: Each entry needs three things: mode, name, and hash. Should append a tuple `("100644", x, sha1Hash)`.
 
-**Hardcoding `"3b"` in `os.mkdir`** — Used the example hash from the instructions instead of the actual `folderName` variable.
+**Hardcoding `"3b"` in `os.mkdir`**: Used the example hash from the instructions instead of the actual `folderName` variable.
 
-**`treeContent = b""` inside the loop** — This reset the content to empty on every iteration. Moved it before the loop.
+**`treeContent = b""` inside the loop**: This reset the content to empty on every iteration. Moved it before the loop.
 
-**`treeContent =+ ...` — invalid operator** — Python uses `+=` to add to an existing variable, not `=+`.
+**`treeContent =+ ...`, invalid operator**: Python uses `+=` to add to an existing variable, not `=+`.
 
-**`combiningHeadercontent = treeHeader + treeContent`** — `treeHeader` is a string and `treeContent` is bytes. Must encode the header first.
+**`combiningHeadercontent = treeHeader + treeContent`**: `treeHeader` is a string and `treeContent` is bytes. Must encode the header first.
 
-**`from unicodedata import combining`** — An accidental import that conflicted with the variable name `combining`. Deleted it.
+**`from unicodedata import combining`**: An accidental import that conflicted with the variable name `combining`. Deleted it.
 
-**`elif command == "write-tree"` had wrong body** — Was trying to read `sys.argv[3]` but `write-tree` takes no arguments. Should just call `writeTree(".")`.
+**`elif command == "write-tree"` had wrong body**: Was trying to read `sys.argv[3]` but `write-tree` takes no arguments. Should just call `writeTree(".")`.
 
 ### What I Learned
 
@@ -275,15 +275,15 @@ def createBlob(fileName): # putting the creating blob from elif command == "hash
  
 ### Errors Made
  
-**`return sha1Hash` inside `elif`** — `return` sends a value back from a function to whatever called it. But `elif command == "commit-tree":` is not a function — it's just a block inside `main()`. Nothing is calling it and waiting for a value back. Using `return` here just exits `main()` entirely. The fix is `sys.stdout.write(sha1Hash)`, which prints the hash to the terminal where the tester can read it.
+**`return sha1Hash` inside `elif`**: `return` sends a value back from a function to whatever called it. But `elif command == "commit-tree":` is not a function, it's just a block inside `main()`. Nothing is calling it and waiting for a value back. Using `return` here just exits `main()` entirely. The fix is `sys.stdout.write(sha1Hash)`, which prints the hash to the terminal where the tester can read it.
  
-**`encodingcommitString = commitString` without calling `.encode()`** — Named the variable as if it was encoded but never actually encoded it. So combining bytes header + string content threw a `TypeError`.
+**`encodingcommitString = commitString` without calling `.encode()`**: Named the variable as if it was encoded but never actually encoded it. So combining bytes header + string content threw a `TypeError`.
  
-**Putting `\"` at the end of commit string lines** — Each line in the commit content ends with `\n` (newline), not `\"` (a quote character).
+**Putting `\"` at the end of commit string lines**: Each line in the commit content ends with `\n` (newline), not `\"` (a quote character).
  
-**Missing blank line before the commit message** — The commit format requires an empty line between the metadata and the message. Missing it would produce a malformed commit object.
+**Missing blank line before the commit message**: The commit format requires an empty line between the metadata and the message. Missing it would produce a malformed commit object.
  
-**`message {sys.argv[6]}`** — The word "message" doesn't appear in the actual commit file format. The message is just the raw string on its own line.
+**`message {sys.argv[6]}`**: The word "message" doesn't appear in the actual commit file format. The message is just the raw string on its own line.
  
 ### What I Learned
  
@@ -291,7 +291,7 @@ def createBlob(fileName): # putting the creating blob from elif command == "hash
 - Commit content is plain text with specific fields in a specific order: `tree`, `parent`, `author`, `committer`, blank line, then the message. Each line ends with `\n`.
 - The tree and parent SHAs in a commit are 40-character hex strings, unlike in tree objects where they're 20 raw bytes.
 - Author and committer can be hardcoded for this challenge. In a real Git implementation they'd come from your config.
-- `return` exits a function and gives a value back to whoever called it. Inside an `elif` block in `main()`, there's no caller waiting — just use `sys.stdout.write()` to print the result.
+- `return` exits a function and gives a value back to whoever called it. Inside an `elif` block in `main()`, there's no caller waiting, just use `sys.stdout.write()` to print the result.
 - `commitString.encode()` converts the plain text commit content to bytes before combining with the encoded header. Same reason as always: can't mix strings and bytes in Python.
 ### Troubleshooting Steps
  

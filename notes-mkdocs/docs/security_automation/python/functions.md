@@ -18,7 +18,7 @@ greet()   # → Hello, Network Engineer!
 ```
 
 ## Functions with Parameters
-Parameters are the variables listed in the function definition. They act as placeholders — when you call the function, you pass in the actual values (called arguments):
+Parameters are the variables listed in the function definition. They act as placeholders, when you call the function, you pass in the actual values (called arguments):
 ```python
 def add_device(network_devices, device):
     network_devices.add(device)
@@ -30,7 +30,7 @@ my_devices = add_device(my_devices, "Load Balancer")
 # my_devices now contains "Load Balancer" too
 ```
 
-The key insight: parameters are flexible. The function doesn't care which specific variable you pass — it just works on whatever is given to it. This is what makes functions reusable:
+The key insight: parameters are flexible. The function doesn't care which specific variable you pass, it just works on whatever is given to it. This is what makes functions reusable:
 ```python
 def configure_devices(device_list):
     for device in device_list:
@@ -64,7 +64,7 @@ connect("192.168.1.1")          # Uses default: port 22
 connect("192.168.1.1", 8080)    # Overrides default: port 8080
 ```
 
-## `pass` — Placeholder for Empty Functions
+## `pass`: Placeholder for Empty Functions
 If you need to define a function but aren't ready to write the body yet, use `pass` to avoid a SyntaxError:
 ```python
 def my_function():
@@ -72,7 +72,7 @@ def my_function():
 ```
 
 ## Why Functions Matter
-- **Reusability** — Write the logic once, use it anywhere
-- **Readability** — A meaningful function name explains what the code does without reading every line
-- **Modularity** — Break large problems into small, focused pieces
-- **Less repetition** — Change the logic in one place instead of hunting it down everywhere
+- Reusability: Write the logic once, use it anywhere
+- Readability: A meaningful function name explains what the code does without reading every line
+- Modularity: Break large problems into small, focused pieces
+- Less repetition: Change the logic in one place instead of hunting it down everywhere

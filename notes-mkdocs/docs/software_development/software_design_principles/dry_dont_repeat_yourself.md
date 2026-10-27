@@ -13,7 +13,7 @@ Clean your code by putting parts of it in one central place so you can make chan
 - Keep business rules and logic in one place.
 - Use shared libraries for common utilities.
 
-!!! youtube "DRY (Don’t Repeat Yourself)"
+!!! youtube "DRY (Don't Repeat Yourself)"
 	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IGH4-ZhfVDk?si=75_-ybyL-mble9ve" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Real-world scenario

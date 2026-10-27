@@ -5,21 +5,21 @@ tags:
 
 ## What is Infrastructure as Code?
 
-Infrastructure as Code (IaC) is the practice of provisioning and managing infrastructure through configuration files instead of a GUI or manual CLI commands. You describe your servers, networks, and databases in code, then let a tool build them for you, the same way you'd manage application code.
+Infrastructure as Code (IaC) means building and managing infrastructure with configuration files instead of clicking around a GUI or typing CLI commands by hand. You describe your servers, networks, and databases in code, then let a tool build them for you, the same way you'd manage app code.
 
-**Why it matters:**
+Why it's worth it:
 
-- **Consistent** — the same code produces the same environment every time.
-- **Trackable** — infrastructure changes live in version control, so you get a real history of who changed what and when.
-- **Repeatable** — spin up one environment or a thousand with the same definition.
-- **Shareable/reusable** — teams reuse patterns instead of re-inventing them per project.
+- Consistent: the same code produces the same environment every time.
+- Trackable: infrastructure changes live in version control, so you get a real history of who changed what and when.
+- Repeatable: spin up one environment or a thousand with the same definition.
+- Shareable/reusable: teams reuse patterns instead of re-inventing them per project.
 
-Before cloud APIs, infrastructure was provisioned by filing a ticket and having someone log into a console to click through the setup. That worked fine when infrastructure lived for months or years and didn't change much. Cloud changed the math: infrastructure is API-driven, spun up and torn down constantly, and scaled out across many small instances instead of a few big ones. Manually managing that at scale doesn't hold up, so the process itself gets codified.
+Before cloud APIs, you got infrastructure by filing a ticket and waiting for someone to log into a console and click through the setup. That was fine when servers lived for months or years and barely changed. Cloud changed all of that. Infrastructure is API-driven now, gets spun up and torn down constantly, and scales out across lots of small instances instead of a few big ones. Doing all of that by hand doesn't work at scale, so we write the process itself as code.
 
 ## Declarative vs. Imperative
 
-- **Imperative** — you tell the software the exact steps to take. Get the shell, add the beans, add the cheese, add the lettuce, in that order.
-- **Declarative** — you tell the software what you want the end result to be, and it figures out the how. "I want a taco with beans, cheese, and lettuce."
+- Imperative: you tell the software the exact steps to take. Get the shell, add the beans, add the cheese, add the lettuce, in that order.
+- Declarative: you tell the software what you want the end result to be, and it figures out the how. "I want a taco with beans, cheese, and lettuce."
 
 Most IaC tools, Terraform included, are declarative. You describe the desired state, and the tool calculates the steps needed to get there.
 
@@ -31,8 +31,8 @@ Idempotence means running the same operation twice produces the same result as r
 
 This is one of the more important mental shifts when moving from manual infrastructure management to IaC.
 
-- **Mutable** — you update existing infrastructure in place (patch the server, upgrade the package, restart the service).
-- **Immutable** — you never update in place. You build a new version from scratch, validate it, cut traffic over, then destroy the old version.
+- Mutable: you update existing infrastructure in place (patch the server, upgrade the package, restart the service).
+- Immutable: you never update in place. You build a new version from scratch, validate it, cut traffic over, then destroy the old version.
 
 Mutable changes carry partial-failure risk: if an in-place upgrade fails halfway, you're left with an undefined, untested state that's neither the old version nor the new one. At scale, across hundreds or thousands of machines, that turns into a fleet where every machine might be in a slightly different, poorly understood state.
 
@@ -44,9 +44,9 @@ IaC tooling naturally leans toward the immutable model: because your infrastruct
 
 Infrastructure is rarely a one-and-done deployment. It's useful to think about it in stages:
 
-- **Day 0** — foundational setup: cloud accounts, landing zones, core networking, guardrails.
-- **Day 1** — initial deployment of your actual application infrastructure.
-- **Day 2+** — ongoing care and feeding: patching, right-sizing, scaling, compliance, cost management, architecture changes. This is where infrastructure spends most of its life.
+- Day 0: foundational setup, like cloud accounts, landing zones, core networking, guardrails.
+- Day 1: the first deployment of your actual app infrastructure.
+- Day 2+: ongoing care and feeding, like patching, right-sizing, scaling, compliance, cost management, architecture changes. This is where infrastructure spends most of its life.
 
 Because IaC captures all of this as code, day 2+ work (patch a base image, resize a database, add a new environment) becomes a matter of changing the definition and re-running the tool, rather than a one-off manual task.
 

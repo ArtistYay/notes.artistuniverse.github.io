@@ -4,16 +4,16 @@ tags:
   - Microsoft Azure
 ---
 
-Use a gateway transit connection to allow network traffic to flow from one spoke to another. Gateway transit works by adding a gateway to the hub virtual network. The gateway on the hub learns about the spoke subnets through the peering relationships. The VNET gateway routes traffic between each spoke creating the gateway transit relationship. This example uses a VPN gateway as the routing device in the hub.
+Use gateway transit to let traffic flow from one spoke to another. Gateway transit works by adding a gateway to the hub virtual network. The hub gateway learns about the spoke subnets through the peering relationships and routes traffic between the spokes. This lab uses a VPN gateway as the routing device in the hub.
 
-1. Create three VNETs. A Hub (10.0.0.0/16), Spoke1 (10.1.0.0/16), and Spoke2 (10.2.0.0/16)
+1. Created three VNets: a Hub (10.0.0.0/16), Spoke1 (10.1.0.0/16), and Spoke2 (10.2.0.0/16).
 
-2. Deployed a Virtual Network Gateway in the Hub VNET with two public IP addresses. The gateway on the hub learns about the spokes establishing a peering relationship.
+2. Deployed a virtual network gateway in the Hub VNet with two public IP addresses. The hub gateway learns about the spokes once the peering is set up.
 
-3. Created two VMs one in each spoke VNET.
+3. Created two VMs, one in each spoke VNet.
 
-4. Made a VNET peering to my hub from my spokes.
+4. Peered each spoke to the hub. On the hub side of the peering, turn on "Allow gateway transit," and on the spoke side, turn on "Use remote gateways." Peering isn't transitive, so without the gateway the two spokes can't talk to each other through the hub.
 
-5. To enable communication between the VMs I had to create a route table for each Spoke subnet. Then associate the route table to the subnet.
+5. To get the VMs talking to each other, I had to create a route table for each spoke subnet (pointing the other spoke's address space at the hub gateway) and then associate the route table with the subnet.
 
-6. Tested connectivity in one of the VMs in the spoke using ICMP. Routes may take a while to kick in.
+6. Tested connectivity from one of the spoke VMs using ICMP (ping). The routes can take a little while to kick in.

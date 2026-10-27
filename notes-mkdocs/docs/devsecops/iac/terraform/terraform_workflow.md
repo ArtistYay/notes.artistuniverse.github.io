@@ -8,9 +8,9 @@ tags:
 
 ## The Three-Phase Cycle: Write, Plan, Apply
 
-- **Write** — you edit `.tf` files. Terraform isn't involved yet, this is just you expressing what you want in HCL.
-- **Plan** — Terraform compares your configuration (desired state) against the state file (what it believes exists) and produces an execution plan: what it will create, modify, or destroy, and in what order.
-- **Apply** — Terraform executes the plan and records the result in an updated state file.
+- Write: you edit `.tf` files. Terraform isn't involved yet, this is just you expressing what you want in HCL.
+- Plan: Terraform compares your configuration (desired state) against the state file (what it believes exists) and produces an execution plan showing what it will create, modify, or destroy, and in what order.
+- Apply: Terraform executes the plan and records the result in an updated state file.
 
 This cycle repeats every time you need to change something. Day zero, with nothing deployed yet, the plan is simple: create everything. Later, changing one field (say, resizing a database from small to medium) can cascade: Terraform has to figure out what depends on what and sequence the changes correctly, for example, creating a new VM before it can update a load balancer that needs the new VM's IP.
 
@@ -45,9 +45,9 @@ Terraform is declarative: you describe the desired end state, and it works out h
 
 It's useful to separate the infrastructure lifecycle into stages rather than treating deployment as a single event:
 
-- **Day 0** — foundational setup. Cloud account structure, landing zones, core networking, guardrails.
-- **Day 1** — initial deployment of the actual application infrastructure: compute, database, load balancer, etc.
-- **Day 2+** — everything after that, for as long as the infrastructure lives. Patching, resizing, scaling, adding new components, responding to new compliance requirements, decommissioning when the application is retired.
+- Day 0: foundational setup, like cloud account structure, landing zones, core networking, guardrails.
+- Day 1: the first deployment of the actual app infrastructure, like compute, database, load balancer, etc.
+- Day 2+: everything after that, for as long as the infrastructure lives. Patching, resizing, scaling, adding new components, responding to new compliance requirements, decommissioning when the application is retired.
 
 Most of an infrastructure's life is spent in day 2+. Because it's all defined in code, day 2+ changes (bump a database tier, patch a base image, add a DNS record) become a matter of editing the definition and re-running `plan`/`apply`, instead of a bespoke manual task each time.
 
@@ -57,17 +57,17 @@ Because `plan` happens before `apply`, there's a natural checkpoint to insert au
 
 ## Tips from the Community
 
-- **Look for unexpected replacements in the plan output, not just the counts.** A single changed attribute (like an AMI ID) can force a full destroy-and-recreate instead of an in-place update. The `+/-` (create then destroy) versus `-/+` (destroy then create) symbols in the plan output tell you which order Terraform will use, worth reading closely before approving.
-  Source: [How to Understand the Terraform Core Workflow – OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-understand-the-terraform-core-workflow-write-plan-apply/view)
+- Look for unexpected replacements in the plan output, not just the counts. A single changed attribute (like an AMI ID) can force a full destroy-and-recreate instead of an in-place update. The `+/-` (create then destroy) versus `-/+` (destroy then create) symbols in the plan output tell you which order Terraform will use, worth reading closely before approving.
+  Source: [How to Understand the Terraform Core Workflow | OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-understand-the-terraform-core-workflow-write-plan-apply/view)
 
-- **Use `-target` sparingly.** You can plan or apply against a single resource for a surgical fix, but it can miss dependency changes elsewhere in the graph and leave your state and configuration quietly out of sync. Treat it as an exception, not a habit.
-  Source: [How to Understand the Terraform Core Workflow – OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-understand-the-terraform-core-workflow-write-plan-apply/view)
+- Use `-target` sparingly. You can plan or apply against a single resource for a surgical fix, but it can miss dependency changes elsewhere in the graph and leave your state and configuration quietly out of sync. Treat it as an exception, not a habit.
+  Source: [How to Understand the Terraform Core Workflow | OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-understand-the-terraform-core-workflow-write-plan-apply/view)
 
-- **Always save plans in CI/CD with `-out`.** Running `terraform plan -out=tfplan` and then applying that exact file guarantees what a reviewer approved is what actually gets executed, rather than trusting that nothing changed between review and apply.
-  Source: [How to Understand the Terraform Core Workflow – OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-understand-the-terraform-core-workflow-write-plan-apply/view)
+- Always save plans in CI/CD with `-out`. Running `terraform plan -out=tfplan` and then applying that exact file guarantees what a reviewer approved is what actually gets executed, rather than trusting that nothing changed between review and apply.
+  Source: [How to Understand the Terraform Core Workflow | OneUptime](https://oneuptime.com/blog/post/2026-02-23-how-to-understand-the-terraform-core-workflow-write-plan-apply/view)
 
-- **A stale or unpinned build environment is a common source of "it worked yesterday" failures.** Prep the CI environment ahead of time (Terraform CLI version, provider plugins, machine images), and consider a shared plugin cache, since Terraform normally looks for plugins in a project-local `.terraform` directory that's unique to each CI job.
-  Source: [A best practices guide for Terraform CI/CD workflows – Buildkite](https://buildkite.com/resources/blog/best-practices-for-terraform-ci-cd/)
+- A stale or unpinned build environment is a common source of "it worked yesterday" failures. Prep the CI environment ahead of time (Terraform CLI version, provider plugins, machine images), and consider a shared plugin cache, since Terraform normally looks for plugins in a project-local `.terraform` directory that's unique to each CI job.
+  Source: [A best practices guide for Terraform CI/CD workflows | Buildkite](https://buildkite.com/resources/blog/best-practices-for-terraform-ci-cd/)
 
-- **`.terraform.lock.hcl` conflicts are usually a merge problem, not a Terraform bug.** If two branches add or bump different providers and get merged without re-running `init`, the lock file can end up inconsistent. The fix is almost always `terraform init -upgrade`, review the resulting diff, then commit.
-  Source: [Terraform Lock File Demystified – EzyInfra](https://ezyinfra.dev/blog/terraform-lock-file)
+- `.terraform.lock.hcl` conflicts are usually a merge problem, not a Terraform bug. If two branches add or bump different providers and get merged without re-running `init`, the lock file can end up inconsistent. The fix is almost always `terraform init -upgrade`, review the resulting diff, then commit.
+  Source: [Terraform Lock File Demystified | EzyInfra](https://ezyinfra.dev/blog/terraform-lock-file)

@@ -13,7 +13,7 @@ These scans manipulate TCP flags, the control bits within TCP packets, to elicit
 
 - **FIN Scan (-sF):** Sends a packet with only the FIN (finish) flag set. Similar to the Null scan, it's stealthy but vulnerable to stateful firewalls. The interpretation of responses is the same as the Null scan.
 
-- **Xmas Scan (-sX):** Sets the FIN, PSH (push), and URG (urgent) flags – hence the name, like Christmas lights. It's also stealthy and has the same response interpretation as Null and FIN scans. Less reliable on Windows hosts.
+- **Xmas Scan (-sX):** Sets the FIN, PSH (push), and URG (urgent) flags, hence the name, like Christmas lights. It's also stealthy and has the same response interpretation as Null and FIN scans. Less reliable on Windows hosts.
 
 - **Maimon Scan (-sM):** Sets the FIN and ACK flags. Historically, some BSD-derived systems would respond differently to this scan on open ports, but this is rare today. Most modern systems treat it like a Null/FIN/Xmas scan.
 

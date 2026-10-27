@@ -6,7 +6,7 @@ tags:
 
 ## The Three Types of Python Errors
 
-**Syntax Errors** — The code is grammatically wrong. Python can't even parse it, so it won't run at all. The error message tells you exactly which line:
+**Syntax Errors**: The code is grammatically wrong. Python can't even parse it, so it won't run at all. The error message tells you exactly which line:
 ```python
 # ❌ Missing colon
 if x > 5
@@ -19,14 +19,14 @@ my_set = {1, 2, 3]    # opened with { but closed with ]
 whille i < 5:         # 'while' is spelled wrong
 ```
 
-**Runtime Errors** — The syntax is valid, but something goes wrong while the code is running. Common examples: dividing by zero, trying to access a file that doesn't exist, using a key that isn't in a dictionary:
+**Runtime Errors**: The syntax is valid, but something goes wrong while the code is running. Common examples: dividing by zero, trying to access a file that doesn't exist, using a key that isn't in a dictionary:
 ```python
 x = 10 / 0                      # ZeroDivisionError
 file = open("missing_file.txt") # FileNotFoundError
 value = my_dict["bad_key"]      # KeyError
 ```
 
-**Logic Errors (Semantic Errors)** — The most frustrating type. The code runs without crashing, but it gives the wrong result. Python can't catch these — you have to find them yourself through testing and careful review:
+**Logic Errors (Semantic Errors)**: The most frustrating type. The code runs without crashing, but it gives the wrong result. Python can't catch these, you have to find them yourself through testing and careful review:
 ```python
 # ❌ Off-by-one error — runs 11 times (0-10) instead of 10
 for i in range(11):
@@ -43,7 +43,7 @@ if x = 2:                # Should be == not =
 
 ## Debugging Techniques
 
-**1. Print Statements** — The simplest debugging tool. Add `print()` calls to check variable values at different points in your code:
+**1. Print Statements**: The simplest debugging tool. Add `print()` calls to check variable values at different points in your code:
 ```python
 def calculate_average(values):
     print(f"Input received: {values}")    # check what came in
@@ -52,17 +52,17 @@ def calculate_average(values):
     return total / len(values)
 ```
 
-**2. Read the Error Message** — Python's error messages tell you the file, line number, and type of error. Read them carefully before guessing.
+**2. Read the Error Message**: Python's error messages tell you the file, line number, and type of error. Read them carefully before guessing.
 
-**3. Comment Out Code** — Temporarily disable sections to isolate which part is causing the problem.
+**3. Comment Out Code**: Temporarily disable sections to isolate which part is causing the problem.
 
-**4. Use Python's Built-in Debugger (`pdb`)** — Lets you step through code line by line and inspect variables:
+**4. Use Python's Built-in Debugger (`pdb`)**: Lets you step through code line by line and inspect variables:
 ```python
 import pdb
 pdb.set_trace()   # execution pauses here so you can inspect
 ```
 
-## `try` / `except` — Handling Errors Gracefully
+## `try` / `except`: Handling Errors Gracefully
 Instead of letting your script crash when something goes wrong, wrap risky code in a `try` block. If an error occurs, the `except` block runs instead:
 
 ```python
@@ -84,7 +84,7 @@ except TypeError:
     print("Error: num_devices is not a number")
 ```
 
-Catch any exception (use sparingly — being specific is better practice):
+Catch any exception (use sparingly, being specific is better practice):
 ```python
 try:
     result = 10 / 0
@@ -92,7 +92,7 @@ except Exception as e:
     print(f"An error occurred: {e}")
 ```
 
-Network automation example — prevent one bad device from stopping the whole script:
+Network automation example, prevent one bad device from stopping the whole script:
 ```python
 def connect_to_device(device):
     try:
@@ -109,7 +109,7 @@ for device in devices:
 ```
 
 ## Input Validation
-Always validate data before using it — bad input early causes confusing errors later:
+Always validate data before using it, bad input early causes confusing errors later:
 ```python
 # Check that the input is the right type
 def connect(ip, username, password):

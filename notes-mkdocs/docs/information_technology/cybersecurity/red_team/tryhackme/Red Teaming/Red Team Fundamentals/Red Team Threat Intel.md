@@ -8,7 +8,7 @@ Threat Intelligence (TI) provides defenders with insight into adversary behavior
 
 # Key Takeaways:
 
-- CTI is not just a defensive tool—it enables **adversary emulation**, helping red teams refine attack scenarios and improve realism.
+- CTI is not just a defensive tool, it enables **adversary emulation**, helping red teams refine attack scenarios and improve realism.
 - TTPs provide a deeper understanding of how an adversary **operates**, moving beyond simple Indicators of Compromise (IOCs).
 - CTI platforms such as **MITRE ATT&CK, TIBER-EU, and OST Map** aid in mapping TTPs and planning engagements.
 
@@ -32,10 +32,10 @@ CTI is actionable intelligence that can be **consumed** in various ways, such as
 ## Why focus on TTPs instead of just IOCs?
 
 - **IOCs change frequently** (e.g., an IP address can be abandoned).
-- **TTPs remain consistent**—adversaries tend to follow similar operational patterns.
+- TTPs remain consistent: adversaries tend to follow similar operational patterns.
 
 📌 **Reflection:**
-💡 A red team can assess a blue team’s effectiveness by **determining how well they leverage CTI** for detections. If a blue team only focuses on IOCs, they may **miss detecting novel threats** using the same TTPs.
+💡 A red team can assess a blue team's effectiveness by **determining how well they leverage CTI** for detections. If a blue team only focuses on IOCs, they may **miss detecting novel threats** using the same TTPs.
 
 ---
 Once an adversary is selected, their TTPs should be mapped to a **cyber kill chain** to model attack progression.
@@ -103,6 +103,6 @@ A **threat-intel-driven campaign** takes all of these components and integrates 
 
 📌 **Final Reflection:**
 
-- **Threat intelligence is NOT just data collection—it’s a decision-making tool.**
+- **Threat intelligence is NOT just data collection, it's a decision-making tool.**
 - **Adversary emulation forces defenders to improve beyond signature-based detection.**
 - **Red team success is measured by how effectively they challenge and improve blue team capabilities.**

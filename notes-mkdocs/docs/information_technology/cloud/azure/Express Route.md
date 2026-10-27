@@ -4,15 +4,15 @@ tags:
   - Computer Networking
 ---
 
-- ExpressRoute provides private connectivity, but it isn't encrypted.
+- ExpressRoute gives you private connectivity, but it isn't encrypted by default. You can add MACsec (on ExpressRoute Direct) or run an IPsec VPN over it if you need encryption.
 
-- Good fit for data that needs to be on-premises and on Azure, highly available, and periodically migrated.
+- Good fit when data needs to live on-prem and in Azure, needs to be highly available, and gets moved back and forth regularly.
 
 - Doesn't go over the public internet.
 
 - A private, secure, high-bandwidth, low-latency connection from your data center or infrastructure to Azure.
 
-**Tips from the community:**
+Tips from the community:
  
 Aidan Finn's blog (he's a longtime Azure MVP) is probably the single best ongoing source for ExpressRoute design details that don't show up in the docs:
  

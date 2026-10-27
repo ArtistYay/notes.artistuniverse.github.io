@@ -4,50 +4,50 @@ tags:
   - Cybersecurity
 ---
 
-1. In an Azure SQL Database, when writing audit logs to a storage account, what Azure Blob type are the logs written to?
+1. In an Azure SQL Database, when audit logs get written to a storage account, what blob type do they use?
 
-    Append
+    Append blobs
 
-1. You have an application running on Azure App Service and the data is hosted on an Azure SQL Database. The database stores confidential data about your employees and you followed the best practices to secure this data. You need to know about any attempts to steal data from your database immediately. How can you do so?
+1. You have an app on Azure App Service with its data in an Azure SQL Database. The database stores confidential employee data and you followed the best practices to secure it. You need to know about any attempt to steal data from the database right away. What do you do?
 
-    Enable advanced data security and set up alerts for the database.
+    Turn on Microsoft Defender for SQL (this used to be called Advanced Data Security) and set up alerts for the database.
 
-1. You need to enable SQL database auditing. On which two levels can an auditing policy be defined?
+1. You need to turn on SQL database auditing. On which two levels can you define an auditing policy?
 
-    Server-level and database-level
+    Server level and database level
 
-1. What is the difference between a standard and wildcard certificate?
+1. What's the difference between a standard and a wildcard certificate?
 
-    A standard certificate provides encryption for one domain, whereas a wildcard certificate provides encryption for multiple sub-domains.
+    A standard certificate covers one domain. A wildcard certificate covers all the subdomains under one domain (like `*.contoso.com`).
 
-1. Which column encryption method supports equality lookups, joins, and group by in Azure SQL Database?
+1. Which column encryption type supports equality lookups, joins, and group by in Azure SQL Database?
 
-    Collaborative
+    Deterministic encryption (Always Encrypted). It always turns the same value into the same encrypted value, which is what makes the lookups work. The downside is someone might guess values by looking at patterns, especially if there are only a few possible values like True/False. Randomized encryption is more secure but you can't search or join on it. I originally had "Collaborative" here, which isn't a real option.
 
-1. You have an application running on Azure App Service and the data is hosted on an Azure SQL Database. Currently the application connects through SQL authentication and the username and password are saved in application settings. Your security architect asked you not to store any usernames or passwords in application settings or anywhere else. What should you do to achieve that?
+1. You have an app on Azure App Service with its data in an Azure SQL Database. Right now the app uses SQL authentication and the username and password are saved in application settings. Your security architect says no usernames or passwords stored anywhere. What do you do?
 
-    Use managed identities to connect to the database.
+    Use a managed identity to connect to the database.
 
-1. At what layer does Azure Front Door Service operate?
+1. What layer does Azure Front Door operate at?
 
     Layer 7
 
-1. What is a feature you can use to battle malicious bot traffic?
+1. What feature can you use to fight malicious bot traffic?
 
     Rate limiting rules
 
-1. Where there is an incoming request for an application that matches 4 NSG with priority 100, 500, 1000, and 5000. Which network security group (NSG) will be applied?
+1. An incoming request matches 4 NSG rules with priorities 100, 500, 1000, and 5000. Which rule gets applied?
 
-    The NSG with 100
+    The rule with priority 100. With NSG rules, the lower the number, the higher the priority, and processing stops at the first match.
 
-1. A web application is running in Azure App Service and it accesses a storage account to read and write files. The storage account access keys are stored in an Azure Key Vault. You have a security regulation that directs you to rotate the storage account keys every week. How can you ensure the application will always read the latest keys from Key Vault?
+1. A web app on Azure App Service reads and writes files in a storage account. The storage account access keys are stored in Azure Key Vault. A security regulation says you have to rotate the keys every week. How do you make sure the app always reads the latest keys from Key Vault?
 
-    Create an Azure runbook that rotates the storage account keys and updates Key Vault with the latest keys.
+    Create an Azure Automation runbook that rotates the storage account keys and updates Key Vault with the new ones. Even better today: skip keys completely and give the app a managed identity with an RBAC role on the storage account, so there's nothing to rotate.
 
-1. You are binding a certificate to your application but Azure is failing because the domain has not been verified. What must you do to assure that Azure can verify the domain?
+1. You're binding a certificate to your app but Azure fails because the domain hasn't been verified. What do you have to do so Azure can verify the domain?
 
-    Map a Canonical Name record (CNAME) to the App Service domain.
+    Map a CNAME (Canonical Name) record to the App Service domain. Azure also uses an `asuid` TXT record to prove you own the domain.
 
 1. Which statement about the management plane and the data plane in Azure Key Vault is correct?
 
-    The management plane is where you create and delete vaults, whereas the data plane allows you to work with the data stored in the key vault.
+    The management plane is where you create and delete vaults. The data plane is where you work with what's stored in the vault (keys, secrets, and certificates).

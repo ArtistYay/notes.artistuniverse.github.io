@@ -6,19 +6,31 @@ tags:
 
 ## The Lesson
 
-- Unexpected charges often signal an attack or misconfiguration. In cloud security, cost monitoring through billing alerts is an additional layer of detection that can help you identify cryptomining activities, denial of service attacks, or resource mismanagement.
-- By leveraging CloudWatch, AWS users can monitor resource utilization, performance, and billing metrics in one centralized location. It enables proactive security and operational management, helping to reduce risk and avoid surprise bills.
-- SNS plays a critical role in cloud security alerting. By configuring alerts to notify administrators via email (or other protocols), teams can ensure they are always aware of potential security incidents or billing anomalies.
+- Surprise charges are often a sign of an attack or a misconfiguration. Billing alerts are an extra layer of detection that can catch cryptomining, denial of service attacks, or resources someone forgot about.
+- CloudWatch lets you watch resource usage, performance, and billing metrics in one place, so you can catch problems early and avoid surprise bills.
+- SNS is a big part of security alerting. Sending alerts to admins by email (or other ways) means the team actually finds out about security incidents or weird billing.
 
 ## The Lab
 
-1. Signed into 'Root' to enable IAM admin user access to billing information.
-		By default, IAM users do not have permission to view billing data. Allowing your non-root admin user to access billing data ensures that security professionals or administrators can monitor unexpected charges and act quickly to mitigate risks.
-2. Enabled CloudWatch Billing Alerts
-		CloudWatch is AWS’s monitoring service, which can track a wide range of metrics, including billing data. By enabling CloudWatch billing alerts, you can monitor your spending in real-time and create alarms for specific thresholds.
-3.  Created a Billing Alarm with a $25 threshold
-		Setting up a billing alarm is critical for detecting unexpected or anomalous charges. For example, cryptomining or resource misconfigurations could result in significant bills. These alarms act as a safety net to alert you before costs spiral out of control.
-4. Associate the Alarm with SNS Topic
-		By linking the alarm to an SNS topic, you ensure that you are notified through an email or other communication channels when the threshold is exceeded. This is crucial for taking immediate action to address any suspicious activity or misconfigurations.
-5. Subscribe to the SNS Topic
-		Subscribing to the SNS topic is the final step to ensure that you get notified when the billing alert is triggered. Prompt notifications allow you to take swift action to mitigate any unwanted charges or security issues, such as stopping a cryptomining attack or addressing a misconfigured service.
+1. Signed into root to turn on IAM access to billing information.
+
+    By default, IAM users can't see billing data. Letting your non-root admin see it means the people watching security can spot unexpected charges and act fast.
+
+2. Turned on CloudWatch billing alerts.
+
+    CloudWatch is AWS's monitoring service and it can track a lot of metrics, including billing. Once billing alerts are on, you can set alarms for specific spending thresholds. (Billing metrics only live in `us-east-1`.)
+
+3. Created a billing alarm with a $25 threshold.
+
+    This is your safety net for unexpected charges. Cryptomining or a misconfigured resource can run up a huge bill, and the alarm tells you before it gets out of control.
+
+4. Connected the alarm to an SNS topic.
+
+    Linking the alarm to SNS is what actually sends you an email (or another notification) when the threshold gets crossed.
+
+5. Subscribed to the SNS topic.
+
+    The last step, so the notification actually reaches you. Getting told right away is what lets you stop a cryptomining attack or fix a misconfigured service before it costs you more.
+
+!!! tip
+    AWS Budgets and Cost Anomaly Detection are worth turning on too. Budgets can alert on forecasted spend, and Cost Anomaly Detection uses machine learning to flag spending that doesn't match your normal pattern.

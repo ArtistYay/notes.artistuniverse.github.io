@@ -6,44 +6,46 @@ tags:
 
 - Microsoft Defender for Cloud
 
-    - Has policy and compliance metrics. A secure score to entice great security hygiene. Alerts for resources that aren’t secure.
+    - Has policy and compliance metrics, a secure score to push you toward good security hygiene, and alerts for resources that aren't secure.
 
-    - The Secure Score is a percentage based KPI that informs you of your environment's security posture.
+    - Secure score is a percentage based KPI that tells you how good (or bad) your security posture is.
 
-    - Cloud Security Posture Management (CSPM) is a proactive system by which organizations can identify and remediate misconfigurations, threats, misuse and compliance violations across a multicloud infrastructure.
+    - Cloud security posture management (CSPM) is how you find and fix misconfigurations and compliance violations across a multicloud environment (Azure, AWS, GCP) before someone takes advantage of them.
 
-    - Monitor security hygiene for VMs. Define policies to protect your resources better and respond to incidents.
+    - The Defender plans (Defender for Servers, Storage, SQL, Containers, and more) add threat protection for specific workloads on top of the posture stuff.
 
 - Microsoft Defender for Identity
 
-    - Helps you monitor users (analyze user activity and information) and creates a baseline behavior.
+    - Watches your users (their activity and info) and builds a baseline of normal behavior, so it can flag things that don't fit.
 
-    - It uses the cyber kill chain
+    - It maps what it sees to the stages of an attack (the cyber kill chain), like recon, lateral movement, and domain dominance.
 
-    - Microsoft Defender for Identity is a cloud-based security solution that uses your on-premises Active Directory signals to enable you to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization.
+    - It uses signals from your on-premises Active Directory to find advanced threats, compromised identities, and malicious insiders.
 
-    - Microsoft Defender for Identity protects AD FS by detecting on-premises attacks on AD FS to enable you to ensure that your whole hybrid environment is protected.
+    - It also covers AD FS, AD CS, and Entra Connect servers, so your whole hybrid identity setup is watched and not just the domain controllers.
 
 - Microsoft Defender for Endpoint
 
-    - Microsoft Defender for Endpoint helps you prevent, detect, investigate, and respond to threats on your devices across your organization's environment, for both pre-breach and post-breach.
+    - Helps you prevent, detect, investigate, and respond to threats on devices across your organization, before and after a breach.
 
-    - It offers vulnerability management, endpoint protection, endpoint detection and response, mobile threat defense, and managed services in a single, unified platform.
+    - Vulnerability management: finds, prioritizes, and helps you fix vulnerabilities and misconfigurations on your endpoints. This is called Microsoft Defender Vulnerability Management now.
 
-    - **Threat and vulnerability management**: Provides risk-based discovery, prioritization, and remediation of misconfigurations and vulnerabilities across your endpoints.
+    - Attack surface reduction: makes devices harder to attack with things like ASR rules, application control, network protection, and web protection.
 
-    - **Attack surface reduction**: Helps you to resist attacks and exploitation by applying mitigation techniques and ensuring configuration settings are set properly. It provides protections such as application control, network protection, and web protection to regulate access to your applications, domains, IP address, and more.
+    - Next-generation protection: the antivirus part. It uses behavior-based and cloud-delivered protection to catch new threats.
 
-    - **Next-generation protection**: Protects against emerging threats through behavior-based antivirus protection, and cloud-delivered protection.
+    - Endpoint detection and response (EDR): catches the advanced stuff that got past the earlier layers. This is also where advanced hunting (KQL against device data) and custom detections come in.
 
-    - **Endpoint detection and response**: Enables you to detect, investigate, and respond appropriately to even advanced threats that might have successfully succeeded in evading the attack surface reduction and threat and vulnerability components. It also allows you to conduct advanced hunting, through a query-based hunting tool to identify breaches proactively and use custom detections.
+    - Automated investigation and remediation: investigates alerts and fixes issues automatically so the SOC isn't doing everything by hand.
 
-    - **Automated investigation and remediation**: Enables you to use sophisticated automatic investigation and remediation capabilities to efficiently and consistently respond to threats at scale.
+    - Microsoft Defender Experts: Microsoft's own analysts doing managed hunting and response for you. This used to be called Microsoft Threat Experts.
 
-    - **Microsoft Threat Experts**: Enables you to take advantage of expert-level monitoring, analysis, and access to experts on demand for critical threats specific to your environment.
+    - Management and APIs: you can manage it with Intune, Group Policy, or third party tools, and its API lets you automate workflows. It plugs into Microsoft Sentinel, Defender for Cloud, and the rest of the Defender stack.
 
-    - **Centralized management and API**: Microsoft Defender for Endpoint supports different tools, such as Group Policy, and non-Microsoft tools that can be used for device management. Microsoft Defender for Endpoint comes with built-in API that you can use to automate workflows and extend its capabilities using your custom apps. Additionally, Microsoft Defender for Endpoint integrates directly with several Microsoft solutions including Microsoft Endpoint Manager, Microsoft Sentinel, Microsoft Defender for Cloud, and more.
+- Microsoft Defender XDR (used to be called Microsoft 365 Defender)
 
-- Microsoft 365 Defender
+    - Pulls signals from all the Defender products (Endpoint, Identity, Office 365, Cloud Apps) and correlates them into one incident that tells the story of the attack. So a weird process on a laptop from Defender for Endpoint and a suspicious sign-in from Defender for Identity end up in the same incident instead of two separate alerts.
 
-    - Microsoft 365 Defender is a unified enterprise defense solution that automatically aggregates and analyzes signal data from multiple sources, for example, anomalous behavior from Microsoft Defender for Endpoint or a suspicious sign in from Microsoft Defender for Identity. It then correlates the data into an incident that represents an attack and provides easy investigation and response across endpoints, identities, email, and applications.
+    - It all lives in the Microsoft Defender portal, which is also where Microsoft Sentinel is moving.
+
+[Documentation | Microsoft Learn](https://learn.microsoft.com/defender-xdr/microsoft-365-defender)

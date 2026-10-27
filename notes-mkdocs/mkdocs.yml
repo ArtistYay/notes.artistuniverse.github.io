@@ -151,6 +151,9 @@ nav:
         - PBAC and ABAC Write an Intermediate AWS IAM Policy: cloud_security/cloudSLAW/PBAC and ABAC Write an Intermediate AWS IAM Policy.md
         - Skills Challenge IAM Identity Center: cloud_security/cloudSLAW/Skills Challenge IAM Identity Center.md
     - Microsoft Security:
+      - Compute:
+        - Logic Apps:
+          - Preventing IDOR Vulnerabilities: cloud_security/microsoft_security/compute/logic_apps/preventing_IDOR_vulnerabilities_in_azure_logic_apps.md
       - Entra ID:
         - Overview: cloud_security/microsoft_security/entra_id/overview.md
         - Configuring Identity and Access in Microsoft Azure: cloud_security/microsoft_security/entra_id/Configuring Identity and access in Microsoft Azure.md
@@ -158,36 +161,41 @@ nav:
       - Microsoft Defender Suite: cloud_security/microsoft_security/Microsoft Defender Suite.md
       - Microsoft Sentinel: cloud_security/microsoft_security/Microsoft Sentinel.md
       - Securing Data and Applications in Microsoft Azure: cloud_security/microsoft_security/Securing Data and Applications in Microsoft Azure.md
-      - Compute:
-        - Logic Apps:
-          - Preventing IDOR Vulnerabilities: cloud_security/microsoft_security/compute/logic_apps/preventing_IDOR_vulnerabilities_in_azure_logic_apps.md
     - Tools:
       - Wiz: cloud_security/tools/wiz.md
   - DevSecOps:
-    - Try Hack Me: 
-      - Secure Software Developmet:
+    - IaC:
+      - Overview: devsecops/iac/overview.md
+      - Terraform:
+        - Overview: devsecops/iac/terraform/overview.md
+        - HCP Terraform: devsecops/iac/terraform/hcp_terraform.md
+        - Mutable VS Immutable: devsecops/iac/terraform/mutable_vs_immutable.md
+        - State Management: devsecops/iac/terraform/state_management.md
+        - Terraform Workflow: devsecops/iac/terraform/terraform_workflow.md
+        - Writing DRY Code with Modules and `for_each`: devsecops/iac/terraform/dry_modules.md
+    - Source Control:
+      - Git:
+        - Overview: devsecops/source_control/git/overview.md
+        - Git Config Notes: devsecops/source_control/git/git_config_notes.md
+    - Try Hack Me:
+      - Secure Software Development:
         - Introduction to DevSecOps: devsecops/tryhackme/Secure Software Development/Introduction to DevSecOps.md
         - Secure Software Development Lifecycle (S-SDLC): devsecops/tryhackme/Secure Software Development/Secure Software Development Lifecycle (S-SDLC).md
         - Software Development Lifecycle (SDLC): devsecops/tryhackme/Secure Software Development/Software Development Lifecycle (SDLC).md
       - Security of the Pipeline:
         - Source Code Security: devsecops/tryhackme/Security of the Pipeline/Source Code Security.md
-    - IaC: 
-      - Overview: devsecops/iac/overview.md
-      - Terraform: 
-        - Overview: devsecops/iac/terraform/overview.md
-        - Writing DRY Code with Modules and `for_each`: devsecops/iac/terraform/dry_modules.md
-        - HCP Terraform: devsecops/iac/terraform/hcp_terraform.md
-        - Mutable VS Immutable: devsecops/iac/terraform/mutable_vs_immutable.md
-        - State Management: devsecops/iac/terraform/state_management.md
-        - Terraform Workflow: devsecops/iac/terraform/terraform_workflow.md
-    - Source Control:
-      - Git:
-        - Overview: devsecops/source_control/git/overview.md
-        - Git Config Notes: devsecops/source_control/git/git_config_notes.md    
+  - Generative AI:
+    - Overview: ai/overview.md
+    - "AI Flaws: Hallucinations and Prompt Injection": ai/ai_flaws.md
+    - ANI vs AGI: ai/ani_vs_agi.md
+    - Context Windows: ai/context_windows.md
+    - From Chatbots to Agents: ai/agents.md
+    - Image Generation: ai/image_generation.md
+    - Large Language Models: ai/large_language_models.md
+    - Neural Networks and Transformers: ai/neural_networks_and_transformers.md
+    - RAG, CAG, and Memory: ai/rag_cag_and_memory.md
+    - Tokens and Embeddings: ai/tokens_and_embeddings.md
   - Information Technology:
-    - Troubleshooting Steps: information_technology/Troubleshooting Steps.md
-#    - Linux:
-#      - Linux OS security best practice: information_technology/linux/Linux OS security best practice.md
     - Cloud:
       - Azure:
         - App Services: information_technology/cloud/azure/App Service.md
@@ -215,20 +223,20 @@ nav:
       - Subnetting: information_technology/computer_networking/Subnet-Subnetting.md
     - Cybersecurity:
       - Blue Team:
+#        - IR Flow Plan: information_technology/cybersecurity/blue_team/IR Flow Plan.md
         - Threat Detection:
           - Learn Attackers Behaviors: information_technology/cybersecurity/blue_team/Threat-Detection/Learn_attackers_behaviors.md
           - Understand What Telemetry and Logs Are: information_technology/cybersecurity/blue_team/Threat-Detection/Understand_what_telemetry_and_logs_are.md
-        - Try Hack Me: 
+        - Try Hack Me:
           - Security Engineer:
             - Introduction to Security Engineering:
               - Security Engineer Intro: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Introduction to Security Engineering/Security Engineer Intro.md
             - Network & System Security:
               - Security Network Architecture: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Network & System Security/Security Network Architecture.md
+            - SOAR (Security Orchestration, Automation & Response): information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/SOAR (Security Orchestration, Automation & Response).md
             - Threats & Risks:
               - Risk Management: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks/Risk Management.md
               - Threat Modeling: information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/Threats & Risks/Threat Modeling.md
-            - SOAR (Security Orchestration, Automation & Response): information_technology/cybersecurity/blue_team/tryhackme/Security Engineer/SOAR (Security Orchestration, Automation & Response).md
-#        - IR Flow Plan: information_technology/cybersecurity/blue_team/IR Flow Plan.md
 #        - Windows Hardening: information_technology/cybersecurity/Windows Hardening.md
       - Red Team:
         - Try Hack Me: 
@@ -253,15 +261,15 @@ nav:
 #              - Metasploit Introduction: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Introduction.md
 #              - Metasploit Meterpreter: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Metasploit/Metasploit_Meterpreter.md
             - Network Security:
-               - Active Reconnaissance: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Active Reconnaissance.md
-               - Net Sec Challenge: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Net Sec Challenge.md
-               - Nmap Advanced Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Advanced Port Scans.md
-               - Nmap Basic Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Basic Port Scans.md
-               - Nmap Live Host Discovery: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Live Host Discovery.md
-               - Nmap Post Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Post Port Scans.md
-               - Passive Reconnaissance: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Passive Reconnaissance.md
-               - Protocols and Servers: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Protocols and Servers.md
-               - Protocols and Servers 2: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Protocols and Servers 2.md
+              - Active Reconnaissance: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Active Reconnaissance.md
+              - Net Sec Challenge: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Net Sec Challenge.md
+              - Nmap Advanced Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Advanced Port Scans.md
+              - Nmap Basic Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Basic Port Scans.md
+              - Nmap Live Host Discovery: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Live Host Discovery.md
+              - Nmap Post Port Scans: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Nmap Post Port Scans.md
+              - Passive Reconnaissance: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Passive Reconnaissance.md
+              - Protocols and Servers: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Protocols and Servers.md
+              - Protocols and Servers 2: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Network Security/Protocols and Servers 2.md
 #            - Privilege Escalation:
 #              - Linux Privilege Escalation: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/Linux Privilege Escalation.md
 #              - What The Shell: information_technology/cybersecurity/red_team/tryhackme/Junior Penetration Tester/Privilege Escalation/What The Shell.md
@@ -294,33 +302,31 @@ nav:
           - Search Skills: information_technology/cybersecurity/tryhackme/CyberSecurity 101/Search Skills.md
     - Identity & Access Management:
        - Overview: information_technology/identity_and_access_management/fundamentals/Overview.md
-       - Authentication vs Authorization:  information_technology/identity_and_access_management/fundamentals/authentication_vs_authorization.md
-       - Identity vs Account vs Principal: information_technology/identity_and_access_management/fundamentals/identity_vs_account_vs_principal.md
+       - Authentication vs Authorization: information_technology/identity_and_access_management/fundamentals/authentication_vs_authorization.md
        - Claims. Tokens. Sessions: information_technology/identity_and_access_management/fundamentals/claims_tokens_sessions.md
+       - Directory Services:
+          - Directory forests, domains, replication: information_technology/identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
+          - Group membership, role models, ACLs, discretionary vs role-based systems: information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
+          - Kerberos: information_technology/identity_and_access_management/fundamentals/directory_services/kerberos.md
+          - LDAP: information_technology/identity_and_access_management/fundamentals/directory_services/ldap.md
        - Federation. Trust relationships: information_technology/identity_and_access_management/fundamentals/federation_and_trust_relationships.md
+       - Identity vs Account vs Principal: information_technology/identity_and_access_management/fundamentals/identity_vs_account_vs_principal.md
        - Open Standards:
+          - JWK and Key Rotation: information_technology/identity_and_access_management/fundamentals/open_standards/jwk_and_key_rotation.md
           - OAuth 2.0: information_technology/identity_and_access_management/fundamentals/open_standards/oauth_2.0.md
           - OpenID Connect: information_technology/identity_and_access_management/fundamentals/open_standards/openid_connect.md
           - SAML 2.0: information_technology/identity_and_access_management/fundamentals/open_standards/saml.md
           - SCIM: information_technology/identity_and_access_management/fundamentals/open_standards/scim.md
-          - JWK and Key Rotation: information_technology/identity_and_access_management/fundamentals/open_standards/jwk_and_key_rotation.md
-       - Directory Services:
-          - LDAP: information_technology/identity_and_access_management/fundamentals/directory_services/ldap.md
-          - Kerberos: information_technology/identity_and_access_management/fundamentals/directory_services/kerberos.md
-          - Directory forests, domains, replication: information_technology/identity_and_access_management/fundamentals/directory_services/directory_forests_domains_replication.md
-          - Group membership, role models, ACLs, discretionary vs role-based systems: information_technology/identity_and_access_management/fundamentals/directory_services/group_membership_role_models_acls_discretionary_vs_role_based_systems.md
-  - Generative AI: 
-    - Overview: ai/Generative AI.md
-    - AI Basics: ai/AI.md
+#    - Linux:
+#      - Linux OS security best practice: information_technology/linux/Linux OS security best practice.md
+    - Troubleshooting Steps: information_technology/Troubleshooting Steps.md
   - My Work:
     - Personal Projects:
-      - CodeCrafter's Build your own Git: personal_projects/build_your_own_git.md
       - Azure Appsec Pipeline: personal_projects/azure_appsec_pipeline.md
+      - CodeCrafter's Build your own Git: personal_projects/build_your_own_git.md
   - Security Automation:
       - Python:
         - Overview: security_automation/python/overview.md
-        - The Four-Step Problem-Solving Process: security_automation/python/problem_solving.md
-        - Questions I Ask Myself: security_automation/python/questions_i_asked_myself.md
         - Applying Python: security_automation/python/applying_python.md
         - Data Types: security_automation/python/data_types.md
         - Dictionaries & Sets: security_automation/python/dictionaries_sets.md
@@ -332,12 +338,14 @@ nav:
         - Loops: security_automation/python/loops.md
         - Modules, Libraries, & Packages: security_automation/python/modules_libraries_and_packages.md
         - Operators: security_automation/python/operators.md
+        - Questions I Ask Myself: security_automation/python/questions_i_asked_myself.md
+        - The Four-Step Problem-Solving Process: security_automation/python/problem_solving.md
         - Variables: security_automation/python/variables.md
   - Software Development:
     - Software Design Principles:
       - Overview: software_development/software_design_principles/overview.md
       - Dry Don't Repeat Yourself: software_development/software_design_principles/dry_dont_repeat_yourself.md
-      - Single Responsibility: software_development/software_design_principles/single_responsibility.md
       - KISS (Keep It Simple, Stupid): software_development/software_design_principles/keep_it_simple_stupid.md
-      - YAGNI (You Aren’t Gonna Need It): software_development/software_design_principles/you_arent_gonna_need_it.md
       - Questions I Ask Myself: software_development/software_design_principles/questions_i_asked_myself.md
+      - Single Responsibility: software_development/software_design_principles/single_responsibility.md
+      - YAGNI (You Aren’t Gonna Need It): software_development/software_design_principles/you_arent_gonna_need_it.md

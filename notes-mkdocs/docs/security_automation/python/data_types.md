@@ -4,7 +4,7 @@ tags:
   - Computer Programming
 ---
 
-A data type tells Python what kind of value a variable holds and what operations can be performed on it. Python determines the type automatically based on the value you assign — this is called **dynamic typing**.
+A data type tells Python what kind of value a variable holds and what operations can be performed on it. Python determines the type automatically based on the value you assign, this is called **dynamic typing**.
 
 ### Overview of Core Data Types
 
@@ -12,7 +12,7 @@ A data type tells Python what kind of value a variable holds and what operations
 |------|---------|-------------|
 | `int` | `x = 5` | Whole numbers, positive or negative |
 | `float` | `y = 3.14` | Decimal/floating-point numbers |
-| `str` | `s = "hello"` | Text — any characters in quotes |
+| `str` | `s = "hello"` | Text, any characters in quotes |
 | `bool` | `b = True` | Only two values: `True` or `False` |
 | `list` | `l = [1, 2, 3]` | Ordered collection, can be changed |
 | `tuple` | `t = (1, 2, 3)` | Ordered collection, cannot be changed |
@@ -27,7 +27,7 @@ y = 3.14    # float — decimal number
 ```
 
 ### String Type
-Strings store text. You can use single or double quotes — both work the same way:
+Strings store text. You can use single or double quotes, both work the same way:
 ```python
 message = "Hello, Network Engineer!"
 device = 'Cisco2960_south'

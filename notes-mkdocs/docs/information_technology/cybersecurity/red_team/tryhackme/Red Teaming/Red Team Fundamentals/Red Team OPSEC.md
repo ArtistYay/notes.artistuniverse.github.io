@@ -16,9 +16,9 @@ Operations Security (OPSEC) is a systematic approach designed to prevent adversa
 - **Frameworks in Use:**
 
     - **MITRE ATT&CK**: A knowledge base of adversary tactics, techniques, and procedures (TTPs).
-    - **Lockheed Martin Cyber Kill Chain**: A model outlining an attacker’s methodology.
+    - **Lockheed Martin Cyber Kill Chain**: A model outlining an attacker's methodology.
 ---
-Each step in OPSEC is designed to systematically reduce an adversary’s ability to detect and counter red team activities.
+Each step in OPSEC is designed to systematically reduce an adversary's ability to detect and counter red team activities.
 
 # Identifying Critical Information
 
@@ -41,7 +41,7 @@ Red teamers must think like an adversary to identify what information could jeop
 
 1. If defenders **connect** different attack stages to the same source (e.g., same IP for scanning & phishing), they can **block** or **mitigate** the entire operation.
 2. Attack infrastructure (domains, OS fingerprinting, etc.) **leaves traces** that defenders can monitor.
-3. **Principle of Least Privilege (PoLP)** must be followed—only those who need information should have access.
+3. **Principle of Least Privilege (PoLP)** must be followed, only those who need information should have access.
 ---
 🛡 _Who are the potential adversaries, and what are their capabilities?_
 
@@ -99,14 +99,14 @@ An OPSEC vulnerability exists when an adversary can:
 
 Why was the attack detected? → Blue team correlated multiple attack events to a single IP.
 Why was the same IP used? → Lack of proper OPSEC planning.
-Why wasn’t the risk assessed earlier? → No segmentation between different attack stages.
-Why wasn’t IP rotation implemented? → Lack of automated infrastructure setup.
-Why didn’t the red team simulate detection scenarios? → Incomplete OPSEC evaluation during planning.
+Why wasn't the risk assessed earlier? → No segmentation between different attack stages.
+Why wasn't IP rotation implemented? → Lack of automated infrastructure setup.
+Why didn't the red team simulate detection scenarios? → Incomplete OPSEC evaluation during planning.
 
 ✔ **Lesson:** Red teams must segment attack infrastructure and **rotate identifiers (IPs, domains, etc.)** to avoid easy attribution.
 
 ---
-📊 _How likely is a vulnerability to be exploited, and what’s the impact?_
+📊 _How likely is a vulnerability to be exploited, and what's the impact?_
 
 Risk assessment evaluates:
 

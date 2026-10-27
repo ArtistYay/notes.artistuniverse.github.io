@@ -4,64 +4,73 @@ tags:
   - Identity & Access Management
 ---
 
-1. A security principal with a custom RBAC definition is able to regenerate the keys of a Service Bus namespace , but cannot read the connection string. None of the security principal's other actions are affected. What might be causing this?
+!!! note "Name changes"
+    These are practice questions from an older course. Azure AD (Azure Active Directory) is Microsoft Entra ID now. I kept the old name in the questions and fixed the answers that changed.
 
-    The custom RBAC definition is missing “Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action” from the Actions property.
+1. A security principal with a custom RBAC role can regenerate the keys of a Service Bus namespace, but can't read the connection string. None of its other actions are affected. What might be causing this?
 
-1. Which sign-in method in Azure AD allows you to leverage modern cloud-grade features while storing user passwords only on-premises?
+    The custom role is missing `Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action` from its Actions property.
+
+1. Which Azure AD sign-in method lets you use modern cloud features while only storing user passwords on-prem?
 
     Pass-through authentication
 
-1. You want to create dynamic groups in Azure AD for users belonging to each department in your company. You start with a new Security Group with the membership type Dynamic User for the Sales team. What should you write in the Dynamic membership rules blade?
+1. You want to create dynamic groups in Azure AD for each department in your company. You start with a new security group with the membership type Dynamic User for the Sales team. What do you write in the dynamic membership rules?
 
-    ```JavaScript
-    user.department -ep “Sales”
+    ```text
+    user.department -eq "Sales"
     ```
 
-1. What is a risk of assigning the Application Administrator directory role to a user in Azure AD?
+1. What's a risk of giving someone the Application Administrator role in Azure AD?
 
-    The user can impersonate an application identity.
+    They can impersonate an application's identity. They can add credentials to apps, so if an app has more permissions than they do, they can use it to escalate.
 
-1. You want to delegate the Owner role to a user in a resource group in Microsoft Azure. Given this request, what would you do to assign time-bound access to this role using start and end dates?
+1. You want to give a user the Owner role on a resource group, but only for a set time with a start and end date. What do you do?
 
-    Enable Privileged Identity Management (PIM) and grant the user eligibility to the owner on the resource group.
+    Use Privileged Identity Management (PIM) and make the user eligible for the Owner role on that resource group.
 
-1. Which method in JSON is used to read the properties and relationships of a Service Principal Object in App Registration?
+1. How do you read the properties and relationships of a service principal object?
 
-    ```JavaScript
-    Get servicePrincipal
+    With Microsoft Graph:
+
+    ```text
+    GET https://graph.microsoft.com/v1.0/servicePrincipals/{id}
     ```
 
-1. For each account from your organization, the per-user Azure Multi-Factor Authentication is enabled. When users are enabled individually, they perform multi-factor authentication each time they sign-in. What is an exception to this default behavior?
+1. Per-user MFA is turned on for every account in your organization. When users are enabled individually, they do MFA every time they sign in. What's an exception to that?
 
-    When users sign in from a trusted IP addresses.
+    When they sign in from a trusted IP address. Per-user MFA is the legacy way of doing this though. Microsoft recommends Conditional Access policies now.
 
-1. While investigating a suspected security incident, you see that access was used at a suspicious time. How would you clarify if the usage of a privileged identity was legitimate?
+1. While investigating a possible incident, you see privileged access was used at a weird time. How do you check if using that privileged identity was legit?
 
-    Check the Azure PIM audit history and review the reason and time for the elevated request.
+    Check the PIM audit history and look at the reason and time for the activation request.
 
-1. Your organization runs a quarterly access review on all users with privileged roles. When the access review's quarter is closing, what actions should you take?
+1. Your organization does a quarterly access review on everyone with privileged roles. When the quarter is closing, what should you do?
 
-    Review the access review in the Azure Portal and apply it.
+    Go over the access review results and apply them. You can also set it to auto-apply the results.
 
-1. In comparison to other methods, which sign-in method in Azure AD needs more resources to be deployed for operation on-premises?
+1. Compared to the other options, which Azure AD sign-in method needs the most stuff deployed on-prem?
 
-    Federated authentication
+    Federated authentication (AD FS needs its own servers and proxies).
 
-1. Which Azure AD feature allows password changes made on the cloud to be reflected on-premises?
+1. Which Azure AD feature lets password changes made in the cloud show up on-prem?
 
     Password writeback
 
-1. Which Azure Active Directory (AAD) licenses are required to enable Privileged Identity Management (PIM)?
+1. Which licenses do you need to use Privileged Identity Management (PIM)?
 
-    Azure AD Premium P2, Enterprise Mobility + Security E5, or Microsoft 365 M5
+    Microsoft Entra ID P2 or Microsoft Entra ID Governance. You also get P2 with bundles like Microsoft 365 E5 or Enterprise Mobility + Security E5.
 
-1. You are working with an application running in Azure App Service that uses an Azure Key Vault to store secrets. How can you securely access the key vault?
+1. You have an app in Azure App Service that keeps its secrets in Azure Key Vault. How do you get to the key vault securely?
 
-    Enable System assigned managed identity on the App Service, then grant the Reader role scoped to Key Vault to the newly created App Service identity.
+    Turn on a system-assigned managed identity for the App Service, then give that identity the Key Vault Secrets User role on the key vault (or a Get secrets access policy if the vault still uses access policies).
 
-1. Which snippet would you use to get a list of users who are external to the Azure AD tenant?
+    I originally had the Reader role here, but that's wrong. Reader is control plane only, it can see the vault exists but it can't read any secret values.
 
-    ```JavaScript
-    Get-AzureADUser -Filter “UserType eq ‘Guest’ “ -All $true
+1. How do you get a list of users who are external to the tenant (guests)?
+
+    ```powershell
+    Get-MgUser -Filter "userType eq 'Guest'" -All
     ```
+
+    This used to be `Get-AzureADUser`, but the AzureAD PowerShell module is retired. Microsoft Graph PowerShell (`Get-MgUser`) is the replacement.

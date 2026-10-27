@@ -94,9 +94,9 @@ You can create nested subfolders in one command using brace expansion:
 The shell expands the braces before `mkdir` ever runs.
 
 **Module structure: every module has three files:**
-- `main.tf` — what gets built
-- `variables.tf` — what the module accepts as inputs (how you make it reusable)
-- `outputs.tf` — what the module exposes after it runs, so other modules can reference it
+- `main.tf`: what gets built
+- `variables.tf`: what the module accepts as inputs (how you make it reusable)
+- `outputs.tf`: what the module exposes after it runs, so other modules can reference it
 
 Modules talk to each other through outputs. The network module doesn't know anything about compute internals, and compute doesn't know about network internals. Clean interfaces.
 

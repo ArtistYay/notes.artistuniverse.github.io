@@ -7,10 +7,10 @@ tags:
 ## Key Terms
 Understanding the vocabulary helps you know what you're importing and why:
 
-- **Script** — A `.py` file you run to automate a task
-- **Module** — A `.py` file containing reusable functions, classes, or variables that other scripts can import
-- **Package** — A folder (directory) containing multiple related modules, installed via `pip`
-- **Library** — A broad term for a collection of modules that extend what Python can do
+- Script: A `.py` file you run to automate a task
+- Module: A `.py` file containing reusable functions, classes, or variables that other scripts can import
+- Package: A folder (directory) containing multiple related modules, installed via `pip`
+- Library: A broad term for a collection of modules that extend what Python can do
 
 ## Importing a Module
 ```python
@@ -57,7 +57,7 @@ import math         # Mathematical functions (sqrt, floor, ceil, etc.)
 import filecmp      # Compare files and directories
 ```
 
-## The `ipaddress` Module — Network Automation Example
+## The `ipaddress` Module: Network Automation Example
 ```python
 import ipaddress
 

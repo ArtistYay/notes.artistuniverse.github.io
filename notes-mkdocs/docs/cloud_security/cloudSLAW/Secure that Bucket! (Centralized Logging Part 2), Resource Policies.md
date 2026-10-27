@@ -6,13 +6,13 @@ tags:
 
 ## The Lesson
 
-- Resource-Based Policies (bucket policies) are used when you need to control access to resources that can be directly accessed from outside your AWS account (e.g., the public internet). This is a key aspect of securing resources that might otherwise be vulnerable to unauthorized access.
-- By adding conditionals like `aws:SourceArn` and `s3:x-amz-acl`, you reduce the risk of unauthorized access or misuse. This practice of adding conditions ensures that only the intended service or user can interact with your resources, effectively preventing malicious actions (e.g., data exfiltration).
-- Using the **deny** override behavior effectively prevents unwanted actions from taking place, even if other policies allow them.
+- Resource-based policies (like bucket policies) are attached to the resource itself instead of to an identity. You need them when something outside your account (another account, an AWS service, or even the public internet) has to reach the resource, so getting them right is a big deal.
+- Adding conditions like `aws:SourceArn` and `s3:x-amz-acl` makes sure only the service or user you intended can touch your resource. That helps stop things like data exfiltration or another account's trail writing into your bucket.
+- A deny always overrides an allow, so you can use deny statements to block actions even if some other policy allows them.
 
 ## The Lab
 
-1. Customized Given Bucket Policy and Applied it to the Logging Bucket
+1. Customized the given bucket policy and applied it to the logging bucket.
 
 ```json
 {
@@ -43,7 +43,7 @@ tags:
                 ]
             },
             "Action": "s3:PutObject",
-            "Resource": "<bucket ARN>/AWSLogs/<Management AccountID>/*",
+            "Resource": "<Bucket ARN>/AWSLogs/<Management AccountID>/*",
             "Condition": {
                 "StringEquals": {
                     "s3:x-amz-acl": "bucket-owner-full-control",
@@ -72,8 +72,8 @@ tags:
 }
 ```
 
-The first statement grants the CloudTrail service permission to retrieve the bucket access control list (ACL) of the specified bucket, but only when the API call originates from the Trail in the management account.
+The first statement lets the CloudTrail service read the bucket's access control list (ACL), but only when the request comes from the trail in the management account.
 
-The second statement allows the CloudTrail service to write objects to the S3 bucket under the `/AWSLogs/` path, using the management account's ID, but only if the action enforces `bucket-owner-full-control` and originates from the management account’s Trail.
+The second statement lets CloudTrail write objects into the bucket under the `/AWSLogs/<Management AccountID>/` path, but only if the write sets `bucket-owner-full-control` and comes from the management account's trail.
 
-The final statement permits the CloudTrail service to write objects to the same bucket, but this time under a path associated with the organization ID, ensuring that the log files originate from the primary Trail in the management account.
+The last statement lets CloudTrail write into the same bucket, but under the organization ID path, which is where the org trail puts logs for every account.

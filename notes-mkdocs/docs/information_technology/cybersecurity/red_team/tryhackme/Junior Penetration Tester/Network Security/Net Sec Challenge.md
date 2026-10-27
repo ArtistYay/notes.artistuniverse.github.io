@@ -20,10 +20,10 @@ tags:
 		![screenshot](../../../images/Pasted image 20250116110141.png)
 
 5. What is the flag hidden in the SSH server header?
-		`ssh -v <username@<ip address>`; `-v` verbose output to get the banner/header information.
+		`ssh -v <username@<ip address>`; `-v` verbose output to get the banner/header information.
 6. We have an FTP server listening on a nonstandard port. What is the version of the FTP server?
 		vsftpd 3.0.5; used the `-sV` flag, which tells you all the services running on the ports.
-7. We learned two usernames using social engineering: `eddie` and `quinn`. What is the flag hidden in one of these two account files and accessible via FTP?
+7. We learned two usernames using social engineering: `eddie` and `quinn`. What is the flag hidden in one of these two account files and accessible via FTP?
 		Shit is so fucking slow but used `hydra -l eddie -P /usr/share/wordlists/rockyou.txt -t 5 10.10.53.3 ftp`
-8. Browsing to `http://10.10.53.3:8080` displays a small challenge that will give you a flag once you solve it. What is the flag?
+8. Browsing to `http://10.10.53.3:8080` displays a small challenge that will give you a flag once you solve it. What is the flag?
 	Used `-sN` flag; `nmap -sN <ip address` to evade the IDS. https://security.stackexchange.com/questions/121900/how-can-the-nmap-tool-be-used-to-evade-a-firewall-ids

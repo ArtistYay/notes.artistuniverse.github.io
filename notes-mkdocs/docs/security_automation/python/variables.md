@@ -4,7 +4,7 @@ tags:
   - Computer Programming
 ---
 
-A variable is a named container that holds a value. In Python, you don't declare a variable in advance — it is created the moment you assign a value to it using `=`.
+A variable is a named container that holds a value. In Python, you don't declare a variable in advance, it is created the moment you assign a value to it using `=`.
 
 ## Creating Variables
 ```python
@@ -23,7 +23,7 @@ x = "Cisco2960"     # x is now a str — this is valid in Python
 ```
 
 ## Case Sensitivity
-Variable names are case-sensitive, meaning `switchName`, `SWITCHNAME`, and `switchname` are three completely different variables. Best practice is to never rely on case differences to distinguish variables — use descriptive names instead:
+Variable names are case-sensitive, meaning `switchName`, `SWITCHNAME`, and `switchname` are three completely different variables. Best practice is to never rely on case differences to distinguish variables, use descriptive names instead:
 ```python
 # Bad practice — confusing
 switchname = "Cisco2960_east"

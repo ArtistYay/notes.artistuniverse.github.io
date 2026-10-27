@@ -19,13 +19,13 @@ Used for math calculations:
 | `//` | Floor Division | `15 // 4` | `3` (rounds down, drops decimal) |
 | `**` | Exponentiation | `2 ** 3` | `8` (2 to the power of 3) |
 
-**Modulus (`%`)** — Returns only the remainder after division. Useful for checking if a number is even or odd:
+**Modulus (`%`)**: Returns only the remainder after division. Useful for checking if a number is even or odd:
 ```python
 print(10 % 2)   # 0  → even (no remainder)
 print(10 % 3)   # 1  → 3 goes into 10 three times with 1 left over
 ```
 
-**Floor Division (`//`)** — Divides and drops everything after the decimal point:
+**Floor Division (`//`)**: Divides and drops everything after the decimal point:
 ```python
 print(15 // 4)  # 3  → would be 3.75, but floor division drops the .75
 ```
@@ -51,7 +51,7 @@ count += 1   # same as count = count + 1
 ```
 
 ## Comparison Operators
-Used to compare two values. The result is always a `bool` — either `True` or `False`:
+Used to compare two values. The result is always a `bool`, either `True` or `False`:
 
 | Operator | Meaning | Example |
 |----------|---------|---------|
@@ -93,7 +93,7 @@ if "printer" not in devices:
 ```
 
 ## Identity Operators
-Used to check whether two variables point to the exact same object in memory — not just the same value:
+Used to check whether two variables point to the exact same object in memory, not just the same value:
 ```python
 x = [1, 2, 3]
 y = x           # y points to the SAME object as x

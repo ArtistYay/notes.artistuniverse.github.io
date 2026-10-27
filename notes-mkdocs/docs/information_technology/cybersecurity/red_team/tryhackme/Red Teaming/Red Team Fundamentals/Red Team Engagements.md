@@ -113,6 +113,6 @@ A high-level document summarizing engagement plans for both business and technic
     - Acts as a reference point for refining tactical plans.
 
 - Engagement success depends on **clear communication, structured documentation, and well-defined rules** rather than just technical execution.
-- **Pattern recognition**: Engagement planning follows a **structured hierarchy**—Objectives → Scope → RoE → Campaign Plan → Execution → Remediation.
+- **Pattern recognition**: Engagement planning follows a **structured hierarchy**: Objectives → Scope → RoE → Campaign Plan → Execution → Remediation.
 - **Risk reduction**: Every document exists to **minimize operational risk while maximizing security insight**.
-- **Thinking critically**: A good red teamer doesn't just execute—**they challenge assumptions, validate scope, and ensure meaningful results**.
+- **Thinking critically**: A good red teamer doesn't just execute. **They challenge assumptions, validate scope, and ensure meaningful results**.

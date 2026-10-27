@@ -8,9 +8,9 @@ tags:
 
 ## The Problem: Repetition
 
-When you copy/paste a block of infrastructure code and only change 1–2 words (e.g., `ebs` to `rds`), that's your signal to refactor.
+When you copy/paste a block of infrastructure code and only change 1-2 words (e.g., `ebs` to `rds`), that's your signal to refactor.
 
-**Risks of repetition:**
+Risks of repetition:
 - Forgetting to update one copy when things change
 - Adding a third resource means another copy-paste
 - Bugs get fixed in one place but not the other
@@ -21,14 +21,23 @@ When you copy/paste a block of infrastructure code and only change 1–2 words (
 
 ### 1. Modules: "the reusable template."
 
-A **module** is just a folder containing `.tf` files that you treat like a function. Instead of hardcoding specific values, you define **variables** as placeholders.
+A module is just a folder containing `.tf` files that you treat like a function. Instead of hardcoding specific values, you define variables as placeholders.
 
 ```hcl
 # modules/kms_key/main.tf
 
-variable "name" {}        # placeholder for "ebs-encryption-key", etc.
-variable "description" {} # placeholder for "EBS encryption key", etc.
-variable "tags" {}
+variable "name" {        # placeholder for "ebs-encryption-key", etc.
+  type = string
+}
+
+variable "description" { # placeholder for "EBS encryption key", etc.
+  type = string
+}
+
+variable "tags" {
+  type    = map(string)
+  default = {}
+}
 
 resource "aws_kms_key" "main" {
   description = var.description  # uses the placeholder
@@ -49,7 +58,7 @@ output "alias_name" {
 }
 ```
 
-> **Mental model:** A module is like a cookie cutter, It defines the *shape*, and the caller provides the *ingredients*.
+> Mental model: A module is like a cookie cutter, It defines the *shape*, and the caller provides the *ingredients*.
 
 ---
 
@@ -59,6 +68,8 @@ Instead of calling the module twice manually, use `for_each` to loop over a map 
 
 ```hcl
 module "kms_key" {
+  source = "./modules/kms_key" # every module block needs a source
+
   for_each = {
     ebs = "EBS"   # key = used in resource names, value = used in descriptions
     rds = "RDS"
@@ -77,7 +88,7 @@ module "kms_key" {
 - `each.key` → `"ebs"` or `"rds"` (left side of the map)
 - `each.value` → `"EBS"` or `"RDS"` (right side of the map)
 
-**Terraform creates independent resource sets per map entry:**
+Terraform creates independent resource sets per map entry:
 ```
 module.kms_key["ebs"].aws_kms_key.main
 module.kms_key["ebs"].aws_kms_alias.main
@@ -104,11 +115,11 @@ module.kms_key["rds"].alias_name
 
 | Question | If YES → consider module + `for_each` |
 |---|---|
-| Am I copy-pasting a block and only changing 1–2 words? | ✅ |
-| Will I likely need a 3rd or 4th version of this later? | ✅ |
-| Do these resources always travel together (e.g., key + alias)? | ✅ module groups them |
-| Are the differences between copies just *data*, not *structure*? | ✅ |
-| Is the structure itself fundamentally different between copies? | ❌ Keep them separate |
+| Am I copy-pasting a block and only changing 1-2 words? | Yes |
+| Will I likely need a 3rd or 4th version of this later? | Yes |
+| Do these resources always travel together (e.g., key + alias)? | Yes, the module groups them |
+| Are the differences between copies just *data*, not *structure*? | Yes |
+| Is the structure itself fundamentally different between copies? | No, keep them separate |
 
 ---
 
@@ -116,8 +127,8 @@ module.kms_key["rds"].alias_name
 
 | Concept | Role | Answer |
 |---|---|---|
-| **Module** | Reusable template | *What* gets created |
-| **`for_each`** | Loop | *How many* times |
-| **The map** | Data that makes each instance unique | *With what values* |
+| Module | Reusable template | *What* gets created |
+| `for_each` | Loop | *How many* times |
+| The map | Data that makes each instance unique | *With what values* |
 
 > Any time you can reduce "copy/paste with minor edits" into "one template + a list of differences", that's your opportunity to apply this pattern.

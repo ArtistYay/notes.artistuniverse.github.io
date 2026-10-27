@@ -7,38 +7,40 @@ tags:
 
 ## What is a Logic App?
 
-Cloud-based service provided by Microsoft Azure that allows us to create and run automated workflows and integrate various applications, systems, and services. 
+A cloud-based service in Azure that lets us build and run automated workflows that connect different apps, systems, and services together. Sentinel playbooks are Logic Apps too.
 
-[Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)
+[Documentation | Microsoft Learn](https://learn.microsoft.com/azure/logic-apps/logic-apps-overview)
 
-## Discovery and Reconnaissonce
+## Discovery and Reconnaissance
 
-### IDOR Vulnerability 
+### IDOR Vulnerability
 
-IDOR, or Insecure Direct Object Reference, is a type of security vulnerability that occurs when an application provides direct access to objects based on user-supplied input. In simpler terms, it means that an attacker can manipulate input, such as URLs or form parameters, to gain unauthorized access to data.
+IDOR (Insecure Direct Object Reference) is a vulnerability where an app gives you direct access to objects based on input you control. In simple terms, an attacker can change something like a URL or a form parameter and get to data they're not supposed to see.
 
-`https://prod-32.southeastasia.logic.azure.com/workflows/676a2e295ed14be5a5ac394fc9cec59a/triggers/manual/paths/invoke/{name}?api-version=2018-07-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=HGJxpIcv9207MyWGWJLYSR5tHgUQkpx8ER7U94uz9cg`
+```text
+https://prod-32.southeastasia.logic.azure.com/workflows/<workflow-id>/triggers/manual/paths/invoke/{name}?api-version=2018-07-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<SAS-signature>
+```
 
-> In the name parameter I can change it to admin and if the Logic App have the IDOR vulnerability in it's code, it can output back sensitive data.
+> In the name parameter I can change it to admin, and if the Logic App has an IDOR vulnerability in its logic, it can send back sensitive data.
+
+!!! warning "The sig is a secret"
+    The `sig` value at the end of a Logic App trigger URL is a SAS signature. Anyone who has the full URL can call the trigger, so treat it like a password and don't post it anywhere.
 
 #### Prevention
 
-1. Never use a URL parameter for verification, it should come from an authenticated token. [Secure Logic Apps](https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#secure-action-parameters)
+1. Never trust a URL parameter to decide who someone is. That should come from an authenticated token. Use OAuth 2.0 with Entra ID authentication on your Logic App trigger. [Documentation | Microsoft Learn](https://learn.microsoft.com/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal#secure-action-parameters)
 
-Use OAuth 2.0/Entra ID authentication on your Logic App trigger.
-
-2. You can restrict who calls the trigger (in this case [request](https://learn.microsoft.com/en-us/azure/connectors/connectors-native-reqres?tabs=consumption#add-a-request-trigger)).
-    A. A required Shared Access Signature (SAS) token
-    B. Whitelist specific Entra ID service principals in the "Authorization" section of the Logic App.
-    C. Integrate with [Azure API Management (APIM)](https://learn.microsoft.com/en-us/community/content/secure-integration-workflows-azure-logic-apps-api-management) to enforce auth policies before the Logic App ever runs.
+2. You can restrict who calls the trigger (in this case the [Request trigger](https://learn.microsoft.com/azure/connectors/connectors-native-reqres?tabs=consumption#add-a-request-trigger)):
+    1. Require a Shared Access Signature (SAS) token.
+    2. Only allow specific Entra ID service principals in the authorization policy of the Logic App.
+    3. Put [Azure API Management (APIM)](https://learn.microsoft.com/community/content/secure-integration-workflows-azure-logic-apps-api-management) in front of it so auth policies get enforced before the Logic App ever runs.
 
 ## HTTP Method Tampering
 
-Make sure you are providing a whitelist to your endpoints on what HTTP request is allowed and not allowed. Use Azure API Management (APIM) in front of your Logic App. APIM lets you define policies that restrict which HTTP methods are allowed per endpoint, and rejects non-conforming requests before they ever hit your Logic App.
+Make sure your endpoints have an allowlist of which HTTP methods are allowed and which aren't. Put Azure API Management (APIM) in front of your Logic App. APIM lets you write policies that restrict which HTTP methods each endpoint accepts, and it rejects anything else before it ever hits your Logic App.
 
 ![screenshot](../../../images/http_tampering.png)
-> In this image you can see I change the HTTP request in the developer tools which granted me the flag.
-
+> In this image you can see I changed the HTTP method in the developer tools, which got me the flag.
 
 ## Reads From The Wild
 

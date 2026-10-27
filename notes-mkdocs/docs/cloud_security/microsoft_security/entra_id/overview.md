@@ -4,136 +4,141 @@ tags:
   - Identity & Access Management
 ---
 
-- You can have one tenant for multiple Azure subscriptions. A tenant is an organization which stores all the users in that organization. The one who makes the tenant has billing and admin rights to that account.
+!!! note "Name changes"
+    Azure Active Directory (Azure AD) got renamed to Microsoft Entra ID in 2023. A lot of the product names under it changed too: Azure AD Connect is Microsoft Entra Connect, Azure AD Domain Services is Microsoft Entra Domain Services, Identity Protection is Microsoft Entra ID Protection, and Premium P1/P2 are Microsoft Entra ID P1/P2. I updated the names below.
 
-- What is Azure AD?
+- One tenant can have multiple Azure subscriptions. A tenant is your organization, and it stores all the users in that organization. Whoever creates the tenant gets billing and admin rights to it.
 
-    - Is a cloud based identity service. It uses authentication to make sure you are who you say you are and authorization to know what you have access to.
+- What is Microsoft Entra ID?
 
-- Which features work in Azure AD?
+    - It's a cloud based identity service. It uses authentication to make sure you are who you say you are, and authorization to figure out what you have access to.
 
-    - Application management - manage your cloud and on prem apps
+- What can you do with Entra ID?
 
-    - Authentication - manage Azure AD self service password reset
+    - Application management: manage your cloud and on-prem apps.
 
-    - Conditional Access - manage access to your cloud apps
+    - Authentication: things like self-service password reset (SSPR) and MFA.
 
-    - Device management - manage how your cloud or on prem devices access your corporate data
+    - Conditional Access: control who can get to your cloud apps and under what conditions.
+
+    - Device management: control how your cloud or on-prem devices get to corporate data.
 
 - Terminology
 
-    - Azure AD account - An identity created in Azure AD, or in services like Microsoft 365. These identities are stored in Azure AD. For example, internal staff members might use Azure AD accounts daily at work.
+    - Entra ID account: an identity created in Entra ID or in a service like Microsoft 365. These identities live in Entra ID. For example, employees use their Entra ID accounts every day at work.
 
-    - Owner - manage all Azure resources
+    - Owner: an Azure RBAC role that can manage all Azure resources (and give other people access).
 
-    - Global administrator - global administrator can perform all admin functions
+    - Global Administrator: an Entra role that can do every admin function in the tenant. Keep this list really short.
 
-    - Azure tenant - An instance of an Azure AD. This tenant is automatically created for you when you first sign up for Azure or other services like Microsoft 365. A tenant (which represents an organization) holds your users, user groups, and applications. Represents your organization.
+    - Tenant: an instance of Entra ID. It gets created for you automatically the first time you sign up for Azure or something like Microsoft 365. It holds your users, groups, and applications, and it represents your organization.
 
-    - Azure AD directory - An Azure resource that's created for you automatically when you subscribe to Azure. Includes all objects to perform IAM functions. The security desks list that holds all the information about the people in your organization office space.
+    - Directory: everything in the tenant you need for identity and access management. It's like the security desk's list with all the info on everyone who works in the office.
 
-    - Identity - Something that has to be identified and authenticated. An identity is typically a user with a username and password credentials, but the term can also apply to applications or services.
+    - Identity: something that has to be identified and authenticated. Usually it's a user with a username and password, but apps and services have identities too.
 
-    - Account - An identity and its associated data. An account can't exist without an identity.
+    - Account: an identity plus the data that goes with it. An account can't exist without an identity.
 
-    - Azure subscription - Your level of access to use Azure and its services. For pay-as-you-go access, use your credit card to set up an Azure subscription. There are several types of subscriptions. For example, enterprise-level customers can use Azure Enterprise Agreement subscriptions. Each account can use many subscriptions.
+    - Azure subscription: your access to use Azure and its services, and where the billing happens. For pay-as-you-go you set it up with a credit card. Bigger companies might use an Enterprise Agreement. One account can use many subscriptions.
 
-    - Multi-tenant - Multiple-tenant access to the same applications and services in a shared environment. These tenants represent multiple organizations.
+    - Multi-tenant: multiple tenants (so multiple organizations) using the same apps and services in a shared environment.
 
-    - Custom domain - A domain you customize for your Azure AD directory. When you create an Azure AD directory, Azure automatically assigns it a default domain like `<your-organization>.onmicrosoft.com`. However, you can customize domain names. Your users could then have accounts like `joesmith@contoso.com` instead of `joesmith@contoso.onmicrosoft.com`.
+    - Custom domain: when you create a tenant, Azure gives it a default domain like `<your-organization>.onmicrosoft.com`. You can add your own domain so users sign in as `joesmith@contoso.com` instead of `joesmith@contoso.onmicrosoft.com`.
 
 Users
 
-||Azure AD|Active Directory|
+||Entra ID|Active Directory|
 |---|---|---|
-|User Provisioning|Manual, script, or via AD connect from on prem AD. Can link with cloud HR systems|Manual, script or workflow via HR system|
-|External Identities|Azure B2B manages the identity and external users visible in Azure AD|Users created manually often in separate external AD forest|
-|Entitlement Management|Groups, applications, and resources, provided by policy driven criteria|Manual entitlement management through AD groups|
-|Group Management|Manual and criteria based membership basic and dynamic groups|Manual group management|
+|User Provisioning|Manual, script, or synced from on-prem AD with Entra Connect. Can also connect to cloud HR systems|Manual, script, or workflow through an HR system|
+|External Identities|B2B collaboration manages external users and makes them visible in Entra ID|External users usually created by hand, often in a separate external AD forest|
+|Entitlement Management|Access to groups, apps, and resources handed out by policy|Manual entitlement management through AD groups|
+|Group Management|Manual and rule-based membership (assigned and dynamic groups)|Manual group management|
 
 Applications
 
-||Active Directory|Azure AD|
+||Active Directory|Entra ID|
 |---|---|---|
-|Infrastructure Apps|Networking controls|Cloud Control plane|
-|Traditional and Legacy apps|LDAP, Kerberos, or header based authentication to control access to users|Azure AD Application Proxy|
-|SaaS Apps|No Native support - requires ADFS|Supports OAuth2, SAML, and WS-authentication|
-|Line of Business (LOB) Apps with Modern Auth|Can use ADFS with Active Directory|Can be configured to use Azure AD for authentication|
+|Infrastructure Apps|Network controls|Cloud control plane|
+|Traditional and Legacy apps|LDAP, Kerberos, or header based authentication to control access|Microsoft Entra application proxy|
+|SaaS Apps|No native support, needs AD FS|Supports OAuth 2.0, SAML, and WS-Federation|
+|Line of Business (LOB) Apps with Modern Auth|Can use AD FS with Active Directory|Can be set up to use Entra ID for authentication|
 
 Device Management
 
-||Active Directory|Azure AD|
+||Active Directory|Entra ID|
 |---|---|---|
 |Mobile Devices|No native support|Intune integration|
-|Windows Desktop Devices|Domain join Group policy or SCCM|Domain join - with conditional access|
-|Windows Servers|Management capabilities with Group policy|Can be managed with Azure AD domain services|
-|Linux/Unix Workloads|No native support|Can be managed identities|
+|Windows Desktop Devices|Domain join, Group Policy, or Configuration Manager (SCCM)|Entra join, managed with Intune and Conditional Access|
+|Windows Servers|Managed with Group Policy|Can be managed with Microsoft Entra Domain Services|
+|Linux/Unix Workloads|No native support|Linux VMs in Azure can use Entra ID sign-in, and workloads can use managed identities|
 
-- Azure AD B2B (business to business) collaboration is intended for organizations that want to be able to authenticate users from partner/supplier organization, regardless of the identity provider, and be able to manage the lifecycle of those guest users. These accounts are managed in the same directory as employees, and can be added to the same groups and resources.
+- B2B (business to business) collaboration is for when you need to let users from a partner or supplier sign in, no matter what identity provider they use, and manage the lifecycle of those guest users. Guests live in the same directory as your employees and can be added to the same groups and resources. B2B is part of Microsoft Entra External ID now.
 
 ![screenshot](../../../images/4-b2b-process.svg)
 
-- Azure AD B2C (business to customer) is intended for commerce and other interactions with consumers, citizens, or members of another group that does not require access to internal resources. These accounts are managed in a separate B2C directory, and are completely separate from your internal user accounts. B2C accounts are a customer lifecycle: they are either managed by the customer, or directly by the application.
+- Azure AD B2C (business to customer) is for customer-facing apps, like letting the public sign up and log in to your store. Those accounts live in a separate B2C directory, completely apart from your employees, and they're managed by the customer or by the app. Heads up: B2C stopped being sold to new customers on May 1, 2025. Existing customers can keep using it (supported until at least May 2030), but anything new should use Microsoft Entra External ID.
 
 ![screenshot](../../../images/4-signin-user-flow.svg)
 
-- You can configure your software applications to use Azure AD using application management.
+- You set up your apps to use Entra ID through application management.
 
-- Applications in Azure AD can use conditional access for application access, Application proxy for on premises legacy apps, and SaaS app support.
+- Apps in Entra ID can use Conditional Access, application proxy for on-prem legacy apps, and SaaS app integrations.
 
-- A directory in Azure AD contains all the users, groups, and apps to perform identity and access management.
+- A directory in Entra ID holds all the users, groups, and apps you need for identity and access management.
 
-- Facebook, Google, LinkedIn, and Microsoft accounts can all be used with Azure AD B2C.
+- Facebook, Google, LinkedIn, and Microsoft accounts can all be used to sign in with B2C (and External ID).
 
-- Microsoft 365 Groups and Security Groups are the 2 types of groups in Azure AD.
+- Microsoft 365 groups and security groups are the 2 types of groups in Entra ID.
 
-- Automated support for HR systems, entitlement management, and built-in RBAC roles are all additional features that users in Azure AD have, but they are not available for on-prem Active Directory.
+- HR system provisioning, entitlement management, and built-in RBAC roles are features you get with Entra ID that on-prem Active Directory doesn't have.
 
 ![screenshot](../../../images/2-azure-ad.svg)
 
-- The identity secure score reveals how effective your security is and helps you implement improvements.
+- The identity secure score shows how good your identity security is and gives you recommendations to improve it.
 
-- Azure AD is a cloud-based identity solution that helps you manage users and applications. Active Directory manages objects, like devices and users, on your on-premises network.
+- Entra ID is a cloud based identity solution for managing users and apps. Active Directory manages objects like devices and users on your on-prem network.
 
-|Service|Authentication|Structure|What it’s used for|
+|Service|Authentication|Structure|What it's used for|
 |---|---|---|---|
-|Active Directory|Kerberos, NTLM|Forests, domains, organizational units|Authentication and authorization for on premises printers, applications, file services, and more|
-|Azure Active Directory|Includes SAML, OAuth, WS-Federation|Tenants|Internet-based services and applications like Microsoft 365, Azure services, and third-party SaaS applications|
+|Active Directory|Kerberos, NTLM|Forests, domains, organizational units|Authentication and authorization for on-prem printers, apps, file shares, and more|
+|Microsoft Entra ID|SAML, OAuth 2.0, OpenID Connect, WS-Federation|Tenants|Internet-based services and apps like Microsoft 365, Azure, and third party SaaS apps|
 
 ![screenshot](../../../images/2-azure-ad-compared-active-directory.svg)
 
-- Azure Active Directory Premium P2 has Identity Protection that helps you configure risk-based Conditional Access for your applications to protect them from identity-based risks.
+- Microsoft Entra ID P2 includes ID Protection, which lets you set up risk-based Conditional Access to protect your apps from identity-based risks.
 
-- Azure AD DS lets you add virtual machines to a domain without needing domain controllers.
+- Microsoft Entra Domain Services lets you domain join VMs without running your own domain controllers.
 
 ![screenshot](../../../images/4-azure-ad-domain-services.svg)
 
-- Azure AD Identity Protection helps you to automatically detect, investigate, and remediate identity risks for users. Identity Protection also lets you export all the information collected about risks. You can export the information to third-party tools and solutions so that you can further analyze it. Identity Protection uses risk policies to automatically detect and respond to threats.
+- Microsoft Entra ID Protection automatically detects, investigates, and fixes identity risks for users (like leaked credentials or sign-ins from weird locations). You can also export all the risk data to other tools, like Microsoft Sentinel, for more analysis. It uses risk policies to respond to threats automatically.
 
-- A conditional access is a if/then statement. If a user wants to access a resource, then they must complete an action. First they must meet a condition, secondly a decision is taken, thirdly enforcement is taken. For example, A payroll manager wants to access the payroll application and is required to do multi-factor authentication to access it.
+- Conditional Access is basically an if/then statement. If a user wants to get to a resource, then they have to do something first. It goes signal, then decision, then enforcement. For example, a payroll manager wants to open the payroll app, so they have to do MFA first.
 
 ![screenshot](../../../images/conditional-access-overview-how-it-works.png)
 
 ![screenshot](../../../images/conditional-access-signal-decision-enforcement.png)
 
-- Conditional Access is an Azure AD Premium P1 license.
+- Conditional Access needs a Microsoft Entra ID P1 license.
 
-- Membership, location, device compliance, application being accessed, and risky sign-in behavior are all common conditions or signals used in Conditional Access.
+- Group membership, location, device compliance, the app being accessed, and risky sign-in behavior are all common signals used in Conditional Access.
 
-- Role based access control (RBAC) is the ability to grant access to the users you choose(who), grant access to the correct resources(what), and determine the scope of access(where).
+- Role based access control (RBAC) lets you choose who gets access, what resources they can get to, and where (the scope) that access applies.
 
-- There are 4 best practices of RBAC: only grant the access users need, limit the number of subscription owners, use PIM if possible, and assign roles to groups rather than individuals.
+- There are 4 best practices for RBAC: only give users the access they need, limit the number of subscription owners, use PIM where you can, and assign roles to groups instead of individual people.
 
-- Privileged Identity Management (PIM) is designed to help you have more control over your most important resources. It enables you to manage, control, and monitor access to important resources in your organization.
+- Privileged Identity Management (PIM) gives you more control over your most important resources. You can manage, control, and monitor who has access to them.
 
-- Privileged Identity Management assignments and scopes allow administrators to assign roles to users. Administrators can set duration, MFA, and approval requirements in PIM settings.
+- In PIM, admins assign roles to users as eligible (they have to activate it) or active. Admins can set how long it lasts, and whether it needs MFA or approval to activate.
 
-- PIM gives you ways to limit access to important resources by constraining access to a time-based window approval process in order to help reduce the risks of misuse and excessive access permissions.
+- PIM limits access to important resources by making it time-based and approval-based (just-in-time access), which cuts down on misuse and people having way more access than they need. You need a Microsoft Entra ID P2 or Microsoft Entra ID Governance license to use it.
 
-- Entitlement management makes managing employee access to company resources easier. It makes the process of assigning access to users, reviewing access, and the entire access lifecycle automatic, without time-consuming manual provisioning.
+- Entitlement management makes managing employee access to company resources easier. Assigning access, reviewing it, and the whole access lifecycle get automated instead of someone doing it all by hand.
 
-- The Azure AD enterprise applications Add Assignments menu allows you to add assignments to users or groups.
+- In Entra ID, Enterprise applications > Users and groups > Add user/group lets you assign users or groups to an app.
 
-- Implementing a hybrid identity solution helps your organization simplify the management of your on-prem and cloud identities.
+- A hybrid identity setup (on-prem AD synced to Entra ID with Entra Connect) makes it easier for your organization to manage on-prem and cloud identities together.
 
-- Self-service provisioning allows users to go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or using Windows settings.
+- Self-service provisioning lets users do the Microsoft Entra join process themselves, either during the Windows out-of-box experience (OOBE) or from Windows settings.
+
+[Documentation | Microsoft Learn](https://learn.microsoft.com/entra/fundamentals/whatis)

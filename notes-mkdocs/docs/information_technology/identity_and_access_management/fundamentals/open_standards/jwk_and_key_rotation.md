@@ -4,9 +4,9 @@ tags:
   - Identity & Access Management
 ---
 
-JSON Web Keys are a set of public keys used to digitally sign JSON Web Tokens (JWTs) that have been dispatched from the Identity Provider (IdP).
+A JSON Web Key (JWK) is a key written as JSON. The Identity Provider (IdP) signs JSON Web Tokens (JWTs) with its private key, then publishes the matching public keys as a JWK Set (JWKS) so apps can verify the signature on every token they get.
 
-It is used in tandem with the RS256 signing algorithm. In technical terms "A JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value."
+You'll usually see it with the RS256 signing algorithm (ES256 is common too). In technical terms "A JSON object that represents a cryptographic key. The members of the object represent properties of the key, including its value."
 
 ## Key Rotation
 
