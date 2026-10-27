@@ -1,6 +1,11 @@
+---
+tags:
+  - Generative AI
+---
+
 ### AI Basics
 
-1.  What is a token, and why does it cost money?
+## 1.  What is a token, and why does it cost money?
 
 Tokens are not letters, words, are phares but how a LLM process text sent to it. The reason why it’s so costly is because of the computation. Processing tokens require GPU operations to do mathematical operations (Byte Pair Encoding).
 
@@ -8,7 +13,7 @@ Tokens are not letters, words, are phares but how a LLM process text sent to it.
 
 [Tech in Five - Tokens & Tokenomics - YouTube](https://www.youtube.com/watch?v=PbngY1n4Awc&t=2s)
 
-2.  What is the context window and what happens when you exceed it?
+## 2.  What is the context window and what happens when you exceed it?
 
 Context window is basically the LLM’s memory. Once that gets fill the agent starts “replacing” old text/phrases/ etc. Reminds me of a database’s buffer pool.
 
